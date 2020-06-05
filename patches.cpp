@@ -12,6 +12,9 @@ static const int ID_SIEGE_RAM = 548;
 static const int ID_SIEGE_TOWER = 1105;
 
 static const int ID_FISHING_SHIP = 13;
+static const int ID_TRADE_COG = 17;
+static const int ID_TRADE_CART_EMPTY = 128;
+static const int ID_TRADE_CART_FULL = 204;
 static const int ID_VILLAGER_BASE_M = 83;
 static const int ID_VILLAGER_BASE_F = 293;
 static const int ID_VILLAGER_FARMER_M = 259;
@@ -44,6 +47,9 @@ void configureExplodingVillagers(genie::DatFile *df) {
 
     set<int> villagers{
             ID_FISHING_SHIP,
+            ID_TRADE_COG,
+            ID_TRADE_CART_EMPTY,
+            ID_TRADE_CART_FULL,
             ID_VILLAGER_BASE_M,
             ID_VILLAGER_BASE_F,
             ID_VILLAGER_FARMER_M,
