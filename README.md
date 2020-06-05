@@ -1,6 +1,12 @@
 # aoe2de-data-mods
 some data mods, generated programmatically, so they can be recreated automagically for every new patch
 
+## Published Mods
+
+- [Flying Dutchman](https://www.ageofempires.com/mods/details/15644/)
+- [Exploding Villagers](https://www.ageofempires.com/mods/details/15682/)
+- [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/15681/)
+
 ## Cloning and Compiling
 
 You'll need cmake, build tools for C++, boost libraries, … 
@@ -24,11 +30,11 @@ Execute the executable without parameters to get usage instructions.
 
 ```sh
 $ ./create-data-mod
-Usage: ./create-data-mod<mod-identifier> source.dat target.dat
+Usage: ./create-data-mod <mod-identifier> source.dat target.dat
 Where <mod-identifier> is one of the following:
+    exploding-villagers
+    exploding-villagers-flying-dutchman
     flying-dutchman
-    flying-dutchman-with-ram-fix
-    ram-fix
 ```
 
 For example, in order to patch the current dat file with the Flying Dutchman modifications, one might execute
