@@ -5,6 +5,9 @@
 using namespace std;
 const char *const EXPLODING_VILLAGERS = "exploding-villagers";
 const char *const FLYING_DUTCHMAN = "flying-dutchman";
+const char *const X_256_TECH = "x256";
+const char *const X_3_TECH = "x3";
+const char *const X_9_TECH = "x9";
 
 vector<string> getModIdentifiers(char *const *argv);
 
@@ -20,6 +23,9 @@ int main(int argc, char **argv) {
         cout << "Where <mod-identifier> is one of the following, or multiple of the following joined by a +:" << endl;
         cout << "    " << EXPLODING_VILLAGERS << endl;
         cout << "    " << FLYING_DUTCHMAN << endl;
+        cout << "    " << X_3_TECH << endl;
+        cout << "    " << X_9_TECH << endl;
+        cout << "    " << X_256_TECH << endl;
         return 1;
     }
 
@@ -50,6 +56,12 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         configureExplodingVillagers(df);
     } else if (FLYING_DUTCHMAN == modIdentifier) {
         makeTransportShipsFly(df);
+    } else if (X_3_TECH == modIdentifier) {
+        duplicateTechs(df, 3);
+    } else if (X_9_TECH == modIdentifier) {
+        duplicateTechs(df, 9);
+    } else if (X_256_TECH == modIdentifier) {
+        duplicateTechs(df, 256);
     } else {
         cout << "Unknown mod identifier: '" << modIdentifier << "'" << endl;
     }

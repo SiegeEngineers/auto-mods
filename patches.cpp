@@ -1,51 +1,13 @@
 #include "genie/dat/DatFile.h"
 #include "patches.h"
+#include "ids.h"
 #include <list>
 #include <set>
 
 using namespace std;
 
-static const int ID_TRANSPORT_SHIP = 545;
-static const int ID_RAM = 35;
-static const int ID_CAPPED_RAM = 422;
-static const int ID_SIEGE_RAM = 548;
-static const int ID_SIEGE_TOWER = 1105;
-
-static const int ID_FISHING_SHIP = 13;
-static const int ID_TRADE_COG = 17;
-static const int ID_TRADE_CART_EMPTY = 128;
-static const int ID_TRADE_CART_FULL = 204;
-static const int ID_VILLAGER_BASE_M = 83;
-static const int ID_VILLAGER_BASE_F = 293;
-static const int ID_VILLAGER_FARMER_M = 259;
-static const int ID_VILLAGER_FARMER_F = 214;
-static const int ID_VILLAGER_SHEPHERD_M = 592;
-static const int ID_VILLAGER_SHEPHERD_F = 590;
-static const int ID_VILLAGER_FORAGER_M = 120;
-static const int ID_VILLAGER_FORAGER_F = 354;
-static const int ID_VILLAGER_HUNTER_M = 122;
-static const int ID_VILLAGER_HUNTER_F = 216;
-static const int ID_VILLAGER_FISHER_M = 56;
-static const int ID_VILLAGER_FISHER_F = 57;
-static const int ID_VILLAGER_WOOD_M = 123;
-static const int ID_VILLAGER_WOOD_F = 218;
-static const int ID_VILLAGER_GOLD_M = 579;
-static const int ID_VILLAGER_GOLD_F = 581;
-static const int ID_VILLAGER_STONE_M = 124;
-static const int ID_VILLAGER_STONE_F = 220;
-static const int ID_VILLAGER_BUILDER_M = 118;
-static const int ID_VILLAGER_BUILDER_F = 212;
-static const int ID_VILLAGER_REPAIRER_M = 156;
-static const int ID_VILLAGER_REPAIRER_F = 222;
-static const int ID_SABOTEUR = 706;
-
-static const int CLASS_TRANSPORT_BOAT = 20;
-static const int ACTION_TYPE_GARRISON = 3;
-
-
 void configureExplodingVillagers(genie::DatFile *df) {
-
-    set<int> villagers{
+    set<int> villagers = {
             ID_FISHING_SHIP,
             ID_TRADE_COG,
             ID_TRADE_CART_EMPTY,
@@ -92,6 +54,148 @@ void configureExplodingVillagers(genie::DatFile *df) {
             }
         }
     }
+}
+
+void duplicateTech(genie::DatFile *df, const genie::Tech &tech, int totalCount) {
+    for (int i = 0; i < (totalCount - 1); ++i) {
+        df->Techs.push_back(tech);
+    }
+    cout << "Added Tech '" << tech.Name << "' for a total of " << totalCount << " instances" << endl;
+}
+
+void duplicateTechs(genie::DatFile *df, int totalCount) {
+
+    const list<int> techsToDuplicate = {
+            YEOMEN,
+            EL_DORADO,
+            FUROR_CELTICA,
+            DRILL,
+            MAHOUTS,
+            TOWN_WATCH,
+            ZEALOTRY,
+            ARTILLERY,
+            CRENELLATIONS,
+            CROP_ROTATION,
+            HEAVY_PLOW,
+            HORSE_COLLAR,
+            GUILDS,
+            BANKING,
+            ATHEISM,
+            LOOM,
+            GARLAND_WARS,
+            HUSBANDRY,
+            FAITH,
+            CHEMISTRY,
+            CARAVAN,
+            BERSERKERGANG,
+            MASONRY,
+            ARCHITECTURE,
+            ROCKETRY,
+            TREADMILL_CRANE,
+            GOLD_MINING,
+            KATAPARUTO,
+            LOGISTICA,
+            GILLNETS,
+            FORGING,
+            IRON_CASTING,
+            SCALE_MAIL_ARMOR,
+            BLAST_FURNACE,
+            CHAIN_MAIL_ARMOR,
+            PLATE_MAIL_ARMOR,
+            PLATE_BARDING_ARMOR,
+            SCALE_BARDING_ARMOR,
+            CHAIN_BARDING_ARMOR,
+            BEARDED_AXE,
+            GOLD_SHAFT_MINING,
+            FLETCHING,
+            BODKIN_ARROW,
+            BRACER,
+            DOUBLE_BIT_AXE,
+            BOW_SAW,
+            PADDED_ARCHER_ARMOR,
+            LEATHER_ARCHER_ARMOR,
+            WHEELBARROW,
+            SQUIRES,
+            RING_ARCHER_ARMOR,
+            TWO_MAN_SAW,
+            BLOCK_PRINTING,
+            SANCTITY,
+            ILLUMINATION,
+            HAND_CART,
+            FERVOR,
+            STONE_MINING,
+            STONE_SHAFT_MINING,
+            TOWN_PATROL,
+            CONSCRIPTION,
+            SAPPERS,
+            SHIPWRIGHT,
+            CAREENING,
+            DRY_DOCK,
+            SIEGE_ENGINEERS,
+            HOARDINGS,
+            HEATED_SHOT,
+            BLOODLINES,
+            PARTHIAN_TACTICS,
+            THUMB_RING,
+            SUPREMACY,
+            HERBAL_MEDICINE,
+            SHINKICHON,
+            PERFUSION,
+            ATLATL,
+            WARWOLF,
+            GREAT_WALL,
+            CHIEFTAINS,
+            GREEK_FIRE,
+            STRONGHOLD,
+            YASAMA,
+            OBSIDIAN_ARROWS,
+            PANOKSEON,
+            KAMANDARAN,
+            IRONCLAD,
+            SIPAHI,
+            INQUISITION,
+            CHIVALRY,
+            PAVISE,
+            SILK_ROAD,
+            SULTANS,
+            SHATAGNI,
+            ORTHODOXY,
+            DRUZHINA,
+            RECURVE_BOW,
+            FABRIC_SHIELDS,
+            CARRACK,
+            ARQUEBUS,
+            ROYAL_HEIRS,
+            TORSION_ENGINES,
+            TIGUI,
+            FARIMBA,
+            KASBAH,
+            MAGHRABI_CAMELS,
+            ARSON,
+            ARROWSLITS,
+            TUSK_SWORDS,
+            DOUBLE_CROSSBOW,
+            FORCED_LEVY,
+            HOWDAH,
+            MANIPUR_CAVALRY,
+            CHATRAS,
+            PAPER_MONEY,
+            STIRRUPS,
+            BAGAINS,
+            SILK_ARMOR,
+            TIMURID_SIEGECRAFT,
+            STEPPE_HUSBANDRY,
+            CUMAN_MERCENARIES,
+            HILL_FORTS,
+            TOWER_SHIELDS,
+            SUPPLIES,
+    };
+
+    for (int techId: techsToDuplicate) {
+        genie::Tech tech = df->Techs.at(techId);
+        duplicateTech(df, tech, totalCount);
+    }
+
 }
 
 void makeTransportShipsFly(genie::DatFile *df) {

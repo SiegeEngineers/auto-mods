@@ -29,11 +29,14 @@ You should now have an executable `create-data-mod` in the `build` folder. Hoora
 Execute the executable without parameters to get usage instructions.
 
 ```sh
-$ ./create-data-mod
+$ ./create-data-mod 
 Usage: ./create-data-mod <mod-identifier> source.dat target.dat
 Where <mod-identifier> is one of the following, or multiple of the following joined by a +:
     exploding-villagers
     flying-dutchman
+    x3
+    x9
+    x256
 ```
 
 For example, in order to patch the current dat file with the Flying Dutchman modifications, one might execute
