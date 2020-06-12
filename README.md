@@ -1,6 +1,9 @@
 # auto-mods
 some data mods, generated programmatically, so they can be recreated automagically for every new patch
 
+> We just do everything auto!«  
+> *\- [MbL, 2020](https://clips.twitch.tv/AttractiveAntediluvianAmazonHassaanChop)*
+
 ## Published Mods
 
 - [Flying Dutchman](https://www.ageofempires.com/mods/details/15644/)
