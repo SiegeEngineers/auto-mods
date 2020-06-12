@@ -1,4 +1,4 @@
-# aoe2de-data-mods
+# auto-mods
 some data mods, generated programmatically, so they can be recreated automagically for every new patch
 
 ## Published Mods
