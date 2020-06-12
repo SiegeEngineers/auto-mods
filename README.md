@@ -31,15 +31,23 @@ Execute the executable without parameters to get usage instructions.
 ```sh
 $ ./create-data-mod
 Usage: ./create-data-mod <mod-identifier> source.dat target.dat
-Where <mod-identifier> is one of the following:
+Where <mod-identifier> is one of the following, or multiple of the following joined by a +:
     exploding-villagers
-    exploding-villagers-flying-dutchman
     flying-dutchman
 ```
 
 For example, in order to patch the current dat file with the Flying Dutchman modifications, one might execute
 ```
-./create-data-mod ram-fix ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./empires2_x2_p1.dat
+./create-data-mod flying-dutchman ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./empires2_x2_p1.dat
 ```
 
 And then use the resulting `empires2_x2_p1.dat` in the current directory for whatever.
+
+
+In order to patch the current dat file with the Flying Dutchman modifications AND the Exploding Villagers, execute
+```
+./create-data-mod exploding-villagers+flying-dutchman ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./empires2_x2_p1.dat
+```
+
+And then use the resulting `empires2_x2_p1.dat` in the current directory for whatever.
+
