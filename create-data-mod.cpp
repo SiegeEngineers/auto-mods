@@ -3,6 +3,7 @@
 #include <string>
 
 using namespace std;
+const char *const COMMUNITY_GAMES = "community-games";
 const char *const EXPLODING_VILLAGERS = "exploding-villagers";
 const char *const FLYING_DUTCHMAN = "flying-dutchman";
 const char *const NO_WALL = "no-wall";
@@ -22,6 +23,7 @@ int main(int argc, char **argv) {
     if (argc < 4) {
         cout << "Usage: " << argv[0] << " <mod-identifier> source.dat target.dat" << endl;
         cout << "Where <mod-identifier> is one of the following, or multiple of the following joined by a +:" << endl;
+        cout << "    " << COMMUNITY_GAMES << endl;
         cout << "    " << EXPLODING_VILLAGERS << endl;
         cout << "    " << FLYING_DUTCHMAN << endl;
         cout << "    " << NO_WALL << endl;
@@ -54,7 +56,9 @@ int main(int argc, char **argv) {
 }
 
 void applyModifications(genie::DatFile *df, const string &modIdentifier) {
-    if (EXPLODING_VILLAGERS == modIdentifier) {
+    if (COMMUNITY_GAMES == modIdentifier) {
+        configureCommunityGamesMod(df);
+    } else if (EXPLODING_VILLAGERS == modIdentifier) {
         configureExplodingVillagers(df);
     } else if (FLYING_DUTCHMAN == modIdentifier) {
         makeTransportShipsFly(df);

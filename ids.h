@@ -190,4 +190,19 @@ static const int TECH_PALISADE_GATE = 523;
 static const int TECH_STONE_WALLS = 189;
 static const int TECH_FORTIFIED_WALL = 194;
 
+static const int BOMBARD_TOWER = 236;
+static const int PETARD = 440;
+static const int CASTLE = 82;
+
+static const int TECH_CARAVAN = 48;
+
+static const int TYPE_POPULATION_HEADROOM = 4;
+static const int TYPE_CURRENT_POPULATION = 11;
+static const int TYPE_TOTAL_UNITS_OWNED = 19;
+static const int TYPE_FOOD = 0;
+static const int TYPE_WOOD = 1;
+static const int TYPE_STONE = 2;
+static const int TYPE_GOLD = 3;
+
+
 #endif //CREATE_DATA_MOD_IDS_H
