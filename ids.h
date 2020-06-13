@@ -185,4 +185,9 @@ static const int ID_SABOTEUR = 706;
 static const int CLASS_TRANSPORT_BOAT = 20;
 static const int ACTION_TYPE_GARRISON = 3;
 
+static const int PALISADE_WALL = 72;
+static const int TECH_PALISADE_GATE = 523;
+static const int TECH_STONE_WALLS = 189;
+static const int TECH_FORTIFIED_WALL = 194;
+
 #endif //CREATE_DATA_MOD_IDS_H

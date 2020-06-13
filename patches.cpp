@@ -1,4 +1,5 @@
 #include "genie/dat/DatFile.h"
+#include "genie/dat/TechageEffect.h"
 #include "patches.h"
 #include "ids.h"
 #include <list>
@@ -54,13 +55,6 @@ void configureExplodingVillagers(genie::DatFile *df) {
             }
         }
     }
-}
-
-void duplicateTech(genie::DatFile *df, const genie::Tech &tech, int totalCount) {
-    for (int i = 0; i < (totalCount - 1); ++i) {
-        df->Techs.push_back(tech);
-    }
-    cout << "Added Tech '" << tech.Name << "' for a total of " << totalCount << " instances" << endl;
 }
 
 void duplicateTechs(genie::DatFile *df, int totalCount) {
@@ -198,6 +192,13 @@ void duplicateTechs(genie::DatFile *df, int totalCount) {
 
 }
 
+void duplicateTech(genie::DatFile *df, const genie::Tech &tech, int totalCount) {
+    for (int i = 0; i < (totalCount - 1); ++i) {
+        df->Techs.push_back(tech);
+    }
+    cout << "Added Tech '" << tech.Name << "' for a total of " << totalCount << " instances" << endl;
+}
+
 void makeTransportShipsFly(genie::DatFile *df) {
     for (genie::Civ &civ : df->Civs) {
         for (genie::Unit &unit : civ.Units) {
@@ -209,6 +210,48 @@ void makeTransportShipsFly(genie::DatFile *df) {
             }
         }
     }
+}
+
+void disableWalls(genie::DatFile *df) {
+    const list<int> unitsToDisable = {
+            PALISADE_WALL,
+    };
+
+    const list<int> techsToDisable = {
+            TECH_PALISADE_GATE,
+            TECH_STONE_WALLS,
+    };
+
+    const list<int> techsToHide = {
+            TECH_FORTIFIED_WALL,
+    };
+
+    for (int unitId: unitsToDisable) {
+        cout << "Disabling unit with id " << unitId << " for all civs" << endl;
+        for (genie::Civ &civ : df->Civs) {
+            civ.Units.at(unitId).Enabled = 0;
+        }
+    }
+
+    for (int techId: techsToDisable) {
+        genie::Tech *tech = &df->Techs.at(techId);
+        cout << "Disabling the effect of tech with id " << techId << " ('" << tech->Name << "')" << endl;
+        disableTechEffect(tech);
+    }
+
+    for (int techId: techsToHide) {
+        genie::Tech *tech = &df->Techs.at(techId);
+        cout << "Disabling the research location of tech with id " << techId << " ('" << tech->Name << "')" << endl;
+        disableTechResearchLocation(tech);
+    }
+}
+
+void disableTechEffect(genie::Tech *tech) {
+    tech->EffectID = -1;
+}
+
+void disableTechResearchLocation(genie::Tech *tech) {
+    tech->ResearchLocation = -1;
 }
 
 void preventRamsAndSiegeTowersFromBoardingTransportShips(genie::DatFile *df) {
