@@ -6,9 +6,14 @@ some data mods, generated programmatically, so they can be recreated automagical
 
 ## Published Mods
 
+- [Community Games Mod](https://www.ageofempires.com/mods/details/15917/)
 - [Flying Dutchman](https://www.ageofempires.com/mods/details/15644/)
 - [Exploding Villagers](https://www.ageofempires.com/mods/details/15682/)
 - [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/15681/)
+- [No Wall Mod](https://www.ageofempires.com/mods/details/15916/)
+- [3x Tech Mod](https://www.ageofempires.com/mods/details/15918/)
+- [9x Tech Mod](https://www.ageofempires.com/mods/details/15919/)
+- [256x Tech Mod](https://www.ageofempires.com/mods/details/15920/)
 
 ## Cloning and Compiling
 
