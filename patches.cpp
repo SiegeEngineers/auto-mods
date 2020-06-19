@@ -18,23 +18,23 @@ void configureCommunityGamesMod(genie::DatFile *df) {
 void addPopulationCostToBombardTower(genie::DatFile *df) {
     cout << "Adding population cost to bombard towers of all civs" << endl;
     for (genie::Civ &civ : df->Civs) {
-        genie::ResourceUsage<int16_t, int16_t, int16_t> &resourceCosts = civ.Units.at(BOMBARD_TOWER)
-                .Creatable.ResourceCosts.at(2);
+        genie::Unit &bombard_tower = civ.Units.at(BOMBARD_TOWER);
+        genie::ResourceUsage<int16_t, int16_t, int16_t> &resourceCosts = bombard_tower.Creatable.ResourceCosts.at(2);
         resourceCosts.Type = TYPE_POPULATION_HEADROOM;
         resourceCosts.Amount = 1;
         resourceCosts.Flag = 0;
 
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(0).Type = TYPE_POPULATION_HEADROOM;
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(0).Amount = -1;
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(0).Flag = 2;
+        bombard_tower.ResourceStorages.at(0).Type = TYPE_POPULATION_HEADROOM;
+        bombard_tower.ResourceStorages.at(0).Amount = -1;
+        bombard_tower.ResourceStorages.at(0).Flag = 2;
 
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(1).Type = TYPE_CURRENT_POPULATION;
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(1).Amount = 1;
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(1).Flag = 2;
+        bombard_tower.ResourceStorages.at(1).Type = TYPE_CURRENT_POPULATION;
+        bombard_tower.ResourceStorages.at(1).Amount = 1;
+        bombard_tower.ResourceStorages.at(1).Flag = 2;
 
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(2).Type = TYPE_TOTAL_UNITS_OWNED;
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(2).Amount = 1;
-        civ.Units.at(BOMBARD_TOWER).ResourceStorages.at(2).Flag = 1;
+        bombard_tower.ResourceStorages.at(2).Type = TYPE_TOTAL_UNITS_OWNED;
+        bombard_tower.ResourceStorages.at(2).Amount = 1;
+        bombard_tower.ResourceStorages.at(2).Flag = 1;
     }
 }
 
@@ -133,13 +133,14 @@ void addElitePetard(genie::DatFile *df) {
 void modifyCaravanCost(genie::DatFile *df, int amountFood, int amountGold) {
     cout << "Setting the cost of Caravan (" << TECH_CARAVAN << ") to " << amountFood << " Food, " << amountGold
          << " Gold" << endl;
-    df->Techs.at(TECH_CARAVAN).ResourceCosts.at(0).Type = TYPE_FOOD;
-    df->Techs.at(TECH_CARAVAN).ResourceCosts.at(0).Amount = amountFood;
-    df->Techs.at(TECH_CARAVAN).ResourceCosts.at(0).Flag = 1;
+    genie::Tech &caravan = df->Techs.at(TECH_CARAVAN);
+    caravan.ResourceCosts.at(0).Type = TYPE_FOOD;
+    caravan.ResourceCosts.at(0).Amount = amountFood;
+    caravan.ResourceCosts.at(0).Flag = 1;
 
-    df->Techs.at(TECH_CARAVAN).ResourceCosts.at(1).Type = TYPE_GOLD;
-    df->Techs.at(TECH_CARAVAN).ResourceCosts.at(1).Amount = amountGold;
-    df->Techs.at(TECH_CARAVAN).ResourceCosts.at(1).Flag = 1;
+    caravan.ResourceCosts.at(1).Type = TYPE_GOLD;
+    caravan.ResourceCosts.at(1).Amount = amountGold;
+    caravan.ResourceCosts.at(1).Flag = 1;
 }
 
 void makeTreesContain200Wood(genie::DatFile *df) {
@@ -186,22 +187,20 @@ void configureExplodingVillagers(genie::DatFile *df) {
     };
 
     for (genie::Civ &civ : df->Civs) {
-        for (genie::Unit &unit : civ.Units) {
-            if (villagers.find(unit.ID) != villagers.end()) {
-                unit.DeadUnitID = ID_SABOTEUR;
-                cout << "Patched Villager unit " << unit.ID << " for civ " << civ.Name << "\n";
-            } else if (unit.ID == ID_SABOTEUR) {
-                unit.HitPoints = 0;
-                unit.Type50.Attacks.at(0).Amount = 50;
-                unit.Type50.Attacks.at(1).Amount = 90;
-                unit.Type50.Attacks.at(2).Amount = 0;
-                unit.Type50.MaxRange = 2;
-                unit.Type50.BlastAttackLevel = 1; // cut trees
-                unit.TrainSound = -1;
-                unit.WwiseTrainSoundID = 0; // prevent melee unit train sound from playing
-                cout << "Patched Saboteur unit for civ " << civ.Name << "\n";
-            }
+        for (int villager_id : villagers) {
+            civ.Units.at(villager_id).DeadUnitID = ID_SABOTEUR;
+            cout << "Patched Villager unit " << villager_id << " for civ " << civ.Name << "\n";
         }
+        genie::Unit &saboteur = civ.Units.at(ID_SABOTEUR);
+        saboteur.HitPoints = 0;
+        saboteur.Type50.Attacks.at(0).Amount = 50;
+        saboteur.Type50.Attacks.at(1).Amount = 90;
+        saboteur.Type50.Attacks.at(2).Amount = 0;
+        saboteur.Type50.MaxRange = 2;
+        saboteur.Type50.BlastAttackLevel = 1; // cut trees
+        saboteur.TrainSound = -1;
+        saboteur.WwiseTrainSoundID = 0; // prevent melee unit train sound from playing
+        cout << "Patched Saboteur unit for civ " << civ.Name << "\n";
     }
 }
 
@@ -349,14 +348,11 @@ void duplicateTech(genie::DatFile *df, const genie::Tech &tech, int totalCount) 
 
 void makeTransportShipsFly(genie::DatFile *df) {
     for (genie::Civ &civ : df->Civs) {
-        for (genie::Unit &unit : civ.Units) {
-            if (unit.ID == ID_TRANSPORT_SHIP) {
-                unit.FlyMode = 1; // true
-                unit.TerrainRestriction = 0; // All
-                unit.CollisionSize = {0, 0, 0}; // walk through everything, like flying
-                cout << "Patched Transport Ship unit for civ " << civ.Name << "\n";
-            }
-        }
+        genie::Unit &transport_ship = civ.Units.at(ID_TRANSPORT_SHIP);
+        transport_ship.FlyMode = 1; // true
+        transport_ship.TerrainRestriction = 0; // All
+        transport_ship.CollisionSize = {0, 0, 0}; // walk through everything, like flying
+        cout << "Patched Transport Ship unit for civ " << civ.Name << "\n";
     }
 }
 
