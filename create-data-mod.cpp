@@ -6,6 +6,7 @@ using namespace std;
 const char *const COMMUNITY_GAMES = "community-games";
 const char *const EXPLODING_VILLAGERS = "exploding-villagers";
 const char *const FLYING_DUTCHMAN = "flying-dutchman";
+const char *const KIDNAP = "kidnap";
 const char *const NO_WALL = "no-wall";
 const char *const X_256_TECH = "x256";
 const char *const X_3_TECH = "x3";
@@ -26,6 +27,7 @@ int main(int argc, char **argv) {
         cout << "    " << COMMUNITY_GAMES << endl;
         cout << "    " << EXPLODING_VILLAGERS << endl;
         cout << "    " << FLYING_DUTCHMAN << endl;
+        cout << "    " << KIDNAP << endl;
         cout << "    " << NO_WALL << endl;
         cout << "    " << X_3_TECH << endl;
         cout << "    " << X_9_TECH << endl;
@@ -62,6 +64,8 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         configureExplodingVillagers(df);
     } else if (FLYING_DUTCHMAN == modIdentifier) {
         makeTransportShipsFly(df);
+    } else if (KIDNAP == modIdentifier) {
+        configureKidnap(df);
     } else if (NO_WALL == modIdentifier) {
         disableWalls(df);
     } else if (X_3_TECH == modIdentifier) {

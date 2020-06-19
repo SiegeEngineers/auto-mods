@@ -5,6 +5,7 @@ void configureCommunityGamesMod(genie::DatFile *df);
 void configureExplodingVillagers(genie::DatFile *df);
 void makeTransportShipsFly(genie::DatFile *df);
 void duplicateTechs(genie::DatFile *df, int totalCount);
+void configureKidnap(genie::DatFile *df);
 void disableWalls(genie::DatFile *df);
 void preventRamsAndSiegeTowersFromBoardingTransportShips(genie::DatFile *df);
 void duplicateTech(genie::DatFile *df, const genie::Tech &tech, int totalCount);

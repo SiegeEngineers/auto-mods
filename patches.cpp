@@ -356,6 +356,37 @@ void makeTransportShipsFly(genie::DatFile *df) {
     }
 }
 
+void configureKidnap(genie::DatFile *df) {
+    for (genie::Civ &civ : df->Civs) {
+        genie::Unit &scout = civ.Units.at(ID_SCOUT);
+        cout << "Setting Scout properties for civ " << civ.Name << endl;
+        scout.Type50.Attacks.clear();
+        scout.Type50.DisplayedAttack = 0;
+        scout.GarrisonCapacity = 1;
+        scout.Bird.TaskList.erase(scout.Bird.TaskList.begin());
+
+        cout << "Adding Kidnap Task to scout for civ " << civ.Name << endl;
+        auto kidnapTask = new genie::Task();
+        kidnapTask->ActionType = ACTION_KIDNAP_UNIT;
+        kidnapTask->ClassID = CLASS_CIVILIAN;
+        kidnapTask->WorkRange = 0.25;
+        kidnapTask->ProceedingGraphicID = 1966; // SCOUT_AN
+        kidnapTask->TargetDiplomacy = 2;
+        kidnapTask->GatherType = 2;
+        scout.Bird.TaskList.push_back(*kidnapTask);
+
+        cout << "Adding Loot Task to scout for civ " << civ.Name << endl;
+        auto lootTask = new genie::Task();
+        lootTask->ActionType = ACTION_LOOT;
+        lootTask->ClassID = CLASS_BUILDING;
+        lootTask->WorkRange = 0.25;
+        lootTask->ProceedingGraphicID = 1966; // SCOUT_AN
+        lootTask->TargetDiplomacy = 2;
+        lootTask->GatherType = 1;
+        scout.Bird.TaskList.push_back(*lootTask);
+    }
+}
+
 void disableWalls(genie::DatFile *df) {
     const list<int> unitsToDisable = {
             PALISADE_WALL,

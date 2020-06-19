@@ -204,5 +204,10 @@ static const int TYPE_WOOD = 1;
 static const int TYPE_STONE = 2;
 static const int TYPE_GOLD = 3;
 
+static const int ID_SCOUT = 448;
+static const int ACTION_KIDNAP_UNIT = 135;
+static const int ACTION_LOOT = 122;
+static const int CLASS_CIVILIAN = 4;
+static const int CLASS_BUILDING = 3;
 
 #endif //CREATE_DATA_MOD_IDS_H
