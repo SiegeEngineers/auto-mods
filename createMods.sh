@@ -8,6 +8,9 @@ mkdir -p mods/exploding_villagers_flying_dutchman/resources/_common/dat
 mkdir -p mods/kidnap/resources/_common/dat
 mkdir -p mods/exploding_villagers_kidnap/resources/_common/dat
 mkdir -p mods/no_wall/resources/_common/dat
+mkdir -p mods/random-costs/resources/_common/dat
+mkdir -p mods/random-tech-costs/resources/_common/dat
+mkdir -p mods/random-unit-costs/resources/_common/dat
 mkdir -p mods/x3/resources/_common/dat
 mkdir -p mods/x9/resources/_common/dat
 mkdir -p mods/x256/resources/_common/dat
@@ -19,6 +22,9 @@ mkdir -p mods/x256/resources/_common/dat
 ./build/create-data-mod kidnap ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/kidnap/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod exploding-villagers+kidnap ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_villagers_kidnap/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod no-wall ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/no_wall/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod random-costs ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-costs/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod random-tech-costs ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-tech-costs/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod random-unit-costs ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-unit-costs/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod x3 ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/x3/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod x9 ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/x9/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod x256 ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/x256/resources/_common/dat/empires2_x2_p1.dat
@@ -49,6 +55,18 @@ cd ../..
 
 cd mods/no_wall
 zip -r ../no_wall.zip *
+cd ../..
+
+cd mods/random-costs
+zip -r ../random-costs.zip *
+cd ../..
+
+cd mods/random-tech-costs
+zip -r ../random-tech-costs.zip *
+cd ../..
+
+cd mods/random-unit-costs
+zip -r ../random-unit-costs.zip *
 cd ../..
 
 cd mods/x3

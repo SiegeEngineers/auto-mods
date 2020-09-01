@@ -16,5 +16,8 @@ void addGreatHallTech(genie::DatFile *df);
 void addElitePetard(genie::DatFile *df);
 void modifyCaravanCost(genie::DatFile *df, int amountFood, int amountGold);
 void makeTreesContain200Wood(genie::DatFile *df);
+void jumbleCosts(genie::DatFile *df);
+void jumbleUnitCosts(genie::DatFile *df);
+void jumbleTechCosts(genie::DatFile *df);
 
 #endif //CREATE_DATA_MOD_PATCHES_H

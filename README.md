@@ -12,6 +12,9 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/15681/)
 - [Kidnap Mod](https://www.ageofempires.com/mods/details/15982/)
 - [No Wall Mod](https://www.ageofempires.com/mods/details/15916/)
+- [Random Costs](https://www.ageofempires.com/mods/details/17281/)
+- [Random Tech Costs](https://www.ageofempires.com/mods/details/17280/)
+- [Random Unit Costs](https://www.ageofempires.com/mods/details/17279/)
 - [3x Tech Mod](https://www.ageofempires.com/mods/details/15918/)
 - [9x Tech Mod](https://www.ageofempires.com/mods/details/15919/)
 - [256x Tech Mod](https://www.ageofempires.com/mods/details/15920/)
@@ -47,6 +50,9 @@ Where <mod-identifier> is one of the following, or multiple of the following joi
     flying-dutchman
     kidnap
     no-wall
+    random-costs
+    random-tech-costs
+    random-unit-costs
     x3
     x9
     x256

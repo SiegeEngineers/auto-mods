@@ -8,6 +8,9 @@ const char *const EXPLODING_VILLAGERS = "exploding-villagers";
 const char *const FLYING_DUTCHMAN = "flying-dutchman";
 const char *const KIDNAP = "kidnap";
 const char *const NO_WALL = "no-wall";
+const char *const RANDOM_COSTS = "random-costs";
+const char *const RANDOM_TECH_COSTS = "random-tech-costs";
+const char *const RANDOM_UNIT_COSTS = "random-unit-costs";
 const char *const X_256_TECH = "x256";
 const char *const X_3_TECH = "x3";
 const char *const X_9_TECH = "x9";
@@ -29,6 +32,9 @@ int main(int argc, char **argv) {
         cout << "    " << FLYING_DUTCHMAN << endl;
         cout << "    " << KIDNAP << endl;
         cout << "    " << NO_WALL << endl;
+        cout << "    " << RANDOM_COSTS << endl;
+        cout << "    " << RANDOM_TECH_COSTS << endl;
+        cout << "    " << RANDOM_UNIT_COSTS << endl;
         cout << "    " << X_3_TECH << endl;
         cout << "    " << X_9_TECH << endl;
         cout << "    " << X_256_TECH << endl;
@@ -68,6 +74,12 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         configureKidnap(df);
     } else if (NO_WALL == modIdentifier) {
         disableWalls(df);
+    } else if (RANDOM_COSTS == modIdentifier) {
+        jumbleCosts(df);
+    } else if (RANDOM_TECH_COSTS == modIdentifier) {
+        jumbleTechCosts(df);
+    } else if (RANDOM_UNIT_COSTS == modIdentifier) {
+        jumbleUnitCosts(df);
     } else if (X_3_TECH == modIdentifier) {
         duplicateTechs(df, 3);
     } else if (X_9_TECH == modIdentifier) {
