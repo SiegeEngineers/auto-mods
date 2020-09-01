@@ -18,13 +18,14 @@ some data mods, generated programmatically, so they can be recreated automagical
 
 ## Cloning and Compiling
 
-You'll need cmake, build tools for C++, boost libraries, … 
+You'll need cmake, build tools for C++, `libboost-all-dev`, possibly more…
 
 Just install stuff until it stops complaining I guess, sorry.
 
 ```sh
 git clone --recurse-submodules https://github.com/SiegeEngineers/auto-mods.git
 cd auto-mods
+./patchGenieutils.sh
 mkdir build
 cd build
 cmake ..
