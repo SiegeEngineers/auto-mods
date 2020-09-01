@@ -23,8 +23,8 @@ You'll need cmake, build tools for C++, boost libraries, …
 Just install stuff until it stops complaining I guess, sorry.
 
 ```sh
-git clone --recurse-submodules https://github.com/HSZemi/aoe2de-data-mods.git
-cd aoe2de-data-mods
+git clone --recurse-submodules https://github.com/SiegeEngineers/auto-mods.git
+cd auto-mods
 mkdir build
 cd build
 cmake ..
