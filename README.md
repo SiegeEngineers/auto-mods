@@ -28,7 +28,7 @@ Just install stuff until it stops complaining I guess, sorry.
 ```sh
 git clone --recurse-submodules https://github.com/SiegeEngineers/auto-mods.git
 cd auto-mods
-./patchGenieutils.sh
+patch -d genieutils <genieutils.patch
 mkdir build
 cd build
 cmake ..
@@ -56,6 +56,8 @@ Where <mod-identifier> is one of the following, or multiple of the following joi
     x3
     x9
     x256
+    x3-civ-bonus
+    x9-civ-bonus
 ```
 
 For example, in order to patch the current dat file with the Flying Dutchman modifications, one might execute
