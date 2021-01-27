@@ -16,30 +16,40 @@ std::string getTechName(genie::DatFile *df, int techId) {
     return techId > 0 ? df->Techs[techId].Name : "-1";
 }
 
-std::string getUnitName(genie::DatFile *df, int unitId) {
-    return unitId > 0 ? df->Civs[0].Units[unitId].Name : "-1";
+std::string getUnitName(genie::DatFile *df, int unitId, int civId=0) {
+    return unitId > 0 ? df->Civs[civId].Units[unitId].Name : "-1";
 }
 
 std::string getCommandTypeName(genie::DatFile *df, genie::EffectCommand &command) {
-    switch (command.Type) {
-        case COMMAND_RESOURCE_MODIFIER:
-            return "Resource Modifier (Set/+/-)";
-        case COMMAND_UPGRADE_UNIT:
+    switch (static_cast<CommandType>(command.Type)) {
+        case CommandType::SET_ATTRIBUTE_MODIFIER:
+            return "Attribute Modifier (Set)";
+        case CommandType::RESOURCE_MODIFIER:
+            return "Resource Modifier (" + std::string(command.B == 0 ? "set" : "+/-") + ") ";
+        case CommandType::ENABLE_DISABLE_UNIT:
+            return std::string(command.B == 0 ? "Disable" : "Enable") + " Unit " + getUnitName(df, command.A);
+        case CommandType::UPGRADE_UNIT:
             return "Upgrade Unit " + getUnitName(df, command.A) + " -> " + getUnitName(df, command.B);
-        case COMMAND_ATTRIBUTE_MODIFIER:
+        case CommandType::ATTRIBUTE_MODIFIER:
             return "Attribute Modifier (+/-)";
-        case COMMAND_ATTRIBUTE_MULTIPLIER:
+        case CommandType::ATTRIBUTE_MULTIPLIER:
             return "Attribute Modifier (Mult)";
-        case COMMAND_TEAM_ATTRIBUTE_MODIFIER:
+        case CommandType::RESOURCE_MULTIPLIER:
+            return "Resource Modifier (Mult)";
+        case CommandType::SPAWN_UNIT:
+            return "Spawn unit " + getUnitName(df, command.A) + " from " + getUnitName(df, command.B);
+        case CommandType::SET_TEAM_ATTRIBUTE_MODIFIER:
             return "Team Attribute Modifier (Set)";
-        case COMMAND_TECH_COST_MODIFIER:
-            return "Tech Cost Modifier (Set/+/-) " + getTechName(df, command.A);
-        case COMMAND_DISABLE_TECH:
+        case CommandType::TEAM_ATTRIBUTE_MODIFIER:
+            return "Team Attribute Modifier (+/-)";
+        case CommandType::TECH_COST_MODIFIER:
+            return "Tech Cost Modifier (" + std::string(command.C == 0 ? "set" : "+/-") + ") " + getTechName(df, command.A);
+        case CommandType::DISABLE_TECH:
             return "Disable tech " + getTechName(df, command.D);
-        case COMMAND_TECH_TIME_MODIFIER:
+        case CommandType::TECH_TIME_MODIFIER:
             return "Tech Time Modifier (Set/+/-) " + getTechName(df, command.A);
     }
-    return "UNKNOWN";
+    return "UNKNOWN COMMAND";
 }
 
 int capEffectMultiplication(uint16_t effectId, int times) {
@@ -89,11 +99,18 @@ void addDummyAnnexBuilding(genie::DatFile *df, const std::vector<int16_t> annexU
     }
 }
 
+void multiplySetAttributeModifierCommand(genie::DatFile *df, genie::EffectCommand &command, int civ_id, int times) {
+    switch (static_cast<AttributeType>(command.C)) {
+        case AttributeType::BONUS_DAMAGE_RESISTANCE:
+            command.D = 1. - std::pow(1. - command.D, times);
+            break;
+        default:
+            break;
+    }
+}
+
 void multiplyResourceModifierCommand(genie::DatFile *df, genie::EffectCommand& command, int civ_id, int times) {
-	if (command.B == 1) { // `add` or `sub` mode
-		command.D *= times;
-	}
-	else { // `set` mode
+	if (command.B == 0) { // `set` mode
 		auto baseValue = df->Civs[civ_id].Resources.at(command.A);
         // research cost modifier and research time modifier resources have a base value of 0
         // we need to replace that value with 1 so that the bonus calculation works correctly
@@ -108,13 +125,16 @@ void multiplyResourceModifierCommand(genie::DatFile *df, genie::EffectCommand& c
 			|| command.A == TYPE_FOOD_HERDING_PRODUCTIVITY
             || command.D < baseValue
 		) {
-			// productivity and "negative" bonuses stack multiplicatively
+			// productivity and "negative" bonuses should always stack multiplicatively
 			command.D = std::pow(command.D / baseValue, times) * baseValue;
 		}
 		else {
             // the rest of the bonuses stack additively
 			command.D = (command.D - baseValue) * times + baseValue;
 		}
+	}
+    else { // `add` or `sub` mode
+		command.D *= times;
 	}
 }
 
@@ -159,25 +179,44 @@ void multiplyTcAnnexCommand(genie::DatFile *df, genie::EffectCommand &command, i
 }
 
 void multiplyAttributeModifierCommand(genie::DatFile *df, genie::EffectCommand &command, int times) {
-    if (command.C == 8 || command.C == 9) { // Armor/Atack
-        int armor_type = int(command.D) / 256;
+    const AttributeType attributeType = static_cast<AttributeType>(command.C);
+    if (attributeType == AttributeType::ARMOR || attributeType == AttributeType::ATTACK) {
+        int armorType = int(command.D) / 256;
         int amount = int(command.D) % 256;
-        command.D = float(armor_type * 256 + std::min(amount * times, 255));
+        int newAmount = std::min(amount * times, 255);
+        command.D = armorType * 256 + newAmount;
     }
     else {
         command.D *= times;
     }
 }
 
-void multiplyAttributeMultiplierCommand(genie::DatFile *df, genie::EffectCommand &command, int civ_id, int times) {
-    command.D = std::pow(command.D, times);
-    // make sure units wont have too many hitpoints
-    if (command.A != -1 && command.C == 0) {
-        const int unitHitPoints = df->Civs[civ_id].Units[command.A].HitPoints;
+void multiplyAttributeMultiplierCommand(genie::DatFile *df, genie::EffectCommand &command, int civId, int times) {
+    const AttributeType attributeType = static_cast<AttributeType>(command.C);
+    if (attributeType == AttributeType::ARMOR || attributeType == AttributeType::ATTACK) {
+        int armorType = int(command.D) / 256;
+        float amount = int(command.D) % 256;
+        float newAmount = std::min(std::pow(amount/100, times) * 100, 255.);
+        command.D = armorType * 256 + newAmount;
+    }
+    else {
+        command.D = std::pow(command.D, times);
+    }
+    // warn if unit has too many hitpoints
+    if (command.A != -1 && attributeType == AttributeType::HITPOINTS) {
+        const int unitHitPoints = df->Civs[civId].Units[command.A].HitPoints;
         if (unitHitPoints * command.D >= (1 << 16)) {
-            std::cout << "[WARNING] unit with too many hitpoints: " << df->Civs[civ_id].Units[command.A].Name << " (" << df->Civs[civ_id].Name << ")" << std::endl;
+            std::cout << "[WARNING] unit with too many hitpoints: " << getUnitName(df, command.A, civId) << " (" << df->Civs[civId].Name << ")" << std::endl;
         }
     }
+}
+
+void multiplyResourceMultiplierCommand(genie::DatFile *df, genie::EffectCommand &command, int civId, int times) {
+    command.D = std::pow(command.D, times);
+}
+
+void multiplySpawnUnitCommand(genie::DatFile *df, genie::EffectCommand &command, int times) {
+    command.C *= times;
 }
 
 void multiplyTechCostModifierCommand(genie::DatFile *df, genie::EffectCommand &command, int times) {
@@ -204,38 +243,59 @@ void multiplyTechTimeModifierCommand(genie::DatFile *df, genie::EffectCommand &c
     }
 }
 
-void multiplyEffectCommand(genie::DatFile *df, genie::EffectCommand& command, uint16_t effectId, uint16_t civ_id, int times) {
+void multiplySetTeamAttributeModifier(genie::DatFile *df, genie::EffectCommand &command, uint16_t civId, int times) {
+    if (command.A != -1) {
+        float baseValue = df->Civs[civId].Units[command.A].ResourceStorages[0].Amount;
+        command.D = (command.D - baseValue) * times + baseValue;
+    }
+}
+
+void multiplyTeamAttributeModifier(genie::DatFile *df, genie::EffectCommand &command, int times) {
+    command.D *= times;
+}
+
+void multiplyEffectCommand(genie::DatFile *df, genie::EffectCommand &command, uint16_t effectId, uint16_t civId, int times) {
 	std::string commandTypeName = getCommandTypeName(df, command);
-    float oldValue = command.D;
-    switch (command.Type) {
-        case COMMAND_RESOURCE_MODIFIER:
-            multiplyResourceModifierCommand(df, command, civ_id, times);
+    genie::EffectCommand oldValue = command;
+    switch (static_cast<CommandType>(command.Type)) {
+        case CommandType::SET_ATTRIBUTE_MODIFIER:
+            multiplySetAttributeModifierCommand(df, command, civId, times);
             break;
-        case COMMAND_UPGRADE_UNIT:
+        case CommandType::RESOURCE_MODIFIER:
+            multiplyResourceModifierCommand(df, command, civId, times);
+            break;
+        case CommandType::UPGRADE_UNIT:
             if (command.A == ID_EMPTY_TC_ANNEX) {
                 multiplyTcAnnexCommand(df, command, times);
             }
             break;
-        case COMMAND_ATTRIBUTE_MODIFIER:
+        case CommandType::ATTRIBUTE_MODIFIER:
             multiplyAttributeModifierCommand(df, command, times);
             break;
-        case COMMAND_ATTRIBUTE_MULTIPLIER:
-            multiplyAttributeMultiplierCommand(df, command, civ_id, times);
+        case CommandType::ATTRIBUTE_MULTIPLIER:
+            multiplyAttributeMultiplierCommand(df, command, civId, times);
             break;
-        case COMMAND_TEAM_ATTRIBUTE_MODIFIER:
-            if (command.A != -1) {
-                float delta = command.D - df->Civs[civ_id].Units[command.A].ResourceStorages[0].Amount;
-                command.D = delta * times;
-            }
+        case CommandType::RESOURCE_MULTIPLIER:
+            multiplyResourceMultiplierCommand(df, command, civId, times);
+        case CommandType::SPAWN_UNIT:
+            multiplySpawnUnitCommand(df, command, times);
             break;
-        case COMMAND_TECH_COST_MODIFIER:
+        case CommandType::SET_TEAM_ATTRIBUTE_MODIFIER:
+            multiplySetTeamAttributeModifier(df, command, civId, times);
+            break;
+        case CommandType::TEAM_ATTRIBUTE_MODIFIER:
+            multiplyTeamAttributeModifier(df, command, times);
+            break;
+        case CommandType::TECH_COST_MODIFIER:
             multiplyTechCostModifierCommand(df, command, times);
             break;
-        case COMMAND_TECH_TIME_MODIFIER:
+        case CommandType::TECH_TIME_MODIFIER:
             multiplyTechTimeModifierCommand(df, command, times);
             break;
     }
-    std::cout << "  command type: " << int(command.Type) << " - " << commandTypeName << " - " << "(A=" << command.A << " B=" << command.B << " C=" << command.C << " D=" << oldValue << ") => " << command.D << std::endl;
+    std::cout << "  " << int(command.Type) << " - " << commandTypeName << " - "
+        << "(A=" << oldValue.A << " B=" << oldValue.B << " C=" << oldValue.C << " D=" << oldValue.D << ") => "
+        << "(A=" << command.A << " B=" << command.B << " C=" << command.C << " D=" << command.D << ")" << std::endl;
 }
 
 void multiplyEffect(genie::DatFile *df, uint16_t effectId, uint16_t civ_id, int times) {
