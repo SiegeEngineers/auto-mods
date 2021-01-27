@@ -1,5 +1,11 @@
 #include "genie/dat/DatFile.h"
-#include "patches.h"
+#include "patches/community_games.h"
+#include "patches/duplicate_techs.h"
+#include "patches/exploding_villagers.h"
+#include "patches/flying_dutchman.h"
+#include "patches/kidnap.h"
+#include "patches/no_wall.h"
+#include "patches/random_costs.h"
 #include <string>
 
 using namespace std;
