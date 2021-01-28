@@ -22,7 +22,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 ## Build instructions
 ### Cloning 
 
-_NOTE:_ Remember that you need to clone this repository with its' submodules!
+_NOTE:_ Remember that you need to clone this repository with its submodules!
 
 ```sh
 git clone --recurse-submodules https://github.com/SiegeEngineers/auto-mods.git
@@ -96,4 +96,3 @@ In order to patch the current dat file with the Flying Dutchman modifications AN
 ```
 
 And then use the resulting `empires2_x2_p1.dat` in the current directory for whatever.
-
