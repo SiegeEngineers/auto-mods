@@ -19,15 +19,39 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [9x Tech Mod](https://www.ageofempires.com/mods/details/15919/)
 - [256x Tech Mod](https://www.ageofempires.com/mods/details/15920/)
 
-## Cloning and Compiling
+## Build instructions
+### Cloning 
 
-You'll need cmake, build tools for C++, `libboost-all-dev`, possibly more…
-
-Just install stuff until it stops complaining I guess, sorry.
+_NOTE:_ Remember that you need to clone this repository with its' submodules!
 
 ```sh
 git clone --recurse-submodules https://github.com/SiegeEngineers/auto-mods.git
 cd auto-mods
+```
+
+### Installing dependencies
+
+You'll need:
+- `cmake`
+- `gcc`, `g++`
+- `libboost-iostreams-dev`
+- `libboost-program-options`
+- `zlib`
+
+#### Dependencies on Ubuntu (e.g. WSL)
+
+```sh
+sudo apt update 
+sudo apt install --fix-missing gcc g++ cmake \
+libboost-iostreams-dev libboost-program-options-dev \
+zlib1g-dev
+```
+
+### Compiling
+
+Inside the `repository root` use the following commands:
+
+```sh
 ./patchGenieutils.sh
 mkdir build
 cd build
