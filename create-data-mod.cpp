@@ -1,6 +1,16 @@
 #include "genie/dat/DatFile.h"
-#include "patches.h"
+
+#include "patches/community_games.h"
+#include "patches/duplicate_civ_bonuses.h"
+#include "patches/duplicate_techs.h"
+#include "patches/exploding_villagers.h"
+#include "patches/flying_dutchman.h"
+#include "patches/kidnap.h"
+#include "patches/no_wall.h"
+#include "patches/random_costs.h"
+
 #include <string>
+
 
 using namespace std;
 const char *const COMMUNITY_GAMES = "community-games";
@@ -14,6 +24,8 @@ const char *const RANDOM_UNIT_COSTS = "random-unit-costs";
 const char *const X_256_TECH = "x256";
 const char *const X_3_TECH = "x3";
 const char *const X_9_TECH = "x9";
+const char *const X_3_CIV_BONUS = "x3-civ-bonus";
+const char *const X_9_CIV_BONUS = "x9-civ-bonus";
 
 vector<string> getModIdentifiers(char *const *argv);
 
@@ -38,6 +50,8 @@ int main(int argc, char **argv) {
         cout << "    " << X_3_TECH << endl;
         cout << "    " << X_9_TECH << endl;
         cout << "    " << X_256_TECH << endl;
+        cout << "    " << X_3_CIV_BONUS << endl;
+        cout << "    " << X_9_CIV_BONUS << endl;
         return 1;
     }
 
@@ -86,6 +100,10 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         duplicateTechs(df, 9);
     } else if (X_256_TECH == modIdentifier) {
         duplicateTechs(df, 256);
+    } else if (X_3_CIV_BONUS == modIdentifier) {
+        multiplyCivilizationBonuses(df, 3);
+    } else if (X_9_CIV_BONUS == modIdentifier) {
+        multiplyCivilizationBonuses(df, 9);
     } else {
         cout << "Unknown mod identifier: '" << modIdentifier << "'" << endl;
     }

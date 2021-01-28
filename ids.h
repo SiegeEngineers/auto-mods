@@ -203,12 +203,57 @@ static const int TYPE_FOOD = 0;
 static const int TYPE_WOOD = 1;
 static const int TYPE_STONE = 2;
 static const int TYPE_GOLD = 3;
+static const int TYPE_RESEARCH_COST_MODIFIER = 85;
+static const int TYPE_RESEARCH_TIME_MODIFIER = 86;
+static const int TYPE_GOLD_MINING_PRODUCTIVITY = 47;
+static const int TYPE_STONE_MINING_PRODUCTIVITY = 79;
+static const int TYPE_WOOD_CHOPPING_PRODUCTIVITY = 189;
+static const int TYPE_FOOD_GATHERING_PRODUCTIVITY = 190;
+static const int TYPE_FOOD_HERDING_PRODUCTIVITY = 216;
+
+enum class AttributeType : uint16_t {
+    HITPOINTS = 0,
+    ARMOR = 8,
+    ATTACK = 9,
+    BONUS_DAMAGE_RESISTANCE = 24,
+};
 
 static const int ID_SCOUT = 448;
 static const int ID_EAGLE_SCOUT = 751;
+static const int ID_MADARASH_MONK = 412;
 static const int ACTION_KIDNAP_UNIT = 135;
 static const int ACTION_LOOT = 122;
 static const int CLASS_CIVILIAN = 4;
 static const int CLASS_BUILDING = 3;
 
-#endif //CREATE_DATA_MOD_IDS_H
+static const int ID_EMPTY_TC_ANNEX = 890;
+
+static const int EFFECT_ID_HUNS_100_WOOD = 214;
+static const int EFFECT_ID_PERSIANS_TC_HITPOINTS = 340;
+static const int EFFECT_ID_PERSIANS_DOCK_HITPOINTS = 347;
+static const int EFFECT_ID_PERSIANS_KAMANDARAN = 547;
+static const int EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_DARK = 283;
+static const int EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_FEUDAL = 429;
+static const int EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_CASTLE = 430;
+static const int EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_IMPERIAL = 431;
+static const int EFFECT_ID_MAYAN_TECH_TREE = 449;
+static const int EFFECT_ID_SARACEN_MARKET_BONUS = 354;
+static const int EFFECT_ID_SARACEN_MADARASH = 545;
+
+enum class CommandType : int8_t {
+    SET_ATTRIBUTE_MODIFIER = 0,
+    RESOURCE_MODIFIER = 1,
+    ENABLE_DISABLE_UNIT = 2,
+    UPGRADE_UNIT = 3,
+    ATTRIBUTE_MODIFIER = 4,
+    ATTRIBUTE_MULTIPLIER = 5,
+    RESOURCE_MULTIPLIER = 6,
+    SPAWN_UNIT = 7,
+    SET_TEAM_ATTRIBUTE_MODIFIER = 10,
+    TEAM_ATTRIBUTE_MODIFIER = 11,
+    TECH_COST_MODIFIER = 101,
+    DISABLE_TECH = 102,
+    TECH_TIME_MODIFIER = 103,
+};
+
+#endif // CREATE_DATA_MOD_IDS_H
