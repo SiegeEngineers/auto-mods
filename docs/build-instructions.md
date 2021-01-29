@@ -7,6 +7,7 @@
 You'll need:
 - `cmake`
 - `gcc`, `g++`
+- `libiconv`
 - `libboost-iostreams-dev`
 - `libboost-program-options`
 - `zlib`
