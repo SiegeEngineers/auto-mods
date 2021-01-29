@@ -1,6 +1,13 @@
-#include "genie/dat/DatFile.h"
-#include "patches.h"
 #include <string>
+#include "genie/dat/DatFile.h"
+#include "patches/community_games.h"
+#include "patches/duplicate_techs.h"
+#include "patches/exploding_villagers.h"
+#include "patches/flying_dutchman.h"
+#include "patches/kidnap.h"
+#include "patches/no_wall.h"
+#include "patches/random_costs.h"
+
 
 using namespace std;
 const char *const COMMUNITY_GAMES = "community-games";
@@ -63,6 +70,7 @@ int main(int argc, char **argv) {
     return 0;
 }
 
+
 void applyModifications(genie::DatFile *df, const string &modIdentifier) {
     if (COMMUNITY_GAMES == modIdentifier) {
         configureCommunityGamesMod(df);
@@ -91,12 +99,14 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
     }
 }
 
+
 void printModIdentifiers(const vector<string> &modIdentifiers) {
     cout << "Applying the following modifications in order:" << endl;
     for (const string &modIdentifier : modIdentifiers) {
         cout << "\t" << modIdentifier << endl;
     }
 }
+
 
 vector<string> getModIdentifiers(char *const *argv) {
     string s = argv[1];
@@ -113,5 +123,3 @@ vector<string> getModIdentifiers(char *const *argv) {
     modIdentifiers.push_back(s.substr(start, end));
     return modIdentifiers;
 }
-
-
