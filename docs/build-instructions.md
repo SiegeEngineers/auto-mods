@@ -33,7 +33,7 @@ Please [install WSL on your Windows 10 System](https://docs.microsoft.com/en-us/
 
 ### Ubuntu
 
-```
+```sh
 sudo apt update 
 sudo apt install --fix-missing gcc g++ cmake \
 libboost-iostreams-dev libboost-program-options-dev \
@@ -44,12 +44,18 @@ zlib1g-dev
 
 Inside the `repository root` use the following commands:
 
-```
+```sh
 ./patchGenieutils.sh
 mkdir build
 cd build
 cmake ..
+// Note: if you are using MingW64 use the following command instead
+// cmake -G "CodeBlocks - MinGW Makefiles" .. 
+// and continue with 
 cmake --build .
 ```
+
+
+
 
 You should now have an executable `create-data-mod` in the `build` folder. Hooray!
