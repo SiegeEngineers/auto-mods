@@ -1,6 +1,17 @@
 # Build instructions
 
 ## Dependencies
+
+### Installing dependencies
+
+You'll need:
+- `cmake`
+- `gcc`, `g++`
+- `libboost-iostreams-dev`
+- `libboost-program-options`
+- `zlib`
+
+
 ### MSYS2 (MingW64) on Windows
 Download and follow the install instructions for [MSYS2](https://www.msys2.org/)
   - if you have [Chocolatey](chocolatey.org/) installed you can install MSYS2 as follows
@@ -29,9 +40,9 @@ libboost-iostreams-dev libboost-program-options-dev \
 zlib1g-dev
 ```
 
-## Building
+## Compiling
 
-As every other CMake project:
+Inside the `repository root` use the following commands:
 
 ```
 ./patchGenieutils.sh
@@ -40,3 +51,5 @@ cd build
 cmake ..
 cmake --build .
 ```
+
+You should now have an executable `create-data-mod` in the `build` folder. Hooray!
