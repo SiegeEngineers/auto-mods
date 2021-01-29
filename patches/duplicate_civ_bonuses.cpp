@@ -52,23 +52,23 @@ std::string getCommandTypeName(genie::DatFile *df, genie::EffectCommand &command
     return "UNKNOWN COMMAND";
 }
 
-int capEffectMultiplication(uint16_t effectId, int times) {
+int capEffectMultiplication(EffectId effectId, int times) {
     // Cap some effects multiplication so it doesnt break the gameplay too much
     // especially for higher multiplication values
 	switch(effectId) {
-        case EFFECT_ID_HUNS_100_WOOD:
-        case EFFECT_ID_PERSIANS_KAMANDARAN:
+        case EffectId::HUNS_100_WOOD:
+        case EffectId::PERSIANS_KAMANDARAN:
             return std::min(1, times);
-        case EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_DARK:
-        case EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_FEUDAL:
-        case EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_CASTLE:
-        case EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_IMPERIAL:
-        case EFFECT_ID_MAYAN_TECH_TREE:
-        case EFFECT_ID_SARACEN_MARKET_BONUS:
+        case EffectId::BYZANTINE_BUILDING_HP_DARK:
+        case EffectId::BYZANTINE_BUILDING_HP_FEUDAL:
+        case EffectId::BYZANTINE_BUILDING_HP_CASTLE:
+        case EffectId::BYZANTINE_BUILDING_HP_IMPERIAL:
+        case EffectId::MAYAN_TECH_TREE:
+        case EffectId::SARACEN_MARKET_BONUS:
             return std::min(3, times);
-        case EFFECT_ID_PERSIANS_TC_HITPOINTS:
+        case EffectId::PERSIANS_TC_HITPOINTS:
             return std::min(4, times);
-        case EFFECT_ID_PERSIANS_DOCK_HITPOINTS:
+        case EffectId::PERSIANS_DOCK_HITPOINTS:
             return std::min(5, times);
         default:
             return times;
@@ -299,7 +299,7 @@ void multiplyEffectCommand(genie::DatFile *df, genie::EffectCommand &command, ui
 }
 
 void multiplyEffect(genie::DatFile *df, uint16_t effectId, uint16_t civ_id, int times) {
-    times = capEffectMultiplication(effectId, times);
+    times = capEffectMultiplication(static_cast<EffectId>(effectId), times);
 
     auto& effect = df->Effects.at(effectId);
     std::cout << "Effect " << effectId << " \"" << effect.Name << "\"" << std::endl;
@@ -339,11 +339,9 @@ void multiplyCivilizationBonuses(genie::DatFile *df, int times) {
     }
 
 	for (auto civ = df->Civs.begin(); civ != df->Civs.end(); ++civ) {
-		auto& madarashMonk = civ->Units[ID_MADARASH_MONK];
-		for (auto storage = madarashMonk.ResourceStorages.begin(); storage != madarashMonk.ResourceStorages.end(); ++storage) {
-			if (storage->Type == TYPE_GOLD) {
-				storage->Amount *= capEffectMultiplication(EFFECT_ID_SARACEN_MADARASH, times);
-			}
-		}
+		auto& unit = civ->Units[ID_MADRASAH_MONK];
+        for (auto &storage : unit.ResourceStorages) {
+            storage.Amount *= capEffectMultiplication(EffectId::SARACEN_MADRASAH, times);
+        }
 	}
 }

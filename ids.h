@@ -220,7 +220,7 @@ enum class AttributeType : uint16_t {
 
 static const int ID_SCOUT = 448;
 static const int ID_EAGLE_SCOUT = 751;
-static const int ID_MADARASH_MONK = 412;
+static const int ID_MADRASAH_MONK = 412;
 static const int ACTION_KIDNAP_UNIT = 135;
 static const int ACTION_LOOT = 122;
 static const int CLASS_CIVILIAN = 4;
@@ -228,17 +228,19 @@ static const int CLASS_BUILDING = 3;
 
 static const int ID_EMPTY_TC_ANNEX = 890;
 
-static const int EFFECT_ID_HUNS_100_WOOD = 214;
-static const int EFFECT_ID_PERSIANS_TC_HITPOINTS = 340;
-static const int EFFECT_ID_PERSIANS_DOCK_HITPOINTS = 347;
-static const int EFFECT_ID_PERSIANS_KAMANDARAN = 547;
-static const int EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_DARK = 283;
-static const int EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_FEUDAL = 429;
-static const int EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_CASTLE = 430;
-static const int EFFECT_ID_BYZANTINE_BUILDING_BONUS_HP_IMPERIAL = 431;
-static const int EFFECT_ID_MAYAN_TECH_TREE = 449;
-static const int EFFECT_ID_SARACEN_MARKET_BONUS = 354;
-static const int EFFECT_ID_SARACEN_MADARASH = 545;
+enum class EffectId : uint16_t {
+    HUNS_100_WOOD = 214,
+    PERSIANS_TC_HITPOINTS = 340,
+    PERSIANS_DOCK_HITPOINTS = 347,
+    PERSIANS_KAMANDARAN = 547,
+    BYZANTINE_BUILDING_HP_DARK = 282,
+    BYZANTINE_BUILDING_HP_FEUDAL = 429,
+    BYZANTINE_BUILDING_HP_CASTLE = 430,
+    BYZANTINE_BUILDING_HP_IMPERIAL = 431,
+    MAYAN_TECH_TREE = 449,
+    SARACEN_MARKET_BONUS = 354,
+    SARACEN_MADRASAH = 545,
+};
 
 enum class CommandType : int8_t {
     SET_ATTRIBUTE_MODIFIER = 0,
