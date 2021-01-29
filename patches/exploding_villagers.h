@@ -3,6 +3,7 @@
 
 #include "genie/dat/DatFile.h"
 
+
 void configureExplodingVillagers(genie::DatFile *df);
 
-#endif // EXPLODING_VILLAGERS_H
+#endif  // EXPLODING_VILLAGERS_H

@@ -6,4 +6,4 @@
 
 void configureCommunityGamesMod(genie::DatFile *df);
 
-#endif // COMMUNITY_GAMES_H
+#endif  // COMMUNITY_GAMES_H

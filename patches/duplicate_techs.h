@@ -3,6 +3,7 @@
 
 #include "genie/dat/DatFile.h"
 
+
 void duplicateTechs(genie::DatFile *df, int totalCount);
 
-#endif // DUPLICATE_TECHS_H
+#endif  // DUPLICATE_TECHS_H

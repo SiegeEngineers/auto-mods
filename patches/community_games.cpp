@@ -1,3 +1,4 @@
+#include "community_games.h"
 #include <iostream>
 #include "genie/dat/DatFile.h"
 #include "ids.h"
@@ -26,13 +27,14 @@ void addPopulationCostToBombardTower(genie::DatFile *df) {
     }
 }
 
+
 void addGreatHallTech(genie::DatFile *df) {
     std::cout << "Adding great hall tech" << std::endl;
     auto effectCommand = new genie::EffectCommand();
-    effectCommand->Type = 1; // Resource Modifier
-    effectCommand->A = 32; // Resource: Bonus Population Cap
-    effectCommand->B = 1; // Mode: +/-
-    effectCommand->D = 10; // Amount +/-
+    effectCommand->Type = 1;  // Resource Modifier
+    effectCommand->A = 32;    // Resource: Bonus Population Cap
+    effectCommand->B = 1;     // Mode: +/-
+    effectCommand->D = 10;    // Amount +/-
 
     auto effect = new genie::Effect();
     effect->Name = "Great Hall";
@@ -61,6 +63,7 @@ void addGreatHallTech(genie::DatFile *df) {
     df->Techs.push_back(*tech);
 }
 
+
 void addElitePetard(genie::DatFile *df) {
     int elitePetardId = -1;
     for (genie::Civ &civ : df->Civs) {
@@ -86,7 +89,7 @@ void addElitePetard(genie::DatFile *df) {
     }
 
     auto effectCommand = new genie::EffectCommand();
-    effectCommand->Type = 3; // Upgrade Unit
+    effectCommand->Type = 3;  // Upgrade Unit
     effectCommand->A = PETARD;
     effectCommand->B = elitePetardId;
 
@@ -118,9 +121,10 @@ void addElitePetard(genie::DatFile *df) {
     df->Techs.push_back(*tech);
 }
 
+
 void modifyCaravanCost(genie::DatFile *df, int amountFood, int amountGold) {
     std::cout << "Setting the cost of Caravan (" << TECH_CARAVAN << ") to " << amountFood << " Food, " << amountGold
-         << " Gold" << std::endl;
+              << " Gold" << std::endl;
     genie::Tech &caravan = df->Techs.at(TECH_CARAVAN);
     caravan.ResourceCosts.at(0).Type = TYPE_FOOD;
     caravan.ResourceCosts.at(0).Amount = amountFood;
@@ -131,18 +135,21 @@ void modifyCaravanCost(genie::DatFile *df, int amountFood, int amountGold) {
     caravan.ResourceCosts.at(1).Flag = 1;
 }
 
+
 void makeTreesContain200Wood(genie::DatFile *df) {
     for (genie::Civ &civ : df->Civs) {
-        for (genie::Unit &unit: civ.Units) {
+        for (genie::Unit &unit : civ.Units) {
             for (auto storage : unit.ResourceStorages) {
                 if (storage.Type == TYPE_WOOD && storage.Amount > 50) {
-                    std::cout << "Setting amount of wood in " << unit.Name << " (" << unit.ID << ") to 200" << std::endl;
+                    std::cout << "Setting amount of wood in " << unit.Name << " (" << unit.ID << ") to 200"
+                              << std::endl;
                     storage.Amount = 200;
                 }
             }
         }
     }
 }
+
 
 void configureCommunityGamesMod(genie::DatFile *df) {
     addPopulationCostToBombardTower(df);

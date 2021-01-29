@@ -3,6 +3,7 @@
 
 #include "genie/dat/DatFile.h"
 
+
 void makeTransportShipsFly(genie::DatFile *df);
 
-#endif // FLYING_DUTCHMAN_H
+#endif  // FLYING_DUTCHMAN_H

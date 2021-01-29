@@ -3,6 +3,7 @@
 
 #include "genie/dat/DatFile.h"
 
+
 void configureKidnap(genie::DatFile *df);
 
-#endif // KIDNAP_H
+#endif  // KIDNAP_H

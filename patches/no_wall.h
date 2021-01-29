@@ -3,6 +3,7 @@
 
 #include "genie/dat/DatFile.h"
 
+
 void disableWalls(genie::DatFile *df);
 
-#endif // NO_WALL_H
+#endif  // NO_WALL_H

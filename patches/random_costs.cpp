@@ -1,7 +1,8 @@
-#include <string>
-#include <vector>
+#include "random_costs.h"
 #include <algorithm>
 #include <random>
+#include <string>
+#include <vector>
 #include "genie/dat/DatFile.h"
 #include "ids.h"
 
@@ -9,26 +10,29 @@
 typedef genie::ResourceUsage<int16_t, int16_t, int16_t> ResourceCost;
 typedef genie::ResourceUsage<int16_t, int16_t, int8_t> ResearchResourceCost;
 
-bool isNaturalResourceCost(const ResourceCost &cost) {
-    return cost.Type != -1 && cost.Type < 4 && cost.Amount > 0;
-}
+
+bool isNaturalResourceCost(const ResourceCost &cost) { return cost.Type != -1 && cost.Type < 4 && cost.Amount > 0; }
+
 
 bool isNaturalResearchResourceCost(const ResearchResourceCost &cost) {
     return cost.Type != -1 && cost.Type < 4 && cost.Amount > 0;
 }
+
 
 bool hasNaturalResourceCost(const genie::Unit &unit) {
     std::vector<ResourceCost> costs = unit.Creatable.ResourceCosts;
     return std::any_of(costs.begin(), costs.end(), isNaturalResourceCost);
 }
 
+
 bool hasNaturalResearchResourceCost(std::vector<ResearchResourceCost> costs) {
     return std::any_of(costs.begin(), costs.end(), isNaturalResearchResourceCost);
 }
 
-int getSumOfNaturalResourceCosts(const std::vector<ResourceCost>& resourceCosts) {
+
+int getSumOfNaturalResourceCosts(const std::vector<ResourceCost> &resourceCosts) {
     int16_t sum = 0;
-    for (const ResourceCost& cost : resourceCosts) {
+    for (const ResourceCost &cost : resourceCosts) {
         if (cost.Type > -1 && cost.Type < 4) {
             sum += cost.Amount;
         }
@@ -36,19 +40,21 @@ int getSumOfNaturalResourceCosts(const std::vector<ResourceCost>& resourceCosts)
     return sum;
 }
 
+
 ResearchResourceCost toResearchResourceCost(const ResourceCost &resourceCost) {
     ResearchResourceCost researchResourceCost;
     researchResourceCost.Type = resourceCost.Type;
     researchResourceCost.Amount = resourceCost.Amount;
-    researchResourceCost.Flag = (bool) resourceCost.Flag;
+    researchResourceCost.Flag = (bool)resourceCost.Flag;
     return researchResourceCost;
 }
+
 
 ResourceCost toResourceCost(const ResearchResourceCost &researchResourceCost) {
     ResourceCost resourceCost;
     resourceCost.Type = researchResourceCost.Type;
     resourceCost.Amount = researchResourceCost.Amount;
-    resourceCost.Flag = (bool) researchResourceCost.Flag;
+    resourceCost.Flag = (bool)researchResourceCost.Flag;
     return resourceCost;
 }
 
@@ -62,6 +68,7 @@ std::vector<ResearchResourceCost> toResearchResourceCosts(const std::vector<Reso
     return researchResourceCosts;
 }
 
+
 std::vector<ResourceCost> toResourceCosts(const std::vector<ResearchResourceCost> &researchResourceCosts) {
     std::vector<ResourceCost> resourceCosts;
     resourceCosts.reserve(researchResourceCosts.size());
@@ -71,6 +78,7 @@ std::vector<ResourceCost> toResourceCosts(const std::vector<ResearchResourceCost
     return resourceCosts;
 }
 
+
 std::string costToString(const std::vector<ResourceCost> &costs) {
     std::string s;
     for (const ResourceCost &cost : costs) {
@@ -78,28 +86,29 @@ std::string costToString(const std::vector<ResourceCost> &costs) {
             s += std::to_string(cost.Amount);
             s += " ";
             switch (cost.Type) {
-                case TYPE_FOOD:
-                    s += "Food ";
-                    break;
-                case TYPE_WOOD:
-                    s += "Wood ";
-                    break;
-                case TYPE_GOLD:
-                    s += "Gold ";
-                    break;
-                case TYPE_STONE:
-                    s += "Stone ";
-                    break;
-                case TYPE_POPULATION_HEADROOM:
-                    s += "Pop ";
-                    break;
-                default:
-                    s += "vat?";
+            case TYPE_FOOD:
+                s += "Food ";
+                break;
+            case TYPE_WOOD:
+                s += "Wood ";
+                break;
+            case TYPE_GOLD:
+                s += "Gold ";
+                break;
+            case TYPE_STONE:
+                s += "Stone ";
+                break;
+            case TYPE_POPULATION_HEADROOM:
+                s += "Pop ";
+                break;
+            default:
+                s += "vat?";
             }
         }
     }
     return s;
 }
+
 
 std::string costToString(const std::vector<ResearchResourceCost> &costs) {
     std::string s;
@@ -108,28 +117,29 @@ std::string costToString(const std::vector<ResearchResourceCost> &costs) {
             s += std::to_string(cost.Amount);
             s += " ";
             switch (cost.Type) {
-                case TYPE_FOOD:
-                    s += "Food ";
-                    break;
-                case TYPE_WOOD:
-                    s += "Wood ";
-                    break;
-                case TYPE_GOLD:
-                    s += "Gold ";
-                    break;
-                case TYPE_STONE:
-                    s += "Stone ";
-                    break;
-                case TYPE_POPULATION_HEADROOM:
-                    s += "Pop ";
-                    break;
-                default:
-                    s += "vat?";
+            case TYPE_FOOD:
+                s += "Food ";
+                break;
+            case TYPE_WOOD:
+                s += "Wood ";
+                break;
+            case TYPE_GOLD:
+                s += "Gold ";
+                break;
+            case TYPE_STONE:
+                s += "Stone ";
+                break;
+            case TYPE_POPULATION_HEADROOM:
+                s += "Pop ";
+                break;
+            default:
+                s += "vat?";
             }
         }
     }
     return s;
 }
+
 
 bool bothRequirePopulationHeadroom(int unitId, std::vector<ResourceCost> &resourceCosts, const genie::Civ &civ) {
     return ((civ.Units.at(unitId).Creatable.ResourceCosts.at(2).Type == TYPE_POPULATION_HEADROOM &&
@@ -138,12 +148,14 @@ bool bothRequirePopulationHeadroom(int unitId, std::vector<ResourceCost> &resour
              resourceCosts.at(2).Type != TYPE_POPULATION_HEADROOM));
 }
 
+
 void copyResourceCostAt(int unitId, int index, std::vector<ResourceCost> &target, const genie::Civ &civ) {
     genie::ResourceUsage<int16_t, int16_t, int16_t> source = civ.Units.at(unitId).Creatable.ResourceCosts.at(index);
     target.at(index).Type = source.Type;
     target.at(index).Amount = source.Amount;
     target.at(index).Flag = source.Flag;
 }
+
 
 void jumbleCosts(genie::DatFile *df) {
     std::vector<int> unitIds;
@@ -164,12 +176,12 @@ void jumbleCosts(genie::DatFile *df) {
     }
 
     std::vector<std::vector<ResourceCost>> allTheCosts;
-    for (int unitId: unitIds) {
+    for (int unitId : unitIds) {
         std::vector<ResourceCost> resourceCopy = df->Civs.at(0).Units.at(unitId).Creatable.ResourceCosts;
         allTheCosts.push_back(resourceCopy);
     }
 
-    for (int techId: techIds) {
+    for (int techId : techIds) {
         std::vector<ResourceCost> resourceCopy = toResourceCosts(df->Techs.at(techId).ResourceCosts);
         allTheCosts.push_back(resourceCopy);
     }
@@ -180,15 +192,18 @@ void jumbleCosts(genie::DatFile *df) {
         shuffle(allTheCosts.begin(), allTheCosts.end(), std::mt19937(seed));
 
         size_t costIndex = 0;
-        for (int techId: techIds) {
-            std::vector<ResearchResourceCost> researchResourceCosts = toResearchResourceCosts(allTheCosts.at(costIndex));
-            std::cout << "Setting cost of tech with id " << techId << " to " << costToString(researchResourceCosts) << std::endl;
+        for (int techId : techIds) {
+            std::vector<ResearchResourceCost> researchResourceCosts =
+                toResearchResourceCosts(allTheCosts.at(costIndex));
+            std::cout << "Setting cost of tech with id " << techId << " to " << costToString(researchResourceCosts)
+                      << std::endl;
             df->Techs.at(techId).ResourceCosts = researchResourceCosts;
             costIndex++;
         }
-        for (int unitId: unitIds) {
+        for (int unitId : unitIds) {
             std::vector<ResourceCost> &resourceCosts = allTheCosts.at(costIndex);
-            std::cout << "Setting cost of unit with id " << unitId << " to " << costToString(resourceCosts) << std::endl;
+            std::cout << "Setting cost of unit with id " << unitId << " to " << costToString(resourceCosts)
+                      << std::endl;
             if (!bothRequirePopulationHeadroom(unitId, resourceCosts, df->Civs.at(0))) {
                 copyResourceCostAt(unitId, 2, resourceCosts, df->Civs.at(0));
             }
@@ -198,10 +213,10 @@ void jumbleCosts(genie::DatFile *df) {
             costIndex++;
         }
 
-        int maleVillagerCost = getSumOfNaturalResourceCosts(
-                df->Civs.at(0).Units.at(ID_VILLAGER_BASE_M).Creatable.ResourceCosts);
-        int femaleVillagerCost = getSumOfNaturalResourceCosts(
-                df->Civs.at(0).Units.at(ID_VILLAGER_BASE_F).Creatable.ResourceCosts);
+        int maleVillagerCost =
+            getSumOfNaturalResourceCosts(df->Civs.at(0).Units.at(ID_VILLAGER_BASE_M).Creatable.ResourceCosts);
+        int femaleVillagerCost =
+            getSumOfNaturalResourceCosts(df->Civs.at(0).Units.at(ID_VILLAGER_BASE_F).Creatable.ResourceCosts);
         if (maleVillagerCost <= 200 && femaleVillagerCost <= 200) {
             return;
         }
@@ -209,6 +224,7 @@ void jumbleCosts(genie::DatFile *df) {
     }
     std::cout << "Giving up, villagers stay expensive, sorry." << std::endl;
 }
+
 
 void jumbleUnitCosts(genie::DatFile *df) {
     std::vector<int> unitIds;
@@ -220,7 +236,7 @@ void jumbleUnitCosts(genie::DatFile *df) {
     }
 
     std::vector<std::vector<ResourceCost>> allTheCosts;
-    for (int unitId: unitIds) {
+    for (int unitId : unitIds) {
         std::vector<ResourceCost> resourceCopy = df->Civs.at(0).Units.at(unitId).Creatable.ResourceCosts;
         allTheCosts.push_back(resourceCopy);
     }
@@ -231,9 +247,10 @@ void jumbleUnitCosts(genie::DatFile *df) {
         std::shuffle(allTheCosts.begin(), allTheCosts.end(), std::mt19937(seed));
 
         size_t index = 0;
-        for (int unitId: unitIds) {
+        for (int unitId : unitIds) {
             std::vector<ResourceCost> &resourceCosts = allTheCosts.at(index);
-            std::cout << "Setting cost of unit with id " << unitId << " to " << costToString(resourceCosts) << std::endl;
+            std::cout << "Setting cost of unit with id " << unitId << " to " << costToString(resourceCosts)
+                      << std::endl;
             if (!bothRequirePopulationHeadroom(unitId, resourceCosts, df->Civs.at(0))) {
                 copyResourceCostAt(unitId, 2, resourceCosts, df->Civs.at(0));
             }
@@ -243,10 +260,10 @@ void jumbleUnitCosts(genie::DatFile *df) {
             index++;
         }
 
-        int maleVillagerCost = getSumOfNaturalResourceCosts(
-                df->Civs.at(0).Units.at(ID_VILLAGER_BASE_M).Creatable.ResourceCosts);
-        int femaleVillagerCost = getSumOfNaturalResourceCosts(
-                df->Civs.at(0).Units.at(ID_VILLAGER_BASE_F).Creatable.ResourceCosts);
+        int maleVillagerCost =
+            getSumOfNaturalResourceCosts(df->Civs.at(0).Units.at(ID_VILLAGER_BASE_M).Creatable.ResourceCosts);
+        int femaleVillagerCost =
+            getSumOfNaturalResourceCosts(df->Civs.at(0).Units.at(ID_VILLAGER_BASE_F).Creatable.ResourceCosts);
         if (maleVillagerCost <= 200 && femaleVillagerCost <= 200) {
             return;
         }
@@ -254,6 +271,7 @@ void jumbleUnitCosts(genie::DatFile *df) {
     }
     std::cout << "Giving up, villagers stay expensive, sorry." << std::endl;
 }
+
 
 void jumbleTechCosts(genie::DatFile *df) {
     std::vector<int> techIds;
@@ -280,5 +298,4 @@ void jumbleTechCosts(genie::DatFile *df) {
         df->Techs.at(techId).ResourceCosts = resourceCosts;
         index++;
     }
-
 }

@@ -1,0 +1,25 @@
+---
+Language: Cpp
+IndentWidth: 4
+UseTab: Never
+DerivePointerAlignment: false
+PointerAlignment: Right
+IncludeBlocks: Merge
+IncludeCategories:
+    - Regex: '<[^>]+>'
+      Priority: 1
+    - Regex: '"[^"]+"'
+      Priority: 2
+SpacesInCStyleCastParentheses: false
+SpacesInAngles: false
+SpacesInParentheses: false
+SpaceInEmptyParentheses: false
+Standard: c++17
+ColumnLimit: 120
+IndentCaseBlocks: true
+InsertTrailingCommas: Wrapped
+BinPackArguments: false
+SpacesBeforeTrailingComments: 2
+AlignTrailingComments: true
+MaxEmptyLinesToKeep: 2
+---

@@ -1,3 +1,4 @@
+#include "kidnap.h"
 #include <list>
 #include "genie/dat/DatFile.h"
 #include "ids.h"
@@ -5,8 +6,8 @@
 
 void configureKidnap(genie::DatFile *df) {
     const std::list<int> scoutIds = {
-            ID_SCOUT,
-            ID_EAGLE_SCOUT,
+        ID_SCOUT,
+        ID_EAGLE_SCOUT,
     };
     for (genie::Civ &civ : df->Civs) {
         for (int scoutId : scoutIds) {
@@ -22,7 +23,7 @@ void configureKidnap(genie::DatFile *df) {
             kidnapTask->ActionType = ACTION_KIDNAP_UNIT;
             kidnapTask->ClassID = CLASS_CIVILIAN;
             kidnapTask->WorkRange = 0.25;
-            kidnapTask->ProceedingGraphicID = 1966; // SCOUT_AN
+            kidnapTask->ProceedingGraphicID = 1966;  // SCOUT_AN
             kidnapTask->TargetDiplomacy = 2;
             kidnapTask->GatherType = 2;
             scout.Bird.TaskList.push_back(*kidnapTask);
@@ -32,7 +33,7 @@ void configureKidnap(genie::DatFile *df) {
             lootTask->ActionType = ACTION_LOOT;
             lootTask->ClassID = CLASS_BUILDING;
             lootTask->WorkRange = 0.25;
-            lootTask->ProceedingGraphicID = 1966; // SCOUT_AN
+            lootTask->ProceedingGraphicID = 1966;  // SCOUT_AN
             lootTask->TargetDiplomacy = 2;
             lootTask->GatherType = 1;
             scout.Bird.TaskList.push_back(*lootTask);
