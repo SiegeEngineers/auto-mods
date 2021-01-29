@@ -24,7 +24,7 @@ jobs:
           sudo apt update 
           sudo apt install --fix-missing gcc g++ cmake \
           libboost-iostreams-dev libboost-program-options-dev \
-          zlib1g-dev
+          zlib1g-dev libc6-dev
       
       - name: Apply patches to submodules
         run: ./patchGenieutils.sh
