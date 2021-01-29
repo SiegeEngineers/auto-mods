@@ -29,37 +29,8 @@ git clone --recurse-submodules https://github.com/SiegeEngineers/auto-mods.git
 cd auto-mods
 ```
 
-### Installing dependencies
-
-You'll need:
-- `cmake`
-- `gcc`, `g++`
-- `libboost-iostreams-dev`
-- `libboost-program-options`
-- `zlib`
-
-#### Dependencies on Ubuntu (e.g. WSL)
-
-```sh
-sudo apt update 
-sudo apt install --fix-missing gcc g++ cmake \
-libboost-iostreams-dev libboost-program-options-dev \
-zlib1g-dev
-```
-
-### Compiling
-
-Inside the `repository root` use the following commands:
-
-```sh
-./patchGenieutils.sh
-mkdir build
-cd build
-cmake ..
-cmake --build .
-```
-
-You should now have an executable `create-data-mod` in the `build` folder. Hooray!
+Please read the [build instructions](./docs/build-instructions.md)
+for your corresponding platform.
 
 ## Usage
 
