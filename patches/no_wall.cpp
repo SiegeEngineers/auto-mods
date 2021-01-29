@@ -26,7 +26,7 @@ void disableWalls(genie::DatFile *df) {
     };
 
     for (int unitId: unitsToDisable) {
-		std::cout << "Disabling unit with id " << unitId << " for all civs" << std::endl;
+        std::cout << "Disabling unit with id " << unitId << " for all civs" << std::endl;
         for (genie::Civ &civ : df->Civs) {
             civ.Units.at(unitId).Enabled = 0;
         }
@@ -34,13 +34,13 @@ void disableWalls(genie::DatFile *df) {
 
     for (int techId: techsToDisable) {
         genie::Tech *tech = &df->Techs.at(techId);
-		std::cout << "Disabling the effect of tech with id " << techId << " ('" << tech->Name << "')" << std::endl;
+        std::cout << "Disabling the effect of tech with id " << techId << " ('" << tech->Name << "')" << std::endl;
         disableTechEffect(tech);
     }
 
     for (int techId: techsToHide) {
         genie::Tech *tech = &df->Techs.at(techId);
-		std::cout << "Disabling the research location of tech with id " << techId << " ('" << tech->Name << "')" << std::endl;
+        std::cout << "Disabling the research location of tech with id " << techId << " ('" << tech->Name << "')" << std::endl;
         disableTechResearchLocation(tech);
     }
 }

@@ -18,7 +18,7 @@ bool isNaturalResearchResourceCost(const ResearchResourceCost &cost) {
 }
 
 bool hasNaturalResourceCost(const genie::Unit &unit) {
-	std::vector<ResourceCost> costs = unit.Creatable.ResourceCosts;
+    std::vector<ResourceCost> costs = unit.Creatable.ResourceCosts;
     return std::any_of(costs.begin(), costs.end(), isNaturalResourceCost);
 }
 
@@ -54,7 +54,7 @@ ResourceCost toResourceCost(const ResearchResourceCost &researchResourceCost) {
 
 
 std::vector<ResearchResourceCost> toResearchResourceCosts(const std::vector<ResourceCost> &resourceCosts) {
-	std::vector<ResearchResourceCost> researchResourceCosts;
+    std::vector<ResearchResourceCost> researchResourceCosts;
     researchResourceCosts.reserve(resourceCosts.size());
     for (const ResourceCost &resourceCost : resourceCosts) {
         researchResourceCosts.push_back(toResearchResourceCost(resourceCost));
@@ -63,7 +63,7 @@ std::vector<ResearchResourceCost> toResearchResourceCosts(const std::vector<Reso
 }
 
 std::vector<ResourceCost> toResourceCosts(const std::vector<ResearchResourceCost> &researchResourceCosts) {
-	std::vector<ResourceCost> resourceCosts;
+    std::vector<ResourceCost> resourceCosts;
     resourceCosts.reserve(researchResourceCosts.size());
     for (const ResearchResourceCost &researchResourceCost : researchResourceCosts) {
         resourceCosts.push_back(toResourceCost(researchResourceCost));
@@ -72,7 +72,7 @@ std::vector<ResourceCost> toResourceCosts(const std::vector<ResearchResourceCost
 }
 
 std::string costToString(const std::vector<ResourceCost> &costs) {
-	std::string s;
+    std::string s;
     for (const ResourceCost &cost : costs) {
         if (cost.Flag == 1) {
             s += std::to_string(cost.Amount);
@@ -102,7 +102,7 @@ std::string costToString(const std::vector<ResourceCost> &costs) {
 }
 
 std::string costToString(const std::vector<ResearchResourceCost> &costs) {
-	std::string s;
+    std::string s;
     for (const ResearchResourceCost &cost : costs) {
         if (cost.Flag == 1) {
             s += std::to_string(cost.Amount);
@@ -146,49 +146,49 @@ void copyResourceCostAt(int unitId, int index, std::vector<ResourceCost> &target
 }
 
 void jumbleCosts(genie::DatFile *df) {
-	std::vector<int> unitIds;
+    std::vector<int> unitIds;
     for (genie::Unit unit : df->Civs.at(0).Units) {
         if (hasNaturalResourceCost(unit)) {
             unitIds.push_back(unit.ID);
         }
     }
 
-	std::vector<int> techIds;
+    std::vector<int> techIds;
     size_t index = 0;
     for (const genie::Tech &tech : df->Techs) {
-		std::vector<ResearchResourceCost> resourceCopy = tech.ResourceCosts;
+        std::vector<ResearchResourceCost> resourceCopy = tech.ResourceCosts;
         if (hasNaturalResearchResourceCost(resourceCopy)) {
             techIds.push_back(index);
         }
         index++;
     }
 
-	std::vector<std::vector<ResourceCost>> allTheCosts;
+    std::vector<std::vector<ResourceCost>> allTheCosts;
     for (int unitId: unitIds) {
-		std::vector<ResourceCost> resourceCopy = df->Civs.at(0).Units.at(unitId).Creatable.ResourceCosts;
+        std::vector<ResourceCost> resourceCopy = df->Civs.at(0).Units.at(unitId).Creatable.ResourceCosts;
         allTheCosts.push_back(resourceCopy);
     }
 
     for (int techId: techIds) {
-		std::vector<ResourceCost> resourceCopy = toResourceCosts(df->Techs.at(techId).ResourceCosts);
+        std::vector<ResourceCost> resourceCopy = toResourceCosts(df->Techs.at(techId).ResourceCosts);
         allTheCosts.push_back(resourceCopy);
     }
 
     for (int i = 0; i < 10; i++) {
         unsigned int seed = std::random_device()();
-		std::cout << "Seed for shuffling unit and tech costs is: " << std::to_string(seed) << std::endl;
+        std::cout << "Seed for shuffling unit and tech costs is: " << std::to_string(seed) << std::endl;
         shuffle(allTheCosts.begin(), allTheCosts.end(), std::mt19937(seed));
 
         size_t costIndex = 0;
         for (int techId: techIds) {
-			std::vector<ResearchResourceCost> researchResourceCosts = toResearchResourceCosts(allTheCosts.at(costIndex));
-			std::cout << "Setting cost of tech with id " << techId << " to " << costToString(researchResourceCosts) << std::endl;
+            std::vector<ResearchResourceCost> researchResourceCosts = toResearchResourceCosts(allTheCosts.at(costIndex));
+            std::cout << "Setting cost of tech with id " << techId << " to " << costToString(researchResourceCosts) << std::endl;
             df->Techs.at(techId).ResourceCosts = researchResourceCosts;
             costIndex++;
         }
         for (int unitId: unitIds) {
-			std::vector<ResourceCost> &resourceCosts = allTheCosts.at(costIndex);
-			std::cout << "Setting cost of unit with id " << unitId << " to " << costToString(resourceCosts) << std::endl;
+            std::vector<ResourceCost> &resourceCosts = allTheCosts.at(costIndex);
+            std::cout << "Setting cost of unit with id " << unitId << " to " << costToString(resourceCosts) << std::endl;
             if (!bothRequirePopulationHeadroom(unitId, resourceCosts, df->Civs.at(0))) {
                 copyResourceCostAt(unitId, 2, resourceCosts, df->Civs.at(0));
             }
@@ -205,13 +205,13 @@ void jumbleCosts(genie::DatFile *df) {
         if (maleVillagerCost <= 200 && femaleVillagerCost <= 200) {
             return;
         }
-		std::cout << "Villagers are too expensive, reshuffling…" << std::endl;
+        std::cout << "Villagers are too expensive, reshuffling…" << std::endl;
     }
-	std::cout << "Giving up, villagers stay expensive, sorry." << std::endl;
+    std::cout << "Giving up, villagers stay expensive, sorry." << std::endl;
 }
 
 void jumbleUnitCosts(genie::DatFile *df) {
-	std::vector<int> unitIds;
+    std::vector<int> unitIds;
 
     for (genie::Unit unit : df->Civs.at(0).Units) {
         if (hasNaturalResourceCost(unit)) {
@@ -219,21 +219,21 @@ void jumbleUnitCosts(genie::DatFile *df) {
         }
     }
 
-	std::vector<std::vector<ResourceCost>> allTheCosts;
+    std::vector<std::vector<ResourceCost>> allTheCosts;
     for (int unitId: unitIds) {
-		std::vector<ResourceCost> resourceCopy = df->Civs.at(0).Units.at(unitId).Creatable.ResourceCosts;
+        std::vector<ResourceCost> resourceCopy = df->Civs.at(0).Units.at(unitId).Creatable.ResourceCosts;
         allTheCosts.push_back(resourceCopy);
     }
 
     for (int i = 0; i < 10; i++) {
         unsigned int seed = std::random_device()();
-		std::cout << "Seed for shuffling unit costs is: " << std::to_string(seed) << std::endl;
-		std::shuffle(allTheCosts.begin(), allTheCosts.end(), std::mt19937(seed));
+        std::cout << "Seed for shuffling unit costs is: " << std::to_string(seed) << std::endl;
+        std::shuffle(allTheCosts.begin(), allTheCosts.end(), std::mt19937(seed));
 
         size_t index = 0;
         for (int unitId: unitIds) {
-			std::vector<ResourceCost> &resourceCosts = allTheCosts.at(index);
-			std::cout << "Setting cost of unit with id " << unitId << " to " << costToString(resourceCosts) << std::endl;
+            std::vector<ResourceCost> &resourceCosts = allTheCosts.at(index);
+            std::cout << "Setting cost of unit with id " << unitId << " to " << costToString(resourceCosts) << std::endl;
             if (!bothRequirePopulationHeadroom(unitId, resourceCosts, df->Civs.at(0))) {
                 copyResourceCostAt(unitId, 2, resourceCosts, df->Civs.at(0));
             }
@@ -250,18 +250,18 @@ void jumbleUnitCosts(genie::DatFile *df) {
         if (maleVillagerCost <= 200 && femaleVillagerCost <= 200) {
             return;
         }
-		std::cout << "Villagers are too expensive, reshuffling…" << std::endl;
+        std::cout << "Villagers are too expensive, reshuffling…" << std::endl;
     }
-	std::cout << "Giving up, villagers stay expensive, sorry." << std::endl;
+    std::cout << "Giving up, villagers stay expensive, sorry." << std::endl;
 }
 
 void jumbleTechCosts(genie::DatFile *df) {
-	std::vector<int> techIds;
+    std::vector<int> techIds;
 
-	std::vector<std::vector<ResearchResourceCost>> allTheCosts;
+    std::vector<std::vector<ResearchResourceCost>> allTheCosts;
     size_t index = 0;
     for (const genie::Tech &tech : df->Techs) {
-		std::vector<ResearchResourceCost> resourceCopy = tech.ResourceCosts;
+        std::vector<ResearchResourceCost> resourceCopy = tech.ResourceCosts;
         if (hasNaturalResearchResourceCost(resourceCopy)) {
             allTheCosts.push_back(resourceCopy);
             techIds.push_back(index);
@@ -270,13 +270,13 @@ void jumbleTechCosts(genie::DatFile *df) {
     }
 
     unsigned int seed = std::random_device()();
-	std::cout << "Seed for shuffling tech costs is: " << std::to_string(seed) << std::endl;
+    std::cout << "Seed for shuffling tech costs is: " << std::to_string(seed) << std::endl;
     shuffle(allTheCosts.begin(), allTheCosts.end(), std::mt19937(seed));
 
     index = 0;
     for (size_t techId : techIds) {
-		std::vector<ResearchResourceCost> &resourceCosts = allTheCosts.at(index);
-		std::cout << "Setting cost of tech with id " << techId << " to " << costToString(resourceCosts) << std::endl;
+        std::vector<ResearchResourceCost> &resourceCosts = allTheCosts.at(index);
+        std::cout << "Setting cost of tech with id " << techId << " to " << costToString(resourceCosts) << std::endl;
         df->Techs.at(techId).ResourceCosts = resourceCosts;
         index++;
     }

@@ -9,6 +9,6 @@ void makeTransportShipsFly(genie::DatFile *df) {
         transport_ship.FlyMode = 1; // true
         transport_ship.TerrainRestriction = 0; // All
         transport_ship.CollisionSize = {0, 0, 0}; // walk through everything, like flying
-		std::cout << "Patched Transport Ship unit for civ " << civ.Name << "\n";
+        std::cout << "Patched Transport Ship unit for civ " << civ.Name << "\n";
     }
 }

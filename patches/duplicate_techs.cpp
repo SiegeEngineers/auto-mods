@@ -8,7 +8,7 @@ void duplicateTech(genie::DatFile *df, const genie::Tech &tech, int totalCount) 
     for (int i = 0; i < (totalCount - 1); ++i) {
         df->Techs.push_back(tech);
     }
-	std::cout << "Added Tech '" << tech.Name << "' for a total of " << totalCount << " instances" << std::endl;
+    std::cout << "Added Tech '" << tech.Name << "' for a total of " << totalCount << " instances" << std::endl;
 }
 
 void duplicateTechs(genie::DatFile *df, int totalCount) {

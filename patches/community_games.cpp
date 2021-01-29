@@ -4,7 +4,7 @@
 
 
 void addPopulationCostToBombardTower(genie::DatFile *df) {
-	std::cout << "Adding population cost to bombard towers of all civs" << std::endl;
+    std::cout << "Adding population cost to bombard towers of all civs" << std::endl;
     for (genie::Civ &civ : df->Civs) {
         genie::Unit &bombard_tower = civ.Units.at(BOMBARD_TOWER);
         genie::ResourceUsage<int16_t, int16_t, int16_t> &resourceCosts = bombard_tower.Creatable.ResourceCosts.at(2);
@@ -27,7 +27,7 @@ void addPopulationCostToBombardTower(genie::DatFile *df) {
 }
 
 void addGreatHallTech(genie::DatFile *df) {
-	std::cout << "Adding great hall tech" << std::endl;
+    std::cout << "Adding great hall tech" << std::endl;
     auto effectCommand = new genie::EffectCommand();
     effectCommand->Type = 1; // Resource Modifier
     effectCommand->A = 32; // Resource: Bonus Population Cap
@@ -80,7 +80,7 @@ void addElitePetard(genie::DatFile *df) {
         elitePetard.Type50.Armours.at(1).Amount = 3;
         elitePetard.Creatable.DisplayedPierceArmour = 3;
         elitePetardId = civ.Units.size();
-		std::cout << "Adding elite petard for civ " << civ.Name << " with ID " << elitePetardId << std::endl;
+        std::cout << "Adding elite petard for civ " << civ.Name << " with ID " << elitePetardId << std::endl;
         civ.Units.push_back(elitePetard);
         civ.UnitPointers.push_back(1);
     }
@@ -114,12 +114,12 @@ void addElitePetard(genie::DatFile *df) {
     tech->ResourceCosts.at(1).Amount = 450;
     tech->ResourceCosts.at(1).Flag = 1;
 
-	std::cout << "Adding Elite Petard Tech with id " << df->Techs.size() << std::endl;
+    std::cout << "Adding Elite Petard Tech with id " << df->Techs.size() << std::endl;
     df->Techs.push_back(*tech);
 }
 
 void modifyCaravanCost(genie::DatFile *df, int amountFood, int amountGold) {
-	std::cout << "Setting the cost of Caravan (" << TECH_CARAVAN << ") to " << amountFood << " Food, " << amountGold
+    std::cout << "Setting the cost of Caravan (" << TECH_CARAVAN << ") to " << amountFood << " Food, " << amountGold
          << " Gold" << std::endl;
     genie::Tech &caravan = df->Techs.at(TECH_CARAVAN);
     caravan.ResourceCosts.at(0).Type = TYPE_FOOD;
@@ -136,7 +136,7 @@ void makeTreesContain200Wood(genie::DatFile *df) {
         for (genie::Unit &unit: civ.Units) {
             for (auto storage : unit.ResourceStorages) {
                 if (storage.Type == TYPE_WOOD && storage.Amount > 50) {
-					std::cout << "Setting amount of wood in " << unit.Name << " (" << unit.ID << ") to 200" << std::endl;
+                    std::cout << "Setting amount of wood in " << unit.Name << " (" << unit.ID << ") to 200" << std::endl;
                     storage.Amount = 200;
                 }
             }
