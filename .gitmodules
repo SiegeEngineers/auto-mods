@@ -1,6 +1,6 @@
 [submodule "genieutils"]
-	path = genieutils
+	path = 3rd-party/genieutils
 	url = https://github.com/Tapsa/genieutils.git
 [submodule "pcrio"]
-	path = pcrio
+	path = 3rd-party/pcrio
 	url = https://github.com/Tapsa/pcrio.git
