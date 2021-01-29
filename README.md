@@ -29,7 +29,7 @@ git clone --recurse-submodules https://github.com/SiegeEngineers/auto-mods.git
 cd auto-mods
 ```
 
-Please read the [build instructions](./docs/build_instructions.md)
+Please read the [build instructions](./docs/build-instructions.md)
 for your corresponding platform.
 
 ## Usage
