@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 project(create-data-mod VERSION 1.0)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++")
-add_subdirectory(genieutils EXCLUDE_FROM_ALL)
+add_subdirectory(3rd-party/genieutils EXCLUDE_FROM_ALL)
 include_directories(
-        "genieutils/include"
+        "3rd-party/genieutils/include"
         "."
 )
 add_executable(
