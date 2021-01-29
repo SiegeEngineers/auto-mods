@@ -11,13 +11,13 @@ void configureKidnap(genie::DatFile *df) {
     for (genie::Civ &civ : df->Civs) {
         for (int scoutId : scoutIds) {
             genie::Unit &scout = civ.Units.at(scoutId);
-			std::cout << "Setting Scout (" << scoutId << ") properties for civ " << civ.Name << std::endl;
+            std::cout << "Setting Scout (" << scoutId << ") properties for civ " << civ.Name << std::endl;
             scout.Type50.Attacks.clear();
             scout.Type50.DisplayedAttack = 0;
             scout.GarrisonCapacity = 1;
             scout.Bird.TaskList.erase(scout.Bird.TaskList.begin());
 
-			std::cout << "Adding Kidnap Task to scout (" << scoutId << ") for civ " << civ.Name << std::endl;
+            std::cout << "Adding Kidnap Task to scout (" << scoutId << ") for civ " << civ.Name << std::endl;
             auto kidnapTask = new genie::Task();
             kidnapTask->ActionType = ACTION_KIDNAP_UNIT;
             kidnapTask->ClassID = CLASS_CIVILIAN;
@@ -27,7 +27,7 @@ void configureKidnap(genie::DatFile *df) {
             kidnapTask->GatherType = 2;
             scout.Bird.TaskList.push_back(*kidnapTask);
 
-			std::cout << "Adding Loot Task to scout (" << scoutId << ") for civ " << civ.Name << std::endl;
+            std::cout << "Adding Loot Task to scout (" << scoutId << ") for civ " << civ.Name << std::endl;
             auto lootTask = new genie::Task();
             lootTask->ActionType = ACTION_LOOT;
             lootTask->ClassID = CLASS_BUILDING;

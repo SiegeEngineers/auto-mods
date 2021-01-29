@@ -4,7 +4,7 @@
 
 
 void configureExplodingVillagers(genie::DatFile *df) {
-	std::set<int> villagers = {
+    std::set<int> villagers = {
             ID_FISHING_SHIP,
             ID_TRADE_COG,
             ID_TRADE_CART_EMPTY,
@@ -36,7 +36,7 @@ void configureExplodingVillagers(genie::DatFile *df) {
     for (genie::Civ &civ : df->Civs) {
         for (int villager_id : villagers) {
             civ.Units.at(villager_id).DeadUnitID = ID_SABOTEUR;
-			std::cout << "Patched Villager unit " << villager_id << " for civ " << civ.Name << "\n";
+            std::cout << "Patched Villager unit " << villager_id << " for civ " << civ.Name << "\n";
         }
         genie::Unit &saboteur = civ.Units.at(ID_SABOTEUR);
         saboteur.HitPoints = 0;
@@ -47,6 +47,6 @@ void configureExplodingVillagers(genie::DatFile *df) {
         saboteur.Type50.BlastAttackLevel = 1; // cut trees
         saboteur.TrainSound = -1;
         saboteur.WwiseTrainSoundID = 0; // prevent melee unit train sound from playing
-		std::cout << "Patched Saboteur unit for civ " << civ.Name << "\n";
+        std::cout << "Patched Saboteur unit for civ " << civ.Name << "\n";
     }
 }
