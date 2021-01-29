@@ -20,7 +20,7 @@ jobs:
           submodules: recursive
 
       - name: Installing dependencies
-        run:
+        run: |
           sudo apt update 
           sudo apt install --fix-missing gcc g++ cmake \
           libboost-iostreams-dev libboost-program-options-dev \
@@ -30,7 +30,7 @@ jobs:
         run: ./patchGenieutils.sh
 
       - name: Build
-        run:
+        run: |
           mkdir build && cd build
           cmake ..
           cmake --build .
