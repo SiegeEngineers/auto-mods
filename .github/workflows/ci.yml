@@ -1,0 +1,36 @@
+name: Continuous Integration
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master, ci ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          submodules: recursive
+
+      - name: Installing dependencies
+        run: |
+          sudo apt update 
+          sudo apt install --fix-missing gcc g++ cmake \
+          libboost-iostreams-dev libboost-program-options-dev \
+          zlib1g-dev libc6-dev
+      
+      - name: Apply patches to submodules
+        run: ./patchGenieutils.sh
+
+      - name: Build
+        run: |
+          mkdir build && cd build
+          cmake ..
+          cmake --build .
