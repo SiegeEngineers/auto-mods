@@ -93,7 +93,7 @@ void addDummyAnnexBuilding(genie::DatFile *df, const std::vector<int16_t> annexU
         newAnnex.UnitID = i < annexUnitIds.size() ? annexUnitIds.at(i) : -1;
         dummyAnnexUnit.Building.Annexes.push_back(newAnnex);
     }
-    for (auto& civ : df->Civs) {
+    for (auto &civ : df->Civs) {
         civ.Units.push_back(dummyAnnexUnit);
         civ.UnitPointers.push_back(1);
     }
@@ -109,7 +109,7 @@ void multiplySetAttributeModifierCommand(genie::DatFile *df, genie::EffectComman
     }
 }
 
-void multiplyResourceModifierCommand(genie::DatFile *df, genie::EffectCommand& command, int civ_id, int times) {
+void multiplyResourceModifierCommand(genie::DatFile *df, genie::EffectCommand &command, int civ_id, int times) {
 	if (command.B == 0) { // `set` mode
 		auto baseValue = df->Civs[civ_id].Resources.at(command.A);
         // research cost modifier and research time modifier resources have a base value of 0
@@ -231,7 +231,7 @@ void multiplyTechTimeModifierCommand(genie::DatFile *df, genie::EffectCommand &c
     if (command.A == -1) {
         return;
     }
-    const genie::Tech& tech = df->Techs[command.A];
+    const genie::Tech &tech = df->Techs[command.A];
     if (command.C == 0) { // `set` mode
 
     }
@@ -301,9 +301,9 @@ void multiplyEffectCommand(genie::DatFile *df, genie::EffectCommand &command, ui
 void multiplyEffect(genie::DatFile *df, uint16_t effectId, uint16_t civ_id, int times) {
     times = capEffectMultiplication(static_cast<EffectId>(effectId), times);
 
-    auto& effect = df->Effects.at(effectId);
+    auto &effect = df->Effects.at(effectId);
     std::cout << "Effect " << effectId << " \"" << effect.Name << "\"" << std::endl;
-    for (auto& command: effect.EffectCommands) {
+    for (auto &command: effect.EffectCommands) {
         multiplyEffectCommand(df, command, effectId, civ_id, times);
     }
 }
@@ -339,7 +339,7 @@ void multiplyCivilizationBonuses(genie::DatFile *df, int times) {
     }
 
 	for (auto civ = df->Civs.begin(); civ != df->Civs.end(); ++civ) {
-		auto& unit = civ->Units[ID_MADRASAH_MONK];
+		auto &unit = civ->Units[ID_MADRASAH_MONK];
         for (auto &storage : unit.ResourceStorages) {
             storage.Amount *= capEffectMultiplication(EffectId::SARACEN_MADRASAH, times);
         }
