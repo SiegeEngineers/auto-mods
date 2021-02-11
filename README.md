@@ -1,7 +1,7 @@
 # auto-mods
 some data mods, generated programmatically, so they can be recreated automagically for every new patch
 
-> We just do everything auto!«  
+> We just do everything auto!«
 > *\- [MbL, 2020](https://clips.twitch.tv/AttractiveAntediluvianAmazonHassaanChop)*
 
 ## Published Mods
@@ -20,7 +20,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [256x Tech Mod](https://www.ageofempires.com/mods/details/15920/)
 
 ## Build instructions
-### Cloning 
+### Cloning
 
 _NOTE:_ Remember that you need to clone this repository with its submodules!
 
@@ -41,7 +41,7 @@ You'll need:
 #### Dependencies on Ubuntu (e.g. WSL)
 
 ```sh
-sudo apt update 
+sudo apt update
 sudo apt install --fix-missing gcc g++ cmake \
 libboost-iostreams-dev libboost-program-options-dev \
 zlib1g-dev
@@ -52,10 +52,9 @@ zlib1g-dev
 Inside the `repository root` use the following commands:
 
 ```sh
-./patchGenieutils.sh
 mkdir build
 cd build
-cmake ..
+cmake -DSTATIC_COMPILE=TRUE ..
 cmake --build .
 ```
 
@@ -66,7 +65,7 @@ You should now have an executable `create-data-mod` in the `build` folder. Hoora
 Execute the executable without parameters to get usage instructions.
 
 ```sh
-$ ./create-data-mod 
+$ ./create-data-mod
 Usage: ./create-data-mod <mod-identifier> source.dat target.dat
 Where <mod-identifier> is one of the following, or multiple of the following joined by a +:
     community-games
