@@ -5,5 +5,5 @@
 
 set -e
 mkdir -p build
-cmake -S . -B build
+cmake -S . -B build -DSTATIC_COMPILE=TRUE
 cmake --build build
