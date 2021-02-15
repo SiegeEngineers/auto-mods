@@ -58,7 +58,27 @@ cmake -DSTATIC_COMPILE=TRUE ..
 cmake --build .
 ```
 
+Note:  You can also run `./scripts/build.sh` from the project root.
+
 You should now have an executable `create-data-mod` in the `build` folder. Hooray!
+
+### Debugging (GDB on Ubuntu)
+
+1. Ensure gcc tools are installed: `sudo apt-get install build-essential gdb`
+
+Now we have two debug options:
+
+2. Debug via GDB on the terminal...
+```
+./buildForDebugger.sh  # make sure to run this from the project root
+gdb build/create-data-mod
+> b main
+> run
+```
+
+3. OR use the VSCode visual debugger, by going to the debug sidebar on the left, and running the `(gdb) Build and Launch` configuration.  This will automatically make a debug build and run it.  You can set breakpoints in the visual debugger.
+
+*Right now it runs `create-data-mod` with no parameters.  For testing, you can add arguments to `.vscode/launch.json` in the `args` parameter.*
 
 ## Usage
 
