@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/create-data-mod",
             "args": [],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "MIMode": "gdb",

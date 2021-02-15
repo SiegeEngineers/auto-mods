@@ -58,6 +58,8 @@ cmake -DSTATIC_COMPILE=TRUE ..
 cmake --build .
 ```
 
+Note:  You can also run `./scripts/build.sh` from the project root.
+
 You should now have an executable `create-data-mod` in the `build` folder. Hooray!
 
 ### Debugging (GDB on Ubuntu)
@@ -68,7 +70,7 @@ Now we have two debug options:
 
 2. Debug via GDB on the terminal...
 ```
-bash ./buildForDebugger.sh
+./buildForDebugger.sh  # make sure to run this from the project root
 gdb build/create-data-mod
 > b main
 > run

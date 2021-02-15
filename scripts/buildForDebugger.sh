@@ -1,6 +1,7 @@
 #! /bin/bash
 
-# run this script script from the project root.  It will build with g++ -g compiler flags, so
+# run this script script from the project root: ./scripts/buildForDebugger.sh
+# It will build with g++ -g compiler flags, so
 # gdb can be used to debug
 # Note: This is only tested on Ubuntu 20
 set -e
