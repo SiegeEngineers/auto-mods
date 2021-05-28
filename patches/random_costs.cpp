@@ -3,6 +3,7 @@
 #include <random>
 #include <string>
 #include <vector>
+#include <list>
 #include "genie/dat/DatFile.h"
 #include "ids.h"
 
@@ -154,6 +155,23 @@ void copyResourceCostAt(int unitId, int index, std::vector<ResourceCost> &target
     target.at(index).Type = source.Type;
     target.at(index).Amount = source.Amount;
     target.at(index).Flag = source.Flag;
+}
+
+
+void enableStablesForMesoCivs(genie::DatFile *df) {
+    const std::list<int> civBonusEffects = {3, 447, 449};
+    for (const auto &civBonusId : civBonusEffects) {
+        int position = 0;
+        for (const auto &item : df->Effects.at(civBonusId).EffectCommands) {
+            if (item.Type == 102 && item.D == 25) {
+                std::cout << "Patching civ bonus effect " << civBonusId << ": re-enabling stable" << std::endl;
+                df->Effects.at(civBonusId).EffectCommands.erase(
+                        df->Effects.at(civBonusId).EffectCommands.begin() + position);
+                break;
+            }
+            position++;
+        }
+    }
 }
 
 

@@ -84,10 +84,13 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         disableWalls(df);
     } else if (RANDOM_COSTS == modIdentifier) {
         jumbleCosts(df);
+        enableStablesForMesoCivs(df);
     } else if (RANDOM_TECH_COSTS == modIdentifier) {
         jumbleTechCosts(df);
+        enableStablesForMesoCivs(df);
     } else if (RANDOM_UNIT_COSTS == modIdentifier) {
         jumbleUnitCosts(df);
+        enableStablesForMesoCivs(df);
     } else if (X_3_TECH == modIdentifier) {
         duplicateTechs(df, 3);
     } else if (X_9_TECH == modIdentifier) {

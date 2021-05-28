@@ -5,6 +5,7 @@
 
 
 void jumbleCosts(genie::DatFile *df);
+void enableStablesForMesoCivs(genie::DatFile *df);
 void jumbleUnitCosts(genie::DatFile *df);
 void jumbleTechCosts(genie::DatFile *df);
 
