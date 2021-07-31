@@ -37,6 +37,7 @@ You'll need:
 - `libboost-iostreams-dev`
 - `libboost-program-options`
 - `zlib`
+- `lz4`
 
 #### Dependencies on Ubuntu (e.g. WSL)
 
@@ -44,7 +45,7 @@ You'll need:
 sudo apt update
 sudo apt install --fix-missing gcc g++ cmake \
 libboost-iostreams-dev libboost-program-options-dev \
-zlib1g-dev
+zlib1g-dev liblz4-dev
 ```
 
 ### Compiling
