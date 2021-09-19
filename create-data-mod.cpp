@@ -7,6 +7,7 @@
 #include "patches/kidnap.h"
 #include "patches/no_wall.h"
 #include "patches/random_costs.h"
+#include "patches/shared_techs.h"
 
 
 using namespace std;
@@ -18,6 +19,7 @@ const char *const NO_WALL = "no-wall";
 const char *const RANDOM_COSTS = "random-costs";
 const char *const RANDOM_TECH_COSTS = "random-tech-costs";
 const char *const RANDOM_UNIT_COSTS = "random-unit-costs";
+const char *const SHARED_TECHS = "shared-techs";
 const char *const X_256_TECH = "x256";
 const char *const X_3_TECH = "x3";
 const char *const X_9_TECH = "x9";
@@ -42,6 +44,7 @@ int main(int argc, char **argv) {
         cout << "    " << RANDOM_COSTS << endl;
         cout << "    " << RANDOM_TECH_COSTS << endl;
         cout << "    " << RANDOM_UNIT_COSTS << endl;
+        cout << "    " << SHARED_TECHS << endl;
         cout << "    " << X_3_TECH << endl;
         cout << "    " << X_9_TECH << endl;
         cout << "    " << X_256_TECH << endl;
@@ -91,6 +94,8 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
     } else if (RANDOM_UNIT_COSTS == modIdentifier) {
         jumbleUnitCosts(df);
         enableStablesForMesoCivs(df);
+    } else if (SHARED_TECHS == modIdentifier) {
+        makeTechEffectsShared(df);
     } else if (X_3_TECH == modIdentifier) {
         duplicateTechs(df, 3);
     } else if (X_9_TECH == modIdentifier) {
