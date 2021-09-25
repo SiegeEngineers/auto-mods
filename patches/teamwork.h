@@ -1,5 +1,5 @@
-#ifndef SHARED_TECHS_H
-#define SHARED_TECHS_H
+#ifndef TEAMWORK_H
+#define TEAMWORK_H
 
 #include "genie/dat/DatFile.h"
 
@@ -10,10 +10,6 @@ typedef genie::ResourceUsage<int16_t, int16_t, uint8_t> ResearchResourceCost;
 
 void makeTechEffectsShared(genie::DatFile *df);
 
-bool isProbablyCivBonus(const genie::Tech &tech);
-
-bool techIsFree(const std::vector<ResearchResourceCost> &costs);
-
 bool shouldSkipEffect(genie::Effect &effect);
 
-#endif  // SHARED_TECHS_h
+#endif  // TEAMWORK_H
