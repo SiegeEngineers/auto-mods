@@ -138,6 +138,12 @@ void duplicateTechs(genie::DatFile *df, int totalCount) {
         HILL_FORTS,
         TOWER_SHIELDS,
         SUPPLIES,
+        FIRST_CRUSADE,
+        HAUBERK,
+        BURGUNDIAN_VINEYARDS,
+        FLEMISH_REVOLUTION,
+        WAGENBURG_TACTICS,
+        SZLACHTA_PRIVILEGES,
     };
 
     for (int techId : techsToDuplicate) {

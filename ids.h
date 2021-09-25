@@ -147,6 +147,12 @@ static const int CUMAN_MERCENARIES = 690;
 static const int HILL_FORTS = 691;
 static const int TOWER_SHIELDS = 692;
 static const int SUPPLIES = 716;
+static const int FIRST_CRUSADE = 756;
+static const int HAUBERK = 757;
+static const int BURGUNDIAN_VINEYARDS = 754;
+static const int FLEMISH_REVOLUTION = 755;
+static const int WAGENBURG_TACTICS = 784;
+static const int SZLACHTA_PRIVILEGES = 782;
 
 static const int ID_TRANSPORT_SHIP = 545;
 static const int ID_RAM = 35;
