@@ -36,3 +36,7 @@ build
 *.exe
 *.out
 *.app
+
+build.sh
+.vscode/c_cpp_properties.json
+.vscode/settings.json

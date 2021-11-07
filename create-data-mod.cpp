@@ -8,6 +8,7 @@
 #include "patches/no_wall.h"
 #include "patches/random_costs.h"
 #include "patches/teamwork.h"
+#include "patches/256x.h"
 
 
 using namespace std;
@@ -101,7 +102,7 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
     } else if (X_9_TECH == modIdentifier) {
         duplicateTechs(df, 9);
     } else if (X_256_TECH == modIdentifier) {
-        duplicateTechs(df, 256);
+        configure256x(df);
     } else {
         cout << "Unknown mod identifier: '" << modIdentifier << "'" << endl;
     }
