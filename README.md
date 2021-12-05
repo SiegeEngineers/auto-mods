@@ -9,6 +9,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [Community Games Mod](https://www.ageofempires.com/mods/details/15917/)
 - [Flying Dutchman](https://www.ageofempires.com/mods/details/15644/)
 - [Exploding Villagers](https://www.ageofempires.com/mods/details/15682/)
+- [Exploding Villagers Extreme](https://www.ageofempires.com/mods/details/47898/)
 - [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/15681/)
 - [Kidnap Mod](https://www.ageofempires.com/mods/details/15982/)
 - [No Wall Mod](https://www.ageofempires.com/mods/details/15916/)
@@ -92,6 +93,7 @@ Usage: ./create-data-mod <mod-identifier> source.dat target.dat
 Where <mod-identifier> is one of the following, or multiple of the following joined by a +:
     community-games
     exploding-villagers
+    exploding-villagers-extreme
     flying-dutchman
     kidnap
     no-wall

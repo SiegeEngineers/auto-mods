@@ -4,6 +4,6 @@
 #include "genie/dat/DatFile.h"
 
 
-void configureExplodingVillagers(genie::DatFile *df);
+void configureExplodingVillagers(genie::DatFile *df, bool nerfSaboteur);
 
 #endif  // EXPLODING_VILLAGERS_H

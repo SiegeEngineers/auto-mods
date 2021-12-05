@@ -4,6 +4,7 @@ rm -rf mods
 mkdir -p mods/community_games/resources/_common/dat
 mkdir -p mods/flying_dutchman/resources/_common/dat
 mkdir -p mods/exploding_villagers/resources/_common/dat
+mkdir -p mods/exploding_villagers_extreme/resources/_common/dat
 mkdir -p mods/exploding_villagers_flying_dutchman/resources/_common/dat
 mkdir -p mods/kidnap/resources/_common/dat
 mkdir -p mods/exploding_villagers_kidnap/resources/_common/dat
@@ -19,6 +20,7 @@ mkdir -p mods/x256/resources/_common/dat
 ./build/create-data-mod community-games ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/community_games/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod flying-dutchman ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/flying_dutchman/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod exploding-villagers ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_villagers/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod exploding-villagers-extreme ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_villagers_extreme/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod exploding-villagers+flying-dutchman ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_villagers_flying_dutchman/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod kidnap ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/kidnap/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod exploding-villagers+kidnap ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_villagers_kidnap/resources/_common/dat/empires2_x2_p1.dat
@@ -41,6 +43,10 @@ cd ../..
 
 cd mods/exploding_villagers
 zip -r ../exploding_villagers.zip *
+cd ../..
+
+cd mods/exploding_villagers_extreme
+zip -r ../exploding_villagers_extreme.zip *
 cd ../..
 
 cd mods/exploding_villagers_flying_dutchman

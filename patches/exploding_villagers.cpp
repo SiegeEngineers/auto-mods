@@ -4,7 +4,7 @@
 #include "ids.h"
 
 
-void configureExplodingVillagers(genie::DatFile *df) {
+void configureExplodingVillagers(genie::DatFile *df, bool nerfSaboteur) {
     std::set<int> villagers = {
         ID_FISHING_SHIP,        ID_TRADE_COG,           ID_TRADE_CART_EMPTY,   ID_TRADE_CART_FULL,
         ID_VILLAGER_BASE_M,     ID_VILLAGER_BASE_F,     ID_VILLAGER_FARMER_M,  ID_VILLAGER_FARMER_F,
@@ -22,9 +22,11 @@ void configureExplodingVillagers(genie::DatFile *df) {
         }
         genie::Unit &saboteur = civ.Units.at(ID_SABOTEUR);
         saboteur.HitPoints = 0;
-        saboteur.Type50.Attacks.at(0).Amount = 50;
-        saboteur.Type50.Attacks.at(1).Amount = 90;
-        saboteur.Type50.Attacks.at(2).Amount = 0;
+        if (nerfSaboteur) {
+            saboteur.Type50.Attacks.at(0).Amount = 50;
+            saboteur.Type50.Attacks.at(1).Amount = 90;
+            saboteur.Type50.Attacks.at(2).Amount = 0;
+        }
         saboteur.Type50.MaxRange = 2;
         saboteur.Type50.BlastAttackLevel = 1;  // cut trees
         saboteur.TrainSound = -1;

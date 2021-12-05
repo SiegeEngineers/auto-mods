@@ -13,6 +13,7 @@
 using namespace std;
 const char *const COMMUNITY_GAMES = "community-games";
 const char *const EXPLODING_VILLAGERS = "exploding-villagers";
+const char *const EXPLODING_VILLAGERS_EXTREME = "exploding-villagers-extreme";
 const char *const FLYING_DUTCHMAN = "flying-dutchman";
 const char *const KIDNAP = "kidnap";
 const char *const NO_WALL = "no-wall";
@@ -38,6 +39,7 @@ int main(int argc, char **argv) {
         cout << "Where <mod-identifier> is one of the following, or multiple of the following joined by a +:" << endl;
         cout << "    " << COMMUNITY_GAMES << endl;
         cout << "    " << EXPLODING_VILLAGERS << endl;
+        cout << "    " << EXPLODING_VILLAGERS_EXTREME << endl;
         cout << "    " << FLYING_DUTCHMAN << endl;
         cout << "    " << KIDNAP << endl;
         cout << "    " << NO_WALL << endl;
@@ -78,7 +80,9 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
     if (COMMUNITY_GAMES == modIdentifier) {
         configureCommunityGamesMod(df);
     } else if (EXPLODING_VILLAGERS == modIdentifier) {
-        configureExplodingVillagers(df);
+        configureExplodingVillagers(df, true);
+    } else if (EXPLODING_VILLAGERS_EXTREME == modIdentifier) {
+        configureExplodingVillagers(df, false);
     } else if (FLYING_DUTCHMAN == modIdentifier) {
         makeTransportShipsFly(df);
     } else if (KIDNAP == modIdentifier) {
