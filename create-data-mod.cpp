@@ -100,6 +100,7 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         enableStablesForMesoCivs(df);
     } else if (TEAMWORK == modIdentifier) {
         makeTechEffectsShared(df);
+        makeFarmTechsBuffSpeed(df);
     } else if (X_3_TECH == modIdentifier) {
         duplicateTechs(df, 3);
     } else if (X_9_TECH == modIdentifier) {
