@@ -64,7 +64,15 @@ std::vector<ResearchResourceCost> toResearchResourceCosts(const std::vector<Reso
     std::vector<ResearchResourceCost> researchResourceCosts;
     researchResourceCosts.reserve(resourceCosts.size());
     for (const ResourceCost &resourceCost : resourceCosts) {
-        researchResourceCosts.push_back(toResearchResourceCost(resourceCost));
+        if (resourceCost.Type < TYPE_POPULATION_HEADROOM) {
+            researchResourceCosts.push_back(toResearchResourceCost(resourceCost));
+        } else {
+            ResearchResourceCost researchResourceCost;
+            researchResourceCost.Type = -1;
+            researchResourceCost.Amount = 0;
+            researchResourceCost.Flag = false;
+            researchResourceCosts.push_back(researchResourceCost);
+        }
     }
     return researchResourceCosts;
 }
