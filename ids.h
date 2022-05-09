@@ -217,4 +217,7 @@ static const int ACTION_LOOT = 122;
 static const int CLASS_CIVILIAN = 4;
 static const int CLASS_BUILDING = 3;
 
+static const int MARKET = 84;
+static const int SARACENS = 9;
+
 #endif //CREATE_DATA_MOD_IDS_H
