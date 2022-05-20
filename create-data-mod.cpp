@@ -5,6 +5,7 @@
 #include "patches/exploding_villagers.h"
 #include "patches/flying_dutchman.h"
 #include "patches/kidnap.h"
+#include "patches/matryoshka.h"
 #include "patches/no_wall.h"
 #include "patches/random_costs.h"
 #include "patches/teamwork.h"
@@ -16,6 +17,7 @@ const char *const EXPLODING_VILLAGERS = "exploding-villagers";
 const char *const EXPLODING_VILLAGERS_EXTREME = "exploding-villagers-extreme";
 const char *const FLYING_DUTCHMAN = "flying-dutchman";
 const char *const KIDNAP = "kidnap";
+const char *const MATRYOSHKA = "matryoshka";
 const char *const NO_WALL = "no-wall";
 const char *const RANDOM_COSTS = "random-costs";
 const char *const RANDOM_TECH_COSTS = "random-tech-costs";
@@ -42,6 +44,7 @@ int main(int argc, char **argv) {
         cout << "    " << EXPLODING_VILLAGERS_EXTREME << endl;
         cout << "    " << FLYING_DUTCHMAN << endl;
         cout << "    " << KIDNAP << endl;
+        cout << "    " << MATRYOSHKA << endl;
         cout << "    " << NO_WALL << endl;
         cout << "    " << RANDOM_COSTS << endl;
         cout << "    " << RANDOM_TECH_COSTS << endl;
@@ -87,6 +90,8 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         makeTransportShipsFly(df);
     } else if (KIDNAP == modIdentifier) {
         configureKidnap(df);
+    } else if (MATRYOSHKA == modIdentifier) {
+        applyMatryoshkaLogic(df);
     } else if (NO_WALL == modIdentifier) {
         disableWalls(df);
     } else if (RANDOM_COSTS == modIdentifier) {
