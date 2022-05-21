@@ -16,6 +16,7 @@ add_executable(
     patches/kidnap.cpp
     patches/no_wall.cpp
     patches/random_costs.cpp
+    patches/pocket_horse.cpp
     patches/teamwork.cpp
     patches/duplicate_techs.cpp
     ids.h
