@@ -187,27 +187,26 @@ static const int ID_VILLAGER_BUILDER_F = 212;
 static const int ID_VILLAGER_REPAIRER_M = 156;
 static const int ID_VILLAGER_REPAIRER_F = 222;
 static const int ID_SABOTEUR = 706;
+
 static const int ID_KING = 59;
 static const int ID_FURIOUS_THE_MONKEY_BOY = 860;
-
-//Hero units to use for king boom
-static const int ID_BAD_NEIGHBOR_PACKED = 730; //treb
-static const int ID_BAD_NEIGHBOR = 682; //treb
-static const int ID_GODS_OWN_SLING = 683; //treb
-static const int ID_EMPEROR_IN_A_BARREL = 733; //unique
-static const int ID_TABINSHWEHTI = 1166; //elephant
-static const int ID_SURYAVARMAN_I = 1162; //elephant
-static const int ID_BAYINNAUNG = 1165; //elephant
-static const int ID_ABRAHA_ELEPHANT = 1071; //elephant
-static const int ID_KHOSRAU = 930; //elephant
-static const int ID_BABUR = 1070; //camel
-static const int ID_DINH_LE = 1184; //unique paladin
-static const int ID_GUY_JOSSELYNE = 648; //paladin
-static const int ID_GUY_LANCELOT = 174; //paladin
-static const int ID_GUY_MORDRED = 176; //paladin
-static const int ID_GUY_RICHARD_THE_LIONHEART = 160; //paladin
-static const int ID_HENRY_V = 847; //paladin
-static const int ID_DINH_LE = 1184; //paladin
+static const int ID_BAD_NEIGHBOR_PACKED = 730; 
+static const int ID_BAD_NEIGHBOR = 682; 
+static const int ID_GODS_OWN_SLING = 683; 
+static const int ID_EMPEROR_IN_A_BARREL = 733; 
+static const int ID_TABINSHWEHTI = 1166; 
+static const int ID_SURYAVARMAN_I = 1162; 
+static const int ID_BAYINNAUNG = 1165; 
+static const int ID_ABRAHA_ELEPHANT = 1071; 
+static const int ID_KHOSRAU = 930; 
+static const int ID_BABUR = 1070; 
+static const int ID_DINH_LE = 1184; 
+static const int ID_GUY_JOSSELYNE = 648; 
+static const int ID_GUY_LANCELOT = 174;
+static const int ID_GUY_MORDRED = 176; 
+static const int ID_GUY_RICHARD_THE_LIONHEART = 160; 
+static const int ID_HENRY_V = 847; 
+static const int ID_DINH_LE = 1184; 
 
 
 static const int CLASS_TRANSPORT_BOAT = 20;
