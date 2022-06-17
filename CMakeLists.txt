@@ -11,6 +11,7 @@ add_executable(
     create-data-mod.cpp
     patches/community_games.cpp
     patches/exploding_villagers.cpp
+    patches/exploding_kings.cpp
     patches/matryoshka.cpp
     patches/flying_dutchman.cpp
     patches/kidnap.cpp
