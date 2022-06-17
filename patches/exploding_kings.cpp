@@ -6,23 +6,23 @@
 
 void configureExplodingKings(genie::DatFile *df) {
     std::set<int> dyingHeroesTimer = {
-        ID_BAD_NEIGHBOR_PACKED, //treb
-        ID_BAD_NEIGHBOR, //treb
-        ID_GODS_OWN_SLING, //treb
-        ID_EMPEROR_IN_A_BARREL, //unique
-        ID_TABINSHWEHTI, //elephant
-        ID_SURYAVARMAN_I, //elephant
-        ID_BAYINNAUNG, //elephant
-        ID_ABRAHA_ELEPHANT, //elephant
-        ID_KHOSRAU, //elephant
-        ID_BABUR, //camel
-        ID_DINH_LE, //unique paladin
         ID_GUY_JOSSELYNE, //paladin
         ID_GUY_LANCELOT, //paladin
         ID_GUY_MORDRED, //paladin
         ID_GUY_RICHARD_THE_LIONHEART, //paladin
         ID_HENRY_V, //paladin
         ID_DINH_LE, //paladin
+        ID_DINH_LE, //unique paladin
+        ID_BABUR, //camel
+        ID_TABINSHWEHTI, //elephant
+        ID_SURYAVARMAN_I, //elephant
+        ID_BAYINNAUNG, //elephant
+        ID_ABRAHA_ELEPHANT, //elephant
+        ID_KHOSRAU, //elephant
+        ID_BAD_NEIGHBOR_PACKED, //treb
+        ID_BAD_NEIGHBOR, //treb
+        ID_GODS_OWN_SLING, //treb
+        ID_EMPEROR_IN_A_BARREL, //unique
     };
 
 
