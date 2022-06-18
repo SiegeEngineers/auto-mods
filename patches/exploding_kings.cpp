@@ -5,7 +5,7 @@
 
 
 void configureExplodingKings(genie::DatFile *df) {
-    std::set<int> dyingHeroesTimer = {
+    std::deque<int> dyingHeroesTimer = {
         ID_GUY_JOSSELYNE, //paladin
         ID_GUY_LANCELOT, //paladin
         ID_GUY_MORDRED, //paladin
@@ -24,15 +24,14 @@ void configureExplodingKings(genie::DatFile *df) {
         ID_EMPEROR_IN_A_BARREL, //unique
     };
 
-
     for (genie::Civ &civ : df->Civs) {
         //set the king to become the first dying unit in the chain when it dies
-        std::cout << "Patched king unit " << ID_KING << " for civ " << civ.Name << "\n";
         genie::Unit &dyingUnit = civ.Units.at(ID_KING);
+        std::cout << "Patched king unit " << ID_KING << " for civ " << civ.Name << "\n";
         for (int dyingUnitId : dyingHeroesTimer)
         {
             //set the king to the first dying unit, 
-            //and then each subsequen dying unit to the next ID
+            //and then each subsequent dying unit to the next ID
             dyingUnit.DeadUnitID = dyingUnitId;
             std::cout << "Set dying unit for previous patched unit to " << dyingUnitId << " for civ " << civ.Name << "\n";
 
@@ -47,6 +46,7 @@ void configureExplodingKings(genie::DatFile *df) {
 
         //set the final dying hero to ID Saboteur (this affects only last unit)
         dyingUnit.DeadUnitID = ID_SABOTEUR;
+        std::cout << "Set dying unit for previous patched unit to " << ID_SABOTEUR << " for civ " << civ.Name << "\n";
 
 
         //modify to make king explode eventually
