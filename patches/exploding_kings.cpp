@@ -67,7 +67,6 @@ void configureExplodingKings(genie::DatFile *df) {
         furious.HitPoints = -1;
         furious.Type50.Attacks.at(0).Amount = 9999;
         furious.Type50.Attacks.at(1).Amount = 9999;
-        furious.Type50.Attacks.at(2).Amount = 9999;
         furious.Type50.MaxRange = 25;
         furious.Type50.BlastWidth = 25;
         furious.Type50.BlastAttackLevel = 0;  // destroy all the things
