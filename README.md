@@ -44,14 +44,25 @@ You'll need:
 - `zlib`
 - `lz4`
 
-#### Dependencies on Ubuntu (e.g. WSL)
+#### Dependencies 
 
+**on Ubuntu (e.g. WSL)**
 ```sh
 sudo apt update
 sudo apt install --fix-missing gcc g++ cmake \
 libboost-iostreams-dev libboost-program-options-dev \
 zlib1g-dev liblz4-dev
 ```
+
+**on OSX**
+```sh
+xcode-select --install #this is to make sure xcode is installed for access to zlib1g-dev and liblz4-dev
+brew install cmake
+brew install boost
+brew install gcc
+brew install gdb
+```
+
 
 ### Compiling
 
