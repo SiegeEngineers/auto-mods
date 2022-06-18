@@ -25,27 +25,26 @@ void configureExplodingKings(genie::DatFile *df) {
     };
 
     for (genie::Civ &civ : df->Civs) {
-        //set the king to become the first dying unit in the chain when it dies
-        genie::Unit &dyingUnit = civ.Units.at(ID_KING);
+        //set the king to the first dying unit, 
+        genie::Unit &dyingUnitPointer = civ.Units.at(ID_KING);
         std::cout << "Patched king unit " << ID_KING << " for civ " << civ.Name << "\n";
-        for (int dyingUnitId : dyingHeroesTimer)
+        for (int nextDyingUnitId : dyingHeroesTimer)
         {
-            //set the king to the first dying unit, 
-            //and then each subsequent dying unit to the next ID
-            dyingUnit.DeadUnitID = dyingUnitId;
-            std::cout << "Set dying unit for previous patched unit to " << dyingUnitId << " for civ " << civ.Name << "\n";
+            //and then each DeadUnitId  to the next ID
+            dyingUnitPointer.DeadUnitID = nextDyingUnitId;
+            std::cout << "Set dying unit for previous patched unit to " << nextDyingUnitId << " for civ " << civ.Name << "\n";
 
             //set dying unit pointer to the next unit 
-            genie::Unit &dyingUnit = civ.Units.at(dyingUnitId);
+            genie::Unit &dyingUnitPointer = civ.Units.at(nextDyingUnitId);
 
             //make the unit instantly die on spawn (this affects all units but king)
-            dyingUnit.HitPoints = -1;
-            dyingUnit.Type50.Armours = {};
-            std::cout << "Patched a hero unit " << dyingUnitId << " for civ " << civ.Name << "\n";
+            dyingUnitPointer.HitPoints = -1;
+            dyingUnitPointer.Type50.Armours = {};
+            std::cout << "Patched a hero unit " << nextDyingUnitId << " for civ " << civ.Name << "\n";
         }
 
         //set the final dying hero to ID Saboteur (this affects only last unit)
-        dyingUnit.DeadUnitID = ID_SABOTEUR;
+        dyingUnitPointer.DeadUnitID = ID_SABOTEUR;
         std::cout << "Set dying unit for previous patched unit to " << ID_SABOTEUR << " for civ " << civ.Name << "\n";
 
 
