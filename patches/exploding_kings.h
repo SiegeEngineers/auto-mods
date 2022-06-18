@@ -4,6 +4,6 @@
 #include "genie/dat/DatFile.h"
 
 
-void configureExplodingKings(genie::DatFile *df, bool BigSaboteur);
+void configureExplodingKings(genie::DatFile *df);
 
 #endif  // EXPLODING_KINGS_H

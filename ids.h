@@ -200,7 +200,6 @@ static const int ID_BAYINNAUNG = 1165;
 static const int ID_ABRAHA_ELEPHANT = 1071; 
 static const int ID_KHOSRAU = 930; 
 static const int ID_BABUR = 1070; 
-static const int ID_DINH_LE = 1184; 
 static const int ID_GUY_JOSSELYNE = 648; 
 static const int ID_GUY_LANCELOT = 174;
 static const int ID_GUY_MORDRED = 176; 

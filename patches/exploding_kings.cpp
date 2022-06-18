@@ -11,7 +11,6 @@ void configureExplodingKings(genie::DatFile *df) {
         ID_GUY_MORDRED, //paladin
         ID_GUY_RICHARD_THE_LIONHEART, //paladin
         ID_HENRY_V, //paladin
-        ID_DINH_LE, //paladin
         ID_DINH_LE, //unique paladin
         ID_BABUR, //camel
         ID_TABINSHWEHTI, //elephant
@@ -28,29 +27,26 @@ void configureExplodingKings(genie::DatFile *df) {
 
     for (genie::Civ &civ : df->Civs) {
         //set the king to become the first dying unit in the chain when it dies
-        civ.Units.at(ID_KING).DeadUnitID = dyingHeroesTimer[0];
         std::cout << "Patched king unit " << ID_KING << " for civ " << civ.Name << "\n";
         genie::Unit &dyingUnit = civ.Units.at(ID_KING);
-        for (itr = s.begin(); itr != s.end(); itr++)
+        for (int dyingUnitId : dyingHeroesTimer)
         {
             //set the king to the first dying unit, 
             //and then each subsequen dying unit to the next ID
-            &dyingUnit.DeadUnitID = *itr;
+            dyingUnit.DeadUnitID = dyingUnitId;
+            std::cout << "Set dying unit for previous patched unit to " << dyingUnitId << " for civ " << civ.Name << "\n";
 
             //set dying unit pointer to the next unit 
-            genie::Unit &dyingUnit = civ.Units.at(*itr);
+            genie::Unit &dyingUnit = civ.Units.at(dyingUnitId);
 
             //make the unit instantly die on spawn (this affects all units but king)
             dyingUnit.HitPoints = -1;
-            dyingUnit.Type50.Armours.at(0) = NULL;
-            dyingUnit.Type50.Armours.at(1) = NULL;
-            dyingUnit.Type50.Armours.at(2) = NULL;
-            dyingUnit.Type50.Attacks.at(3) = NULL;
-            std::cout << "Patched a hero unit " << dying_unit_id << " for civ " << civ.Name << "\n";
+            dyingUnit.Type50.Armours = {};
+            std::cout << "Patched a hero unit " << dyingUnitId << " for civ " << civ.Name << "\n";
         }
 
         //set the final dying hero to ID Saboteur (this affects only last unit)
-        &dyingUnit.DeadUnitID = ID_SABOTEUR;
+        dyingUnit.DeadUnitID = ID_SABOTEUR;
 
 
         //modify to make king explode eventually

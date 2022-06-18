@@ -43,14 +43,26 @@ You'll need:
 - `zlib`
 - `lz4`
 
-#### Dependencies on Ubuntu (e.g. WSL)
+#### Dependencies 
 
+**on Ubuntu (e.g. WSL)**
 ```sh
 sudo apt update
 sudo apt install --fix-missing gcc g++ cmake \
 libboost-iostreams-dev libboost-program-options-dev \
 zlib1g-dev liblz4-dev
 ```
+
+**on OSX**
+```sh
+brew install cmake
+brew install boost
+brew install gcc
+brew install g++
+brew install gdb
+```
+Also change the 'cMakeList.txt' comipile CMAKE_CXX_FLAGS from -static-libstdc++ to -std=c++11 for OSX
+
 
 ### Compiling
 
