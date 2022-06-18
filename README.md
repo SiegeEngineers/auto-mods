@@ -10,6 +10,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [Flying Dutchman](https://www.ageofempires.com/mods/details/15644/)
 - [Exploding Villagers](https://www.ageofempires.com/mods/details/15682/)
 - [Exploding Villagers Extreme](https://www.ageofempires.com/mods/details/47898/)
+- [Exploding Kings](NOT YET PUBLISHED)
 - [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/15681/)
 - [Kidnap Mod](https://www.ageofempires.com/mods/details/15982/)
 - [Matryoshka Mod](https://www.ageofempires.com/mods/details/71435/)
@@ -108,6 +109,7 @@ Where <mod-identifier> is one of the following, or multiple of the following joi
     community-games
     exploding-villagers
     exploding-villagers-extreme
+    exploding-kings
     flying-dutchman
     kidnap
     no-wall
