@@ -56,10 +56,10 @@ zlib1g-dev liblz4-dev
 
 **on OSX**
 ```sh
+xcode-select --install #this is to make sure xcode is installed for access to zlib1g-dev and liblz4-dev
 brew install cmake
 brew install boost
 brew install gcc
-brew install g++
 brew install gdb
 ```
 Also change the 'cMakeList.txt' compile CMAKE_CXX_FLAGS from -static-libstdc++ to -std=c++11 for OSX
