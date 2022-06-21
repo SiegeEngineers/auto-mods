@@ -16,10 +16,9 @@ void configureRewardingSnipes(genie::DatFile *df) {
         //set the relic cart to not die from exploding kings if doing both
         genie::Unit &relicCart = civ.Units.at(ID_RELIC_CART);
         relicCart.HitPoints = 30000; //don't die from exploding king
-        genie::ResourceUsage<int16_t, int16_t, int16_t> &resourceCosts = relicCart.Creatable.ResourceCosts.at(0);
-        resourceCosts.Type = TYPE_POPULATION_HEADROOM;
-        resourceCosts.Amount = 50;
-        resourceCosts.Flag = TYPE_GIVE_AND_TAKE;
+        relicCart.ResourceStorages.at(0).Type = TYPE_POPULATION_HEADROOM;
+        relicCart.ResourceStorages.at(0).Amount = 50; //give 50 bonus pop
+        relicCart.ResourceStorages.at(0).Flag = TYPE_GIVE_AND_TAKE;
         std::cout << "Patched Relic Cart for civ " << civ.Name << "\n";
     }
 }
