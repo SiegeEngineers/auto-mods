@@ -13,6 +13,7 @@ add_executable(
     patches/community_games.cpp
     patches/exploding_villagers.cpp
     patches/exploding_kings.cpp
+    patches/rewarding_snipes.cpp
     patches/matryoshka.cpp
     patches/flying_dutchman.cpp
     patches/kidnap.cpp

@@ -4,6 +4,7 @@
 #include "patches/duplicate_techs.h"
 #include "patches/exploding_villagers.h"
 #include "patches/exploding_kings.h"
+#include "patches/rewarding_snipes.h"
 #include "patches/flying_dutchman.h"
 #include "patches/kidnap.h"
 #include "patches/matryoshka.h"
@@ -18,6 +19,7 @@ const char *const COMMUNITY_GAMES = "community-games";
 const char *const EXPLODING_VILLAGERS = "exploding-villagers";
 const char *const EXPLODING_VILLAGERS_EXTREME = "exploding-villagers-extreme";
 const char *const EXPLODING_KINGS = "exploding-kings";
+const char *const REWARDING_SNIPES = "rewarding-snipes";
 const char *const FLYING_DUTCHMAN = "flying-dutchman";
 const char *const KIDNAP = "kidnap";
 const char *const MATRYOSHKA = "matryoshka";
@@ -47,6 +49,7 @@ int main(int argc, char **argv) {
         cout << "    " << EXPLODING_VILLAGERS << endl;
         cout << "    " << EXPLODING_VILLAGERS_EXTREME << endl;
         cout << "    " << EXPLODING_KINGS << endl;
+        cout << "    " << REWARDING_SNIPES << endl;
         cout << "    " << FLYING_DUTCHMAN << endl;
         cout << "    " << KIDNAP << endl;
         cout << "    " << MATRYOSHKA << endl;
@@ -94,6 +97,8 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         configureExplodingVillagers(df, false);
     } else if (EXPLODING_KINGS == modIdentifier) {
         configureExplodingKings(df);
+    } else if (REWARDING_SNIPES == modIdentifier) {
+        configureRewardingSnipes(df);
     } else if (FLYING_DUTCHMAN == modIdentifier) {
         makeTransportShipsFly(df);
     } else if (KIDNAP == modIdentifier) {
