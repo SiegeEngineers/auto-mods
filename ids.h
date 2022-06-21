@@ -227,6 +227,7 @@ static const int CASTLE = 82;
 static const int TECH_CARAVAN = 48;
 
 static const int TYPE_POPULATION_HEADROOM = 4;
+static const int TYPE_GIVE_AND_TAKE = 2;
 static const int TYPE_CURRENT_POPULATION = 11;
 static const int TYPE_TOTAL_UNITS_OWNED = 19;
 static const int TYPE_FOOD = 0;
