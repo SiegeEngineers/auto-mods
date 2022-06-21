@@ -8,6 +8,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 
 - [Community Games Mod](https://www.ageofempires.com/mods/details/93970/)
 - [Exploding Kings](https://www.ageofempires.com/mods/details/94022/)
+- [Exploding Kings with Rewarding Snipes](https://www.ageofempires.com/mods/details/94278/)
 - [Exploding Villagers](https://www.ageofempires.com/mods/details/93961/)
 - [Exploding Villagers Extreme](https://www.ageofempires.com/mods/details/93971/)
 - [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/93966/)
@@ -20,6 +21,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [Random Costs](https://www.ageofempires.com/mods/details/93975/)
 - [Random Tech Costs](https://www.ageofempires.com/mods/details/93964/)
 - [Random Unit Costs](https://www.ageofempires.com/mods/details/93963/)
+- [Rewarding Snipes](https://www.ageofempires.com/mods/details/94277/)
 - [Teamwork Mod](https://www.ageofempires.com/mods/details/93972/)
 - [3x Tech Mod](https://www.ageofempires.com/mods/details/93960/)
 - [9x Tech Mod](https://www.ageofempires.com/mods/details/93959/)
@@ -110,6 +112,7 @@ Where <mod-identifier> is one of the following, or multiple of the following joi
     exploding-villagers
     exploding-villagers-extreme
     exploding-kings
+    rewarding-snipes
     flying-dutchman
     kidnap
     no-wall

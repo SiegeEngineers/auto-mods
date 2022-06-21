@@ -189,6 +189,7 @@ static const int ID_VILLAGER_REPAIRER_F = 222;
 static const int ID_SABOTEUR = 706;
 
 static const int ID_KING = 434;
+static const int ID_RELIC_CART = 944;
 static const int ID_FURIOUS_THE_MONKEY_BOY = 860;
 static const int ID_BAD_NEIGHBOR_PACKED = 730; 
 static const int ID_BAD_NEIGHBOR = 682; 
@@ -226,8 +227,10 @@ static const int CASTLE = 82;
 static const int TECH_CARAVAN = 48;
 
 static const int TYPE_POPULATION_HEADROOM = 4;
+static const int TYPE_GIVE_AND_TAKE = 2;
 static const int TYPE_CURRENT_POPULATION = 11;
 static const int TYPE_TOTAL_UNITS_OWNED = 19;
+static const int TYPE_BONUS_POPULATION_CAP = 32;
 static const int TYPE_FOOD = 0;
 static const int TYPE_WOOD = 1;
 static const int TYPE_STONE = 2;
