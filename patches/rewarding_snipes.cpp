@@ -15,6 +15,7 @@ void configureRewardingSnipes(genie::DatFile *df) {
 
         //set the relic cart to not die from exploding kings if doing both
         genie::Unit &relicCart = civ.Units.at(ID_RELIC_CART);
+        relicCart.FogVisibility = 1; //make it always visible
         relicCart.HitPoints = 30000; //don't die from exploding king
         relicCart.ResourceStorages.at(0).Type = TYPE_POPULATION_HEADROOM;
         relicCart.ResourceStorages.at(0).Amount = 50; //give 50 bonus pop
