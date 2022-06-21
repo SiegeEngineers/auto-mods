@@ -5,7 +5,7 @@ if (APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14") #For OSX
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++") #For Ubuntu
-endif (MSVC)
+endif (APPLE)
 
 add_subdirectory(genieutils EXCLUDE_FROM_ALL)
 include_directories(
