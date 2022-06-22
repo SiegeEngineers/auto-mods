@@ -109,6 +109,7 @@ Where <mod-identifier> is one of the following, or multiple of the following joi
     exploding-villagers
     exploding-villagers-extreme
     exploding-kings
+    rewarding-snipes
     flying-dutchman
     kidnap
     no-wall
