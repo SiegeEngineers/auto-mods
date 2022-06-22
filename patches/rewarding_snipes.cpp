@@ -1,5 +1,4 @@
 #include "rewarding_snipes.h"
-#include <set>
 #include "genie/dat/DatFile.h"
 #include "ids.h"
 
