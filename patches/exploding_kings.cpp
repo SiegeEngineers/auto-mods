@@ -1,5 +1,4 @@
 #include "exploding_kings.h"
-#include <set>
 #include "genie/dat/DatFile.h"
 #include "ids.h"
 
