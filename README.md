@@ -62,7 +62,6 @@ brew install boost
 brew install gcc
 brew install gdb
 ```
-Also change the 'cMakeList.txt' compile CMAKE_CXX_FLAGS from -static-libstdc++ to -std=c++11 for OSX
 
 
 ### Compiling
