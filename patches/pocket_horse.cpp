@@ -55,6 +55,12 @@ void setPocketHorseIds(genie::DatFile *df) {
     configureSwitch(df, STEPPE_LANCER, KAMAYUK);
     configureSwitch(df, ELITE_STEPPE_LANCER, KAMAYUK);
 
+
+    //Samurai, Elite Samurai -> Mounted Samurai
+    configureSwitch(df, SAMURAI, MOUNTED_SAMURAI);
+    configureSwitch(df, ELITE_SAMURAI, MOUNTED_SAMURAI);
+    configureSwitch(df, MOUNTED_SAMURAI, SAMURAI);
+
     // Elephant Archer, Elite Elephant Archer ←→ Battle Elephant, Elite Battle
     configureSwitch(df, ELEPHANT_ARCHER, BATTLE_ELEPHANT);
     configureSwitch(df, ELITE_ELEPHANT_ARCHER, BATTLE_ELEPHANT);

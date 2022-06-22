@@ -347,6 +347,7 @@ static const int16_t BOYAR = 876;
 static const int16_t ELITE_BOYAR = 878;
 static const int16_t KAMAYUK = 879;
 static const int16_t ELITE_KAMAYUK = 881;
+static const int16_t MOUNTED_SAMURAI = 1568;
 static const int16_t CONDOTTIERO = 882;
 static const int16_t ORGAN_GUN = 1001;
 static const int16_t ELITE_ORGAN_GUN = 1003;

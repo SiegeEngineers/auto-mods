@@ -5,6 +5,7 @@ mkdir -p mods/community_games/resources/_common/dat
 mkdir -p mods/flying_dutchman/resources/_common/dat
 mkdir -p mods/exploding_villagers/resources/_common/dat
 mkdir -p mods/exploding_villagers_extreme/resources/_common/dat
+mkdir -p mods/exploding_kings/resources/_common/dat
 mkdir -p mods/exploding_villagers_flying_dutchman/resources/_common/dat
 mkdir -p mods/exploding_kings/resources/_common/dat
 mkdir -p mods/rewarding_snipes/resources/_common/dat
