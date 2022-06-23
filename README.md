@@ -6,23 +6,24 @@ some data mods, generated programmatically, so they can be recreated automagical
 
 ## Published Mods
 
-- [Community Games Mod](https://www.ageofempires.com/mods/details/15917/)
-- [Flying Dutchman](https://www.ageofempires.com/mods/details/15644/)
-- [Exploding Villagers](https://www.ageofempires.com/mods/details/15682/)
-- [Exploding Villagers Extreme](https://www.ageofempires.com/mods/details/47898/)
+- [Community Games Mod](https://www.ageofempires.com/mods/details/93970/)
 - [Exploding Kings](https://www.ageofempires.com/mods/details/94022/)
-- [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/15681/)
-- [Kidnap Mod](https://www.ageofempires.com/mods/details/15982/)
-- [Matryoshka Mod](https://www.ageofempires.com/mods/details/71435/)
-- [No Wall Mod](https://www.ageofempires.com/mods/details/15916/)
-- [Pocket Horse Mod](https://www.ageofempires.com/mods/details/71440/)
-- [Random Costs](https://www.ageofempires.com/mods/details/17281/)
-- [Random Tech Costs](https://www.ageofempires.com/mods/details/17280/)
-- [Random Unit Costs](https://www.ageofempires.com/mods/details/17279/)
-- [Teamwork Mod](https://www.ageofempires.com/mods/details/43753/)
-- [3x Tech Mod](https://www.ageofempires.com/mods/details/15918/)
-- [9x Tech Mod](https://www.ageofempires.com/mods/details/15919/)
-- [256x Tech Mod](https://www.ageofempires.com/mods/details/15920/)
+- [Exploding Villagers](https://www.ageofempires.com/mods/details/93961/)
+- [Exploding Villagers Extreme](https://www.ageofempires.com/mods/details/93971/)
+- [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/93966/)
+- [Exploding Villagers with Kidnap Mod](https://www.ageofempires.com/mods/details/93969/)
+- [Flying Dutchman](https://www.ageofempires.com/mods/details/93967/)
+- [Kidnap Mod](https://www.ageofempires.com/mods/details/93968/)
+- [Matryoshka Mod](https://www.ageofempires.com/mods/details/93973/)
+- [No Wall Mod](https://www.ageofempires.com/mods/details/93962/)
+- [Pocket Horse Mod](https://www.ageofempires.com/mods/details/93974/)
+- [Random Costs](https://www.ageofempires.com/mods/details/93975/)
+- [Random Tech Costs](https://www.ageofempires.com/mods/details/93964/)
+- [Random Unit Costs](https://www.ageofempires.com/mods/details/93963/)
+- [Teamwork Mod](https://www.ageofempires.com/mods/details/93972/)
+- [3x Tech Mod](https://www.ageofempires.com/mods/details/93960/)
+- [9x Tech Mod](https://www.ageofempires.com/mods/details/93959/)
+- ~~256x Tech Mod~~ _discontinued_
 
 ## Build instructions
 ### Cloning
