@@ -7,9 +7,9 @@ void patchSaboteurForFirstExplosion(genie::Civ &civ) {
     genie::Unit &saboteur = civ.Units.at(ID_SABOTEUR);
     saboteur.HitPoints = -1;
     saboteur.DeadUnitID = ID_FURIOUS_THE_MONKEY_BOY;
-    saboteur.Type50.Attacks.at(0).Amount = 9999;
-    saboteur.Type50.Attacks.at(1).Amount = 9999;
-    saboteur.Type50.Attacks.at(2).Amount = 9999;
+    saboteur.Type50.Attacks.at(0).Amount = 5000;
+    saboteur.Type50.Attacks.at(1).Amount = 5000;
+    saboteur.Type50.Attacks.at(2).Amount = 5000;
     saboteur.Type50.MaxRange = 25;
     saboteur.Type50.BlastWidth = 25;
     saboteur.Type50.BlastAttackLevel = 0;
@@ -21,8 +21,8 @@ void patchMonkeyForSecondExplosion(genie::Civ &civ) {
     genie::Unit &furious = civ.Units.at(ID_FURIOUS_THE_MONKEY_BOY);
     furious.HitPoints = -1;
     furious.Class = CLASS_PETARD;
-    furious.Type50.Attacks.at(0).Amount = 9999;
-    furious.Type50.Attacks.at(1).Amount = 9999;
+    furious.Type50.Attacks.at(0).Amount = 5000;
+    furious.Type50.Attacks.at(1).Amount = 5000;
     furious.Type50.MaxRange = 25;
     furious.Type50.BlastWidth = 25;
     furious.Type50.BlastAttackLevel = 0;
