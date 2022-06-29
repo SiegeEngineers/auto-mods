@@ -18,8 +18,8 @@ void configureRewardingSnipes(genie::DatFile *df) {
         relicCart.ResourceStorages.at(0).Flag = TYPE_GIVE_AND_TAKE; //change on convert
                                                                     //
         //this makes it give -50 pop
-        relicCart.ResourceStorages.at(1).Type = TYPE_CURRENT_POPULATION;
-        relicCart.ResourceStorages.at(1).Amount = -50; //reduce current pop by 50, avoids limits
+        relicCart.ResourceStorages.at(1).Type = TYPE_BONUS_POPULATION_CAP;
+        relicCart.ResourceStorages.at(1).Amount = 50; //reduce current pop by 50, avoids limits
         relicCart.ResourceStorages.at(1).Flag = TYPE_GIVE_AND_TAKE; //change on convert
         std::cout << "Patched Relic Cart for civ " << civ.Name << "\n";
     }
