@@ -11,9 +11,9 @@ void configureRewardingSnipes(genie::DatFile *df) {
         genie::Unit &relicCart = civ.Units.at(ID_RELIC_CART);
         relicCart.FogVisibility = 1; //always visible
         relicCart.HitPoints = 30000; //don't die from exploding kings
-        relicCart.ResourceStorages.at(0).Type = TYPE_POPULATION_HEADROOM;
-        relicCart.ResourceStorages.at(0).Amount = 50;
-        relicCart.ResourceStorages.at(0).Flag = TYPE_GIVE_AND_TAKE;
+        relicCart.ResourceStorages.at(1).Type = TYPE_CURRENT_POPULATION;
+        relicCart.ResourceStorages.at(1).Amount = -50; //reduce current pop by 50, avoids limits
+        relicCart.ResourceStorages.at(1).Flag = TYPE_GIVE_AND_TAKE; //change on convert
         std::cout << "Patched Relic Cart for civ " << civ.Name << "\n";
     }
 }
