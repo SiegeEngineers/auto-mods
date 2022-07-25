@@ -211,6 +211,7 @@ static const int ID_HENRY_V = 847;
 static const int ID_DINH_LE = 1184; 
 static const int CLASS_PETARD = 35;
 static const int CLASS_HERO = 25;
+static const int CLASS_RELIC = 45;
 
 
 static const int CLASS_TRANSPORT_BOAT = 20;
