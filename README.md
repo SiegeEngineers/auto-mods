@@ -17,6 +17,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [Kidnap Mod](https://www.ageofempires.com/mods/details/93968/)
 - [Matryoshka Mod](https://www.ageofempires.com/mods/details/93973/)
 - [No Wall Mod](https://www.ageofempires.com/mods/details/93962/)
+- [Nomad King](https://www.ageofempires.com/mods/details/123629/)
 - [Pocket Horse Mod](https://www.ageofempires.com/mods/details/93974/)
 - [Random Costs](https://www.ageofempires.com/mods/details/93975/)
 - [Random Tech Costs](https://www.ageofempires.com/mods/details/93964/)
