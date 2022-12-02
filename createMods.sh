@@ -7,6 +7,7 @@ mkdir -p mods/exploding_villagers/resources/_common/dat
 mkdir -p mods/exploding_villagers_extreme/resources/_common/dat
 mkdir -p mods/exploding_villagers_flying_dutchman/resources/_common/dat
 mkdir -p mods/exploding_kings/resources/_common/dat
+mkdir -p mods/exploding_nomad_kings/resources/_common/dat
 mkdir -p mods/rewarding_snipes/resources/_common/dat
 mkdir -p mods/exploding_kings_rewarding_snipes/resources/_common/dat
 mkdir -p mods/kidnap/resources/_common/dat
@@ -36,6 +37,7 @@ mkdir -p mods/x256/resources/_common/dat
 ./build/create-data-mod matryoshka ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/matryoshka/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod no-wall ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/no_wall/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod nomad-king ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/nomad_king/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod nomad-king+exploding-kings ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_nomad_kings/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod pocket-horse ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/pocket_horse/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod random-costs ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-costs/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod random-tech-costs ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-tech-costs/resources/_common/dat/empires2_x2_p1.dat
@@ -95,6 +97,10 @@ cd ../..
 
 cd mods/nomad_king
 zip -r ../nomad_king.zip *
+cd ../..
+
+cd mods/exploding_nomad_kings
+zip -r ../exploding_nomad_kings.zip *
 cd ../..
 
 cd mods/pocket_horse

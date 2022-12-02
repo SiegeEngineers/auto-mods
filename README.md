@@ -9,6 +9,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [Community Games Mod](https://www.ageofempires.com/mods/details/93970/)
 - [Exploding Kings](https://www.ageofempires.com/mods/details/94022/)
 - [Exploding Kings with Rewarding Snipes](https://www.ageofempires.com/mods/details/94278/)
+- [Exploding Nomad Kings](https://www.ageofempires.com/mods/details/125764/)
 - [Exploding Villagers](https://www.ageofempires.com/mods/details/93961/)
 - [Exploding Villagers Extreme](https://www.ageofempires.com/mods/details/93971/)
 - [Exploding Villagers with Flying Dutchman](https://www.ageofempires.com/mods/details/93966/)
