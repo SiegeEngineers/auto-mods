@@ -3,7 +3,7 @@
 #include "ids.h"
 
 
-void patchSaboteurForFirstExplosion(genie::Civ &civ) {
+void patchSaboteurForFirstRelicMonkExplosion(genie::Civ &civ) {
     genie::Unit &saboteur = civ.Units.at(ID_SABOTEUR);
     saboteur.HitPoints = -1;
     saboteur.DeadUnitID = ID_FURIOUS_THE_MONKEY_BOY;
@@ -17,7 +17,7 @@ void patchSaboteurForFirstExplosion(genie::Civ &civ) {
     std::cout << "Patched Saboteur unit for civ " << civ.Name << "\n";
 }
 
-void patchMonkeyForSecondExplosion(genie::Civ &civ) {
+void patchMonkeyForSecondRelicMonkExplosion(genie::Civ &civ) {
     genie::Unit &furious = civ.Units.at(ID_FURIOUS_THE_MONKEY_BOY);
     furious.HitPoints = -1;
     furious.Class = CLASS_PETARD;
@@ -29,15 +29,6 @@ void patchMonkeyForSecondExplosion(genie::Civ &civ) {
     std::cout << "Patched Furious the Monkey Boy unit for civ " << civ.Name << "\n";
 }
 
-bool isTrebuchet(const genie::Unit *unit) { return unit->Class == 51 || unit->Class == 54; }
-
-void preventHPIncrease(genie::Unit *unit) {
-    unit->Type50.Armours = {};
-    if (!isTrebuchet(unit)) {  // Trebuchets don't die right if they have another class
-        unit->Class = CLASS_HERO;
-    }
-}
-
 void setSaboteurAsDeadUnitForMonkWithRelic(genie::Civ &civ) {
     genie::Unit *unit = &civ.Units.at(ID_MONK_WITH_RELIC);
     unit->DeadUnitID = ID_SABOTEUR;
@@ -45,10 +36,10 @@ void setSaboteurAsDeadUnitForMonkWithRelic(genie::Civ &civ) {
               << std::endl;
 }
 
-void configureExplodingKings(genie::DatFile *df) {
+void configureExplodingRelicMonks(genie::DatFile *df) {
     for (genie::Civ &civ : df->Civs) {
         setSaboteurAsDeadUnitForMonkWithRelic(civ);
-        patchSaboteurForFirstExplosion(civ);
-        patchMonkeyForSecondExplosion(civ);
+        patchSaboteurForFirstRelicMonkExplosion(civ);
+        patchMonkeyForSecondRelicMonkExplosion(civ);
     }
 }

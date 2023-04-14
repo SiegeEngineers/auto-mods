@@ -7,6 +7,7 @@ mkdir -p mods/exploding_villagers/resources/_common/dat
 mkdir -p mods/exploding_villagers_extreme/resources/_common/dat
 mkdir -p mods/exploding_villagers_flying_dutchman/resources/_common/dat
 mkdir -p mods/exploding_kings/resources/_common/dat
+mkdir -p mods/exploding_relic_monks/resources/_common/dat
 mkdir -p mods/rewarding_snipes/resources/_common/dat
 mkdir -p mods/exploding_kings_rewarding_snipes/resources/_common/dat
 mkdir -p mods/kidnap/resources/_common/dat
@@ -26,6 +27,7 @@ mkdir -p mods/x256/resources/_common/dat
 ./build/create-data-mod flying-dutchman ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/flying_dutchman/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod exploding-villagers ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_villagers/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod exploding-villagers-extreme ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_villagers_extreme/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod exploding-relic-monks ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_relic_monks/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod exploding-kings ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_kings/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod rewarding-snipes ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/rewarding_snipes/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod exploding-kings+rewarding-snipes ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_kings_rewarding_snipes/resources/_common/dat/empires2_x2_p1.dat
@@ -61,6 +63,10 @@ cd ../..
 
 cd mods/exploding_kings
 zip -r ../exploding_kings.zip *
+cd ../..
+
+cd mods/exploding_relic_monks
+zip -r ../exploding_relic_monks.zip *
 cd ../..
 
 cd mods/rewarding_snipes

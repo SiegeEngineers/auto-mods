@@ -1,4 +1,4 @@
-#ifndef EXPLODING_RELIC_MONKS_H
+#ifndef EXPLODING_RELIC_MONKS_H 
 #define EXPLODING_RELIC_MONKS_H
 
 #include "genie/dat/DatFile.h"
