@@ -189,7 +189,7 @@ static const int ID_VILLAGER_REPAIRER_F = 222;
 static const int ID_SABOTEUR = 706;
 
 
-static const int ID_MONK_WITH_RELIC = 1327;
+static const int ID_MONK_WITH_RELIC = 286;
 static const int ID_KING = 434;
 static const int ID_RELIC_CART = 944;
 static const int ID_FURIOUS_THE_MONKEY_BOY = 860;
