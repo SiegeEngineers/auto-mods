@@ -10,8 +10,8 @@ void patchSaboteurForFirstRelicMonkExplosion(genie::Civ &civ) {
     saboteur.Type50.Attacks.at(0).Amount = 5000;
     saboteur.Type50.Attacks.at(1).Amount = 5000;
     saboteur.Type50.Attacks.at(2).Amount = 5000;
-    saboteur.Type50.MaxRange = 25;
-    saboteur.Type50.BlastWidth = 25;
+    saboteur.Type50.MaxRange = 17;
+    saboteur.Type50.BlastWidth = 17;
     saboteur.Type50.BlastAttackLevel = 0;
     saboteur.WwiseTrainSoundID = 0;
     std::cout << "Patched Saboteur unit for civ " << civ.Name << "\n";
@@ -23,8 +23,8 @@ void patchMonkeyForSecondRelicMonkExplosion(genie::Civ &civ) {
     furious.Class = CLASS_PETARD;
     furious.Type50.Attacks.at(0).Amount = 5000;
     furious.Type50.Attacks.at(1).Amount = 5000;
-    furious.Type50.MaxRange = 25;
-    furious.Type50.BlastWidth = 25;
+    furious.Type50.MaxRange = 17;
+    furious.Type50.BlastWidth = 17;
     furious.Type50.BlastAttackLevel = 0;
     std::cout << "Patched Furious the Monkey Boy unit for civ " << civ.Name << "\n";
 }
