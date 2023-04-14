@@ -8,6 +8,7 @@ void configureKidnap(genie::DatFile *df) {
     const std::list<int> scoutIds = {
         ID_SCOUT,
         ID_EAGLE_SCOUT,
+        ID_CAMEL_SCOUT,
     };
     for (genie::Civ &civ : df->Civs) {
         for (int scoutId : scoutIds) {

@@ -240,6 +240,7 @@ static const int TYPE_GOLD = 3;
 
 static const int ID_SCOUT = 448;
 static const int ID_EAGLE_SCOUT = 751;
+static const int ID_CAMEL_SCOUT = 1755;
 static const int ACTION_KIDNAP_UNIT = 135;
 static const int ACTION_LOOT = 122;
 static const int CLASS_CIVILIAN = 4;

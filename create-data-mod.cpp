@@ -10,6 +10,7 @@
 #include "patches/kidnap.h"
 #include "patches/matryoshka.h"
 #include "patches/no_wall.h"
+#include "patches/nomadking.h"
 #include "patches/pocket_horse.h"
 #include "patches/random_costs.h"
 #include "patches/teamwork.h"
@@ -26,6 +27,7 @@ const char *const FLYING_DUTCHMAN = "flying-dutchman";
 const char *const KIDNAP = "kidnap";
 const char *const MATRYOSHKA = "matryoshka";
 const char *const NO_WALL = "no-wall";
+const char *const NOMAD_KING = "nomad-king";
 const char *const POCKET_HORSE = "pocket-horse";
 const char *const RANDOM_COSTS = "random-costs";
 const char *const RANDOM_TECH_COSTS = "random-tech-costs";
@@ -57,6 +59,7 @@ int main(int argc, char **argv) {
         cout << "    " << KIDNAP << endl;
         cout << "    " << MATRYOSHKA << endl;
         cout << "    " << NO_WALL << endl;
+        cout << "    " << NOMAD_KING << endl;
         cout << "    " << POCKET_HORSE << endl;
         cout << "    " << RANDOM_COSTS << endl;
         cout << "    " << RANDOM_TECH_COSTS << endl;
@@ -112,6 +115,8 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         applyMatryoshkaLogic(df);
     } else if (NO_WALL == modIdentifier) {
         disableWalls(df);
+    } else if (NOMAD_KING == modIdentifier) {
+        configureNomadKing(df);
     } else if (POCKET_HORSE == modIdentifier) {
         setPocketHorseIds(df);
     } else if (RANDOM_COSTS == modIdentifier) {
