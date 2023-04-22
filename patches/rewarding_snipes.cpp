@@ -9,7 +9,6 @@ void configureRewardingSnipes(genie::DatFile *df) {
         std::cout << "Patched King blood unit for civ " << civ.Name << "\n";
 
         genie::Unit &relicCart = civ.Units.at(ID_RELIC_CART);
-        relicCart.Class = CLASS_RELIC; //don't die at sea
         relicCart.FogVisibility = 1; //always visible
         relicCart.HitPoints = 30000; //don't die from exploding kings
 
