@@ -59,9 +59,7 @@ void buildCountdownToSaboteur(std::vector<int16_t> &COUNTDOWN_UNITS, genie::Civ 
 void patchMonumentToKeepItFromExploding(genie::Civ &civ) {
     genie::Unit &monument = civ.Units.at(ID_MONUMENT);
     monument.HitPoints = 30000; //Max HP allowed in engine with some buffer so not to risk overflow
-    monument.Type50.Armours.at(1).Amount = 5000;  //buff armors to keep it from booming
-    monument.Type50.Armours.at(2).Amount = 5000;
-    monument.Type50.Armours.at(3).Amount = 5000;
+    monument.Type50.BaseArmor = 10000;  //buff armors to keep it from booming
 }
 
 void configureExplodingKings(genie::DatFile *df) {
