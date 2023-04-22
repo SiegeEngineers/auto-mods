@@ -65,18 +65,17 @@ void patchMonumentToKeepItFromExploding(genie::Civ &civ) {
 void configureExplodingKings(genie::DatFile *df) {
     std::vector<int16_t> COUNTDOWN_UNITS = {
         ID_TRISTAN,                    // Self Plug
-        ID_GUY_JOSSELYNE,              // paladin
-        ID_BABUR,                      // camel
-        ID_GUY_LANCELOT,               // paladin
-        ID_DINH_LE,                    // unique paladin
-        ID_GUY_MORDRED,                // paladin
-        ID_DAGNAJAN,                   // elephaunt
         ID_BAYINNAUNG,                 // elephant
+        ID_DAGNAJAN,                   // elephaunt
         ID_SURYAVARMAN_I,              // elephant
         ID_TABINSHWEHTI,               // elephant
-        ID_KHOSRAU,                    // elephant
         ID_ABRAHA_ELEPHANT,            // elephant
+        ID_KHOSRAU,                    // elephant
         ID_TSAR_KONSTANTIN,            // Chariot
+        ID_LEIF_ERIKSON,               // longboat
+        ID_VASCO_DA_GAMA,              // caravel
+        ID_THE_MIDDLEBROOK,            // longboat
+        ID_ADMIRAL_YI_SHUN_SHIN,       // turtle ship
         ID_BAD_NEIGHBOR_PACKED,        // treb
         ID_GODS_OWN_SLING_PACKED,      // treb
         ID_BAD_NEIGHBOR,               // treb

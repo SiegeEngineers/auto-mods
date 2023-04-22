@@ -205,6 +205,12 @@ static const int ID_GUY_RICHARD_THE_LIONHEART = 160;
 static const int ID_HENRY_V = 847; 
 static const int ID_DINH_LE = 1184; 
 
+//boat heroes
+static const int ID_ADMIRAL_YI_SHUN_SHIN = 844;
+static const int ID_LEIF_ERIKSON = 106;
+static const int ID_THE_MIDDLEBROOK = 1631;
+static const int ID_VASCO_DA_GAMA = 203;
+
 //elephaunt heroes
 static const int ID_DAGNAJAN = 1106; 
 static const int ID_BAYINNAUNG = 1165; 
