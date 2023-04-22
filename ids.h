@@ -196,11 +196,6 @@ static const int ID_BAD_NEIGHBOR = 682;
 static const int ID_GODS_OWN_SLING_PACKED = 729; 
 static const int ID_GODS_OWN_SLING = 683; 
 static const int ID_EMPEROR_IN_A_BARREL = 733; 
-static const int ID_TABINSHWEHTI = 1166; 
-static const int ID_SURYAVARMAN_I = 1162; 
-static const int ID_BAYINNAUNG = 1165; 
-static const int ID_ABRAHA_ELEPHANT = 1071; 
-static const int ID_KHOSRAU = 930; 
 static const int ID_BABUR = 1070; 
 static const int ID_TRISTAN = 1038; 
 static const int ID_GUY_JOSSELYNE = 648; 
@@ -209,6 +204,16 @@ static const int ID_GUY_MORDRED = 176;
 static const int ID_GUY_RICHARD_THE_LIONHEART = 160; 
 static const int ID_HENRY_V = 847; 
 static const int ID_DINH_LE = 1184; 
+
+//elephaunt heroes
+static const int ID_DAGNAJAN = 1106; 
+static const int ID_BAYINNAUNG = 1165; 
+static const int ID_ABRAHA_ELEPHANT = 1071; 
+static const int ID_TABINSHWEHTI = 1166; 
+static const int ID_KHOSRAU = 930; 
+static const int ID_SURYAVARMAN_I = 1162; 
+static const int ID_TSAR_KONSTANTIN = 1266; 
+
 static const int CLASS_PETARD = 35;
 static const int CLASS_HERO = 25;
 
