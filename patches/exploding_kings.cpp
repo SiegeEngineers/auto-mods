@@ -76,10 +76,10 @@ void configureExplodingKings(genie::DatFile *df) {
         ID_VASCO_DA_GAMA,              // caravel
         ID_THE_MIDDLEBROOK,            // longboat
         ID_ADMIRAL_YI_SHUN_SHIN,       // turtle ship
+        ID_BAD_NEIGHBOR,               // treb 
+        ID_GODS_OWN_SLING,             // treb
         ID_BAD_NEIGHBOR_PACKED,        // treb
         ID_GODS_OWN_SLING_PACKED,      // treb
-        ID_BAD_NEIGHBOR,               // treb
-        ID_GODS_OWN_SLING,             // treb
         ID_EMPEROR_IN_A_BARREL,        // unique
     };
 
