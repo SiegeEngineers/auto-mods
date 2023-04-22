@@ -224,6 +224,7 @@ static const int TECH_FORTIFIED_WALL = 194;
 
 static const int BOMBARD_TOWER = 236;
 static const int CASTLE = 82;
+static const int ID_MONUMENT = 826;
 
 static const int TECH_CARAVAN = 48;
 
