@@ -71,9 +71,9 @@ void configureExplodingKings(genie::DatFile *df) {
         ID_DINH_LE,                    // unique paladin
         ID_GUY_MORDRED,                // paladin
         ID_DAGNAJAN,                   // elephaunt
-        ID_TABINSHWEHTI,               // elephant
-        ID_SURYAVARMAN_I,              // elephant
         ID_BAYINNAUNG,                 // elephant
+        ID_SURYAVARMAN_I,              // elephant
+        ID_TABINSHWEHTI,               // elephant
         ID_KHOSRAU,                    // elephant
         ID_ABRAHA_ELEPHANT,            // elephant
         ID_TSAR_KONSTANTIN,            // Chariot
