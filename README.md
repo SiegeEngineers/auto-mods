@@ -23,6 +23,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [Random Costs](https://www.ageofempires.com/mods/details/93975/)
 - [Random Tech Costs](https://www.ageofempires.com/mods/details/93964/)
 - [Random Unit Costs](https://www.ageofempires.com/mods/details/93963/)
+- [Relic Monk Boom](https://www.ageofempires.com/mods/details/166337/)
 - [Rewarding Snipes](https://www.ageofempires.com/mods/details/94277/)
 - [Teamwork Mod](https://www.ageofempires.com/mods/details/93972/)
 - [3x Tech Mod](https://www.ageofempires.com/mods/details/93960/)
