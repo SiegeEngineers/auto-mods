@@ -56,30 +56,25 @@ void buildCountdownToSaboteur(std::vector<int16_t> &COUNTDOWN_UNITS, genie::Civ 
               << std::endl;
 }
 
-void patchMonumentToKeepItFromExploding(genie::Civ &civ) {
-    genie::Unit &monument = civ.Units.at(ID_MONUMENT);
-    monument.HitPoints = 30000; //Max HP allowed in engine with some buffer so not to risk overflow
-    monument.Type50.BaseArmor = 10000;  //buff armors to keep it from booming
-}
-
 void configureExplodingKings(genie::DatFile *df) {
     std::vector<int16_t> COUNTDOWN_UNITS = {
         ID_TRISTAN,                    // Self Plug
-        ID_BAYINNAUNG,                 // elephant
-        ID_DAGNAJAN,                   // elephaunt
-        ID_SURYAVARMAN_I,              // elephant
+        ID_GUY_JOSSELYNE,              // paladin
+        ID_GUY_LANCELOT,               // paladin
+        ID_GUY_MORDRED,                // paladin
+        ID_GUY_RICHARD_THE_LIONHEART,  // paladin
+        ID_HENRY_V,                    // paladin
+        ID_DINH_LE,                    // unique paladin
+        ID_BABUR,                      // camel
         ID_TABINSHWEHTI,               // elephant
-        ID_ABRAHA_ELEPHANT,            // elephant
+        ID_SURYAVARMAN_I,              // elephant
+        ID_BAYINNAUNG,                 // elephant
         ID_KHOSRAU,                    // elephant
-        ID_TSAR_KONSTANTIN,            // Chariot
-        ID_LEIF_ERIKSON,               // longboat
-        ID_VASCO_DA_GAMA,              // caravel
-        ID_THE_MIDDLEBROOK,            // longboat
-        ID_ADMIRAL_YI_SHUN_SHIN,       // turtle ship
-        ID_BAD_NEIGHBOR,               // treb 
-        ID_GODS_OWN_SLING,             // treb
+        ID_ABRAHA_ELEPHANT,            // elephant
         ID_BAD_NEIGHBOR_PACKED,        // treb
         ID_GODS_OWN_SLING_PACKED,      // treb
+        ID_BAD_NEIGHBOR,               // treb
+        ID_GODS_OWN_SLING,             // treb
         ID_EMPEROR_IN_A_BARREL,        // unique
     };
 
@@ -87,6 +82,5 @@ void configureExplodingKings(genie::DatFile *df) {
         buildCountdownToSaboteur(COUNTDOWN_UNITS, civ);
         patchSaboteurForFirstExplosion(civ);
         patchMonkeyForSecondExplosion(civ);
-        patchMonumentToKeepItFromExploding(civ);
     }
 }
