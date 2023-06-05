@@ -2,6 +2,8 @@
 #include "genie/dat/DatFile.h"
 #include "patches/community_games.h"
 #include "patches/duplicate_techs.h"
+#include "patches/multiplied_civ_bonus.h"
+#include "patches/shared_civ_bonus.h"
 #include "patches/exploding_villagers.h"
 #include "patches/exploding_kings.h"
 #include "patches/exploding_relic_monks.h"
@@ -36,6 +38,7 @@ const char *const TEAMWORK = "teamwork";
 const char *const X_256_TECH = "x256";
 const char *const X_3_TECH = "x3";
 const char *const X_9_TECH = "x9";
+const char *const X_10_SHARED_CIV = "10x-shared-civ";
 
 vector<string> getModIdentifiers(char *const *argv);
 
@@ -68,6 +71,7 @@ int main(int argc, char **argv) {
         cout << "    " << X_3_TECH << endl;
         cout << "    " << X_9_TECH << endl;
         cout << "    " << X_256_TECH << endl;
+        cout << "    " << X_10_SHARED_CIV << endl;
         return 1;
     }
 
@@ -137,6 +141,9 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         duplicateTechs(df, 9);
     } else if (X_256_TECH == modIdentifier) {
         duplicateTechs(df, 256);
+    } else if (X_10_SHARED_CIV == modIdentifier) {
+        configureMultipliedCivBonus(df, 10);
+        configureSharedCivBonus(df);
     } else {
         cout << "Unknown mod identifier: '" << modIdentifier << "'" << endl;
     }
