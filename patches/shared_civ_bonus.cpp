@@ -161,51 +161,21 @@ void aztecsCivBonus(genie::DatFile *df) {
     skipShare(444);
 
     auto team_bonus_id = 488;
-
-    const int AZT_TECH_TREE = 447;
-    shareEffect(df, AZT_TECH_TREE, team_bonus_id);
-    
-    const int AZT_ATLATL = 514;
-    shareEffect(df, AZT_ATLATL, team_bonus_id);
-    
-    const int AZT_GARLAND_WARS = 465;
-    shareEffect(df, AZT_GARLAND_WARS, team_bonus_id);
-    
-    const int AZT_MONK_HP_1 = 470;
-    shareEffect(df, AZT_MONK_HP_1, team_bonus_id);
-    
-    const int AZT_MONK_HP_2 = 471;
-    shareEffect(df, AZT_MONK_HP_2, team_bonus_id);
-    
-    const int AZT_MONK_HP_3 = 472;
-    shareEffect(df, AZT_MONK_HP_3, team_bonus_id);
-    
-    const int AZT_MONK_HP_4 = 473;
-    shareEffect(df, AZT_MONK_HP_4, team_bonus_id);
-    
-    const int AZT_MONK_HP_5 = 474;
-    shareEffect(df, AZT_MONK_HP_5, team_bonus_id);
-    
-    const int AZT_MONK_HP_6 = 475;
-    shareEffect(df, AZT_MONK_HP_6, team_bonus_id);
-    
-    const int AZT_MONK_HP_7 = 476;
-    shareEffect(df, AZT_MONK_HP_7, team_bonus_id);
-    
-    const int AZT_MONK_HP_8 = 477;
-    shareEffect(df, AZT_MONK_HP_8, team_bonus_id);
-    
-    const int AZT_MONK_HP_9 = 478;
-    shareEffect(df, AZT_MONK_HP_9, team_bonus_id);
-    
-    const int AZT_MONK_HP_10 = 512;
-    shareEffect(df, AZT_MONK_HP_10, team_bonus_id);
-
-    const int AZT_START_RES = 213;
-    shareEffect(df, AZT_START_RES, team_bonus_id);
-    
-    const int AZT_RELIC = 488;
-    shareEffect(df, AZT_RELIC, team_bonus_id);
+    shareEffect(df, 447, team_bonus_id); // AZT_TECH_TREE
+    shareEffect(df, 514, team_bonus_id); // AZT_ATLATL
+    shareEffect(df, 465, team_bonus_id); // AZT_GARLAND_WARS
+    shareEffect(df, 470, team_bonus_id); // AZT_MONK_HP_1
+    shareEffect(df, 471, team_bonus_id); // AZT_MONK_HP_2
+    shareEffect(df, 472, team_bonus_id); // AZT_MONK_HP_3
+    shareEffect(df, 473, team_bonus_id); // AZT_MONK_HP_4
+    shareEffect(df, 474, team_bonus_id); // AZT_MONK_HP_5
+    shareEffect(df, 475, team_bonus_id); // AZT_MONK_HP_6
+    shareEffect(df, 476, team_bonus_id); // AZT_MONK_HP_7
+    shareEffect(df, 477, team_bonus_id); // AZT_MONK_HP_8
+    shareEffect(df, 478, team_bonus_id); // AZT_MONK_HP_9
+    shareEffect(df, 512, team_bonus_id); // AZT_MONK_HP_10
+    shareEffect(df, 213, team_bonus_id); // AZT_START_RES
+    shareEffect(df, 488, team_bonus_id); // AZT_RELIC
 }
 
 void bengalisCivBonus(genie::DatFile *df) {
@@ -213,33 +183,15 @@ void bengalisCivBonus(genie::DatFile *df) {
     skipShare(847);
 
     auto team_bonus_id = 841;
-
-    const int BENG_TECH_TREE = 840;
-    shareEffect(df, BENG_TECH_TREE, team_bonus_id);
-
-    const int BENG_PAIKS = 852;
-    shareEffect(df, BENG_PAIKS, team_bonus_id);
-
-    const int BENG_MAHAYANA = 853;
-    shareEffect(df, BENG_MAHAYANA, team_bonus_id);
-
-    const int BENG_RESIST = 865;
-    shareEffect(df, BENG_RESIST, team_bonus_id);
-
-    const int BENG_VILS = 866;
-    shareEffect(df, BENG_VILS, team_bonus_id);
-
-    const int BENG_CAV_BONUS = 888;
-    shareEffect(df, BENG_CAV_BONUS, team_bonus_id);
-
-    const int BENG_SHIPS_REGENERATE = 867;
-    shareEffect(df, BENG_SHIPS_REGENERATE, team_bonus_id);
-
-    const int BENG_MONK_DEFENSE = 568;
-    shareEffect(df, BENG_MONK_DEFENSE, team_bonus_id);
-
-    const int BENG_TRADE = 841;
-    shareEffect(df, BENG_TRADE, team_bonus_id);
+    shareEffect(df, 840, team_bonus_id); // BENG_TECH_TREE
+    shareEffect(df, 852, team_bonus_id); // BENG_PAIKS
+    shareEffect(df, 853, team_bonus_id); // BENG_MAHAYANA
+    shareEffect(df, 865, team_bonus_id); // BENG_RESIST
+    shareEffect(df, 866, team_bonus_id); // BENG_VILS
+    shareEffect(df, 888, team_bonus_id); // BENG_CAV_BONUS
+    shareEffect(df, 867, team_bonus_id); // BENG_SHIPS_REGENERATE
+    shareEffect(df, 568, team_bonus_id); // BENG_MONK_DEFENSE
+    shareEffect(df, 841, team_bonus_id); // BENG_TRADE
 }
 
 void berbersCivBonus(genie::DatFile *df) {
@@ -248,33 +200,15 @@ void berbersCivBonus(genie::DatFile *df) {
     skipShare(624);
 
     auto team_bonus_id = 38;
-
-    const int BERB_TECH_TREE = 37;
-    shareEffect(df, BERB_TECH_TREE, team_bonus_id);
-
-    const int BERB_KASBAH = 607;
-    shareEffect(df, BERB_KASBAH, team_bonus_id);
-
-    const int BERB_MAGHREBI_CAMELS = 608;
-    shareEffect(df, BERB_MAGHREBI_CAMELS, team_bonus_id);
-
-    const int BERB_VILLAGERS_FASTER_1 = 609;
-    shareEffect(df, BERB_VILLAGERS_FASTER_1, team_bonus_id);
-
-    const int BERB_VILLAGERS_FASTER_2 = 626;
-    shareEffect(df, BERB_VILLAGERS_FASTER_2, team_bonus_id);
-
-    const int BERB_CAVALRY_DISCOUNT_1 = 610;
-    shareEffect(df, BERB_CAVALRY_DISCOUNT_1, team_bonus_id);
-
-    const int BERB_CAVALRY_DISCOUNT_2 = 638;
-    shareEffect(df, BERB_CAVALRY_DISCOUNT_2, team_bonus_id);
-
-    const int BERB_SHIPS_FASTER_1 = 34;
-    shareEffect(df, BERB_SHIPS_FASTER_1, team_bonus_id);
-
-    const int BERB_SHIPS_FASTER_2 = 611;
-    shareEffect(df, BERB_SHIPS_FASTER_2, team_bonus_id);
+    shareEffect(df, 37, team_bonus_id); // BERB_TECH_TREE
+    shareEffect(df, 607, team_bonus_id); // BERB_KASBAH
+    shareEffect(df, 608, team_bonus_id); // BERB_MAGHREBI_CAMELS
+    shareEffect(df, 609, team_bonus_id); // BERB_VILLAGERS_FASTER_1
+    shareEffect(df, 626, team_bonus_id); // BERB_VILLAGERS_FASTER_2
+    shareEffect(df, 610, team_bonus_id); // BERB_CAVALRY_DISCOUNT_1
+    shareEffect(df, 638, team_bonus_id); // BERB_CAVALRY_DISCOUNT_2
+    shareEffect(df, 34, team_bonus_id); // BERB_SHIPS_FASTER_1
+    shareEffect(df, 611, team_bonus_id); // BERB_SHIPS_FASTER_2
 }
 
 void bohemiansCivBonus(genie::DatFile *df) {
@@ -283,30 +217,14 @@ void bohemiansCivBonus(genie::DatFile *df) {
     skipShare(814);
 
     auto team_bonus_id = 804;
-
-    const int BOH_TECH_TREE = 803;
-    shareEffect(df, BOH_TECH_TREE, team_bonus_id);
-
-    const int BOH_WAGENBURG_TACTICS = 811;
-    shareEffect(df, BOH_WAGENBURG_TACTICS, team_bonus_id);
-
-    const int BOH_HUSSITE_REFORMS = 812;
-    shareEffect(df, BOH_HUSSITE_REFORMS, team_bonus_id);
-
-    const int BOH_BLACKSMITH_DISCOUNT = 830;
-    shareEffect(df, BOH_BLACKSMITH_DISCOUNT, team_bonus_id);
-
-    const int BOH_SPEAR_BONUS = 824;
-    shareEffect(df, BOH_SPEAR_BONUS, team_bonus_id);
-
-    const int BOH_VIL_SANCTITY = 825;
-    shareEffect(df, BOH_VIL_SANCTITY, team_bonus_id);
-
-    const int BOH_VIL_FERVOR = 826;
-    shareEffect(df, BOH_VIL_FERVOR, team_bonus_id);
-
-    const int BOH_MARKET_SPEED = 804;
-    shareEffect(df, BOH_MARKET_SPEED, team_bonus_id);
+    shareEffect(df, 803, team_bonus_id); // BOH_TECH_TREE
+    shareEffect(df, 811, team_bonus_id); // BOH_WAGENBURG_TACTICS
+    shareEffect(df, 812, team_bonus_id); // BOH_HUSSITE_REFORMS
+    shareEffect(df, 830, team_bonus_id); // BOH_BLACKSMITH_DISCOUNT
+    shareEffect(df, 824, team_bonus_id); // BOH_SPEAR_BONUS
+    shareEffect(df, 825, team_bonus_id); // BOH_VIL_SANCTITY
+    shareEffect(df, 826, team_bonus_id); // BOH_VIL_FERVOR
+    shareEffect(df, 804, team_bonus_id); // BOH_MARKET_SPEED
 }
 
 void britonsCivBonus(genie::DatFile *df) {
@@ -314,30 +232,14 @@ void britonsCivBonus(genie::DatFile *df) {
     skipShare(358);
     
     auto team_bonus_id = 399;
-
-    const int BRIT_TECH_TREE = 254;
-    shareEffect(df, BRIT_TECH_TREE, team_bonus_id);
-    
-    const int BRIT_YEOMEN = 455;
-    shareEffect(df, BRIT_YEOMEN, team_bonus_id);
-    
-    const int BRIT_WARWOLF = 540;
-    shareEffect(df, BRIT_WARWOLF    , team_bonus_id);
-    
-    const int BRIT_TC_DISCOUNT = 379;
-    shareEffect(df, BRIT_TC_DISCOUNT, team_bonus_id);
-
-    const int BRIT_ARCHER_RANGE_1 = 380;
-    shareEffect(df, BRIT_ARCHER_RANGE_1, team_bonus_id);
-
-    const int BRIT_ARCHER_RANGE_2 = 415;
-    shareEffect(df, BRIT_ARCHER_RANGE_2, team_bonus_id);
-
-    const int BRIT_SHEPARD = 381;
-    shareEffect(df, BRIT_SHEPARD, team_bonus_id);
-
-    const int BRIT_RANGE_SPEED = 399;
-    shareEffect(df, BRIT_RANGE_SPEED, team_bonus_id);
+    shareEffect(df, 254, team_bonus_id); // BRIT_TECH_TREE
+    shareEffect(df, 455, team_bonus_id); // BRIT_YEOMEN
+    shareEffect(df, 540, team_bonus_id); // BRIT_WARWOLF
+    shareEffect(df, 379, team_bonus_id); // BRIT_TC_DISCOUNT
+    shareEffect(df, 380, team_bonus_id); // BRIT_ARCHER_RANGE_1
+    shareEffect(df, 415, team_bonus_id); // BRIT_ARCHER_RANGE_2
+    shareEffect(df, 381, team_bonus_id); // BRIT_SHEPARD
+    shareEffect(df, 399, team_bonus_id); // BRIT_RANGE_SPEED
 }
 
 void bulgariansCivBonus(genie::DatFile *df) {
@@ -345,30 +247,14 @@ void bulgariansCivBonus(genie::DatFile *df) {
     skipShare(715);
     
     auto team_bonus_id = 707;
-
-    const int BULG_TECH_TREE = 706;
-    shareEffect(df, BULG_TECH_TREE, team_bonus_id);
-
-    const int BULG_STIRRUPS = 722;
-    shareEffect(df, BULG_STIRRUPS, team_bonus_id);
-
-    const int BULG_BAGAINS = 723;
-    shareEffect(df, BULG_BAGAINS, team_bonus_id);
-
-    const int BULG_MILITIA_UPGRADES = 730;
-    shareEffect(df, BULG_MILITIA_UPGRADES, team_bonus_id);
-
-    const int BULG_TC_STONE_DISCOUNT_1 = 171;
-    shareEffect(df, BULG_TC_STONE_DISCOUNT_1, team_bonus_id);
-    
-    const int BULG_TC_STONE_DISCOUNT_2 = 731;
-    shareEffect(df, BULG_TC_STONE_DISCOUNT_2, team_bonus_id);
-
-    const int BULG_BLACKSMITH_FASTER = 707;
-    shareEffect(df, BULG_BLACKSMITH_FASTER, team_bonus_id);
-
-    const int BULD_ENABLE_CREPOST = 732;
-    shareEffect(df, BULD_ENABLE_CREPOST, team_bonus_id);
+    shareEffect(df, 706, team_bonus_id); // BULG_TECH_TREE
+    shareEffect(df, 722, team_bonus_id); // BULG_STIRRUPS
+    shareEffect(df, 723, team_bonus_id); // BULG_BAGAINS
+    shareEffect(df, 730, team_bonus_id); // BULG_MILITIA_UPGRADES
+    shareEffect(df, 171, team_bonus_id); // BULG_TC_STONE_DISCOUNT_1
+    shareEffect(df, 731, team_bonus_id); // BULG_TC_STONE_DISCOUNT_2
+    shareEffect(df, 707, team_bonus_id); // BULG_BLACKSMITH_FASTER
+    shareEffect(df, 732, team_bonus_id); // BULD_ENABLE_CREPOST
 }
 
 void burgundiansCivBonus(genie::DatFile *df) {
@@ -376,21 +262,11 @@ void burgundiansCivBonus(genie::DatFile *df) {
     skipShare(787);
     
     auto team_bonus_id = 783;
-
-    const int BURG_TECH_TREE = 782;
-    shareEffect(df, BURG_TECH_TREE, team_bonus_id);
-
-    const int BURG_BURGUNDIAN_VINEYARDS = 790;
-    shareEffect(df, BURG_BURGUNDIAN_VINEYARDS, team_bonus_id);
-
-    const int BURG_FLEMISH_REVOLUTION = 791;
-    shareEffect(df, BURG_FLEMISH_REVOLUTION, team_bonus_id);
-
-    const int BURG_GUNPOWDER = 794;
-    shareEffect(df, BURG_GUNPOWDER, team_bonus_id);
-
-    const int BURG_RELIC_FOOD = 783;
-    shareEffect(df, BURG_RELIC_FOOD, team_bonus_id);
+    shareEffect(df, 782, team_bonus_id); // BURG_TECH_TREE
+    shareEffect(df, 790, team_bonus_id); // BURG_BURGUNDIAN_VINEYARDS
+    shareEffect(df, 791, team_bonus_id); // BURG_FLEMISH_REVOLUTION
+    shareEffect(df, 794, team_bonus_id); // BURG_GUNPOWDER
+    shareEffect(df, 783, team_bonus_id); // BURG_RELIC_FOOD
 }
 
 void burmeseCivBonus(genie::DatFile *df) {
@@ -398,36 +274,16 @@ void burmeseCivBonus(genie::DatFile *df) {
     skipShare(659);
     
     auto team_bonus_id = 651;
-
-    const int BURM_TECH_TREE = 650;
-    shareEffect(df, BURM_TECH_TREE, team_bonus_id);
-
-    const int BURM_HOWDAH = 666;
-    shareEffect(df, BURM_HOWDAH, team_bonus_id);
-
-    const int BURM_MANIPUR_CAVALRY = 667;
-    shareEffect(df, BURM_MANIPUR_CAVALRY, team_bonus_id);
-
-    const int BURM_LUMBER_UPGRADES = 685;
-    shareEffect(df, BURM_LUMBER_UPGRADES, team_bonus_id);
-
-    const int BURM_INF_ATTACK_1 = 686;
-    shareEffect(df, BURM_INF_ATTACK_1, team_bonus_id);
-
-    const int BURM_INF_ATTACK_2 = 687;
-    shareEffect(df, BURM_INF_ATTACK_2, team_bonus_id);
-
-    const int BURM_INF_ATTACK_3 = 688;
-    shareEffect(df, BURM_INF_ATTACK_3, team_bonus_id);
-
-    const int BURM_INF_ATTACK_4 = 699;
-    shareEffect(df, BURM_INF_ATTACK_4, team_bonus_id);
-
-    const int BURM_ELEP_ARMOR = 679;
-    shareEffect(df, BURM_ELEP_ARMOR, team_bonus_id);
-
-    const int BURM_MONASTERY_DISCOUNT = 689;
-    shareEffect(df, BURM_MONASTERY_DISCOUNT, team_bonus_id);
+    shareEffect(df, 650, team_bonus_id); // BURM_TECH_TREE
+    shareEffect(df, 666, team_bonus_id); // BURM_HOWDAH
+    shareEffect(df, 667, team_bonus_id); // BURM_MANIPUR_CAVALRY
+    shareEffect(df, 685, team_bonus_id); // BURM_LUMBER_UPGRADES
+    shareEffect(df, 686, team_bonus_id); // BURM_INF_ATTACK_1
+    shareEffect(df, 687, team_bonus_id); // BURM_INF_ATTACK_2
+    shareEffect(df, 688, team_bonus_id); // BURM_INF_ATTACK_3
+    shareEffect(df, 699, team_bonus_id); // BURM_INF_ATTACK_4
+    shareEffect(df, 679, team_bonus_id); // BURM_ELEP_ARMOR
+    shareEffect(df, 689, team_bonus_id); // BURM_MONASTERY_DISCOUNT
 }
 
 void byzantinesCivBonus(genie::DatFile *df) {
@@ -435,39 +291,17 @@ void byzantinesCivBonus(genie::DatFile *df) {
     skipShare(359);
     
     auto team_bonus_id = 400;
-
-    const int BYZ_TECH_TREE = 256;
-    shareEffect(df, BYZ_TECH_TREE, team_bonus_id);
-
-    const int BYZ_GREEK_FIRE = 518;
-    shareEffect(df, BYZ_GREEK_FIRE, team_bonus_id);
-
-    const int BYZ_LOGISTICA = 493;
-    shareEffect(df, BYZ_LOGISTICA, team_bonus_id);
-
-    const int BYZ_OBSOLETE = 413;
-    shareEffect(df, BYZ_OBSOLETE, team_bonus_id);
-
-    const int BYZ_BUILDINGS_HP_1 = 282;
-    shareEffect(df, BYZ_BUILDINGS_HP_1, team_bonus_id);
-
-    const int BYZ_BUILDINGS_HP_2 = 429;
-    shareEffect(df, BYZ_BUILDINGS_HP_2, team_bonus_id);
-
-    const int BYZ_BUILDINGS_HP_3 = 430;
-    shareEffect(df, BYZ_BUILDINGS_HP_3, team_bonus_id);
-
-    const int BYZ_BUILDINGS_HP_4 = 431;
-    shareEffect(df, BYZ_BUILDINGS_HP_4, team_bonus_id);
-
-    const int BYZ_COUNTER_DISCOUNT = 283;
-    shareEffect(df, BYZ_COUNTER_DISCOUNT, team_bonus_id);
-
-    const int BYZ_SHIP_ATTACKSPEED = 396;
-    shareEffect(df, BYZ_SHIP_ATTACKSPEED, team_bonus_id);
-
-    const int BYZ_HEALSPEED = 400;
-    shareEffect(df, BYZ_HEALSPEED, team_bonus_id);
+    shareEffect(df, 256, team_bonus_id); // BYZ_TECH_TREE
+    shareEffect(df, 518, team_bonus_id); // BYZ_GREEK_FIRE
+    shareEffect(df, 493, team_bonus_id); // BYZ_LOGISTICA
+    shareEffect(df, 413, team_bonus_id); // BYZ_OBSOLETE
+    shareEffect(df, 282, team_bonus_id); // BYZ_BUILDINGS_HP_1
+    shareEffect(df, 429, team_bonus_id); // BYZ_BUILDINGS_HP_2
+    shareEffect(df, 430, team_bonus_id); // BYZ_BUILDINGS_HP_3
+    shareEffect(df, 431, team_bonus_id); // BYZ_BUILDINGS_HP_4
+    shareEffect(df, 283, team_bonus_id); // BYZ_COUNTER_DISCOUNT
+    shareEffect(df, 396, team_bonus_id); // BYZ_SHIP_ATTACKSPEED
+    shareEffect(df, 400, team_bonus_id); // BYZ_HEALSPEED
 }
 
 void celtsCivBonus(genie::DatFile *df) {
@@ -475,30 +309,14 @@ void celtsCivBonus(genie::DatFile *df) {
     skipShare(368);
     
     auto team_bonus_id = 401;
-
-    const int CELT_TECH_TREE = 275;
-    shareEffect(df, CELT_TECH_TREE, team_bonus_id);
-
-    const int CELT_STRONGHOLD = 537;
-    shareEffect(df, CELT_STRONGHOLD, team_bonus_id);
-
-    const int CELT_FUROR_CELTICA = 239;
-    shareEffect(df, CELT_FUROR_CELTICA, team_bonus_id);
-
-    const int CELT_INF_SPEED = 392;
-    shareEffect(df, CELT_INF_SPEED, team_bonus_id);
-
-    const int CELT_LUMBERJACK = 384;
-    shareEffect(df, CELT_LUMBERJACK, team_bonus_id);
-
-    const int CELT_SIEGE_FIRING = 385;
-    shareEffect(df, CELT_SIEGE_FIRING, team_bonus_id);
-
-    const int CELT_DOMINANT_LOS = 417;
-    shareEffect(df, CELT_DOMINANT_LOS, team_bonus_id);
-
-    const int CELTS_SIEGEWORKSHOP_SPEED = 401;
-    shareEffect(df, CELTS_SIEGEWORKSHOP_SPEED, team_bonus_id);
+    shareEffect(df, 275, team_bonus_id); // CELT_TECH_TREE
+    shareEffect(df, 537, team_bonus_id); // CELT_STRONGHOLD
+    shareEffect(df, 239, team_bonus_id); // CELT_FUROR_CELTICA
+    shareEffect(df, 392, team_bonus_id); // CELT_INF_SPEED
+    shareEffect(df, 384, team_bonus_id); // CELT_LUMBERJACK
+    shareEffect(df, 385, team_bonus_id); // CELT_SIEGE_FIRING
+    shareEffect(df, 417, team_bonus_id); // CELT_DOMINANT_LOS
+    shareEffect(df, 401, team_bonus_id); // CELTS_SIEGEWORKSHOP_SPEED
 }
 
 void chineseCivBonus(genie::DatFile *df) {
@@ -506,63 +324,25 @@ void chineseCivBonus(genie::DatFile *df) {
     skipShare(360);
     
     auto team_bonus_id = 402;
-
-    const int CHIN_TECH_TREE = 257;
-    shareEffect(df, CHIN_TECH_TREE, team_bonus_id);
-
-    const int CHIN_GREAT_WALL = 516;
-    shareEffect(df, CHIN_GREAT_WALL, team_bonus_id);
-
-    const int CHIN_ROCKETRY = 483;
-    shareEffect(df, CHIN_ROCKETRY, team_bonus_id);
-
-    const int CHIN_START_RES = 215;
-    shareEffect(df, CHIN_START_RES, team_bonus_id);
-
-    const int CHIN_ADDITIONAL_VILS = 302;
-    shareEffect(df, CHIN_ADDITIONAL_VILS, team_bonus_id);
-
-    const int CHIN_TECH_DISCOUNT_1 = 304;
-    shareEffect(df, CHIN_TECH_DISCOUNT_1, team_bonus_id);
-
-    const int CHIN_TECH_DISCOUNT_2 = 349;
-    shareEffect(df, CHIN_TECH_DISCOUNT_2, team_bonus_id);
-
-    const int CHIN_TECH_DISCOUNT_3 = 350;
-    shareEffect(df, CHIN_TECH_DISCOUNT_3, team_bonus_id);
-
-    const int CHIN_TECH_DISCOUNT_4 = 351;
-    shareEffect(df, CHIN_TECH_DISCOUNT_4, team_bonus_id);
-
-    const int CHIN_TC_POP = 437;
-    shareEffect(df, CHIN_TC_POP, team_bonus_id);
-
-    const int CHIN_DEMO_HP = 395;
-    shareEffect(df, CHIN_DEMO_HP, team_bonus_id);
-
-    const int CHIN_FARM_FOOD_1 = 402;
-    shareEffect(df, CHIN_FARM_FOOD_1, team_bonus_id);
-
-    const int CHIN_FARM_FOOD_2 = 831;
-    shareEffect(df, CHIN_FARM_FOOD_2, team_bonus_id);
-
-    const int CHIN_FARM_FOOD_3 = 832;
-    shareEffect(df, CHIN_FARM_FOOD_3, team_bonus_id);
-
-    const int CHIN_FARM_FOOD_4 = 833;
-    shareEffect(df, CHIN_FARM_FOOD_4, team_bonus_id);
-
-    const int CHIN_FARM_FOOD_5 = 834;
-    shareEffect(df, CHIN_FARM_FOOD_5, team_bonus_id);
-
-    const int CHIN_FARM_FOOD_6 = 835;
-    shareEffect(df, CHIN_FARM_FOOD_6, team_bonus_id);
-
-    const int CHIN_FARM_FOOD_7 = 836;
-    shareEffect(df, CHIN_FARM_FOOD_7, team_bonus_id);
-
-    const int CHIN_FARM_FOOD_8 = 837;
-    shareEffect(df, CHIN_FARM_FOOD_8, team_bonus_id);
+    shareEffect(df, 257, team_bonus_id); // CHIN_TECH_TREE
+    shareEffect(df, 516, team_bonus_id); // CHIN_GREAT_WALL
+    shareEffect(df, 483, team_bonus_id); // CHIN_ROCKETRY
+    shareEffect(df, 215, team_bonus_id); // CHIN_START_RES
+    shareEffect(df, 302, team_bonus_id); // CHIN_ADDITIONAL_VILS
+    shareEffect(df, 304, team_bonus_id); // CHIN_TECH_DISCOUNT_1
+    shareEffect(df, 349, team_bonus_id); // CHIN_TECH_DISCOUNT_2
+    shareEffect(df, 350, team_bonus_id); // CHIN_TECH_DISCOUNT_3
+    shareEffect(df, 351, team_bonus_id); // CHIN_TECH_DISCOUNT_4
+    shareEffect(df, 437, team_bonus_id); // CHIN_TC_POP
+    shareEffect(df, 395, team_bonus_id); // CHIN_DEMO_HP
+    shareEffect(df, 402, team_bonus_id); // CHIN_FARM_FOOD_1
+    shareEffect(df, 831, team_bonus_id); // CHIN_FARM_FOOD_2
+    shareEffect(df, 832, team_bonus_id); // CHIN_FARM_FOOD_3
+    shareEffect(df, 833, team_bonus_id); // CHIN_FARM_FOOD_4
+    shareEffect(df, 834, team_bonus_id); // CHIN_FARM_FOOD_5
+    shareEffect(df, 835, team_bonus_id); // CHIN_FARM_FOOD_6
+    shareEffect(df, 836, team_bonus_id); // CHIN_FARM_FOOD_7
+    shareEffect(df, 837, team_bonus_id); // CHIN_FARM_FOOD_8
 }
 
 void cumansCivBonus(genie::DatFile *df) {
@@ -572,42 +352,18 @@ void cumansCivBonus(genie::DatFile *df) {
     skipShare(760); 
     
     auto team_bonus_id = 711;
-
-    const int CUMANS_TECH_TREE = 710;
-    shareEffect(df, CUMANS_TECH_TREE, team_bonus_id);
-
-    const int CUMANS_STEPPE_HUSBANDRY = 726;
-    shareEffect(df, CUMANS_STEPPE_HUSBANDRY, team_bonus_id);
-
-    const int CUMANS_CUMAN_MERCENARIES = 743;
-    shareEffect(df, CUMANS_CUMAN_MERCENARIES, team_bonus_id);
-
-    const int CUMANS_CUMAN_MERCENARIES_2 = 727;
-    shareEffect(df, CUMANS_CUMAN_MERCENARIES_2, team_bonus_id);
-
-    const int CUMANS_TC = 761;
-    shareEffect(df, CUMANS_TC, team_bonus_id);
-
-    const int CUMANS_SIEGE = 742;
-    shareEffect(df, CUMANS_SIEGE, team_bonus_id);
-
-    const int CUMANS_WOOD_DISCOUNT = 697;
-    shareEffect(df, CUMANS_WOOD_DISCOUNT, team_bonus_id);
-
-    const int CUMANS_CAV_FASTER_1 = 746;
-    shareEffect(df, CUMANS_CAV_FASTER_1, team_bonus_id);
-
-    const int CUMANS_CAV_FASTER_2 = 748;
-    shareEffect(df, CUMANS_CAV_FASTER_2, team_bonus_id);
-
-    const int CUMANS_CAV_FASTER_3 = 762;
-    shareEffect(df, CUMANS_CAV_FASTER_3, team_bonus_id);
-
-    const int CUMANS_CAV_FASTER_4 = 763;
-    shareEffect(df, CUMANS_CAV_FASTER_4, team_bonus_id);
-
-    const int CUMANS_PALISADE_HP = 711;
-    shareEffect(df, CUMANS_PALISADE_HP, team_bonus_id);
+    shareEffect(df, 710, team_bonus_id); // CUMANS_TECH_TREE
+    shareEffect(df, 726, team_bonus_id); // CUMANS_STEPPE_HUSBANDRY
+    shareEffect(df, 743, team_bonus_id); // CUMANS_CUMAN_MERCENARIES
+    shareEffect(df, 727, team_bonus_id); // CUMANS_CUMAN_MERCENARIES_2
+    shareEffect(df, 761, team_bonus_id); // CUMANS_TC
+    shareEffect(df, 742, team_bonus_id); // CUMANS_SIEGE
+    shareEffect(df, 697, team_bonus_id); // CUMANS_WOOD_DISCOUNT
+    shareEffect(df, 746, team_bonus_id); // CUMANS_CAV_FASTER_1
+    shareEffect(df, 748, team_bonus_id); // CUMANS_CAV_FASTER_2
+    shareEffect(df, 762, team_bonus_id); // CUMANS_CAV_FASTER_3
+    shareEffect(df, 763, team_bonus_id); // CUMANS_CAV_FASTER_4
+    shareEffect(df, 711, team_bonus_id); // CUMANS_PALISADE_HP
 }
 
 void dravidiansCivBonus(genie::DatFile *df) {
@@ -615,33 +371,15 @@ void dravidiansCivBonus(genie::DatFile *df) {
     skipShare(845);
     
     auto team_bonus_id = 839;
-
-    const int DRAV_TECH_TREE = 838;
-    shareEffect(df, DRAV_TECH_TREE, team_bonus_id);
-
-    const int DRAV_MEDICAL_CORPS = 850;
-    shareEffect(df, DRAV_MEDICAL_CORPS, team_bonus_id);
-
-    const int DRAV_WOOTZ_STEEL = 851;
-    shareEffect(df, DRAV_WOOTZ_STEEL, team_bonus_id);
-
-    const int DRAV_THIRISADAI = 860;
-    shareEffect(df, DRAV_THIRISADAI, team_bonus_id);
-
-    const int DRAV_BONUS_WOOD = 868;
-    shareEffect(df, DRAV_BONUS_WOOD, team_bonus_id);
-
-    const int DRAV_FISHING_CARRY = 863;
-    shareEffect(df, DRAV_FISHING_CARRY, team_bonus_id);
-
-    const int DRAV_SIEGE_DISCOUNT = 887;
-    shareEffect(df, DRAV_SIEGE_DISCOUNT, team_bonus_id);
-
-    const int DRAV_SKIRM_ATTACKFASTER = 864;
-    shareEffect(df, DRAV_SKIRM_ATTACKFASTER, team_bonus_id);
-
-    const int DRAV_DOCK_POP = 839;
-    shareEffect(df, DRAV_DOCK_POP, team_bonus_id);
+    shareEffect(df, 838, team_bonus_id); // DRAV_TECH_TREE
+    shareEffect(df, 850, team_bonus_id); // DRAV_MEDICAL_CORPS
+    shareEffect(df, 851, team_bonus_id); // DRAV_WOOTZ_STEEL
+    shareEffect(df, 860, team_bonus_id); // DRAV_THIRISADAI
+    shareEffect(df, 868, team_bonus_id); // DRAV_BONUS_WOOD
+    shareEffect(df, 863, team_bonus_id); // DRAV_FISHING_CARRY
+    shareEffect(df, 887, team_bonus_id); // DRAV_SIEGE_DISCOUNT
+    shareEffect(df, 864, team_bonus_id); // DRAV_SKIRM_ATTACKFASTER
+    shareEffect(df, 839, team_bonus_id); // DRAV_DOCK_POP
 }
 
 void ethiopiansCivBonus(genie::DatFile *df) {
@@ -649,36 +387,16 @@ void ethiopiansCivBonus(genie::DatFile *df) {
     skipShare(599);
     
     auto team_bonus_id = 49;
-
-    const int ETH_TECH_TREE = 48;
-    shareEffect(df, ETH_TECH_TREE, team_bonus_id);
-
-    const int ETH_ROYAL_HEIRS = 603;
-    shareEffect(df, ETH_ROYAL_HEIRS, team_bonus_id);
-
-    const int ETH_TORSION_ENGINES = 604;
-    shareEffect(df, ETH_TORSION_ENGINES, team_bonus_id);
-
-    const int ETH_TORSION_ENGINES_2 = 634;
-    shareEffect(df, ETH_TORSION_ENGINES_2, team_bonus_id);
-
-    const int ETH_ACHER_FIREFASTER = 612;
-    shareEffect(df, ETH_ACHER_FIREFASTER, team_bonus_id);
-
-    const int ETH_BONUS_RES_1 = 613;
-    shareEffect(df, ETH_BONUS_RES_1, team_bonus_id);
-
-    const int ETH_BONUS_RES_2 = 614;
-    shareEffect(df, ETH_BONUS_RES_2, team_bonus_id);
-
-    const int ETH_BONUS_RES_3 = 615;
-    shareEffect(df, ETH_BONUS_RES_3, team_bonus_id);
-
-    const int ETH_PAIK_FREE = 616;
-    shareEffect(df, ETH_PAIK_FREE, team_bonus_id);
-
-    const int ETH_OUTPOST_LOS = 49;
-    shareEffect(df, ETH_OUTPOST_LOS, team_bonus_id);
+    shareEffect(df, 48, team_bonus_id); // ETH_TECH_TREE
+    shareEffect(df, 603, team_bonus_id); // ETH_ROYAL_HEIRS
+    shareEffect(df, 604, team_bonus_id); // ETH_TORSION_ENGINES
+    shareEffect(df, 634, team_bonus_id); // ETH_TORSION_ENGINES_2
+    shareEffect(df, 612, team_bonus_id); // ETH_ACHER_FIREFASTER
+    shareEffect(df, 613, team_bonus_id); // ETH_BONUS_RES_1
+    shareEffect(df, 614, team_bonus_id); // ETH_BONUS_RES_2
+    shareEffect(df, 615, team_bonus_id); // ETH_BONUS_RES_3
+    shareEffect(df, 616, team_bonus_id); // ETH_PAIK_FREE
+    shareEffect(df, 49, team_bonus_id); // ETH_OUTPOST_LOS
 }
 
 void franksCivBonus(genie::DatFile *df) {
@@ -686,27 +404,13 @@ void franksCivBonus(genie::DatFile *df) {
     skipShare(361);
     
     auto team_bonus_id = 403;
-
-    const int FRANK_TECH_TREE = 258;
-    shareEffect(df, FRANK_TECH_TREE, team_bonus_id);
-
-    const int FRANK_BEARDED_AXE = 291;
-    shareEffect(df, FRANK_BEARDED_AXE, team_bonus_id);
-
-    const int FRANK_CHIVALRY = 548;
-    shareEffect(df, FRANK_CHIVALRY, team_bonus_id);
-
-    const int FRANK_CASTLE_DISCOUNT = 324;
-    shareEffect(df, FRANK_CASTLE_DISCOUNT, team_bonus_id);
-
-    const int FRANK_CAVALRY_HP = 285;
-    shareEffect(df, FRANK_CAVALRY_HP, team_bonus_id);
-
-    const int FRANK_FORAGERS = 523;
-    shareEffect(df, FRANK_FORAGERS, team_bonus_id);
-
-    const int FRANK_KNIGHT_LOS = 403;
-    shareEffect(df, FRANK_KNIGHT_LOS, team_bonus_id);
+    shareEffect(df, 258, team_bonus_id); // FRANK_TECH_TREE
+    shareEffect(df, 291, team_bonus_id); // FRANK_BEARDED_AXE
+    shareEffect(df, 548, team_bonus_id); // FRANK_CHIVALRY
+    shareEffect(df, 324, team_bonus_id); // FRANK_CASTLE_DISCOUNT
+    shareEffect(df, 285, team_bonus_id); // FRANK_CAVALRY_HP
+    shareEffect(df, 523, team_bonus_id); // FRANK_FORAGERS
+    shareEffect(df, 403, team_bonus_id); // FRANK_KNIGHT_LOS
 }
 
 void gothsCivBonus(genie::DatFile *df) {
@@ -714,54 +418,22 @@ void gothsCivBonus(genie::DatFile *df) {
     skipShare(507);
     
     auto team_bonus_id = 405;
-
-    const int GOTH_TECH_TREE = 259;
-    shareEffect(df, GOTH_TECH_TREE, team_bonus_id);
-
-    const int GOTH_ANARCHY = 462;
-    shareEffect(df, GOTH_ANARCHY, team_bonus_id);
-
-    const int GOTH_PERFUSION = 513;
-    shareEffect(df, GOTH_PERFUSION, team_bonus_id);
-    
-    const int GOTH_INF_DISCOUNT_1 = 342;
-    shareEffect(df, GOTH_INF_DISCOUNT_1, team_bonus_id);
-    
-    const int GOTH_INF_DISCOUNT_2 = 765;
-    shareEffect(df, GOTH_INF_DISCOUNT_2, team_bonus_id);
-    
-    const int GOTH_INF_DISCOUNT_3 = 766;
-    shareEffect(df, GOTH_INF_DISCOUNT_3, team_bonus_id);
-    
-    const int GOTH_INF_DISCOUNT_4 = 767;
-    shareEffect(df, GOTH_INF_DISCOUNT_4, team_bonus_id);
-    
-    const int GOTH_INF_DISCOUNT_5 = 344;
-    shareEffect(df, GOTH_INF_DISCOUNT_5, team_bonus_id);
-    
-    const int GOTH_INF_DISCOUNT_6 = 343;
-    shareEffect(df, GOTH_INF_DISCOUNT_6, team_bonus_id);
-
-    const int GOTH_INF_BONUS_1 = 326;
-    shareEffect(df, GOTH_INF_BONUS_1, team_bonus_id);
-
-    const int GOTH_INF_BONUS_2 = 327;
-    shareEffect(df, GOTH_INF_BONUS_2, team_bonus_id);
-    
-    const int GOTH_INF_BONUS_3 = 328;
-    shareEffect(df, GOTH_INF_BONUS_3, team_bonus_id);
-
-    const int GOTH_HUNT = 414;
-    shareEffect(df, GOTH_HUNT, team_bonus_id);
-
-    const int GOTH_LOOM_INSTANT = 341;
-    shareEffect(df, GOTH_LOOM_INSTANT, team_bonus_id);
-    
-    const int GOTH_POP = 418;
-    shareEffect(df, GOTH_POP, team_bonus_id);
-    
-    const int GOTH_BARRACKS_WORK = 405;
-    shareEffect(df, GOTH_BARRACKS_WORK, team_bonus_id);
+    shareEffect(df, 259, team_bonus_id); // GOTH_TECH_TREE
+    shareEffect(df, 462, team_bonus_id); // GOTH_ANARCHY
+    shareEffect(df, 513, team_bonus_id); // GOTH_PERFUSION
+    shareEffect(df, 342, team_bonus_id); // GOTH_INF_DISCOUNT_1
+    shareEffect(df, 765, team_bonus_id); // GOTH_INF_DISCOUNT_2
+    shareEffect(df, 766, team_bonus_id); // GOTH_INF_DISCOUNT_3
+    shareEffect(df, 767, team_bonus_id); // GOTH_INF_DISCOUNT_4
+    shareEffect(df, 344, team_bonus_id); // GOTH_INF_DISCOUNT_5
+    shareEffect(df, 343, team_bonus_id); // GOTH_INF_DISCOUNT_6
+    shareEffect(df, 326, team_bonus_id); // GOTH_INF_BONUS_1
+    shareEffect(df, 327, team_bonus_id); // GOTH_INF_BONUS_2
+    shareEffect(df, 328, team_bonus_id); // GOTH_INF_BONUS_3
+    shareEffect(df, 414, team_bonus_id); // GOTH_HUNT
+    shareEffect(df, 341, team_bonus_id); // GOTH_LOOM_INSTANT
+    shareEffect(df, 418, team_bonus_id); // GOTH_POP
+    shareEffect(df, 405, team_bonus_id); // GOTH_BARRACKS_WORK
 }
 
 void gurjarasCivBonus(genie::DatFile *df) {
@@ -771,42 +443,18 @@ void gurjarasCivBonus(genie::DatFile *df) {
     skipShare(862);
     
     auto team_bonus_id = 843;
-
-    const int GUR_TECH_TREE = 842;
-    shareEffect(df, GUR_TECH_TREE, team_bonus_id);
-
-    const int GUR_KSHATRIYAS = 854;
-    shareEffect(df, GUR_KSHATRIYAS, team_bonus_id);
-    
-    const int GUR_KSHATRIYAS_SUP = 875;
-    shareEffect(df, GUR_KSHATRIYAS_SUP, team_bonus_id);
-
-    const int GUR_FRONTIER_GUARDS = 855;
-    shareEffect(df, GUR_FRONTIER_GUARDS, team_bonus_id);
-
-    const int GUR_FORAGEBUSHES = 872;
-    shareEffect(df, GUR_FORAGEBUSHES, team_bonus_id);
-
-    const int GUR_MILL_GARISON = 871;
-    shareEffect(df, GUR_MILL_GARISON, team_bonus_id);
-    
-    const int GUR_CAV_BONUS_1 = 869;
-    shareEffect(df, GUR_CAV_BONUS_1, team_bonus_id);
-    
-    const int GUR_CAV_BONUS_2 = 873;
-    shareEffect(df, GUR_CAV_BONUS_2, team_bonus_id);
-    
-    const int GUR_CAV_BONUS_3 = 874;
-    shareEffect(df, GUR_CAV_BONUS_3, team_bonus_id);
-    
-    const int GUR_CAV_BONUS_4 = 884;
-    shareEffect(df, GUR_CAV_BONUS_4, team_bonus_id);
-    
-    const int GUR_DOCK_GARRISON = 870;
-    shareEffect(df, GUR_DOCK_GARRISON, team_bonus_id);
-
-    const int GUR_CAMEL_TRAIN = 843;
-    shareEffect(df, GUR_CAMEL_TRAIN, team_bonus_id);
+    shareEffect(df, 842, team_bonus_id); // GUR_TECH_TREE
+    shareEffect(df, 854, team_bonus_id); // GUR_KSHATRIYAS
+    shareEffect(df, 875, team_bonus_id); // GUR_KSHATRIYAS_SUP
+    shareEffect(df, 855, team_bonus_id); // GUR_FRONTIER_GUARDS
+    shareEffect(df, 872, team_bonus_id); // GUR_FORAGEBUSHES
+    shareEffect(df, 871, team_bonus_id); // GUR_MILL_GARISON
+    shareEffect(df, 869, team_bonus_id); // GUR_CAV_BONUS_1
+    shareEffect(df, 873, team_bonus_id); // GUR_CAV_BONUS_2
+    shareEffect(df, 874, team_bonus_id); // GUR_CAV_BONUS_3
+    shareEffect(df, 884, team_bonus_id); // GUR_CAV_BONUS_4
+    shareEffect(df, 870, team_bonus_id); // GUR_DOCK_GARRISON
+    shareEffect(df, 843, team_bonus_id); // GUR_CAMEL_TRAIN
 }
 
 void hindustanisCivBonus(genie::DatFile *df) {
@@ -814,42 +462,18 @@ void hindustanisCivBonus(genie::DatFile *df) {
     skipShare(859);
     
     auto team_bonus_id = 2;
-
-    const int HIND_TECH_TREE = 1;
-    shareEffect(df, HIND_TECH_TREE, team_bonus_id);
-
-    const int HIND_IMP_CAMEL = 577;
-    shareEffect(df, HIND_IMP_CAMEL, team_bonus_id);
-
-    const int HIND_GRAND_TRUNK_ROAD = 562;
-    shareEffect(df, HIND_GRAND_TRUNK_ROAD, team_bonus_id);
-
-    const int HIND_SHATAGNI = 563;
-    shareEffect(df, HIND_SHATAGNI, team_bonus_id);
-    
-    const int HIND_VIL_DISCOUNT_1 = 551;
-    shareEffect(df, HIND_VIL_DISCOUNT_1, team_bonus_id);
-    
-    const int HIND_VIL_DISCOUNT_2 = 552;
-    shareEffect(df, HIND_VIL_DISCOUNT_2, team_bonus_id);
-    
-    const int HIND_VIL_DISCOUNT_3 = 553;
-    shareEffect(df, HIND_VIL_DISCOUNT_3, team_bonus_id);
-    
-    const int HIND_VIL_DISCOUNT_4 = 585;
-    shareEffect(df, HIND_VIL_DISCOUNT_4, team_bonus_id);
-
-    const int HIND_CAMEL_ATTACKSPEED = 560;
-    shareEffect(df, HIND_CAMEL_ATTACKSPEED, team_bonus_id);
-
-    const int HIND_GUNPOWDER_ARMOR = 576;
-    shareEffect(df, HIND_GUNPOWDER_ARMOR, team_bonus_id);
-
-    const int HIND_CARAVENSEI_AVAIL = 574;
-    shareEffect(df, HIND_CARAVENSEI_AVAIL, team_bonus_id);
-
-    const int HIND_CAV_ATTACK = 2;
-    shareEffect(df, HIND_CAV_ATTACK, team_bonus_id);
+    shareEffect(df, 1, team_bonus_id); // HIND_TECH_TREE
+    shareEffect(df, 577, team_bonus_id); // HIND_IMP_CAMEL
+    shareEffect(df, 562, team_bonus_id); // HIND_GRAND_TRUNK_ROAD
+    shareEffect(df, 563, team_bonus_id); // HIND_SHATAGNI
+    shareEffect(df, 551, team_bonus_id); // HIND_VIL_DISCOUNT_1
+    shareEffect(df, 552, team_bonus_id); // HIND_VIL_DISCOUNT_2
+    shareEffect(df, 553, team_bonus_id); // HIND_VIL_DISCOUNT_3
+    shareEffect(df, 585, team_bonus_id); // HIND_VIL_DISCOUNT_4
+    shareEffect(df, 560, team_bonus_id); // HIND_CAMEL_ATTACKSPEED
+    shareEffect(df, 576, team_bonus_id); // HIND_GUNPOWDER_ARMOR
+    shareEffect(df, 574, team_bonus_id); // HIND_CARAVENSEI_AVAIL
+    shareEffect(df, 2, team_bonus_id); // HIND_CAV_ATTACK
 }
 
 void hunsCivBonus(genie::DatFile *df) {
@@ -857,27 +481,13 @@ void hunsCivBonus(genie::DatFile *df) {
     skipShare(454);
     
     auto team_bonus_id = 484;
-
-    const int HUNS_TECH_TREE = 448;
-    shareEffect(df, HUNS_TECH_TREE, team_bonus_id);
-
-    const int HUNS_MARAUERS = 538;
-    shareEffect(df, HUNS_MARAUERS, team_bonus_id);
-
-    const int HUNS_ATHEISM = 464;
-    shareEffect(df, HUNS_ATHEISM, team_bonus_id);
-
-    const int HUNS_START_RES = 214;
-    shareEffect(df, HUNS_START_RES, team_bonus_id);
-
-    const int HUNS_CA_DISCOUNT_1 = 497;
-    shareEffect(df, HUNS_CA_DISCOUNT_1, team_bonus_id);
-
-    const int HUNS_CA_DISCOUNT_2 = 498;
-    shareEffect(df, HUNS_CA_DISCOUNT_2, team_bonus_id);
-
-    const int HUNS_FASTER_STABLES = 484;
-    shareEffect(df, HUNS_FASTER_STABLES, team_bonus_id);
+    shareEffect(df, 448, team_bonus_id); // HUNS_TECH_TREE
+    shareEffect(df, 538, team_bonus_id); // HUNS_MARAUERS
+    shareEffect(df, 464, team_bonus_id); // HUNS_ATHEISM
+    shareEffect(df, 214, team_bonus_id); // HUNS_START_RES
+    shareEffect(df, 497, team_bonus_id); // HUNS_CA_DISCOUNT_1
+    shareEffect(df, 498, team_bonus_id); // HUNS_CA_DISCOUNT_2
+    shareEffect(df, 484, team_bonus_id); // HUNS_FASTER_STABLES
 }
 
 void incasCivBonus(genie::DatFile *df) {
@@ -887,54 +497,22 @@ void incasCivBonus(genie::DatFile *df) {
     skipShare(582);
     
     auto team_bonus_id = 4;
-
-    const int INC_TECH_TREE = 3;
-    shareEffect(df, INC_TECH_TREE, team_bonus_id);
-
-    const int INC_ANDEAN_SLING = 572;
-    shareEffect(df, INC_ANDEAN_SLING, team_bonus_id);
-
-    const int INC_FABRIC_SHIELDS = 573;
-    shareEffect(df, INC_FABRIC_SHIELDS, team_bonus_id);
-
-    const int INC_FOOD_DISCOUNT_1 = 156;
-    shareEffect(df, INC_FOOD_DISCOUNT_1, team_bonus_id);
-    
-    const int INC_FOOD_DISCOUNT_2 = 158;
-    shareEffect(df, INC_FOOD_DISCOUNT_2, team_bonus_id);
-    
-    const int INC_FOOD_DISCOUNT_3 = 159;
-    shareEffect(df, INC_FOOD_DISCOUNT_3, team_bonus_id);
-    
-    const int INC_FOOD_DISCOUNT_4 = 160;
-    shareEffect(df, INC_FOOD_DISCOUNT_4, team_bonus_id);
-    
-    const int INC_VIL_BLACKSMITH_1 = 529;
-    shareEffect(df, INC_VIL_BLACKSMITH_1, team_bonus_id);
-    
-    const int INC_VIL_BLACKSMITH_2 = 530;
-    shareEffect(df, INC_VIL_BLACKSMITH_2, team_bonus_id);
-    
-    const int INC_VIL_BLACKSMITH_3 = 531;
-    shareEffect(df, INC_VIL_BLACKSMITH_3, team_bonus_id);
-    
-    const int INC_VIL_BLACKSMITH_4 = 532;
-    shareEffect(df, INC_VIL_BLACKSMITH_4, team_bonus_id);
-    
-    const int INC_VIL_BLACKSMITH_5 = 533;
-    shareEffect(df, INC_VIL_BLACKSMITH_5, team_bonus_id);
-    
-    const int INC_VIL_BLACKSMITH_6 = 534;
-    shareEffect(df, INC_VIL_BLACKSMITH_6, team_bonus_id);
-    
-    const int INC_HOUSES_POP = 550;
-    shareEffect(df, INC_HOUSES_POP, team_bonus_id);
-    
-    const int INC_STONE_DISCOUNT = 575;
-    shareEffect(df, INC_STONE_DISCOUNT, team_bonus_id);
-    
-    const int INC_SPAWN_LAMA = 678;
-    shareEffect(df, INC_SPAWN_LAMA    , team_bonus_id);
+    shareEffect(df, 3, team_bonus_id); // INC_TECH_TREE
+    shareEffect(df, 572, team_bonus_id); // INC_ANDEAN_SLING
+    shareEffect(df, 573, team_bonus_id); // INC_FABRIC_SHIELDS
+    shareEffect(df, 156, team_bonus_id); // INC_FOOD_DISCOUNT_1
+    shareEffect(df, 158, team_bonus_id); // INC_FOOD_DISCOUNT_2
+    shareEffect(df, 159, team_bonus_id); // INC_FOOD_DISCOUNT_3
+    shareEffect(df, 160, team_bonus_id); // INC_FOOD_DISCOUNT_4
+    shareEffect(df, 529, team_bonus_id); // INC_VIL_BLACKSMITH_1
+    shareEffect(df, 530, team_bonus_id); // INC_VIL_BLACKSMITH_2
+    shareEffect(df, 531, team_bonus_id); // INC_VIL_BLACKSMITH_3
+    shareEffect(df, 532, team_bonus_id); // INC_VIL_BLACKSMITH_4
+    shareEffect(df, 533, team_bonus_id); // INC_VIL_BLACKSMITH_5
+    shareEffect(df, 534, team_bonus_id); // INC_VIL_BLACKSMITH_6
+    shareEffect(df, 550, team_bonus_id); // INC_HOUSES_POP
+    shareEffect(df, 575, team_bonus_id); // INC_STONE_DISCOUNT
+    shareEffect(df, 678, team_bonus_id); // INC_SPAWN_LAMA
 }
 
 void italiansCivBonus(genie::DatFile *df) {
@@ -942,18 +520,10 @@ void italiansCivBonus(genie::DatFile *df) {
     skipShare(520);
     
     auto team_bonus_id = 11;
-
-    const int ITAL_TECH_TREE = 10;
-    shareEffect(df, ITAL_TECH_TREE, team_bonus_id);
-
-    const int ITAL_PAVISE = 549;
-    shareEffect(df, ITAL_PAVISE, team_bonus_id);
-    
-    const int ITAL_SILK_ROAD = 554;
-    shareEffect(df, ITAL_SILK_ROAD, team_bonus_id);
-
-    const int ITAL_GUNPOWDER_DISCOUNT = 555;
-    shareEffect(df, ITAL_GUNPOWDER_DISCOUNT, team_bonus_id);
+    shareEffect(df, 10, team_bonus_id); // ITAL_TECH_TREE
+    shareEffect(df, 549, team_bonus_id); // ITAL_PAVISE
+    shareEffect(df, 554, team_bonus_id); // ITAL_SILK_ROAD
+    shareEffect(df, 555, team_bonus_id); // ITAL_GUNPOWDER_DISCOUNT
 }
 
 void japaneseCivBonus(genie::DatFile *df) {
@@ -961,42 +531,18 @@ void japaneseCivBonus(genie::DatFile *df) {
     skipShare(364);
     
     auto team_bonus_id = 406;
-
-    const int JAP_TECH_TREE = 255;
-    shareEffect(df, JAP_TECH_TREE, team_bonus_id);
-
-    const int JAP_YASAMA = 539;
-    shareEffect(df, JAP_YASAMA, team_bonus_id);
-
-    const int JAP_KATAPARUTO = 59;
-    shareEffect(df, JAP_KATAPARUTO, team_bonus_id);
-
-    const int JAP_OBSOLETE = 432;
-    shareEffect(df, JAP_OBSOLETE, team_bonus_id);
-
-    const int JAP_OBSOLETE_2 = 433;
-    shareEffect(df, JAP_OBSOLETE_2, team_bonus_id);
-
-    const int JAP_FISH_IMPROVE = 306;
-    shareEffect(df, JAP_FISH_IMPROVE, team_bonus_id);
-
-    const int JAP_FISH_WORK_1 = 434;
-    shareEffect(df, JAP_FISH_WORK_1, team_bonus_id);
-
-    const int JAP_FISH_WORK_2 = 435;
-    shareEffect(df, JAP_FISH_WORK_2, team_bonus_id);
-
-    const int JAP_FISH_WORK_3 = 436;
-    shareEffect(df, JAP_FISH_WORK_3, team_bonus_id);
-
-    const int JAP_DROP_DISCOUNT = 338;
-    shareEffect(df, JAP_DROP_DISCOUNT, team_bonus_id);
-
-    const int JAP_ATTACK_SPEED = 339;
-    shareEffect(df, JAP_ATTACK_SPEED, team_bonus_id);
-
-    const int JAP_GALLEY_LOS = 406;
-    shareEffect(df, JAP_GALLEY_LOS, team_bonus_id);
+    shareEffect(df, 255, team_bonus_id); // JAP_TECH_TREE
+    shareEffect(df, 539, team_bonus_id); // JAP_YASAMA
+    shareEffect(df, 59, team_bonus_id); // JAP_KATAPARUTO
+    shareEffect(df, 432, team_bonus_id); // JAP_OBSOLETE
+    shareEffect(df, 433, team_bonus_id); // JAP_OBSOLETE_2
+    shareEffect(df, 306, team_bonus_id); // JAP_FISH_IMPROVE
+    shareEffect(df, 434, team_bonus_id); // JAP_FISH_WORK_1
+    shareEffect(df, 435, team_bonus_id); // JAP_FISH_WORK_2
+    shareEffect(df, 436, team_bonus_id); // JAP_FISH_WORK_3
+    shareEffect(df, 338, team_bonus_id); // JAP_DROP_DISCOUNT
+    shareEffect(df, 339, team_bonus_id); // JAP_ATTACK_SPEED
+    shareEffect(df, 406, team_bonus_id); // JAP_GALLEY_LOS
 }
 
 void khmerCivBonus(genie::DatFile *df) {
@@ -1004,24 +550,12 @@ void khmerCivBonus(genie::DatFile *df) {
     skipShare(655);
     
     auto team_bonus_id = 647;
-
-    const int KHMER_TECH_TREE = 646;
-    shareEffect(df, KHMER_TECH_TREE, team_bonus_id);
-
-    const int KHMER_TUSK_SWORDS = 662;
-    shareEffect(df, KHMER_TUSK_SWORDS, team_bonus_id);    
-
-    const int KHMER_DOUBLE_CROSSBOW = 663;
-    shareEffect(df, KHMER_DOUBLE_CROSSBOW, team_bonus_id);   
-
-    const int KHMER_ELEP_FASTER = 703;
-    shareEffect(df, KHMER_ELEP_FASTER, team_bonus_id);
-
-    const int KHMER_HOUSE_GARRISON = 693;
-    shareEffect(df, KHMER_HOUSE_GARRISON, team_bonus_id);
-
-    const int KHMER_SCORP_RANGE = 647;
-    shareEffect(df, KHMER_SCORP_RANGE, team_bonus_id);
+    shareEffect(df, 646, team_bonus_id); // KHMER_TECH_TREE
+    shareEffect(df, 662, team_bonus_id); // KHMER_TUSK_SWORDS
+    shareEffect(df, 663, team_bonus_id); // KHMER_DOUBLE_CROSSBOW
+    shareEffect(df, 703, team_bonus_id); // KHMER_ELEP_FASTER
+    shareEffect(df, 693, team_bonus_id); // KHMER_HOUSE_GARRISON
+    shareEffect(df, 647, team_bonus_id); // KHMER_SCORP_RANGE
 }
 
 void koreansCivBonus(genie::DatFile *df) {
@@ -1031,21 +565,11 @@ void koreansCivBonus(genie::DatFile *df) {
     skipShare(503);
     
     auto team_bonus_id = 505;
-
-    const int KOREA_TECH_TREE = 504;
-    shareEffect(df, KOREA_TECH_TREE, team_bonus_id);
-
-    const int KOREA_EUPSEONG = 541;
-    shareEffect(df, KOREA_EUPSEONG, team_bonus_id);
-
-    const int KOREA_SHINKICHON = 506;
-    shareEffect(df, KOREA_SHINKICHON, team_bonus_id);
-
-    const int KORA_ARCHER_ARMOR = 508;
-    shareEffect(df, KORA_ARCHER_ARMOR, team_bonus_id);
-
-    const int KOREA_WOOD_DISCOUNT = 561;
-    shareEffect(df, KOREA_WOOD_DISCOUNT, team_bonus_id);
+    shareEffect(df, 504, team_bonus_id); // KOREA_TECH_TREE
+    shareEffect(df, 541, team_bonus_id); // KOREA_EUPSEONG
+    shareEffect(df, 506, team_bonus_id); // KOREA_SHINKICHON
+    shareEffect(df, 508, team_bonus_id); // KORA_ARCHER_ARMOR
+    shareEffect(df, 561, team_bonus_id); // KOREA_WOOD_DISCOUNT
 }
 
 void lithuaniansCivBonus(genie::DatFile *df) {
@@ -1055,36 +579,16 @@ void lithuaniansCivBonus(genie::DatFile *df) {
     skipShare(817);
     
     auto team_bonus_id = 713;
-
-    const int LITH_TECH_TREE = 712;
-    shareEffect(df, LITH_TECH_TREE, team_bonus_id);
-
-    const int LITH_HILL_FORTS = 728;
-    shareEffect(df, LITH_HILL_FORTS, team_bonus_id);
-
-    const int LITH_TOWER_SHIELDS = 729;
-    shareEffect(df, LITH_TOWER_SHIELDS, team_bonus_id);
-
-    const int LITH_FOOD_BONUS = 734;
-    shareEffect(df, LITH_FOOD_BONUS, team_bonus_id);
-
-    const int LITH_TRASH_FASTER = 745;
-    shareEffect(df, LITH_TRASH_FASTER, team_bonus_id);
-
-    const int LITH_RELIC_ATTACK_1 = 736;
-    shareEffect(df, LITH_RELIC_ATTACK_1, team_bonus_id);
-
-    const int LITH_RELIC_ATTACK_2 = 737;
-    shareEffect(df, LITH_RELIC_ATTACK_2, team_bonus_id);
-
-    const int LITH_RELIC_ATTACK_3 = 738;
-    shareEffect(df, LITH_RELIC_ATTACK_3, team_bonus_id);
-
-    const int LITH_RELIC_ATTACK_4 = 739;
-    shareEffect(df, LITH_RELIC_ATTACK_4, team_bonus_id);
-
-    const int LITH_MONASTERY_SPEED = 713;
-    shareEffect(df, LITH_MONASTERY_SPEED, team_bonus_id);
+    shareEffect(df, 712, team_bonus_id); // LITH_TECH_TREE
+    shareEffect(df, 728, team_bonus_id); // LITH_HILL_FORTS
+    shareEffect(df, 729, team_bonus_id); // LITH_TOWER_SHIELDS
+    shareEffect(df, 734, team_bonus_id); // LITH_FOOD_BONUS
+    shareEffect(df, 745, team_bonus_id); // LITH_TRASH_FASTER
+    shareEffect(df, 736, team_bonus_id); // LITH_RELIC_ATTACK_1
+    shareEffect(df, 737, team_bonus_id); // LITH_RELIC_ATTACK_2
+    shareEffect(df, 738, team_bonus_id); // LITH_RELIC_ATTACK_3
+    shareEffect(df, 739, team_bonus_id); // LITH_RELIC_ATTACK_4
+    shareEffect(df, 713, team_bonus_id); // LITH_MONASTERY_SPEED
 }
 
 void magyarsCivBonus(genie::DatFile *df) {
@@ -1092,24 +596,12 @@ void magyarsCivBonus(genie::DatFile *df) {
     skipShare(526);
     
     auto team_bonus_id = 6;
-
-    const int MAG_TECH_TREE = 5;
-    shareEffect(df, MAG_TECH_TREE, team_bonus_id);
-
-    const int MAG_RECURVE_BOW = 570;
-    shareEffect(df, MAG_RECURVE_BOW, team_bonus_id);
-
-    const int MAG_MERCENARIES = 571;
-    shareEffect(df, MAG_MERCENARIES, team_bonus_id);
-
-    const int MAG_ANIMAL_BONUS = 528;
-    shareEffect(df, MAG_ANIMAL_BONUS, team_bonus_id);
-    
-    const int MAG_SCOUTS_DISCOUNT = 524;
-    shareEffect(df, MAG_SCOUTS_DISCOUNT, team_bonus_id);
-
-    const int MAG_ARCHER_LOS = 6;
-    shareEffect(df, MAG_ARCHER_LOS, team_bonus_id);
+    shareEffect(df, 5, team_bonus_id); // MAG_TECH_TREE
+    shareEffect(df, 570, team_bonus_id); // MAG_RECURVE_BOW
+    shareEffect(df, 571, team_bonus_id); // MAG_MERCENARIES
+    shareEffect(df, 528, team_bonus_id); // MAG_ANIMAL_BONUS
+    shareEffect(df, 524, team_bonus_id); // MAG_SCOUTS_DISCOUNT
+    shareEffect(df, 6, team_bonus_id); // MAG_ARCHER_LOS
 }
 
 void malayCivBonus(genie::DatFile *df) {
@@ -1117,42 +609,18 @@ void malayCivBonus(genie::DatFile *df) {
     skipShare(657);
     
     auto team_bonus_id = 649;
-
-    const int MALAY_TECH_TREE = 648;
-    shareEffect(df, MALAY_TECH_TREE, team_bonus_id);
-
-    const int MALAY_THALASSOCRACY = 664;
-    shareEffect(df, MALAY_THALASSOCRACY, team_bonus_id);
-
-    const int MALAY_FORCED_LEVY = 665;
-    shareEffect(df, MALAY_FORCED_LEVY, team_bonus_id);
-
-    const int MALAY_OBSOLETE = 682;
-    shareEffect(df, MALAY_OBSOLETE, team_bonus_id);
-
-    const int MALAY_OBSOLETE_2 = 683;
-    shareEffect(df, MALAY_OBSOLETE_2, team_bonus_id);
-
-    const int MALAY_OBSOLETE_3 = 684;
-    shareEffect(df, MALAY_OBSOLETE_3, team_bonus_id);
-
-    const int MALAY_FASTER_AGEADVANCE = 674;
-    shareEffect(df, MALAY_FASTER_AGEADVANCE, team_bonus_id);
-    
-    const int MALAY_FISHTRAP_DISCOUNT = 675;
-    shareEffect(df, MALAY_FISHTRAP_DISCOUNT, team_bonus_id);
-    
-    const int MALAY_FISHTRAP_FOOD = 677;
-    shareEffect(df, MALAY_FISHTRAP_FOOD, team_bonus_id);
-    
-    const int MALAY_ELE_DISCOUNT_1 = 695;
-    shareEffect(df, MALAY_ELE_DISCOUNT_1, team_bonus_id);
-    
-    const int MALAY_ELE_DISCOUNT_2 = 696;
-    shareEffect(df, MALAY_ELE_DISCOUNT_2, team_bonus_id);
-
-    const int MALAY_DOCK_LOS = 649;
-    shareEffect(df, MALAY_DOCK_LOS, team_bonus_id);
+    shareEffect(df, 648, team_bonus_id); // MALAY_TECH_TREE
+    shareEffect(df, 664, team_bonus_id); // MALAY_THALASSOCRACY
+    shareEffect(df, 665, team_bonus_id); // MALAY_FORCED_LEVY
+    shareEffect(df, 682, team_bonus_id); // MALAY_OBSOLETE
+    shareEffect(df, 683, team_bonus_id); // MALAY_OBSOLETE_2
+    shareEffect(df, 684, team_bonus_id); // MALAY_OBSOLETE_3
+    shareEffect(df, 674, team_bonus_id); // MALAY_FASTER_AGEADVANCE
+    shareEffect(df, 675, team_bonus_id); // MALAY_FISHTRAP_DISCOUNT
+    shareEffect(df, 677, team_bonus_id); // MALAY_FISHTRAP_FOOD
+    shareEffect(df, 695, team_bonus_id); // MALAY_ELE_DISCOUNT_1
+    shareEffect(df, 696, team_bonus_id); // MALAY_ELE_DISCOUNT_2
+    shareEffect(df, 649, team_bonus_id); // MALAY_DOCK_LOS
 }
 
 void maliansCivBonus(genie::DatFile *df) {
@@ -1160,36 +628,16 @@ void maliansCivBonus(genie::DatFile *df) {
     skipShare(597);
     
     auto team_bonus_id = 43;
-
-    const int MALI_TECH_TREE = 42;
-    shareEffect(df, MALI_TECH_TREE, team_bonus_id);
-
-    const int MALI_TIGUI = 605;
-    shareEffect(df, MALI_TIGUI, team_bonus_id);
-
-    const int MALI_FARIMBA = 606;
-    shareEffect(df, MALI_FARIMBA, team_bonus_id);
-    
-    const int MALI_TC_WOOD_COST = 165;
-    shareEffect(df, MALI_TC_WOOD_COST, team_bonus_id);
-    
-    const int MALI_WOOD_DISCOUNT = 617;
-    shareEffect(df, MALI_WOOD_DISCOUNT, team_bonus_id);
-    
-    const int MALI_INF_ARMOR_1 = 618;
-    shareEffect(df, MALI_INF_ARMOR_1, team_bonus_id);
-    
-    const int MALI_INF_ARMOR_2 = 619;
-    shareEffect(df, MALI_INF_ARMOR_2, team_bonus_id);
-    
-    const int MALI_INF_ARMOR_3 = 620;
-    shareEffect(df, MALI_INF_ARMOR_3, team_bonus_id);
-    
-    const int MALI_GOLDMINING = 621;
-    shareEffect(df, MALI_GOLDMINING, team_bonus_id);
-
-    const int MALI_UNIVERSITY_WORKRATE = 43;
-    shareEffect(df, MALI_UNIVERSITY_WORKRATE, team_bonus_id);
+    shareEffect(df, 42, team_bonus_id); // MALI_TECH_TREE
+    shareEffect(df, 605, team_bonus_id); // MALI_TIGUI
+    shareEffect(df, 606, team_bonus_id); // MALI_FARIMBA
+    shareEffect(df, 165, team_bonus_id); // MALI_TC_WOOD_COST
+    shareEffect(df, 617, team_bonus_id); // MALI_WOOD_DISCOUNT
+    shareEffect(df, 618, team_bonus_id); // MALI_INF_ARMOR_1
+    shareEffect(df, 619, team_bonus_id); // MALI_INF_ARMOR_2
+    shareEffect(df, 620, team_bonus_id); // MALI_INF_ARMOR_3
+    shareEffect(df, 621, team_bonus_id); // MALI_GOLDMINING
+    shareEffect(df, 43, team_bonus_id); // MALI_UNIVERSITY_WORKRATE
 }
 
 void mayansCivBonus(genie::DatFile *df) {
@@ -1197,63 +645,25 @@ void mayansCivBonus(genie::DatFile *df) {
     skipShare(469);
     
     auto team_bonus_id = 489;
-
-    const int MAY_TECH_TREE = 449;
-    shareEffect(df, MAY_TECH_TREE, team_bonus_id);
-
-    const int MAY_HULCHE_JAVELINEERS = 515;
-    shareEffect(df, MAY_HULCHE_JAVELINEERS, team_bonus_id);
-
-    const int MAY_EL_DORADO = 456;
-    shareEffect(df, MAY_EL_DORADO, team_bonus_id);
-
-    const int MAY_START_RES = 216;
-    shareEffect(df, MAY_START_RES, team_bonus_id);
-
-    const int MAY_VILS_SPAWN = 586;
-    shareEffect(df, MAY_VILS_SPAWN, team_bonus_id);
-
-    const int MAY_ARCHER_COST_1 = 485;
-    shareEffect(df, MAY_ARCHER_COST_1, team_bonus_id);
-
-    const int MAY_ARCHER_COST_2 = 486;
-    shareEffect(df, MAY_ARCHER_COST_2, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_1 = 771;
-    shareEffect(df, MAY_RESOURCES_LONGER_1, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_2 = 772;
-    shareEffect(df, MAY_RESOURCES_LONGER_2, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_3 = 773;
-    shareEffect(df, MAY_RESOURCES_LONGER_3, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_4 = 774;
-    shareEffect(df, MAY_RESOURCES_LONGER_4, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_5 = 775;
-    shareEffect(df, MAY_RESOURCES_LONGER_5, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_6 = 776;
-    shareEffect(df, MAY_RESOURCES_LONGER_6, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_7 = 777;
-    shareEffect(df, MAY_RESOURCES_LONGER_7, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_8 = 778;
-    shareEffect(df, MAY_RESOURCES_LONGER_8, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_9 = 779;
-    shareEffect(df, MAY_RESOURCES_LONGER_9, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_10 = 780;
-    shareEffect(df, MAY_RESOURCES_LONGER_10, team_bonus_id);
-
-    const int MAY_RESOURCES_LONGER_11 = 781;
-    shareEffect(df, MAY_RESOURCES_LONGER_11, team_bonus_id);
-
-    const int MAY_WALL_DISCOUNT = 489;
-    shareEffect(df, MAY_WALL_DISCOUNT, team_bonus_id);
+    shareEffect(df, 449, team_bonus_id); // MAY_TECH_TREE
+    shareEffect(df, 515, team_bonus_id); // MAY_HULCHE_JAVELINEERS
+    shareEffect(df, 456, team_bonus_id); // MAY_EL_DORADO
+    shareEffect(df, 216, team_bonus_id); // MAY_START_RES
+    shareEffect(df, 586, team_bonus_id); // MAY_VILS_SPAWN
+    shareEffect(df, 485, team_bonus_id); // MAY_ARCHER_COST_1
+    shareEffect(df, 486, team_bonus_id); // MAY_ARCHER_COST_2
+    shareEffect(df, 771, team_bonus_id); // MAY_RESOURCES_LONGER_1
+    shareEffect(df, 772, team_bonus_id); // MAY_RESOURCES_LONGER_2
+    shareEffect(df, 773, team_bonus_id); // MAY_RESOURCES_LONGER_3
+    shareEffect(df, 774, team_bonus_id); // MAY_RESOURCES_LONGER_4
+    shareEffect(df, 775, team_bonus_id); // MAY_RESOURCES_LONGER_5
+    shareEffect(df, 776, team_bonus_id); // MAY_RESOURCES_LONGER_6
+    shareEffect(df, 777, team_bonus_id); // MAY_RESOURCES_LONGER_7
+    shareEffect(df, 778, team_bonus_id); // MAY_RESOURCES_LONGER_8
+    shareEffect(df, 779, team_bonus_id); // MAY_RESOURCES_LONGER_9
+    shareEffect(df, 780, team_bonus_id); // MAY_RESOURCES_LONGER_10
+    shareEffect(df, 781, team_bonus_id); // MAY_RESOURCES_LONGER_11
+    shareEffect(df, 489, team_bonus_id); // MAY_WALL_DISCOUNT
 }
 
 void mongolsCivBonus(genie::DatFile *df) {
@@ -1261,30 +671,14 @@ void mongolsCivBonus(genie::DatFile *df) {
     skipShare(369);
     
     auto team_bonus_id = 407;
-
-    const int MONG_TECH_TREE = 277;
-    shareEffect(df, MONG_TECH_TREE, team_bonus_id);
-
-    const int MONG_NOMADS = 542;
-    shareEffect(df, MONG_NOMADS, team_bonus_id);
-
-    const int MONG_NOMADS_2 = 681;
-    shareEffect(df, MONG_NOMADS_2, team_bonus_id);
-
-    const int MONG_DRILL = 457;
-    shareEffect(df, MONG_DRILL, team_bonus_id);
-
-    const int MONG_CA_FIRING = 393;
-    shareEffect(df, MONG_CA_FIRING, team_bonus_id);
-
-    const int MONG_LIGHTCAV_HP = 387;
-    shareEffect(df, MONG_LIGHTCAV_HP, team_bonus_id);
-
-    const int MONG_HUNTERS = 388;
-    shareEffect(df, MONG_HUNTERS, team_bonus_id);
-
-    const int MONG_SCOUT_LOS = 407;
-    shareEffect(df, MONG_SCOUT_LOS, team_bonus_id);
+    shareEffect(df, 277, team_bonus_id); // MONG_TECH_TREE
+    shareEffect(df, 542, team_bonus_id); // MONG_NOMADS
+    shareEffect(df, 681, team_bonus_id); // MONG_NOMADS_2
+    shareEffect(df, 457, team_bonus_id); // MONG_DRILL
+    shareEffect(df, 393, team_bonus_id); // MONG_CA_FIRING
+    shareEffect(df, 387, team_bonus_id); // MONG_LIGHTCAV_HP
+    shareEffect(df, 388, team_bonus_id); // MONG_HUNTERS
+    shareEffect(df, 407, team_bonus_id); // MONG_SCOUT_LOS
 }
 
 void persiansCivBonus(genie::DatFile *df) {
@@ -1292,33 +686,15 @@ void persiansCivBonus(genie::DatFile *df) {
     skipShare(365);
     
     auto team_bonus_id = 408;
-
-    const int PERS_TECH_TREE = 260;
-    shareEffect(df, PERS_TECH_TREE, team_bonus_id);
-
-    const int PERS_MAHOUTS = 458;
-    shareEffect(df, PERS_MAHOUTS, team_bonus_id);
-
-    const int PERS_KAMANDARAN = 543;
-    skipShare(PERS_KAMANDARAN);
-
-    const int PERS_START_RES = 212;
-    shareEffect(df, PERS_START_RES, team_bonus_id);
-
-    const int PERS_TC_HP = 340;
-    shareEffect(df, PERS_TC_HP, team_bonus_id);
-
-    const int PERS_DOCK_HP = 347;
-    shareEffect(df, PERS_DOCK_HP, team_bonus_id);
-
-    const int PERS_TC_SPEED = 421;
-    shareEffect(df, PERS_TC_SPEED, team_bonus_id);
-
-    const int PERS_DOCK_SPEED = 424;
-    shareEffect(df, PERS_DOCK_SPEED, team_bonus_id);
-
-    const int PERS_KNIGHT_BONUS = 408;
-    shareEffect(df, PERS_KNIGHT_BONUS, team_bonus_id);
+    shareEffect(df, 260, team_bonus_id); // PERS_TECH_TREE
+    shareEffect(df, 458, team_bonus_id); // PERS_MAHOUTS
+    shareEffect(df, 543, team_bonus_id); // PERS_KAMANDARAN
+    shareEffect(df, 212, team_bonus_id); // PERS_START_RES
+    shareEffect(df, 340, team_bonus_id); // PERS_TC_HP
+    shareEffect(df, 347, team_bonus_id); // PERS_DOCK_HP
+    shareEffect(df, 421, team_bonus_id); // PERS_TC_SPEED
+    shareEffect(df, 424, team_bonus_id); // PERS_DOCK_SPEED
+    shareEffect(df, 408, team_bonus_id); // PERS_KNIGHT_BONUS
 }
 
 void polesCivBonus(genie::DatFile *df) {
@@ -1326,51 +702,21 @@ void polesCivBonus(genie::DatFile *df) {
     skipShare(806);
     
     auto team_bonus_id = 802;
-
-    const int POL_TECH_TREE = 801;
-    shareEffect(df, POL_TECH_TREE, team_bonus_id);
-
-    const int POL_SZLACHTA_PRIVILEGES = 809;
-    shareEffect(df, POL_SZLACHTA_PRIVILEGES, team_bonus_id);
-
-    const int POL_LECHITIC_LEGACY = 810;
-    shareEffect(df, POL_LECHITIC_LEGACY, team_bonus_id);
-    
-    const int POL_VIL_REGEN = 815;
-    shareEffect(df, POL_VIL_REGEN, team_bonus_id);
-    
-    const int POL_FOLWARK = 816;
-    shareEffect(df, POL_FOLWARK, team_bonus_id);
-    
-    const int POL_FOLWARK_2 = 818;
-    shareEffect(df, POL_FOLWARK_2, team_bonus_id);
-    
-    const int POL_FOLWARK_3 = 819;
-    shareEffect(df, POL_FOLWARK_3, team_bonus_id);
-    
-    const int POL_FOLWARK_4 = 820;
-    shareEffect(df, POL_FOLWARK_4, team_bonus_id);
-    
-    const int POL_FOLWARKFARM_FOOD_1 = 821;
-    shareEffect(df, POL_FOLWARKFARM_FOOD_1, team_bonus_id);
-    
-    const int POL_FOLWARKFARM_FOOD_2 = 822;
-    shareEffect(df, POL_FOLWARKFARM_FOOD_2, team_bonus_id);
-    
-    const int POL_FOLWARKFARM_FOOD_3 = 823;
-    shareEffect(df, POL_FOLWARKFARM_FOOD_3, team_bonus_id);
-    
-    const int POL_STONE_GOLDGEN_1 = 827;
-    shareEffect(df, POL_STONE_GOLDGEN_1, team_bonus_id);
-    
-    const int POL_STONE_GOLDGEN_2 = 828;
-    shareEffect(df, POL_STONE_GOLDGEN_2, team_bonus_id);
-    
-    const int POL_STONE_GOLDGEN_3 = 829;
-    shareEffect(df, POL_STONE_GOLDGEN_3, team_bonus_id);
-
-    const int POL_SCOUTS_BONUS = 802;
-    shareEffect(df, POL_SCOUTS_BONUS, team_bonus_id);
+    shareEffect(df, 801, team_bonus_id); // POL_TECH_TREE
+    shareEffect(df, 809, team_bonus_id); // POL_SZLACHTA_PRIVILEGES
+    shareEffect(df, 810, team_bonus_id); // POL_LECHITIC_LEGACY
+    shareEffect(df, 815, team_bonus_id); // POL_VIL_REGEN
+    shareEffect(df, 816, team_bonus_id); // POL_FOLWARK
+    shareEffect(df, 818, team_bonus_id); // POL_FOLWARK_2
+    shareEffect(df, 819, team_bonus_id); // POL_FOLWARK_3
+    shareEffect(df, 820, team_bonus_id); // POL_FOLWARK_4
+    shareEffect(df, 821, team_bonus_id); // POL_FOLWARKFARM_FOOD_1
+    shareEffect(df, 822, team_bonus_id); // POL_FOLWARKFARM_FOOD_2
+    shareEffect(df, 823, team_bonus_id); // POL_FOLWARKFARM_FOOD_3
+    shareEffect(df, 827, team_bonus_id); // POL_STONE_GOLDGEN_1
+    shareEffect(df, 828, team_bonus_id); // POL_STONE_GOLDGEN_2
+    shareEffect(df, 829, team_bonus_id); // POL_STONE_GOLDGEN_3
+    shareEffect(df, 802, team_bonus_id); // POL_SCOUTS_BONUS
 }
 
 void portugueseCivBonus(genie::DatFile *df) {
@@ -1380,32 +726,14 @@ void portugueseCivBonus(genie::DatFile *df) {
     skipShare(623);
     
     auto team_bonus_id = 32;
-
-    const int PORT_TECH_TREE = 31;
-    shareEffect(df, PORT_TECH_TREE, team_bonus_id);
-
-    const int PORT_CARRACK = 601;
-    shareEffect(df, PORT_CARRACK, team_bonus_id);
-
-    const int PORT_ARQUEBUS = 602;
-    shareEffect(df, PORT_ARQUEBUS, team_bonus_id);
-
-    const int PORT_OBSOLETE = 35;
-    shareEffect(df, PORT_OBSOLETE, team_bonus_id);
-
-    const int PORT_GOLD_DISCOUNT = 33;
-    shareEffect(df, PORT_GOLD_DISCOUNT, team_bonus_id);
-
-    const int PORT_FORAGERS = 510;
-    shareEffect(df, PORT_FORAGERS, team_bonus_id);
-
-    // Ships + 10% hp
-
-    const int PORT_FEITORIA_AVAIL = 600;
-    shareEffect(df, PORT_FEITORIA_AVAIL, team_bonus_id);
-
-    const int PORT_RESEARCH_SPEED = 32;
-    shareEffect(df, PORT_RESEARCH_SPEED, team_bonus_id);
+    shareEffect(df, 31, team_bonus_id); // PORT_TECH_TREE
+    shareEffect(df, 601, team_bonus_id); // PORT_CARRACK
+    shareEffect(df, 602, team_bonus_id); // PORT_ARQUEBUS
+    shareEffect(df, 35, team_bonus_id); // PORT_OBSOLETE
+    shareEffect(df, 33, team_bonus_id); // PORT_GOLD_DISCOUNT
+    shareEffect(df, 510, team_bonus_id); // PORT_FORAGERS
+    shareEffect(df, 600, team_bonus_id); // PORT_FEITORIA_AVAIL
+    shareEffect(df, 32, team_bonus_id); // PORT_RESEARCH_SPEED
 }
 
 void romansCivBonus(genie::DatFile *df) {
@@ -1415,45 +743,32 @@ void romansCivBonus(genie::DatFile *df) {
     skipShare(903);
     
     auto team_bonus_id = 891;
-
-    const int ROM_TECH_TREE = 890;
-    shareEffect(df, ROM_TECH_TREE, team_bonus_id);
-
-    const int ROM_BALLISTAS = 894;
-    shareEffect(df, ROM_BALLISTAS, team_bonus_id);
-
-    const int ROM_COMITATENSES = 895;
-    shareEffect(df, ROM_COMITATENSES, team_bonus_id);
-
-    const int ROM_SCORP_BALLISTICS = 901;
-    shareEffect(df, ROM_SCORP_BALLISTICS, team_bonus_id);
-
-    const int ROM_VILS_WORK = 898;
-    shareEffect(df, ROM_VILS_WORK, team_bonus_id);
-    
-    const int ROM_NAVY = 899;
-    shareEffect(df, ROM_NAVY, team_bonus_id);
+    shareEffect(df, 890, team_bonus_id); // ROM_TECH_TREE
+    shareEffect(df, 894, team_bonus_id); // ROM_BALLISTAS
+    shareEffect(df, 895, team_bonus_id); // ROM_COMITATENSES
+    shareEffect(df, 901, team_bonus_id); // ROM_SCORP_BALLISTICS
+    shareEffect(df, 898, team_bonus_id); // ROM_VILS_WORK
+    shareEffect(df, 899, team_bonus_id); // ROM_NAVY
 
     if (df->Techs.at(889).EffectID == SCALE_MAIL_ARMOR) {
         auto scale_mail_id = duplicateForShare(df, SCALE_MAIL_ARMOR);
         df->Techs.at(889).EffectID = scale_mail_id;
     }
-    shareEffect(df, df->Techs.at(889).EffectID, team_bonus_id);
+    shareEffect(df, df->Techs.at(889).EffectID, team_bonus_id); // ROM_SCALE_MAIL_ARMOR
 
     if (df->Techs.at(890).EffectID == CHAIN_MAIL_ARMOR) {
         auto chain_mail_id = duplicateForShare(df, CHAIN_MAIL_ARMOR);
         df->Techs.at(890).EffectID = chain_mail_id;
     }
-    shareEffect(df, df->Techs.at(890).EffectID, team_bonus_id);
+    shareEffect(df, df->Techs.at(890).EffectID, team_bonus_id); // ROM_CHAIN_MAIL_ARMOR
 
     if (df->Techs.at(891).EffectID == PLATE_MAIL_ARMOR) {
         auto plate_mail_id = duplicateForShare(df, PLATE_MAIL_ARMOR);
         df->Techs.at(891).EffectID = plate_mail_id;
     }
-    shareEffect(df, df->Techs.at(891).EffectID, team_bonus_id);
+    shareEffect(df, df->Techs.at(891).EffectID, team_bonus_id); // ROM_PLATE_MAIL_ARMOR
     
-    const int ROM_SCORP_DISCOUT = 900;
-    shareEffect(df, ROM_SCORP_DISCOUT, team_bonus_id);
+    shareEffect(df, 900, team_bonus_id); // ROM_SCORP_DISCOUT
 }
 
 void saracensCivBonus(genie::DatFile *df) {
@@ -1461,39 +776,17 @@ void saracensCivBonus(genie::DatFile *df) {
     skipShare(366);
     
     auto team_bonus_id = 409;
-
-    const int SAR_TECH_TREE = 261;
-    shareEffect(df, SAR_TECH_TREE, team_bonus_id);
-
-    const int SAR_ZEALOTRY = 459;
-    shareEffect(df, SAR_ZEALOTRY, team_bonus_id);
-
-    const int SAR_COUNTERWEIGHTS = 480;
-    shareEffect(df, SAR_COUNTERWEIGHTS, team_bonus_id);
-
-    const int SAR_OBSOLETE = 545;
-    shareEffect(df, SAR_OBSOLETE, team_bonus_id);
-
-    const int SAR_MARKET = 354;
-    shareEffect(df, SAR_MARKET, team_bonus_id);
-
-    const int SAR_TRANSPORT = 311;
-    shareEffect(df, SAR_TRANSPORT, team_bonus_id);
-
-    const int SAR_GALLEY_ATTACK = 416;
-    shareEffect(df, SAR_GALLEY_ATTACK, team_bonus_id);
-
-    const int SAR_CAMEL_HP = 312;
-    shareEffect(df, SAR_CAMEL_HP, team_bonus_id);
-
-    const int SAR_ARCHER_BONUS_1 = 313;
-    shareEffect(df, SAR_ARCHER_BONUS_1, team_bonus_id);
-
-    const int SAR_ARCHER_BONUS_2 = 318;
-    shareEffect(df, SAR_ARCHER_BONUS_2, team_bonus_id);
-
-    const int SAR_ARCHER_BONUS = 409;
-    shareEffect(df, SAR_ARCHER_BONUS, team_bonus_id);
+    shareEffect(df, 261, team_bonus_id); // SAR_TECH_TREE
+    shareEffect(df, 459, team_bonus_id); // SAR_ZEALOTRY
+    shareEffect(df, 480, team_bonus_id); // SAR_COUNTERWEIGHTS
+    shareEffect(df, 545, team_bonus_id); // SAR_OBSOLETE
+    shareEffect(df, 354, team_bonus_id); // SAR_MARKET
+    shareEffect(df, 311, team_bonus_id); // SAR_TRANSPORT
+    shareEffect(df, 416, team_bonus_id); // SAR_GALLEY_ATTACK
+    shareEffect(df, 312, team_bonus_id); // SAR_CAMEL_HP
+    shareEffect(df, 313, team_bonus_id); // SAR_ARCHER_BONUS_1
+    shareEffect(df, 318, team_bonus_id); // SAR_ARCHER_BONUS_2
+    shareEffect(df, 409, team_bonus_id); // SAR_ARCHER_BONUS
 }
 
 void siciliansCivBonus(genie::DatFile *df) {
@@ -1501,39 +794,17 @@ void siciliansCivBonus(genie::DatFile *df) {
     skipShare(789);
     
     auto team_bonus_id = 785;
-
-    const int SIC_TECH_TREE = 784;
-    shareEffect(df, SIC_TECH_TREE, team_bonus_id);
-
-    const int SIC_FIRST_CRUSADE = 792;
-    shareEffect(df, SIC_FIRST_CRUSADE, team_bonus_id);
-
-    const int SIC_HAUBERK = 793;
-    shareEffect(df, SIC_HAUBERK, team_bonus_id);
-
-    const int SIC_START_RES = 217;
-    shareEffect(df, SIC_START_RES, team_bonus_id);
-
-    const int SIC_BUILD_SPEED = 795;
-    shareEffect(df, SIC_BUILD_SPEED, team_bonus_id);
-
-    const int SIC_BONUS_RESISTANCE = 796;
-    shareEffect(df, SIC_BONUS_RESISTANCE, team_bonus_id);
-
-    const int SIC_FARM_FOOD_1 = 797;
-    shareEffect(df, SIC_FARM_FOOD_1, team_bonus_id);
-
-    const int SIC_FARM_FOOD_2 = 798;
-    shareEffect(df, SIC_FARM_FOOD_2, team_bonus_id);
-
-    const int SIC_FARM_FOOD_3 = 799;
-    shareEffect(df, SIC_FARM_FOOD_3, team_bonus_id);
-
-    const int SIC_DONJON_AVAIL = 800;
-    shareEffect(df, SIC_DONJON_AVAIL, team_bonus_id);
-
-    const int SIC_TRANSPORT = 785;
-    shareEffect(df, SIC_TRANSPORT, team_bonus_id);
+    shareEffect(df, 784, team_bonus_id); // SIC_TECH_TREE
+    shareEffect(df, 792, team_bonus_id); // SIC_FIRST_CRUSADE
+    shareEffect(df, 793, team_bonus_id); // SIC_HAUBERK
+    shareEffect(df, 217, team_bonus_id); // SIC_START_RES
+    shareEffect(df, 795, team_bonus_id); // SIC_BUILD_SPEED
+    shareEffect(df, 796, team_bonus_id); // SIC_BONUS_RESISTANCE
+    shareEffect(df, 797, team_bonus_id); // SIC_FARM_FOOD_1
+    shareEffect(df, 798, team_bonus_id); // SIC_FARM_FOOD_2
+    shareEffect(df, 799, team_bonus_id); // SIC_FARM_FOOD_3
+    shareEffect(df, 800, team_bonus_id); // SIC_DONJON_AVAIL
+    shareEffect(df, 785, team_bonus_id); // SIC_TRANSPORT
 }
 
 void slavsCivBonus(genie::DatFile *df) {
@@ -1541,24 +812,12 @@ void slavsCivBonus(genie::DatFile *df) {
     skipShare(557);
     
     auto team_bonus_id = 9;
-
-    const int SLAVS_TECH_TREE = 7;
-    shareEffect(df, SLAVS_TECH_TREE, team_bonus_id);
-
-    const int SLAVS_DETINETS = 481;
-    shareEffect(df, SLAVS_DETINETS, team_bonus_id);
-
-    const int SLAVS_DRUZHINA = 569;
-    shareEffect(df, SLAVS_DRUZHINA, team_bonus_id);
-
-    const int SLAVS_FARMS = 690;
-    shareEffect(df, SLAVS_FARMS, team_bonus_id);
-
-    const int SLAVS_SIEGE_DISCOUNT = 567;
-    shareEffect(df, SLAVS_SIEGE_DISCOUNT, team_bonus_id);
-
-    const int SLAVS_MILITARY_POP = 758;
-    shareEffect(df, SLAVS_MILITARY_POP, team_bonus_id);
+    shareEffect(df, 7, team_bonus_id); // SLAVS_TECH_TREE
+    shareEffect(df, 481, team_bonus_id); // SLAVS_DETINETS
+    shareEffect(df, 569, team_bonus_id); // SLAVS_DRUZHINA
+    shareEffect(df, 690, team_bonus_id); // SLAVS_FARMS
+    shareEffect(df, 567, team_bonus_id); // SLAVS_SIEGE_DISCOUNT
+    shareEffect(df, 758, team_bonus_id); // SLAVS_MILITARY_POP
 }
 
 void spanishCivBonus(genie::DatFile *df) {
@@ -1566,33 +825,15 @@ void spanishCivBonus(genie::DatFile *df) {
     skipShare(492);
     
     auto team_bonus_id = 490;
-
-    const int SPAN_TECH_TREE = 446;
-    shareEffect(df, SPAN_TECH_TREE, team_bonus_id);
-
-    const int SPAN_INQUISITION = 547;
-    shareEffect(df, SPAN_INQUISITION, team_bonus_id);
-
-    const int SPAN_SUPREMACY = 495;
-    shareEffect(df, SPAN_SUPREMACY, team_bonus_id);
-
-    const int SPAN_TC_BUILD = 168;
-    shareEffect(df, SPAN_TC_BUILD, team_bonus_id);
-
-    const int SPAN_TECH_REWARD = 300;
-    shareEffect(df, SPAN_TECH_REWARD, team_bonus_id);
-
-    const int SPAN_TECH_REWARD_2 = 181;
-    shareEffect(df, SPAN_TECH_REWARD_2, team_bonus_id);
-
-    const int SPAN_TECH_REWARD_3 = 237;
-    shareEffect(df, SPAN_TECH_REWARD_3, team_bonus_id);
-
-    const int SPAN_MISSIONARY_AVAIL = 496;
-    shareEffect(df, SPAN_MISSIONARY_AVAIL, team_bonus_id);
-
-    const int SPAN_TRADE = 490;
-    shareEffect(df, SPAN_TRADE, team_bonus_id);
+    shareEffect(df, 446, team_bonus_id); // SPAN_TECH_TREE
+    shareEffect(df, 547, team_bonus_id); // SPAN_INQUISITION
+    shareEffect(df, 495, team_bonus_id); // SPAN_SUPREMACY
+    shareEffect(df, 168, team_bonus_id); // SPAN_TC_BUILD
+    shareEffect(df, 300, team_bonus_id); // SPAN_TECH_REWARD
+    shareEffect(df, 181, team_bonus_id); // SPAN_TECH_REWARD_2
+    shareEffect(df, 237, team_bonus_id); // SPAN_TECH_REWARD_3
+    shareEffect(df, 496, team_bonus_id); // SPAN_MISSIONARY_AVAIL
+    shareEffect(df, 490, team_bonus_id); // SPAN_TRADE
 }
 
 void tatarsCivBonus(genie::DatFile *df) {
@@ -1600,36 +841,16 @@ void tatarsCivBonus(genie::DatFile *df) {
     skipShare(717);
     
     auto team_bonus_id = 709;
-
-    const int TAT_TECH_TREE = 708;
-    shareEffect(df, TAT_TECH_TREE, team_bonus_id);
-
-    const int TAT_SILK_ARMOR = 724;
-    shareEffect(df, TAT_SILK_ARMOR, team_bonus_id);
-
-    const int TAT_TIMURID = 725;
-    shareEffect(df, TAT_TIMURID, team_bonus_id);
-    
-    const int TAT_SHEEP_BONUS = 741;
-    shareEffect(df, TAT_SHEEP_BONUS, team_bonus_id);
-    
-    const int TAT_SHEEP_BONUS_2 = 299;
-    shareEffect(df, TAT_SHEEP_BONUS_2, team_bonus_id);
-    
-    const int TAT_SHEEP_BONUS_3 = 303;
-    shareEffect(df, TAT_SHEEP_BONUS_3, team_bonus_id);
-    
-    const int TAT_SHEEP_BONUS_4 = 305;
-    shareEffect(df, TAT_SHEEP_BONUS_4, team_bonus_id);
-    
-    const int TAT_PARTHIAN_TACTICS = 735;
-    shareEffect(df, TAT_PARTHIAN_TACTICS, team_bonus_id);
-    
-    const int TAT_ELEVATION = 733;
-    shareEffect(df, TAT_ELEVATION, team_bonus_id);
-
-    const int TAT_CA_LOS = 709;
-    shareEffect(df, TAT_CA_LOS, team_bonus_id);
+    shareEffect(df, 708, team_bonus_id); // TAT_TECH_TREE
+    shareEffect(df, 724, team_bonus_id); // TAT_SILK_ARMOR
+    shareEffect(df, 725, team_bonus_id); // TAT_TIMURID
+    shareEffect(df, 741, team_bonus_id); // TAT_SHEEP_BONUS
+    shareEffect(df, 299, team_bonus_id); // TAT_SHEEP_BONUS_2
+    shareEffect(df, 303, team_bonus_id); // TAT_SHEEP_BONUS_3
+    shareEffect(df, 305, team_bonus_id); // TAT_SHEEP_BONUS_4
+    shareEffect(df, 735, team_bonus_id); // TAT_PARTHIAN_TACTICS
+    shareEffect(df, 733, team_bonus_id); // TAT_ELEVATION
+    shareEffect(df, 709, team_bonus_id); // TAT_CA_LOS
 }
 
 void teutonsCivBonus(genie::DatFile *df) {
@@ -1637,39 +858,17 @@ void teutonsCivBonus(genie::DatFile *df) {
     skipShare(362);
     
     auto team_bonus_id = 404;
-
-    const int TEUT_TECH_TREE = 262;
-    shareEffect(df, TEUT_TECH_TREE, team_bonus_id);
-
-    const int TEUT_IRONCLAD = 544;
-    shareEffect(df, TEUT_IRONCLAD, team_bonus_id);
-
-    const int TEUT_CRENELLATIONS = 461;
-    shareEffect(df, TEUT_CRENELLATIONS, team_bonus_id);
-    
-    const int TEUT_OBSOLETE = 332;
-    shareEffect(df, TEUT_OBSOLETE, team_bonus_id);
-    
-    const int TEUT_HEAL_RANGE = 345;
-    shareEffect(df, TEUT_HEAL_RANGE, team_bonus_id);
-    
-    const int TEUT_TOWER_GARISON = 352;
-    shareEffect(df, TEUT_TOWER_GARISON, team_bonus_id);
-
-    const int TEUT_FARMS_DISCOUNT = 314;
-    shareEffect(df, TEUT_FARMS_DISCOUNT, team_bonus_id);
-    
-    const int TEUT_TC_IMPROVE = 335;
-    shareEffect(df, TEUT_TC_IMPROVE, team_bonus_id);
-    
-    const int TEUT_ARMOR_1 = 333;
-    shareEffect(df, TEUT_ARMOR_1, team_bonus_id);
-    
-    const int TEUT_ARMOR_2 = 334;
-    shareEffect(df, TEUT_ARMOR_2, team_bonus_id);
-    
-    const int TEUT_CONVERSION_RESISTANCE = 404;
-    shareEffect(df, TEUT_CONVERSION_RESISTANCE, team_bonus_id);
+    shareEffect(df, 262, team_bonus_id); // TEUT_TECH_TREE
+    shareEffect(df, 544, team_bonus_id); // TEUT_IRONCLAD
+    shareEffect(df, 461, team_bonus_id); // TEUT_CRENELLATIONS
+    shareEffect(df, 332, team_bonus_id); // TEUT_OBSOLETE
+    shareEffect(df, 345, team_bonus_id); // TEUT_HEAL_RANGE
+    shareEffect(df, 352, team_bonus_id); // TEUT_TOWER_GARISON
+    shareEffect(df, 314, team_bonus_id); // TEUT_FARMS_DISCOUNT
+    shareEffect(df, 335, team_bonus_id); // TEUT_TC_IMPROVE
+    shareEffect(df, 333, team_bonus_id); // TEUT_ARMOR_1
+    shareEffect(df, 334, team_bonus_id); // TEUT_ARMOR_2
+    shareEffect(df, 404, team_bonus_id); // TEUT_CONVERSION_RESISTANCE
 }
 
 void turksCivBonus(genie::DatFile *df) {
@@ -1678,36 +877,16 @@ void turksCivBonus(genie::DatFile *df) {
     skipShare(367);
     
     auto team_bonus_id = 410;
-
-    const int TURK_TECH_TREE = 263;
-    shareEffect(df, TURK_TECH_TREE, team_bonus_id);
-
-    const int TURK_SIPAHI = 546;
-    shareEffect(df, TURK_SIPAHI, team_bonus_id);
-
-    const int TURK_ARTILLERY = 460;
-    shareEffect(df, TURK_ARTILLERY, team_bonus_id);
-
-    const int TURK_HUSSAR_FREE = 527;
-    shareEffect(df, TURK_HUSSAR_FREE, team_bonus_id);
-
-    const int TURK_CHEMISTRY_FREE = 301;
-    shareEffect(df, TURK_CHEMISTRY_FREE, team_bonus_id);
-
-    const int TURK_GUNPOWDER_HP = 296;
-    shareEffect(df, TURK_GUNPOWDER_HP, team_bonus_id);
-
-    const int TURK_GUNPOWDERSHIP_HP = 284;
-    shareEffect(df, TURK_GUNPOWDERSHIP_HP, team_bonus_id);
-
-    const int TURK_GOLD_MINING = 295;
-    shareEffect(df, TURK_GOLD_MINING, team_bonus_id);
-
-    const int TURK_LIGHTCAV_PIERCE = 509;
-    shareEffect(df, TURK_LIGHTCAV_PIERCE, team_bonus_id);
-
-    const int TURK_GUNPOWDER_TRAINTIME = 410;
-    shareEffect(df, TURK_GUNPOWDER_TRAINTIME, team_bonus_id);
+    shareEffect(df, 263, team_bonus_id); // TURK_TECH_TREE
+    shareEffect(df, 546, team_bonus_id); // TURK_SIPAHI
+    shareEffect(df, 460, team_bonus_id); // TURK_ARTILLERY
+    shareEffect(df, 527, team_bonus_id); // TURK_HUSSAR_FREE
+    shareEffect(df, 301, team_bonus_id); // TURK_CHEMISTRY_FREE
+    shareEffect(df, 296, team_bonus_id); // TURK_GUNPOWDER_HP
+    shareEffect(df, 284, team_bonus_id); // TURK_GUNPOWDERSHIP_HP
+    shareEffect(df, 295, team_bonus_id); // TURK_GOLD_MINING
+    shareEffect(df, 509, team_bonus_id); // TURK_LIGHTCAV_PIERCE
+    shareEffect(df, 410, team_bonus_id); // TURK_GUNPOWDER_TRAINTIME
 }
 
 void vietnameseCivBonus(genie::DatFile *df) {
@@ -1715,30 +894,14 @@ void vietnameseCivBonus(genie::DatFile *df) {
     skipShare(661);
     
     auto team_bonus_id = 653;
-
-    const int VIET_TECH_TREE = 652;
-    shareEffect(df, VIET_TECH_TREE, team_bonus_id);
-
-    const int VIET_CHATRAS = 668;
-    shareEffect(df, VIET_CHATRAS, team_bonus_id);
-
-    const int VIET_PAPER_MONEY_1 = 669;
-    shareEffect(df, VIET_PAPER_MONEY_1, team_bonus_id);
-
-    const int VIET_PAPER_MONEY_2 = 881;
-    shareEffect(df, VIET_PAPER_MONEY_2, team_bonus_id);
-
-    const int VIET_PAPER_MONEY_3 = 882;
-    shareEffect(df, VIET_PAPER_MONEY_3, team_bonus_id);
-
-    const int VIET_PAPER_MONEY_4 = 883;
-    shareEffect(df, VIET_PAPER_MONEY_4, team_bonus_id);
-
-    const int VIET_ARCHERS_HP = 672;
-    shareEffect(df, VIET_ARCHERS_HP, team_bonus_id);
-
-    const int VIET_VISION = 698;
-    shareEffect(df, VIET_VISION, team_bonus_id);
+    shareEffect(df, 652, team_bonus_id); // VIET_TECH_TREE
+    shareEffect(df, 668, team_bonus_id); // VIET_CHATRAS
+    shareEffect(df, 669, team_bonus_id); // VIET_PAPER_MONEY_1
+    shareEffect(df, 881, team_bonus_id); // VIET_PAPER_MONEY_2
+    shareEffect(df, 882, team_bonus_id); // VIET_PAPER_MONEY_3
+    shareEffect(df, 883, team_bonus_id); // VIET_PAPER_MONEY_4
+    shareEffect(df, 672, team_bonus_id); // VIET_ARCHERS_HP
+    shareEffect(df, 698, team_bonus_id); // VIET_VISION
 }
 
 void vikingsCivBonus(genie::DatFile *df) {
@@ -1748,42 +911,18 @@ void vikingsCivBonus(genie::DatFile *df) {
     skipShare(398);
     
     auto team_bonus_id = 411;
-
-    const int VIK_TECH_TREE = 276;
-    shareEffect(df, VIK_TECH_TREE, team_bonus_id);
-
-    const int VIK_CHIEFTAINS = 517;
-    shareEffect(df, VIK_CHIEFTAINS, team_bonus_id);
-
-    const int VIK_BOGSVEIGAR = 467;
-    shareEffect(df, VIK_BOGSVEIGAR, team_bonus_id);
-
-    const int VIK_WHEELBARROW_FREE = 391;
-    shareEffect(df, VIK_WHEELBARROW_FREE, team_bonus_id);
-
-    const int VIK_HANDCART_FREE = 412;
-    shareEffect(df, VIK_HANDCART_FREE, team_bonus_id);
-
-    const int VIK_WARSHIP_COST_1 = 383;
-    shareEffect(df, VIK_WARSHIP_COST_1, team_bonus_id);
-    
-    const int VIK_WARSHIP_COST_2 = 386;
-    shareEffect(df, VIK_WARSHIP_COST_2, team_bonus_id);
-    
-    const int VIK_WARSHIP_COST_3 = 394;
-    shareEffect(df, VIK_WARSHIP_COST_3, team_bonus_id);
-    
-    const int VIK_INF_HP_1 = 390;
-    shareEffect(df, VIK_INF_HP_1, team_bonus_id);
-    
-    const int VIK_INF_HP_2 = 427;
-    shareEffect(df, VIK_INF_HP_2, team_bonus_id);
-    
-    const int VIK_INF_HP_3 = 428;
-    shareEffect(df, VIK_INF_HP_3, team_bonus_id);
-    
-    const int VIK_DOCK_COST = 411;
-    shareEffect(df, VIK_DOCK_COST, team_bonus_id);
+    shareEffect(df, 276, team_bonus_id); // VIK_TECH_TREE
+    shareEffect(df, 517, team_bonus_id); // VIK_CHIEFTAINS
+    shareEffect(df, 467, team_bonus_id); // VIK_BOGSVEIGAR
+    shareEffect(df, 391, team_bonus_id); // VIK_WHEELBARROW_FREE
+    shareEffect(df, 412, team_bonus_id); // VIK_HANDCART_FREE
+    shareEffect(df, 383, team_bonus_id); // VIK_WARSHIP_COST_1
+    shareEffect(df, 386, team_bonus_id); // VIK_WARSHIP_COST_2
+    shareEffect(df, 394, team_bonus_id); // VIK_WARSHIP_COST_3
+    shareEffect(df, 390, team_bonus_id); // VIK_INF_HP_1
+    shareEffect(df, 427, team_bonus_id); // VIK_INF_HP_2
+    shareEffect(df, 428, team_bonus_id); // VIK_INF_HP_3
+    shareEffect(df, 411, team_bonus_id); // VIK_DOCK_COST
 }
 
 void configureSharedCivBonus(genie::DatFile *df) {

@@ -121,7 +121,6 @@ void multipleResourceSet(std::vector<genie::EffectCommand>& commands, int id, fl
         case 94: // starting gold
         case 88: // fish trap food
         case 214: // mercenary kipchak
-        case 234: // unit spawn cap
         case 237: // folwark collection amount
         case 251: // bengali trade food
         case 254: // gurjara mill food
@@ -138,8 +137,10 @@ void multipleSpawnUnit(std::vector<genie::EffectCommand>& commands, int id, floa
     auto &command = commands.at(id);
     switch (command.A)
     {
-        case 59: // forrage bush
-        case 83: // villager
+        case 59: // forage bush
+        case 305: // llama
+        case VILLAGER:
+        case SERJEANT:
             command.C = multipleAdd(command.C, totalCount);
             break;
         default: // other do not spawn more
@@ -471,50 +472,21 @@ void aztecsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(442);
     skipUpdate(444);
 
-    const int AZT_TECH_TREE = 447;
-    updateEffect(df, AZT_TECH_TREE, totalCount);
-    
-    const int AZT_ATLATL = 514;
-    updateEffect(df, AZT_ATLATL, totalCount);
-    
-    const int AZT_GARLAND_WARS = 465;
-    updateEffect(df, AZT_GARLAND_WARS, totalCount);
-    
-    const int AZT_MONK_HP_1 = 470;
-    updateEffect(df, AZT_MONK_HP_1, totalCount);
-    
-    const int AZT_MONK_HP_2 = 471;
-    updateEffect(df, AZT_MONK_HP_2, totalCount);
-    
-    const int AZT_MONK_HP_3 = 472;
-    updateEffect(df, AZT_MONK_HP_3, totalCount);
-    
-    const int AZT_MONK_HP_4 = 473;
-    updateEffect(df, AZT_MONK_HP_4, totalCount);
-    
-    const int AZT_MONK_HP_5 = 474;
-    updateEffect(df, AZT_MONK_HP_5, totalCount);
-    
-    const int AZT_MONK_HP_6 = 475;
-    updateEffect(df, AZT_MONK_HP_6, totalCount);
-    
-    const int AZT_MONK_HP_7 = 476;
-    updateEffect(df, AZT_MONK_HP_7, totalCount);
-    
-    const int AZT_MONK_HP_8 = 477;
-    updateEffect(df, AZT_MONK_HP_8, totalCount);
-    
-    const int AZT_MONK_HP_9 = 478;
-    updateEffect(df, AZT_MONK_HP_9, totalCount);
-    
-    const int AZT_MONK_HP_10 = 512;
-    updateEffect(df, AZT_MONK_HP_10, totalCount);
-
-    const int AZT_START_RES = 213;
-    updateEffect(df, AZT_START_RES, totalCount);
-    
-    const int AZT_RELIC = 488;
-    updateEffect(df, AZT_RELIC, totalCount);
+    updateEffect(df, 447, totalCount); // AZT_TECH_TREE 
+    updateEffect(df, 514, totalCount); // AZT_ATLATL 
+    updateEffect(df, 465, totalCount); // AZT_GARLAND_WARS 
+    updateEffect(df, 470, totalCount); // AZT_MONK_HP_1 
+    updateEffect(df, 471, totalCount); // AZT_MONK_HP_2 
+    updateEffect(df, 472, totalCount); // AZT_MONK_HP_3 
+    updateEffect(df, 473, totalCount); // AZT_MONK_HP_4 
+    updateEffect(df, 474, totalCount); // AZT_MONK_HP_5 
+    updateEffect(df, 475, totalCount); // AZT_MONK_HP_6 
+    updateEffect(df, 476, totalCount); // AZT_MONK_HP_7 
+    updateEffect(df, 477, totalCount); // AZT_MONK_HP_8 
+    updateEffect(df, 478, totalCount); // AZT_MONK_HP_9 
+    updateEffect(df, 512, totalCount); // AZT_MONK_HP_10 
+    updateEffect(df, 213, totalCount); // AZT_START_RES 
+    updateEffect(df, 488, totalCount); // AZT_RELIC 
 }
 
 void bengalisCivBonus(genie::DatFile *df, float totalCount) {
@@ -524,32 +496,15 @@ void bengalisCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(846);
     skipUpdate(847);
 
-    const int BENG_TECH_TREE = 840;
-    updateEffect(df, BENG_TECH_TREE, totalCount);
-
-    const int BENG_PAIKS = 852;
-    updateEffect(df, BENG_PAIKS, totalCount);
-
-    const int BENG_MAHAYANA = 853;
-    updateEffect(df, BENG_MAHAYANA, totalCount);
-
-    const int BENG_RESIST = 865;
-    updateEffect(df, BENG_RESIST, totalCount);
-
-    const int BENG_VILS = 866;
-    updateEffect(df, BENG_VILS, totalCount);
-
-    const int BENG_CAV_BONUS = 888;
-    updateEffect(df, BENG_CAV_BONUS, totalCount);
-
-    const int BENG_SHIPS_REGENERATE = 867;
-    updateEffect(df, BENG_SHIPS_REGENERATE, totalCount);
-
-    const int BENG_MONK_DEFENSE = 568;
-    updateEffect(df, BENG_MONK_DEFENSE, totalCount);
-
-    const int BENG_TRADE = 841;
-    updateEffect(df, BENG_TRADE, totalCount);
+    updateEffect(df, 840, totalCount); // BENG_TECH_TREE 
+    updateEffect(df, 852, totalCount); // BENG_PAIKS 
+    updateEffect(df, 853, totalCount); // BENG_MAHAYANA 
+    updateEffect(df, 865, totalCount); // BENG_RESIST 
+    updateEffect(df, 866, totalCount); // BENG_VILS 
+    updateEffect(df, 888, totalCount); // BENG_CAV_BONUS 
+    updateEffect(df, 867, totalCount); // BENG_SHIPS_REGENERATE 
+    updateEffect(df, 568, totalCount); // BENG_MONK_DEFENSE 
+    updateEffect(df, 841, totalCount); // BENG_TRADE 
 }
 
 void berbersCivBonus(genie::DatFile *df, float totalCount) {
@@ -561,32 +516,15 @@ void berbersCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(595);
     skipUpdate(624);
 
-    const int BERB_TECH_TREE = 37;
-    updateEffect(df, BERB_TECH_TREE, totalCount);
-
-    const int BERB_KASBAH = 607;
-    updateEffect(df, BERB_KASBAH, totalCount);
-
-    const int BERB_MAGHREBI_CAMELS = 608;
-    updateEffect(df, BERB_MAGHREBI_CAMELS, totalCount);
-
-    const int BERB_VILLAGERS_FASTER_1 = 609;
-    updateEffect(df, BERB_VILLAGERS_FASTER_1, totalCount);
-
-    const int BERB_VILLAGERS_FASTER_2 = 626;
-    updateEffect(df, BERB_VILLAGERS_FASTER_2, totalCount);
-
-    const int BERB_CAVALRY_DISCOUNT_1 = 610;
-    updateEffect(df, BERB_CAVALRY_DISCOUNT_1, totalCount);
-
-    const int BERB_CAVALRY_DISCOUNT_2 = 638;
-    updateEffect(df, BERB_CAVALRY_DISCOUNT_2, totalCount);
-
-    const int BERB_SHIPS_FASTER_1 = 34;
-    updateEffect(df, BERB_SHIPS_FASTER_1, totalCount);
-
-    const int BERB_SHIPS_FASTER_2 = 611;
-    updateEffect(df, BERB_SHIPS_FASTER_2, totalCount);
+    updateEffect(df, 37, totalCount); // BERB_TECH_TREE 
+    updateEffect(df, 607, totalCount); // BERB_KASBAH 
+    updateEffect(df, 608, totalCount); // BERB_MAGHREBI_CAMELS 
+    updateEffect(df, 609, totalCount); // BERB_VILLAGERS_FASTER_1 
+    updateEffect(df, 626, totalCount); // BERB_VILLAGERS_FASTER_2 
+    updateEffect(df, 610, totalCount); // BERB_CAVALRY_DISCOUNT_1 
+    updateEffect(df, 638, totalCount); // BERB_CAVALRY_DISCOUNT_2 
+    updateEffect(df, 34, totalCount); // BERB_SHIPS_FASTER_1 
+    updateEffect(df, 611, totalCount); // BERB_SHIPS_FASTER_2 
 }
 
 void bohemiansCivBonus(genie::DatFile *df, float totalCount) {
@@ -597,29 +535,14 @@ void bohemiansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(808);
     skipUpdate(814);
 
-    const int BOH_TECH_TREE = 803;
-    updateEffect(df, BOH_TECH_TREE, totalCount);
-
-    const int BOH_WAGENBURG_TACTICS = 811;
-    updateEffect(df, BOH_WAGENBURG_TACTICS, totalCount);
-
-    const int BOH_HUSSITE_REFORMS = 812;
-    updateEffect(df, BOH_HUSSITE_REFORMS, totalCount);
-
-    const int BOH_BLACKSMITH_DISCOUNT = 830;
-    updateEffect(df, BOH_BLACKSMITH_DISCOUNT, totalCount);
-
-    const int BOH_SPEAR_BONUS = 824;
-    updateEffect(df, BOH_SPEAR_BONUS, totalCount);
-
-    const int BOH_VIL_SANCTITY = 825;
-    updateEffect(df, BOH_VIL_SANCTITY, totalCount);
-
-    const int BOH_VIL_FERVOR = 826;
-    updateEffect(df, BOH_VIL_FERVOR, totalCount);
-
-    const int BOH_MARKET_SPEED = 804;
-    updateEffect(df, BOH_MARKET_SPEED, totalCount);
+    updateEffect(df, 803, totalCount); // BOH_TECH_TREE 
+    updateEffect(df, 811, totalCount); // BOH_WAGENBURG_TACTICS 
+    updateEffect(df, 812, totalCount); // BOH_HUSSITE_REFORMS 
+    updateEffect(df, 830, totalCount); // BOH_BLACKSMITH_DISCOUNT 
+    updateEffect(df, 824, totalCount); // BOH_SPEAR_BONUS 
+    updateEffect(df, 825, totalCount); // BOH_VIL_SANCTITY 
+    updateEffect(df, 826, totalCount); // BOH_VIL_FERVOR 
+    updateEffect(df, 804, totalCount); // BOH_MARKET_SPEED 
 }
 
 void britonsCivBonus(genie::DatFile *df, float totalCount) {
@@ -628,29 +551,14 @@ void britonsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(251);
     skipUpdate(358);
 
-    const int BRIT_TECH_TREE = 254;
-    updateEffect(df, BRIT_TECH_TREE, totalCount);
-    
-    const int BRIT_YEOMEN = 455;
-    updateEffect(df, BRIT_YEOMEN, totalCount);
-    
-    const int BRIT_WARWOLF = 540;
-    updateEffect(df, BRIT_WARWOLF, totalCount    );
-    
-    const int BRIT_TC_DISCOUNT = 379;
-    updateEffect(df, BRIT_TC_DISCOUNT, totalCount);
-
-    const int BRIT_ARCHER_RANGE_1 = 380;
-    updateEffect(df, BRIT_ARCHER_RANGE_1, totalCount);
-
-    const int BRIT_ARCHER_RANGE_2 = 415;
-    updateEffect(df, BRIT_ARCHER_RANGE_2, totalCount);
-
-    const int BRIT_SHEPARD = 381;
-    updateEffect(df, BRIT_SHEPARD, totalCount);
-
-    const int BRIT_RANGE_SPEED = 399;
-    updateEffect(df, BRIT_RANGE_SPEED, totalCount);
+    updateEffect(df, 254, totalCount); // BRIT_TECH_TREE 
+    updateEffect(df, 455, totalCount); // BRIT_YEOMEN 
+    updateEffect(df, 540, totalCount); // BRIT_WARWOLF 
+    updateEffect(df, 379, totalCount); // BRIT_TC_DISCOUNT 
+    updateEffect(df, 380, totalCount); // BRIT_ARCHER_RANGE_1 
+    updateEffect(df, 415, totalCount); // BRIT_ARCHER_RANGE_2 
+    updateEffect(df, 381, totalCount); // BRIT_SHEPARD 
+    updateEffect(df, 399, totalCount); // BRIT_RANGE_SPEED 
 }
 
 void bulgariansCivBonus(genie::DatFile *df, float totalCount) {
@@ -661,30 +569,14 @@ void bulgariansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(714);
     skipUpdate(715);
 
-    const int BULG_TECH_TREE = 706;
-    updateEffect(df, BULG_TECH_TREE, totalCount);
-
-    const int BULG_STIRRUPS = 722;
-    updateEffect(df, BULG_STIRRUPS, totalCount);
-
-    const int BULG_BAGAINS = 723;
-    updateEffect(df, BULG_BAGAINS, totalCount);
-
-    const int BULG_MILITIA_UPGRADES = 730;
-    updateEffect(df, BULG_MILITIA_UPGRADES, totalCount);
-
-    const int BULG_TC_STONE_DISCOUNT_1 = 171;
-    updateEffect(df, BULG_TC_STONE_DISCOUNT_1, totalCount);
-    
-    const int BULG_TC_STONE_DISCOUNT_2 = 731;
-    updateEffect(df, BULG_TC_STONE_DISCOUNT_2, totalCount);
-
-    const int BULG_BLACKSMITH_FASTER = 707;
-    updateEffect(df, BULG_BLACKSMITH_FASTER, totalCount);
-
-    const int BULD_ENABLE_CREPOST = 732;
-    updateEffect(df, BULD_ENABLE_CREPOST, totalCount);
-    
+    updateEffect(df, 706, totalCount); // BULG_TECH_TREE 
+    updateEffect(df, 722, totalCount); // BULG_STIRRUPS 
+    updateEffect(df, 723, totalCount); // BULG_BAGAINS 
+    updateEffect(df, 730, totalCount); // BULG_MILITIA_UPGRADES 
+    updateEffect(df, 171, totalCount); // BULG_TC_STONE_DISCOUNT_1 
+    updateEffect(df, 731, totalCount); // BULG_TC_STONE_DISCOUNT_2 
+    updateEffect(df, 707, totalCount); // BULG_BLACKSMITH_FASTER 
+    updateEffect(df, 732, totalCount); // BULD_ENABLE_CREPOST 
     const int BULG_KREPOST = 1251;
     for (auto &civ : df->Civs) {
         auto &unit = civ.Units.at(BULG_KREPOST);
@@ -698,20 +590,11 @@ void burgundiansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(786);
     skipUpdate(787);
 
-    const int BURG_TECH_TREE = 782;
-    updateEffect(df, BURG_TECH_TREE, totalCount);
-
-    const int BURG_BURGUNDIAN_VINEYARDS = 790;
-    updateEffect(df, BURG_BURGUNDIAN_VINEYARDS, totalCount);
-
-    const int BURG_FLEMISH_REVOLUTION = 791;
-    updateEffect(df, BURG_FLEMISH_REVOLUTION, totalCount);
-
-    const int BURG_GUNPOWDER = 794;
-    updateEffect(df, BURG_GUNPOWDER, totalCount);
-
-    const int BURG_RELIC_FOOD = 783;
-    updateEffect(df, BURG_RELIC_FOOD, totalCount);
+    updateEffect(df, 782, totalCount); // BURG_TECH_TREE 
+    updateEffect(df, 790, totalCount); // BURG_BURGUNDIAN_VINEYARDS 
+    updateEffect(df, 791, totalCount); // BURG_FLEMISH_REVOLUTION 
+    updateEffect(df, 794, totalCount); // BURG_GUNPOWDER 
+    updateEffect(df, 783, totalCount); // BURG_RELIC_FOOD 
 }
 
 void burmeseCivBonus(genie::DatFile *df, float totalCount) {
@@ -720,35 +603,16 @@ void burmeseCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(658);
     skipUpdate(659);
 
-    const int BURM_TECH_TREE = 650;
-    updateEffect(df, BURM_TECH_TREE, totalCount);
-
-    const int BURM_HOWDAH = 666;
-    updateEffect(df, BURM_HOWDAH, totalCount);
-
-    const int BURM_MANIPUR_CAVALRY = 667;
-    updateEffect(df, BURM_MANIPUR_CAVALRY, totalCount);
-
-    const int BURM_LUMBER_UPGRADES = 685;
-    updateEffect(df, BURM_LUMBER_UPGRADES, totalCount);
-
-    const int BURM_INF_ATTACK_1 = 686;
-    updateEffect(df, BURM_INF_ATTACK_1, totalCount);
-
-    const int BURM_INF_ATTACK_2 = 687;
-    updateEffect(df, BURM_INF_ATTACK_2, totalCount);
-
-    const int BURM_INF_ATTACK_3 = 688;
-    updateEffect(df, BURM_INF_ATTACK_3, totalCount);
-
-    const int BURM_INF_ATTACK_4 = 699;
-    updateEffect(df, BURM_INF_ATTACK_4, totalCount);
-
-    const int BURM_ELEP_ARMOR = 679;
-    updateEffect(df, BURM_ELEP_ARMOR, totalCount);
-
-    const int BURM_MONASTERY_DISCOUNT = 689;
-    updateEffect(df, BURM_MONASTERY_DISCOUNT, totalCount);
+    updateEffect(df, 650, totalCount); // BURM_TECH_TREE 
+    updateEffect(df, 666, totalCount); // BURM_HOWDAH 
+    updateEffect(df, 667, totalCount); // BURM_MANIPUR_CAVALRY 
+    updateEffect(df, 685, totalCount); // BURM_LUMBER_UPGRADES 
+    updateEffect(df, 686, totalCount); // BURM_INF_ATTACK_1 
+    updateEffect(df, 687, totalCount); // BURM_INF_ATTACK_2 
+    updateEffect(df, 688, totalCount); // BURM_INF_ATTACK_3 
+    updateEffect(df, 699, totalCount); // BURM_INF_ATTACK_4 
+    updateEffect(df, 679, totalCount); // BURM_ELEP_ARMOR 
+    updateEffect(df, 689, totalCount); // BURM_MONASTERY_DISCOUNT 
 }
 
 void byzantinesCivBonus(genie::DatFile *df, float totalCount) {
@@ -757,38 +621,17 @@ void byzantinesCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(264);
     skipUpdate(359);
 
-    const int BYZ_TECH_TREE = 256;
-    updateEffect(df, BYZ_TECH_TREE, totalCount);
-
-    const int BYZ_GREEK_FIRE = 518;
-    updateEffect(df, BYZ_GREEK_FIRE, totalCount);
-
-    const int BYZ_LOGISTICA = 493;
-    updateEffect(df, BYZ_LOGISTICA, totalCount);
-
-    const int BYZ_OBSOLETE = 413;
-    updateEffect(df, BYZ_OBSOLETE, totalCount);
-
-    const int BYZ_BUILDINGS_HP_1 = 282;
-    updateEffect(df, BYZ_BUILDINGS_HP_1, totalCount);
-
-    const int BYZ_BUILDINGS_HP_2 = 429;
-    updateEffect(df, BYZ_BUILDINGS_HP_2, totalCount);
-
-    const int BYZ_BUILDINGS_HP_3 = 430;
-    updateEffect(df, BYZ_BUILDINGS_HP_3, totalCount);
-
-    const int BYZ_BUILDINGS_HP_4 = 431;
-    updateEffect(df, BYZ_BUILDINGS_HP_4, totalCount);
-
-    const int BYZ_COUNTER_DISCOUNT = 283;
-    updateEffect(df, BYZ_COUNTER_DISCOUNT, totalCount);
-
-    const int BYZ_SHIP_ATTACKSPEED = 396;
-    updateEffect(df, BYZ_SHIP_ATTACKSPEED, totalCount);
-
-    const int BYZ_HEALSPEED = 400;
-    updateEffect(df, BYZ_HEALSPEED, totalCount);
+    updateEffect(df, 256, totalCount); // BYZ_TECH_TREE 
+    updateEffect(df, 518, totalCount); // BYZ_GREEK_FIRE 
+    updateEffect(df, 493, totalCount); // BYZ_LOGISTICA 
+    updateEffect(df, 413, totalCount); // BYZ_OBSOLETE 
+    updateEffect(df, 282, totalCount); // BYZ_BUILDINGS_HP_1 
+    updateEffect(df, 429, totalCount); // BYZ_BUILDINGS_HP_2 
+    updateEffect(df, 430, totalCount); // BYZ_BUILDINGS_HP_3 
+    updateEffect(df, 431, totalCount); // BYZ_BUILDINGS_HP_4 
+    updateEffect(df, 283, totalCount); // BYZ_COUNTER_DISCOUNT 
+    updateEffect(df, 396, totalCount); // BYZ_SHIP_ATTACKSPEED 
+    updateEffect(df, 400, totalCount); // BYZ_HEALSPEED 
 }
 
 void celtsCivBonus(genie::DatFile *df, float totalCount) {
@@ -797,30 +640,14 @@ void celtsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(274);
     skipUpdate(368);
 
-    const int CELT_TECH_TREE = 275;
-    updateEffect(df, CELT_TECH_TREE, totalCount);
-
-    const int CELT_STRONGHOLD = 537;
-    updateEffect(df, CELT_STRONGHOLD, totalCount);
-
-    const int CELT_FUROR_CELTICA = 239;
-    updateEffect(df, CELT_FUROR_CELTICA, totalCount);
-
-    const int CELT_INF_SPEED = 392;
-    updateEffect(df, CELT_INF_SPEED, totalCount);
-
-    const int CELT_LUMBERJACK = 384;
-    updateEffect(df, CELT_LUMBERJACK, totalCount);
-
-    const int CELT_SIEGE_FIRING = 385;
-    updateEffect(df, CELT_SIEGE_FIRING, totalCount);
-
-    const int CELT_DOMINANT_LOS = 417;
-    updateEffect(df, CELT_DOMINANT_LOS, totalCount);
-
-    const int CELTS_SIEGEWORKSHOP_SPEED = 401;
-    updateEffect(df, CELTS_SIEGEWORKSHOP_SPEED, totalCount);
-
+    updateEffect(df, 275, totalCount); // CELT_TECH_TREE 
+    updateEffect(df, 537, totalCount); // CELT_STRONGHOLD 
+    updateEffect(df, 239, totalCount); // CELT_FUROR_CELTICA 
+    updateEffect(df, 392, totalCount); // CELT_INF_SPEED 
+    updateEffect(df, 384, totalCount); // CELT_LUMBERJACK 
+    updateEffect(df, 385, totalCount); // CELT_SIEGE_FIRING 
+    updateEffect(df, 417, totalCount); // CELT_DOMINANT_LOS 
+    updateEffect(df, 401, totalCount); // CELTS_SIEGEWORKSHOP_SPEED 
     const int CELTS_STRONGHOLD_CASTLE = 82;
     for (auto &civ : df->Civs) {
         auto &unit = civ.Units.at(CELTS_STRONGHOLD_CASTLE);
@@ -839,62 +666,25 @@ void chineseCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(265);
     skipUpdate(360);
 
-    const int CHIN_TECH_TREE = 257;
-    updateEffect(df, CHIN_TECH_TREE, totalCount);
-
-    const int CHIN_GREAT_WALL = 516;
-    updateEffect(df, CHIN_GREAT_WALL, totalCount);
-
-    const int CHIN_ROCKETRY = 483;
-    updateEffect(df, CHIN_ROCKETRY, totalCount);
-
-    const int CHIN_START_RES = 215;
-    updateEffect(df, CHIN_START_RES, totalCount);
-
-    const int CHIN_ADDITIONAL_VILS = 302;
-    updateEffect(df, CHIN_ADDITIONAL_VILS, totalCount);
-
-    const int CHIN_TECH_DISCOUNT_1 = 304;
-    updateEffect(df, CHIN_TECH_DISCOUNT_1, totalCount);
-
-    const int CHIN_TECH_DISCOUNT_2 = 349;
-    updateEffect(df, CHIN_TECH_DISCOUNT_2, totalCount);
-
-    const int CHIN_TECH_DISCOUNT_3 = 350;
-    updateEffect(df, CHIN_TECH_DISCOUNT_3, totalCount);
-
-    const int CHIN_TECH_DISCOUNT_4 = 351;
-    updateEffect(df, CHIN_TECH_DISCOUNT_4, totalCount);
-
-    const int CHIN_TC_POP = 437;
-    updateEffect(df, CHIN_TC_POP, totalCount);
-
-    const int CHIN_DEMO_HP = 395;
-    updateEffect(df, CHIN_DEMO_HP, totalCount);
-
-    const int CHIN_FARM_FOOD_1 = 402;
-    updateEffect(df, CHIN_FARM_FOOD_1, totalCount);
-
-    const int CHIN_FARM_FOOD_2 = 831;
-    updateEffect(df, CHIN_FARM_FOOD_2, totalCount);
-
-    const int CHIN_FARM_FOOD_3 = 832;
-    updateEffect(df, CHIN_FARM_FOOD_3, totalCount);
-
-    const int CHIN_FARM_FOOD_4 = 833;
-    updateEffect(df, CHIN_FARM_FOOD_4, totalCount);
-
-    const int CHIN_FARM_FOOD_5 = 834;
-    updateEffect(df, CHIN_FARM_FOOD_5, totalCount);
-
-    const int CHIN_FARM_FOOD_6 = 835;
-    updateEffect(df, CHIN_FARM_FOOD_6, totalCount);
-
-    const int CHIN_FARM_FOOD_7 = 836;
-    updateEffect(df, CHIN_FARM_FOOD_7, totalCount);
-
-    const int CHIN_FARM_FOOD_8 = 837;
-    updateEffect(df, CHIN_FARM_FOOD_8, totalCount);
+    updateEffect(df, 257, totalCount); // CHIN_TECH_TREE 
+    updateEffect(df, 516, totalCount); // CHIN_GREAT_WALL 
+    updateEffect(df, 483, totalCount); // CHIN_ROCKETRY 
+    updateEffect(df, 215, totalCount); // CHIN_START_RES 
+    updateEffect(df, 302, totalCount); // CHIN_ADDITIONAL_VILS 
+    updateEffect(df, 304, totalCount); // CHIN_TECH_DISCOUNT_1 
+    updateEffect(df, 349, totalCount); // CHIN_TECH_DISCOUNT_2 
+    updateEffect(df, 350, totalCount); // CHIN_TECH_DISCOUNT_3 
+    updateEffect(df, 351, totalCount); // CHIN_TECH_DISCOUNT_4 
+    updateEffect(df, 437, totalCount); // CHIN_TC_POP 
+    updateEffect(df, 395, totalCount); // CHIN_DEMO_HP 
+    updateEffect(df, 402, totalCount); // CHIN_FARM_FOOD_1 
+    updateEffect(df, 831, totalCount); // CHIN_FARM_FOOD_2 
+    updateEffect(df, 832, totalCount); // CHIN_FARM_FOOD_3 
+    updateEffect(df, 833, totalCount); // CHIN_FARM_FOOD_4 
+    updateEffect(df, 834, totalCount); // CHIN_FARM_FOOD_5 
+    updateEffect(df, 835, totalCount); // CHIN_FARM_FOOD_6 
+    updateEffect(df, 836, totalCount); // CHIN_FARM_FOOD_7 
+    updateEffect(df, 837, totalCount); // CHIN_FARM_FOOD_8 
 }
 
 void cumansCivBonus(genie::DatFile *df, float totalCount) {
@@ -906,41 +696,18 @@ void cumansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(759);
     skipUpdate(760); 
 
-    const int CUMANS_TECH_TREE = 710;
-    updateEffect(df, CUMANS_TECH_TREE, totalCount);
-
-    const int CUMANS_STEPPE_HUSBANDRY = 726;
-    updateEffect(df, CUMANS_STEPPE_HUSBANDRY, totalCount);
-
-    const int CUMANS_CUMAN_MERCENARIES = 743;
-    updateEffect(df, CUMANS_CUMAN_MERCENARIES, totalCount);
-
-    const int CUMANS_CUMAN_MERCENARIES_2 = 727;
-    updateEffect(df, CUMANS_CUMAN_MERCENARIES_2, totalCount);
-
-    const int CUMANS_TC = 761;
-    updateEffect(df, CUMANS_TC, totalCount);
-
-    const int CUMANS_SIEGE = 742;
-    updateEffect(df, CUMANS_SIEGE, totalCount);
-
-    const int CUMANS_WOOD_DISCOUNT = 697;
-    updateEffect(df, CUMANS_WOOD_DISCOUNT, totalCount);
-
-    const int CUMANS_CAV_FASTER_1 = 746;
-    updateEffect(df, CUMANS_CAV_FASTER_1, totalCount);
-
-    const int CUMANS_CAV_FASTER_2 = 748;
-    updateEffect(df, CUMANS_CAV_FASTER_2, totalCount);
-
-    const int CUMANS_CAV_FASTER_3 = 762;
-    updateEffect(df, CUMANS_CAV_FASTER_3, totalCount);
-
-    const int CUMANS_CAV_FASTER_4 = 763;
-    updateEffect(df, CUMANS_CAV_FASTER_4, totalCount);
-
-    const int CUMANS_PALISADE_HP = 711;
-    updateEffect(df, CUMANS_PALISADE_HP, totalCount);
+    updateEffect(df, 710, totalCount); // CUMANS_TECH_TREE 
+    updateEffect(df, 726, totalCount); // CUMANS_STEPPE_HUSBANDRY 
+    updateEffect(df, 743, totalCount); // CUMANS_CUMAN_MERCENARIES 
+    updateEffect(df, 727, totalCount); // CUMANS_CUMAN_MERCENARIES_2 
+    updateEffect(df, 761, totalCount); // CUMANS_TC 
+    updateEffect(df, 742, totalCount); // CUMANS_SIEGE 
+    updateEffect(df, 697, totalCount); // CUMANS_WOOD_DISCOUNT 
+    updateEffect(df, 746, totalCount); // CUMANS_CAV_FASTER_1 
+    updateEffect(df, 748, totalCount); // CUMANS_CAV_FASTER_2 
+    updateEffect(df, 762, totalCount); // CUMANS_CAV_FASTER_3 
+    updateEffect(df, 763, totalCount); // CUMANS_CAV_FASTER_4 
+    updateEffect(df, 711, totalCount); // CUMANS_PALISADE_HP 
 }
 
 void dravidiansCivBonus(genie::DatFile *df, float totalCount) {
@@ -949,32 +716,15 @@ void dravidiansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(844);
     skipUpdate(845);
 
-    const int DRAV_TECH_TREE = 838;
-    updateEffect(df, DRAV_TECH_TREE, totalCount);
-
-    const int DRAV_MEDICAL_CORPS = 850;
-    updateEffect(df, DRAV_MEDICAL_CORPS, totalCount);
-
-    const int DRAV_WOOTZ_STEEL = 851;
-    updateEffect(df, DRAV_WOOTZ_STEEL, totalCount);
-
-    const int DRAV_THIRISADAI = 860;
-    updateEffect(df, DRAV_THIRISADAI, totalCount);
-
-    const int DRAV_BONUS_WOOD = 868;
-    updateEffect(df, DRAV_BONUS_WOOD, totalCount);
-
-    const int DRAV_FISHING_CARRY = 863;
-    updateEffect(df, DRAV_FISHING_CARRY, totalCount);
-
-    const int DRAV_SIEGE_DISCOUNT = 887;
-    updateEffect(df, DRAV_SIEGE_DISCOUNT, totalCount);
-
-    const int DRAV_SKIRM_ATTACKFASTER = 864;
-    updateEffect(df, DRAV_SKIRM_ATTACKFASTER, totalCount);
-
-    const int DRAV_DOCK_POP = 839;
-    updateEffect(df, DRAV_DOCK_POP, totalCount);
+    updateEffect(df, 838, totalCount); // DRAV_TECH_TREE 
+    updateEffect(df, 850, totalCount); // DRAV_MEDICAL_CORPS 
+    updateEffect(df, 851, totalCount); // DRAV_WOOTZ_STEEL 
+    updateEffect(df, 860, totalCount); // DRAV_THIRISADAI 
+    updateEffect(df, 868, totalCount); // DRAV_BONUS_WOOD 
+    updateEffect(df, 863, totalCount); // DRAV_FISHING_CARRY 
+    updateEffect(df, 887, totalCount); // DRAV_SIEGE_DISCOUNT 
+    updateEffect(df, 864, totalCount); // DRAV_SKIRM_ATTACKFASTER 
+    updateEffect(df, 839, totalCount); // DRAV_DOCK_POP 
 }
 
 void ethiopiansCivBonus(genie::DatFile *df, float totalCount) {
@@ -983,35 +733,16 @@ void ethiopiansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(598);
     skipUpdate(599);
 
-    const int ETH_TECH_TREE = 48;
-    updateEffect(df, ETH_TECH_TREE, totalCount);
-
-    const int ETH_ROYAL_HEIRS = 603;
-    updateEffect(df, ETH_ROYAL_HEIRS, totalCount);
-
-    const int ETH_TORSION_ENGINES = 604;
-    updateEffect(df, ETH_TORSION_ENGINES, totalCount);
-
-    const int ETH_TORSION_ENGINES_2 = 634;
-    updateEffect(df, ETH_TORSION_ENGINES_2, totalCount);
-
-    const int ETH_ACHER_FIREFASTER = 612;
-    updateEffect(df, ETH_ACHER_FIREFASTER, totalCount);
-
-    const int ETH_BONUS_RES_1 = 613;
-    updateEffect(df, ETH_BONUS_RES_1, totalCount);
-
-    const int ETH_BONUS_RES_2 = 614;
-    updateEffect(df, ETH_BONUS_RES_2, totalCount);
-
-    const int ETH_BONUS_RES_3 = 615;
-    updateEffect(df, ETH_BONUS_RES_3, totalCount);
-
-    const int ETH_PAIK_FREE = 616;
-    updateEffect(df, ETH_PAIK_FREE, totalCount);
-
-    const int ETH_OUTPOST_LOS = 49;
-    updateEffect(df, ETH_OUTPOST_LOS, totalCount);
+    updateEffect(df, 48, totalCount); // ETH_TECH_TREE 
+    updateEffect(df, 603, totalCount); // ETH_ROYAL_HEIRS 
+    updateEffect(df, 604, totalCount); // ETH_TORSION_ENGINES 
+    updateEffect(df, 634, totalCount); // ETH_TORSION_ENGINES_2 
+    updateEffect(df, 612, totalCount); // ETH_ACHER_FIREFASTER 
+    updateEffect(df, 613, totalCount); // ETH_BONUS_RES_1 
+    updateEffect(df, 614, totalCount); // ETH_BONUS_RES_2 
+    updateEffect(df, 615, totalCount); // ETH_BONUS_RES_3 
+    updateEffect(df, 616, totalCount); // ETH_PAIK_FREE 
+    updateEffect(df, 49, totalCount); // ETH_OUTPOST_LOS 
 }
 
 void franksCivBonus(genie::DatFile *df, float totalCount) {
@@ -1020,26 +751,13 @@ void franksCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(272);
     skipUpdate(361);
 
-    const int FRANK_TECH_TREE = 258;
-    updateEffect(df, FRANK_TECH_TREE, totalCount);
-
-    const int FRANK_BEARDED_AXE = 291;
-    updateEffect(df, FRANK_BEARDED_AXE, totalCount);
-
-    const int FRANK_CHIVALRY = 548;
-    updateEffect(df, FRANK_CHIVALRY, totalCount);
-
-    const int FRANK_CASTLE_DISCOUNT = 324;
-    updateEffect(df, FRANK_CASTLE_DISCOUNT, totalCount);
-
-    const int FRANK_CAVALRY_HP = 285;
-    updateEffect(df, FRANK_CAVALRY_HP, totalCount);
-
-    const int FRANK_FORAGERS = 523;
-    updateEffect(df, FRANK_FORAGERS, totalCount);
-
-    const int FRANK_KNIGHT_LOS = 403;
-    updateEffect(df, FRANK_KNIGHT_LOS, totalCount);
+    updateEffect(df, 258, totalCount); // FRANK_TECH_TREE 
+    updateEffect(df, 291, totalCount); // FRANK_BEARDED_AXE 
+    updateEffect(df, 548, totalCount); // FRANK_CHIVALRY 
+    updateEffect(df, 324, totalCount); // FRANK_CASTLE_DISCOUNT 
+    updateEffect(df, 285, totalCount); // FRANK_CAVALRY_HP 
+    updateEffect(df, 523, totalCount); // FRANK_FORAGERS 
+    updateEffect(df, 403, totalCount); // FRANK_KNIGHT_LOS 
 }
 
 void gothsCivBonus(genie::DatFile *df, float totalCount) {
@@ -1049,53 +767,22 @@ void gothsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(363);
     skipUpdate(507);
 
-    const int GOTH_TECH_TREE = 259;
-    updateEffect(df, GOTH_TECH_TREE, totalCount);
-
-    const int GOTH_ANARCHY = 462;
-    updateEffect(df, GOTH_ANARCHY, totalCount);
-
-    const int GOTH_PERFUSION = 513;
-    updateEffect(df, GOTH_PERFUSION, totalCount);
-    
-    const int GOTH_INF_DISCOUNT_1 = 342;
-    updateEffect(df, GOTH_INF_DISCOUNT_1, totalCount);
-    
-    const int GOTH_INF_DISCOUNT_2 = 765;
-    updateEffect(df, GOTH_INF_DISCOUNT_2, totalCount);
-    
-    const int GOTH_INF_DISCOUNT_3 = 766;
-    updateEffect(df, GOTH_INF_DISCOUNT_3, totalCount);
-    
-    const int GOTH_INF_DISCOUNT_4 = 767;
-    updateEffect(df, GOTH_INF_DISCOUNT_4, totalCount);
-    
-    const int GOTH_INF_DISCOUNT_5 = 344;
-    updateEffect(df, GOTH_INF_DISCOUNT_5, totalCount);
-    
-    const int GOTH_INF_DISCOUNT_6 = 343;
-    updateEffect(df, GOTH_INF_DISCOUNT_6, totalCount);
-
-    const int GOTH_INF_BONUS_1 = 326;
-    updateEffect(df, GOTH_INF_BONUS_1, totalCount);
-
-    const int GOTH_INF_BONUS_2 = 327;
-    updateEffect(df, GOTH_INF_BONUS_2, totalCount);
-    
-    const int GOTH_INF_BONUS_3 = 328;
-    updateEffect(df, GOTH_INF_BONUS_3, totalCount);
-
-    const int GOTH_HUNT = 414;
-    updateEffect(df, GOTH_HUNT, totalCount);
-
-    const int GOTH_LOOM_INSTANT = 341;
-    updateEffect(df, GOTH_LOOM_INSTANT, totalCount);
-    
-    const int GOTH_POP = 418;
-    updateEffect(df, GOTH_POP, totalCount);
-    
-    const int GOTH_BARRACKS_WORK = 405;
-    updateEffect(df, GOTH_BARRACKS_WORK, totalCount);
+    updateEffect(df, 259, totalCount); // GOTH_TECH_TREE 
+    updateEffect(df, 462, totalCount); // GOTH_ANARCHY 
+    updateEffect(df, 513, totalCount); // GOTH_PERFUSION 
+    updateEffect(df, 342, totalCount); // GOTH_INF_DISCOUNT_1 
+    updateEffect(df, 765, totalCount); // GOTH_INF_DISCOUNT_2 
+    updateEffect(df, 766, totalCount); // GOTH_INF_DISCOUNT_3 
+    updateEffect(df, 767, totalCount); // GOTH_INF_DISCOUNT_4 
+    updateEffect(df, 344, totalCount); // GOTH_INF_DISCOUNT_5 
+    updateEffect(df, 343, totalCount); // GOTH_INF_DISCOUNT_6 
+    updateEffect(df, 326, totalCount); // GOTH_INF_BONUS_1 
+    updateEffect(df, 327, totalCount); // GOTH_INF_BONUS_2 
+    updateEffect(df, 328, totalCount); // GOTH_INF_BONUS_3 
+    updateEffect(df, 414, totalCount); // GOTH_HUNT 
+    updateEffect(df, 341, totalCount); // GOTH_LOOM_INSTANT 
+    updateEffect(df, 418, totalCount); // GOTH_POP 
+    updateEffect(df, 405, totalCount); // GOTH_BARRACKS_WORK 
 }
 
 void gurjarasCivBonus(genie::DatFile *df, float totalCount) {
@@ -1107,41 +794,17 @@ void gurjarasCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(861);
     skipUpdate(862);
 
-    const int GUR_TECH_TREE = 842;
-    updateEffect(df, GUR_TECH_TREE, totalCount);
-
-    const int GUR_KSHATRIYAS = 854;
-    updateEffect(df, GUR_KSHATRIYAS, totalCount);
-    
-    const int GUR_KSHATRIYAS_SUP = 875;
-    updateEffect(df, GUR_KSHATRIYAS_SUP, totalCount);
-
-    const int GUR_FRONTIER_GUARDS = 855;
-    updateEffect(df, GUR_FRONTIER_GUARDS, totalCount);
-
-    const int GUR_FORAGEBUSHES = 872;
-    updateEffect(df, GUR_FORAGEBUSHES, totalCount);
-
-    const int GUR_MILL_GARISON = 871;
-    updateEffect(df, GUR_MILL_GARISON, totalCount);
-    
-    const int GUR_CAV_BONUS_1 = 869;
-    updateEffect(df, GUR_CAV_BONUS_1, totalCount);
-    
-    const int GUR_CAV_BONUS_2 = 873;
-    updateEffect(df, GUR_CAV_BONUS_2, totalCount);
-    
-    const int GUR_CAV_BONUS_3 = 874;
-    updateEffect(df, GUR_CAV_BONUS_3, totalCount);
-    
-    const int GUR_CAV_BONUS_4 = 884;
-    updateEffect(df, GUR_CAV_BONUS_4, totalCount);
-    
-    const int GUR_DOCK_GARRISON = 870;
-    updateEffect(df, GUR_DOCK_GARRISON, totalCount);
-
-    const int GUR_CAMEL_TRAIN = 843;
-    updateEffect(df, GUR_CAMEL_TRAIN, totalCount);
+    updateEffect(df, 842, totalCount); // GUR_TECH_TREE 
+    updateEffect(df, 854, totalCount); // GUR_KSHATRIYAS 
+    updateEffect(df, 875, totalCount); // GUR_KSHATRIYAS_SUP 
+    updateEffect(df, 855, totalCount); // GUR_FRONTIER_GUARDS 
+    updateEffect(df, 872, totalCount); // GUR_FORAGEBUSHES 
+    updateEffect(df, 871, totalCount); // GUR_MILL_GARISON 
+    updateEffect(df, 869, totalCount); // GUR_CAV_BONUS_1 
+    updateEffect(df, 873, totalCount); // GUR_CAV_BONUS_2 
+    updateEffect(df, 884, totalCount); // GUR_CAV_BONUS_3
+    updateEffect(df, 870, totalCount); // GUR_DOCK_GARRISON 
+    updateEffect(df, 843, totalCount); // GUR_CAMEL_TRAIN 
 }
 
 void hindustanisCivBonus(genie::DatFile *df, float totalCount) {
@@ -1151,39 +814,17 @@ void hindustanisCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(858);
     skipUpdate(859);
 
-    const int HIND_TECH_TREE = 1;
-    updateEffect(df, HIND_TECH_TREE, totalCount);
-
-    const int HIND_IMP_CAMEL = 577;
-    updateEffect(df, HIND_IMP_CAMEL, totalCount);
-
-    const int HIND_GRAND_TRUNK_ROAD = 562;
-    updateEffect(df, HIND_GRAND_TRUNK_ROAD, totalCount);
-
-    const int HIND_SHATAGNI = 563;
-    updateEffect(df, HIND_SHATAGNI, totalCount);
-    
-    const int HIND_VIL_DISCOUNT_1 = 551;
-    updateEffect(df, HIND_VIL_DISCOUNT_1, totalCount);
-    
-    const int HIND_VIL_DISCOUNT_2 = 552;
-    updateEffect(df, HIND_VIL_DISCOUNT_2, totalCount);
-    
-    const int HIND_VIL_DISCOUNT_3 = 553;
-    updateEffect(df, HIND_VIL_DISCOUNT_3, totalCount);
-    
-    const int HIND_VIL_DISCOUNT_4 = 585;
-    updateEffect(df, HIND_VIL_DISCOUNT_4, totalCount);
-
-    const int HIND_CAMEL_ATTACKSPEED = 560;
-    updateEffect(df, HIND_CAMEL_ATTACKSPEED, totalCount);
-
-    const int HIND_GUNPOWDER_ARMOR = 576;
-    updateEffect(df, HIND_GUNPOWDER_ARMOR, totalCount);
-
-    const int HIND_CARAVENSEI_AVAIL = 574;
-    updateEffect(df, HIND_CARAVENSEI_AVAIL, totalCount);
-
+    updateEffect(df, 1, totalCount); // HIND_TECH_TREE 
+    updateEffect(df, 577, totalCount); // HIND_IMP_CAMEL 
+    updateEffect(df, 562, totalCount); // HIND_GRAND_TRUNK_ROAD 
+    updateEffect(df, 563, totalCount); // HIND_SHATAGNI 
+    updateEffect(df, 551, totalCount); // HIND_VIL_DISCOUNT_1 
+    updateEffect(df, 552, totalCount); // HIND_VIL_DISCOUNT_2 
+    updateEffect(df, 553, totalCount); // HIND_VIL_DISCOUNT_3 
+    updateEffect(df, 585, totalCount); // HIND_VIL_DISCOUNT_4 
+    updateEffect(df, 560, totalCount); // HIND_CAMEL_ATTACKSPEED 
+    updateEffect(df, 576, totalCount); // HIND_GUNPOWDER_ARMOR 
+    updateEffect(df, 574, totalCount); // HIND_CARAVENSEI_AVAIL 
     const int HIND_CARAVENSEI = 1754;
     for (auto &civ : df->Civs) {
         auto &unit = civ.Units.at(HIND_CARAVENSEI);
@@ -1195,8 +836,7 @@ void hindustanisCivBonus(genie::DatFile *df, float totalCount) {
         }
     }
 
-    const int HIND_CAV_ATTACK = 2;
-    updateEffect(df, HIND_CAV_ATTACK, totalCount);
+    updateEffect(df, 2, totalCount); // HIND_CAV_ATTACK 
 }
 
 void hunsCivBonus(genie::DatFile *df, float totalCount) {
@@ -1206,26 +846,13 @@ void hunsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(453);
     skipUpdate(454);
 
-    const int HUNS_TECH_TREE = 448;
-    updateEffect(df, HUNS_TECH_TREE, totalCount);
-
-    const int HUNS_MARAUERS = 538;
-    updateEffect(df, HUNS_MARAUERS, totalCount);
-
-    const int HUNS_ATHEISM = 464;
-    updateEffect(df, HUNS_ATHEISM, totalCount);
-
-    const int HUNS_START_RES = 214;
-    updateEffect(df, HUNS_START_RES, totalCount);
-
-    const int HUNS_CA_DISCOUNT_1 = 497;
-    updateEffect(df, HUNS_CA_DISCOUNT_1, totalCount);
-
-    const int HUNS_CA_DISCOUNT_2 = 498;
-    updateEffect(df, HUNS_CA_DISCOUNT_2, totalCount);
-
-    const int HUNS_FASTER_STABLES = 484;
-    updateEffect(df, HUNS_FASTER_STABLES, totalCount);
+    updateEffect(df, 448, totalCount); // HUNS_TECH_TREE 
+    updateEffect(df, 538, totalCount); // HUNS_MARAUERS 
+    updateEffect(df, 464, totalCount); // HUNS_ATHEISM 
+    updateEffect(df, 214, totalCount); // HUNS_START_RES 
+    updateEffect(df, 497, totalCount); // HUNS_CA_DISCOUNT_1 
+    updateEffect(df, 498, totalCount); // HUNS_CA_DISCOUNT_2 
+    updateEffect(df, 484, totalCount); // HUNS_FASTER_STABLES 
 }
 
 void incasCivBonus(genie::DatFile *df, float totalCount) {
@@ -1236,53 +863,22 @@ void incasCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(565);
     skipUpdate(582);
 
-    const int INC_TECH_TREE = 3;
-    updateEffect(df, INC_TECH_TREE, totalCount);
-
-    const int INC_ANDEAN_SLING = 572;
-    updateEffect(df, INC_ANDEAN_SLING, totalCount);
-
-    const int INC_FABRIC_SHIELDS = 573;
-    updateEffect(df, INC_FABRIC_SHIELDS, totalCount);
-
-    const int INC_FOOD_DISCOUNT_1 = 156;
-    updateEffect(df, INC_FOOD_DISCOUNT_1, totalCount);
-    
-    const int INC_FOOD_DISCOUNT_2 = 158;
-    updateEffect(df, INC_FOOD_DISCOUNT_2, totalCount);
-    
-    const int INC_FOOD_DISCOUNT_3 = 159;
-    updateEffect(df, INC_FOOD_DISCOUNT_3, totalCount);
-    
-    const int INC_FOOD_DISCOUNT_4 = 160;
-    updateEffect(df, INC_FOOD_DISCOUNT_4, totalCount);
-    
-    const int INC_VIL_BLACKSMITH_1 = 529;
-    updateEffect(df, INC_VIL_BLACKSMITH_1, totalCount);
-    
-    const int INC_VIL_BLACKSMITH_2 = 530;
-    updateEffect(df, INC_VIL_BLACKSMITH_2, totalCount);
-    
-    const int INC_VIL_BLACKSMITH_3 = 531;
-    updateEffect(df, INC_VIL_BLACKSMITH_3, totalCount);
-    
-    const int INC_VIL_BLACKSMITH_4 = 532;
-    updateEffect(df, INC_VIL_BLACKSMITH_4, totalCount);
-    
-    const int INC_VIL_BLACKSMITH_5 = 533;
-    updateEffect(df, INC_VIL_BLACKSMITH_5, totalCount);
-    
-    const int INC_VIL_BLACKSMITH_6 = 534;
-    updateEffect(df, INC_VIL_BLACKSMITH_6, totalCount);
-    
-    const int INC_HOUSES_POP = 550;
-    updateEffect(df, INC_HOUSES_POP, totalCount);
-    
-    const int INC_STONE_DISCOUNT = 575;
-    updateEffect(df, INC_STONE_DISCOUNT, totalCount);
-    
-    const int INC_SPAWN_LAMA = 678;
-    updateEffect(df, INC_SPAWN_LAMA, totalCount    );
+    updateEffect(df, 3, totalCount); // INC_TECH_TREE 
+    updateEffect(df, 572, totalCount); // INC_ANDEAN_SLING 
+    updateEffect(df, 573, totalCount); // INC_FABRIC_SHIELDS 
+    updateEffect(df, 156, totalCount); // INC_FOOD_DISCOUNT_1 
+    updateEffect(df, 158, totalCount); // INC_FOOD_DISCOUNT_2 
+    updateEffect(df, 159, totalCount); // INC_FOOD_DISCOUNT_3 
+    updateEffect(df, 160, totalCount); // INC_FOOD_DISCOUNT_4 
+    updateEffect(df, 529, totalCount); // INC_VIL_BLACKSMITH_1 
+    updateEffect(df, 530, totalCount); // INC_VIL_BLACKSMITH_2 
+    updateEffect(df, 531, totalCount); // INC_VIL_BLACKSMITH_3 
+    updateEffect(df, 532, totalCount); // INC_VIL_BLACKSMITH_4 
+    updateEffect(df, 533, totalCount); // INC_VIL_BLACKSMITH_5 
+    updateEffect(df, 534, totalCount); // INC_VIL_BLACKSMITH_6 
+    updateEffect(df, 550, totalCount); // INC_HOUSES_POP 
+    updateEffect(df, 575, totalCount); // INC_STONE_DISCOUNT 
+    updateEffect(df, 678, totalCount); // INC_SPAWN_LAMA 
 }
 
 void italiansCivBonus(genie::DatFile *df, float totalCount) {
@@ -1291,17 +887,10 @@ void italiansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(519);
     skipUpdate(520);
 
-    const int ITAL_TECH_TREE = 10;
-    updateEffect(df, ITAL_TECH_TREE, totalCount);
-
-    const int ITAL_PAVISE = 549;
-    updateEffect(df, ITAL_PAVISE, totalCount);
-    
-    const int ITAL_SILK_ROAD = 554;
-    updateEffect(df, ITAL_SILK_ROAD, totalCount);
-
-    const int ITAL_GUNPOWDER_DISCOUNT = 555;
-    updateEffect(df, ITAL_GUNPOWDER_DISCOUNT, totalCount);
+    updateEffect(df, 10, totalCount); // ITAL_TECH_TREE 
+    updateEffect(df, 549, totalCount); // ITAL_PAVISE 
+    updateEffect(df, 554, totalCount); // ITAL_SILK_ROAD 
+    updateEffect(df, 555, totalCount); // ITAL_GUNPOWDER_DISCOUNT 
 }
 
 void japaneseCivBonus(genie::DatFile *df, float totalCount) {
@@ -1310,41 +899,18 @@ void japaneseCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(250);
     skipUpdate(364);
 
-    const int JAP_TECH_TREE = 255;
-    updateEffect(df, JAP_TECH_TREE, totalCount);
-
-    const int JAP_YASAMA = 539;
-    updateEffect(df, JAP_YASAMA, totalCount);
-
-    const int JAP_KATAPARUTO = 59;
-    updateEffect(df, JAP_KATAPARUTO, totalCount);
-
-    const int JAP_OBSOLETE = 432;
-    updateEffect(df, JAP_OBSOLETE, totalCount);
-
-    const int JAP_OBSOLETE_2 = 433;
-    updateEffect(df, JAP_OBSOLETE_2, totalCount);
-
-    const int JAP_FISH_IMPROVE = 306;
-    updateEffect(df, JAP_FISH_IMPROVE, totalCount);
-
-    const int JAP_FISH_WORK_1 = 434;
-    updateEffect(df, JAP_FISH_WORK_1, totalCount);
-
-    const int JAP_FISH_WORK_2 = 435;
-    updateEffect(df, JAP_FISH_WORK_2, totalCount);
-
-    const int JAP_FISH_WORK_3 = 436;
-    updateEffect(df, JAP_FISH_WORK_3, totalCount);
-
-    const int JAP_DROP_DISCOUNT = 338;
-    updateEffect(df, JAP_DROP_DISCOUNT, totalCount);
-
-    const int JAP_ATTACK_SPEED = 339;
-    updateEffect(df, JAP_ATTACK_SPEED, totalCount);
-
-    const int JAP_GALLEY_LOS = 406;
-    updateEffect(df, JAP_GALLEY_LOS, totalCount);
+    updateEffect(df, 255, totalCount); // JAP_TECH_TREE 
+    updateEffect(df, 539, totalCount); // JAP_YASAMA 
+    updateEffect(df, 59, totalCount); // JAP_KATAPARUTO 
+    updateEffect(df, 432, totalCount); // JAP_OBSOLETE 
+    updateEffect(df, 433, totalCount); // JAP_OBSOLETE_2 
+    updateEffect(df, 306, totalCount); // JAP_FISH_IMPROVE 
+    updateEffect(df, 434, totalCount); // JAP_FISH_WORK_1 
+    updateEffect(df, 435, totalCount); // JAP_FISH_WORK_2 
+    updateEffect(df, 436, totalCount); // JAP_FISH_WORK_3 
+    updateEffect(df, 338, totalCount); // JAP_DROP_DISCOUNT 
+    updateEffect(df, 339, totalCount); // JAP_ATTACK_SPEED 
+    updateEffect(df, 406, totalCount); // JAP_GALLEY_LOS 
 }
 
 void khmerCivBonus(genie::DatFile *df, float totalCount) {
@@ -1353,23 +919,12 @@ void khmerCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(654);
     skipUpdate(655);
 
-    const int KHMER_TECH_TREE = 646;
-    updateEffect(df, KHMER_TECH_TREE, totalCount);
-
-    const int KHMER_TUSK_SWORDS = 662;
-    updateEffect(df, KHMER_TUSK_SWORDS, totalCount);    
-
-    const int KHMER_DOUBLE_CROSSBOW = 663;
-    updateEffect(df, KHMER_DOUBLE_CROSSBOW, totalCount);   
-
-    const int KHMER_ELEP_FASTER = 703;
-    updateEffect(df, KHMER_ELEP_FASTER, totalCount);
-
-    const int KHMER_HOUSE_GARRISON = 693;
-    updateEffect(df, KHMER_HOUSE_GARRISON, totalCount);
-
-    const int KHMER_SCORP_RANGE = 647;
-    updateEffect(df, KHMER_SCORP_RANGE, totalCount);
+    updateEffect(df, 646, totalCount); // KHMER_TECH_TREE 
+    updateEffect(df, 662, totalCount); // KHMER_TUSK_SWORDS 
+    updateEffect(df, 663, totalCount); // KHMER_DOUBLE_CROSSBOW 
+    updateEffect(df, 703, totalCount); // KHMER_ELEP_FASTER 
+    updateEffect(df, 693, totalCount); // KHMER_HOUSE_GARRISON 
+    updateEffect(df, 647, totalCount); // KHMER_SCORP_RANGE 
 }
 
 void koreansCivBonus(genie::DatFile *df, float totalCount) {
@@ -1381,20 +936,11 @@ void koreansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(502);
     skipUpdate(503);
 
-    const int KOREA_TECH_TREE = 504;
-    updateEffect(df, KOREA_TECH_TREE, totalCount);
-
-    const int KOREA_EUPSEONG = 541;
-    updateEffect(df, KOREA_EUPSEONG, totalCount);
-
-    const int KOREA_SHINKICHON = 506;
-    updateEffect(df, KOREA_SHINKICHON, totalCount);
-
-    const int KORA_ARCHER_ARMOR = 508;
-    updateEffect(df, KORA_ARCHER_ARMOR, totalCount);
-
-    const int KOREA_WOOD_DISCOUNT = 561;
-    updateEffect(df, KOREA_WOOD_DISCOUNT, totalCount);
+    updateEffect(df, 504, totalCount); // KOREA_TECH_TREE 
+    updateEffect(df, 541, totalCount); // KOREA_EUPSEONG 
+    updateEffect(df, 506, totalCount); // KOREA_SHINKICHON 
+    updateEffect(df, 508, totalCount); // KORA_ARCHER_ARMOR 
+    updateEffect(df, 561, totalCount); // KOREA_WOOD_DISCOUNT 
 }
 
 void lithuaniansCivBonus(genie::DatFile *df, float totalCount) {
@@ -1405,41 +951,22 @@ void lithuaniansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(747);
     skipUpdate(817);
 
-    const int LITH_TECH_TREE = 712;
-    updateEffect(df, LITH_TECH_TREE, totalCount);
-
-    const int LITH_HILL_FORTS = 728;
-    updateEffect(df, LITH_HILL_FORTS, totalCount);
-
-    const int LITH_TOWER_SHIELDS = 729;
-    updateEffect(df, LITH_TOWER_SHIELDS, totalCount);
-
-    const int LITH_FOOD_BONUS = 734;
-    updateEffect(df, LITH_FOOD_BONUS, totalCount);
-
+    updateEffect(df, 712, totalCount); // LITH_TECH_TREE 
+    updateEffect(df, 728, totalCount); // LITH_HILL_FORTS 
+    updateEffect(df, 729, totalCount); // LITH_TOWER_SHIELDS 
+    updateEffect(df, 734, totalCount); // LITH_FOOD_BONUS 
     const int LITH_FOOD_BONUS_UNIT = 888;
     for (auto &civ : df->Civs) {
         auto &unit = civ.Units.at(LITH_FOOD_BONUS_UNIT);
         unit.ResourceStorages.at(0).Amount = multipleAdd(unit.ResourceStorages.at(0).Amount, totalCount);
     }
 
-    const int LITH_TRASH_FASTER = 745;
-    updateEffect(df, LITH_TRASH_FASTER, totalCount);
-
-    const int LITH_RELIC_ATTACK_1 = 736;
-    updateEffect(df, LITH_RELIC_ATTACK_1, totalCount);
-
-    const int LITH_RELIC_ATTACK_2 = 737;
-    updateEffect(df, LITH_RELIC_ATTACK_2, totalCount);
-
-    const int LITH_RELIC_ATTACK_3 = 738;
-    updateEffect(df, LITH_RELIC_ATTACK_3, totalCount);
-
-    const int LITH_RELIC_ATTACK_4 = 739;
-    updateEffect(df, LITH_RELIC_ATTACK_4, totalCount);
-
-    const int LITH_MONASTERY_SPEED = 713;
-    updateEffect(df, LITH_MONASTERY_SPEED, totalCount);
+    updateEffect(df, 745, totalCount); // LITH_TRASH_FASTER 
+    updateEffect(df, 736, totalCount); // LITH_RELIC_ATTACK_1 
+    updateEffect(df, 737, totalCount); // LITH_RELIC_ATTACK_2 
+    updateEffect(df, 738, totalCount); // LITH_RELIC_ATTACK_3 
+    updateEffect(df, 739, totalCount); // LITH_RELIC_ATTACK_4 
+    updateEffect(df, 713, totalCount); // LITH_MONASTERY_SPEED 
 }
 
 void magyarsCivBonus(genie::DatFile *df, float totalCount) {
@@ -1448,23 +975,12 @@ void magyarsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(525);
     skipUpdate(526);
 
-    const int MAG_TECH_TREE = 5;
-    updateEffect(df, MAG_TECH_TREE, totalCount);
-
-    const int MAG_RECURVE_BOW = 570;
-    updateEffect(df, MAG_RECURVE_BOW, totalCount);
-
-    const int MAG_MERCENARIES = 571;
-    updateEffect(df, MAG_MERCENARIES, totalCount);
-
-    const int MAG_ANIMAL_BONUS = 528;
-    updateEffect(df, MAG_ANIMAL_BONUS, totalCount);
-    
-    const int MAG_SCOUTS_DISCOUNT = 524;
-    updateEffect(df, MAG_SCOUTS_DISCOUNT, totalCount);
-
-    const int MAG_ARCHER_LOS = 6;
-    updateEffect(df, MAG_ARCHER_LOS, totalCount);
+    updateEffect(df, 5, totalCount); // MAG_TECH_TREE 
+    updateEffect(df, 570, totalCount); // MAG_RECURVE_BOW 
+    updateEffect(df, 571, totalCount); // MAG_MERCENARIES 
+    updateEffect(df, 528, totalCount); // MAG_ANIMAL_BONUS 
+    updateEffect(df, 524, totalCount); // MAG_SCOUTS_DISCOUNT 
+    updateEffect(df, 6, totalCount); // MAG_ARCHER_LOS 
 }
 
 void malayCivBonus(genie::DatFile *df, float totalCount) {
@@ -1473,41 +989,18 @@ void malayCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(656);
     skipUpdate(657);
 
-    const int MALAY_TECH_TREE = 648;
-    updateEffect(df, MALAY_TECH_TREE, totalCount);
-
-    const int MALAY_THALASSOCRACY = 664;
-    updateEffect(df, MALAY_THALASSOCRACY, totalCount);
-
-    const int MALAY_FORCED_LEVY = 665;
-    updateEffect(df, MALAY_FORCED_LEVY, min(totalCount, 3.0f));
-
-    const int MALAY_OBSOLETE = 682;
-    updateEffect(df, MALAY_OBSOLETE, totalCount);
-
-    const int MALAY_OBSOLETE_2 = 683;
-    updateEffect(df, MALAY_OBSOLETE_2, totalCount);
-
-    const int MALAY_OBSOLETE_3 = 684;
-    updateEffect(df, MALAY_OBSOLETE_3, totalCount);
-
-    const int MALAY_FASTER_AGEADVANCE = 674;
-    updateEffect(df, MALAY_FASTER_AGEADVANCE, totalCount);
-    
-    const int MALAY_FISHTRAP_DISCOUNT = 675;
-    updateEffect(df, MALAY_FISHTRAP_DISCOUNT, totalCount);
-    
-    const int MALAY_FISHTRAP_FOOD = 677;
-    updateEffect(df, MALAY_FISHTRAP_FOOD, totalCount);
-    
-    const int MALAY_ELE_DISCOUNT_1 = 695;
-    updateEffect(df, MALAY_ELE_DISCOUNT_1, totalCount);
-    
-    const int MALAY_ELE_DISCOUNT_2 = 696;
-    updateEffect(df, MALAY_ELE_DISCOUNT_2, totalCount);
-
-    const int MALAY_DOCK_LOS = 649;
-    updateEffect(df, MALAY_DOCK_LOS, totalCount);
+    updateEffect(df, 648, totalCount); // MALAY_TECH_TREE 
+    updateEffect(df, 664, totalCount); // MALAY_THALASSOCRACY 
+    updateEffect(df, 665, totalCount); // MALAY_FORCED_LEVY 
+    updateEffect(df, 682, totalCount); // MALAY_OBSOLETE 
+    updateEffect(df, 683, totalCount); // MALAY_OBSOLETE_2 
+    updateEffect(df, 684, totalCount); // MALAY_OBSOLETE_3 
+    updateEffect(df, 674, totalCount); // MALAY_FASTER_AGEADVANCE 
+    updateEffect(df, 675, totalCount); // MALAY_FISHTRAP_DISCOUNT 
+    updateEffect(df, 677, totalCount); // MALAY_FISHTRAP_FOOD 
+    updateEffect(df, 695, totalCount); // MALAY_ELE_DISCOUNT_1 
+    updateEffect(df, 696, totalCount); // MALAY_ELE_DISCOUNT_2 
+    updateEffect(df, 649, totalCount); // MALAY_DOCK_LOS 
 }
 
 void maliansCivBonus(genie::DatFile *df, float totalCount) {
@@ -1516,35 +1009,16 @@ void maliansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(596);
     skipUpdate(597);
 
-    const int MALI_TECH_TREE = 42;
-    updateEffect(df, MALI_TECH_TREE, totalCount);
-
-    const int MALI_TIGUI = 605;
-    updateEffect(df, MALI_TIGUI, totalCount);
-
-    const int MALI_FARIMBA = 606;
-    updateEffect(df, MALI_FARIMBA, totalCount);
-    
-    const int MALI_TC_WOOD_COST = 165;
-    updateEffect(df, MALI_TC_WOOD_COST, totalCount);
-    
-    const int MALI_WOOD_DISCOUNT = 617;
-    updateEffect(df, MALI_WOOD_DISCOUNT, totalCount);
-    
-    const int MALI_INF_ARMOR_1 = 618;
-    updateEffect(df, MALI_INF_ARMOR_1, totalCount);
-    
-    const int MALI_INF_ARMOR_2 = 619;
-    updateEffect(df, MALI_INF_ARMOR_2, totalCount);
-    
-    const int MALI_INF_ARMOR_3 = 620;
-    updateEffect(df, MALI_INF_ARMOR_3, totalCount);
-    
-    const int MALI_GOLDMINING = 621;
-    updateEffect(df, MALI_GOLDMINING, totalCount);
-
-    const int MALI_UNIVERSITY_WORKRATE = 43;
-    updateEffect(df, MALI_UNIVERSITY_WORKRATE, totalCount);
+    updateEffect(df, 42, totalCount); // MALI_TECH_TREE 
+    updateEffect(df, 605, totalCount); // MALI_TIGUI 
+    updateEffect(df, 606, totalCount); // MALI_FARIMBA 
+    updateEffect(df, 165, totalCount); // MALI_TC_WOOD_COST 
+    updateEffect(df, 617, totalCount); // MALI_WOOD_DISCOUNT 
+    updateEffect(df, 618, totalCount); // MALI_INF_ARMOR_1 
+    updateEffect(df, 619, totalCount); // MALI_INF_ARMOR_2 
+    updateEffect(df, 620, totalCount); // MALI_INF_ARMOR_3 
+    updateEffect(df, 621, totalCount); // MALI_GOLDMINING 
+    updateEffect(df, 43, totalCount); // MALI_UNIVERSITY_WORKRATE 
 }
 
 void mayansCivBonus(genie::DatFile *df, float totalCount) {
@@ -1553,62 +1027,25 @@ void mayansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(468);
     skipUpdate(469);
 
-    const int MAY_TECH_TREE = 449;
-    updateEffect(df, MAY_TECH_TREE, totalCount);
-
-    const int MAY_HULCHE_JAVELINEERS = 515;
-    updateEffect(df, MAY_HULCHE_JAVELINEERS, totalCount);
-
-    const int MAY_EL_DORADO = 456;
-    updateEffect(df, MAY_EL_DORADO, totalCount);
-
-    const int MAY_START_RES = 216;
-    updateEffect(df, MAY_START_RES, totalCount);
-
-    const int MAY_VILS_SPAWN = 586;
-    updateEffect(df, MAY_VILS_SPAWN, totalCount);
-
-    const int MAY_ARCHER_COST_1 = 485;
-    updateEffect(df, MAY_ARCHER_COST_1, totalCount);
-
-    const int MAY_ARCHER_COST_2 = 486;
-    updateEffect(df, MAY_ARCHER_COST_2, totalCount);
-
-    const int MAY_RESOURCES_LONGER_1 = 771;
-    updateEffect(df, MAY_RESOURCES_LONGER_1, totalCount);
-
-    const int MAY_RESOURCES_LONGER_2 = 772;
-    updateEffect(df, MAY_RESOURCES_LONGER_2, totalCount);
-
-    const int MAY_RESOURCES_LONGER_3 = 773;
-    updateEffect(df, MAY_RESOURCES_LONGER_3, totalCount);
-
-    const int MAY_RESOURCES_LONGER_4 = 774;
-    updateEffect(df, MAY_RESOURCES_LONGER_4, totalCount);
-
-    const int MAY_RESOURCES_LONGER_5 = 775;
-    updateEffect(df, MAY_RESOURCES_LONGER_5, totalCount);
-
-    const int MAY_RESOURCES_LONGER_6 = 776;
-    updateEffect(df, MAY_RESOURCES_LONGER_6, totalCount);
-
-    const int MAY_RESOURCES_LONGER_7 = 777;
-    updateEffect(df, MAY_RESOURCES_LONGER_7, totalCount);
-
-    const int MAY_RESOURCES_LONGER_8 = 778;
-    updateEffect(df, MAY_RESOURCES_LONGER_8, totalCount);
-
-    const int MAY_RESOURCES_LONGER_9 = 779;
-    updateEffect(df, MAY_RESOURCES_LONGER_9, totalCount);
-
-    const int MAY_RESOURCES_LONGER_10 = 780;
-    updateEffect(df, MAY_RESOURCES_LONGER_10, totalCount);
-
-    const int MAY_RESOURCES_LONGER_11 = 781;
-    updateEffect(df, MAY_RESOURCES_LONGER_11, totalCount);
-
-    const int MAY_WALL_DISCOUNT = 489;
-    updateEffect(df, MAY_WALL_DISCOUNT, totalCount);
+    updateEffect(df, 449, totalCount); // MAY_TECH_TREE 
+    updateEffect(df, 515, totalCount); // MAY_HULCHE_JAVELINEERS 
+    updateEffect(df, 456, totalCount); // MAY_EL_DORADO 
+    updateEffect(df, 216, totalCount); // MAY_START_RES 
+    updateEffect(df, 586, totalCount); // MAY_VILS_SPAWN 
+    updateEffect(df, 485, totalCount); // MAY_ARCHER_COST_1 
+    updateEffect(df, 486, totalCount); // MAY_ARCHER_COST_2 
+    updateEffect(df, 771, totalCount); // MAY_RESOURCES_LONGER_1 
+    updateEffect(df, 772, totalCount); // MAY_RESOURCES_LONGER_2 
+    updateEffect(df, 773, totalCount); // MAY_RESOURCES_LONGER_3 
+    updateEffect(df, 774, totalCount); // MAY_RESOURCES_LONGER_4 
+    updateEffect(df, 775, totalCount); // MAY_RESOURCES_LONGER_5 
+    updateEffect(df, 776, totalCount); // MAY_RESOURCES_LONGER_6 
+    updateEffect(df, 777, totalCount); // MAY_RESOURCES_LONGER_7 
+    updateEffect(df, 778, totalCount); // MAY_RESOURCES_LONGER_8 
+    updateEffect(df, 779, totalCount); // MAY_RESOURCES_LONGER_9 
+    updateEffect(df, 780, totalCount); // MAY_RESOURCES_LONGER_10 
+    updateEffect(df, 781, totalCount); // MAY_RESOURCES_LONGER_11 
+    updateEffect(df, 489, totalCount); // MAY_WALL_DISCOUNT 
 }
 
 void mongolsCivBonus(genie::DatFile *df, float totalCount) {
@@ -1617,29 +1054,14 @@ void mongolsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(270);
     skipUpdate(369);
 
-    const int MONG_TECH_TREE = 277;
-    updateEffect(df, MONG_TECH_TREE, totalCount);
-
-    const int MONG_NOMADS = 542;
-    updateEffect(df, MONG_NOMADS, totalCount);
-
-    const int MONG_NOMADS_2 = 681;
-    updateEffect(df, MONG_NOMADS_2, totalCount);
-
-    const int MONG_DRILL = 457;
-    updateEffect(df, MONG_DRILL, totalCount);
-
-    const int MONG_CA_FIRING = 393;
-    updateEffect(df, MONG_CA_FIRING, totalCount);
-
-    const int MONG_LIGHTCAV_HP = 387;
-    updateEffect(df, MONG_LIGHTCAV_HP, totalCount);
-
-    const int MONG_HUNTERS = 388;
-    updateEffect(df, MONG_HUNTERS, totalCount);
-
-    const int MONG_SCOUT_LOS = 407;
-    updateEffect(df, MONG_SCOUT_LOS, totalCount);
+    updateEffect(df, 277, totalCount); // MONG_TECH_TREE 
+    updateEffect(df, 542, totalCount); // MONG_NOMADS 
+    updateEffect(df, 681, totalCount); // MONG_NOMADS_2 
+    updateEffect(df, 457, totalCount); // MONG_DRILL 
+    updateEffect(df, 393, totalCount); // MONG_CA_FIRING 
+    updateEffect(df, 387, totalCount); // MONG_LIGHTCAV_HP 
+    updateEffect(df, 388, totalCount); // MONG_HUNTERS 
+    updateEffect(df, 407, totalCount); // MONG_SCOUT_LOS 
 }
 
 void persiansCivBonus(genie::DatFile *df, float totalCount) {
@@ -1648,32 +1070,17 @@ void persiansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(271);
     skipUpdate(365);
 
-    const int PERS_TECH_TREE = 260;
-    updateEffect(df, PERS_TECH_TREE, totalCount);
-
-    const int PERS_MAHOUTS = 458;
-    updateEffect(df, PERS_MAHOUTS, totalCount);
-
+    updateEffect(df, 260, totalCount); // PERS_TECH_TREE 
+    updateEffect(df, 458, totalCount); // PERS_MAHOUTS 
     const int PERS_KAMANDARAN = 543;
     skipUpdate(PERS_KAMANDARAN);
 
-    const int PERS_START_RES = 212;
-    updateEffect(df, PERS_START_RES, totalCount);
-
-    const int PERS_TC_HP = 340;
-    updateEffect(df, PERS_TC_HP, totalCount);
-
-    const int PERS_DOCK_HP = 347;
-    updateEffect(df, PERS_DOCK_HP, totalCount);
-
-    const int PERS_TC_SPEED = 421;
-    updateEffect(df, PERS_TC_SPEED, totalCount);
-
-    const int PERS_DOCK_SPEED = 424;
-    updateEffect(df, PERS_DOCK_SPEED, totalCount);
-
-    const int PERS_KNIGHT_BONUS = 408;
-    updateEffect(df, PERS_KNIGHT_BONUS, totalCount);
+    updateEffect(df, 212, totalCount); // PERS_START_RES 
+    updateEffect(df, 340, totalCount); // PERS_TC_HP 
+    updateEffect(df, 347, totalCount); // PERS_DOCK_HP 
+    updateEffect(df, 421, totalCount); // PERS_TC_SPEED 
+    updateEffect(df, 424, totalCount); // PERS_DOCK_SPEED 
+    updateEffect(df, 408, totalCount); // PERS_KNIGHT_BONUS 
 }
 
 void polesCivBonus(genie::DatFile *df, float totalCount) {
@@ -1686,50 +1093,21 @@ void polesCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(805);
     skipUpdate(806);
 
-    const int POL_TECH_TREE = 801;
-    updateEffect(df, POL_TECH_TREE, totalCount);
-
-    const int POL_SZLACHTA_PRIVILEGES = 809;
-    updateEffect(df, POL_SZLACHTA_PRIVILEGES, totalCount);
-
-    const int POL_LECHITIC_LEGACY = 810;
-    updateEffect(df, POL_LECHITIC_LEGACY, totalCount);
-    
-    const int POL_VIL_REGEN = 815;
-    updateEffect(df, POL_VIL_REGEN, totalCount);
-    
-    const int POL_FOLWARK = 816;
-    updateEffect(df, POL_FOLWARK, totalCount);
-    
-    const int POL_FOLWARK_2 = 818;
-    updateEffect(df, POL_FOLWARK_2, totalCount);
-    
-    const int POL_FOLWARK_3 = 819;
-    updateEffect(df, POL_FOLWARK_3, totalCount);
-    
-    const int POL_FOLWARK_4 = 820;
-    updateEffect(df, POL_FOLWARK_4, totalCount);
-    
-    const int POL_FOLWARKFARM_FOOD_1 = 821;
-    updateEffect(df, POL_FOLWARKFARM_FOOD_1, totalCount);
-    
-    const int POL_FOLWARKFARM_FOOD_2 = 822;
-    updateEffect(df, POL_FOLWARKFARM_FOOD_2, totalCount);
-    
-    const int POL_FOLWARKFARM_FOOD_3 = 823;
-    updateEffect(df, POL_FOLWARKFARM_FOOD_3, totalCount);
-    
-    const int POL_STONE_GOLDGEN_1 = 827;
-    updateEffect(df, POL_STONE_GOLDGEN_1, totalCount);
-    
-    const int POL_STONE_GOLDGEN_2 = 828;
-    updateEffect(df, POL_STONE_GOLDGEN_2, totalCount);
-    
-    const int POL_STONE_GOLDGEN_3 = 829;
-    updateEffect(df, POL_STONE_GOLDGEN_3, totalCount);
-
-    const int POL_SCOUTS_BONUS = 802;
-    updateEffect(df, POL_SCOUTS_BONUS, totalCount);
+    updateEffect(df, 801, totalCount); // POL_TECH_TREE 
+    updateEffect(df, 809, totalCount); // POL_SZLACHTA_PRIVILEGES 
+    updateEffect(df, 810, totalCount); // POL_LECHITIC_LEGACY 
+    updateEffect(df, 815, totalCount); // POL_VIL_REGEN 
+    updateEffect(df, 816, totalCount); // POL_FOLWARK 
+    updateEffect(df, 818, totalCount); // POL_FOLWARK_2 
+    updateEffect(df, 819, totalCount); // POL_FOLWARK_3 
+    updateEffect(df, 820, totalCount); // POL_FOLWARK_4 
+    updateEffect(df, 821, totalCount); // POL_FOLWARKFARM_FOOD_1 
+    updateEffect(df, 822, totalCount); // POL_FOLWARKFARM_FOOD_2 
+    updateEffect(df, 823, totalCount); // POL_FOLWARKFARM_FOOD_3 
+    updateEffect(df, 827, totalCount); // POL_STONE_GOLDGEN_1 
+    updateEffect(df, 828, totalCount); // POL_STONE_GOLDGEN_2 
+    updateEffect(df, 829, totalCount); // POL_STONE_GOLDGEN_3 
+    updateEffect(df, 802, totalCount); // POL_SCOUTS_BONUS 
 }
 
 void portugueseCivBonus(genie::DatFile *df, float totalCount) {
@@ -1741,29 +1119,15 @@ void portugueseCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(622);
     skipUpdate(623);
 
-    const int PORT_TECH_TREE = 31;
-    updateEffect(df, PORT_TECH_TREE, totalCount);
-
-    const int PORT_CARRACK = 601;
-    updateEffect(df, PORT_CARRACK, totalCount);
-
-    const int PORT_ARQUEBUS = 602;
-    updateEffect(df, PORT_ARQUEBUS, totalCount);
-
-    const int PORT_OBSOLETE = 35;
-    updateEffect(df, PORT_OBSOLETE, totalCount);
-
-    const int PORT_GOLD_DISCOUNT = 33;
-    updateEffect(df, PORT_GOLD_DISCOUNT, totalCount);
-
-    const int PORT_FORAGERS = 510;
-    updateEffect(df, PORT_FORAGERS, totalCount);
-
+    updateEffect(df, 31, totalCount); // PORT_TECH_TREE 
+    updateEffect(df, 601, totalCount); // PORT_CARRACK 
+    updateEffect(df, 602, totalCount); // PORT_ARQUEBUS 
+    updateEffect(df, 35, totalCount); // PORT_OBSOLETE 
+    updateEffect(df, 33, totalCount); // PORT_GOLD_DISCOUNT 
+    updateEffect(df, 510, totalCount); // PORT_FORAGERS 
     // Ships + 10% hp
 
-    const int PORT_FEITORIA_AVAIL = 600;
-    updateEffect(df, PORT_FEITORIA_AVAIL, totalCount);
-
+    updateEffect(df, 600, totalCount); // PORT_FEITORIA_AVAIL 
     const int PORT_FEITORIA = 1021;
     for (auto &civ : df->Civs) {
         auto &unit = civ.Units.at(PORT_FEITORIA);
@@ -1775,8 +1139,7 @@ void portugueseCivBonus(genie::DatFile *df, float totalCount) {
         }
     }
 
-    const int PORT_RESEARCH_SPEED = 32;
-    updateEffect(df, PORT_RESEARCH_SPEED, totalCount);
+    updateEffect(df, 32, totalCount); // PORT_RESEARCH_SPEED 
 }
 
 void romansCivBonus(genie::DatFile *df, float totalCount) {
@@ -1788,24 +1151,12 @@ void romansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(896);
     skipUpdate(903);
 
-    const int ROM_TECH_TREE = 890;
-    updateEffect(df, ROM_TECH_TREE, totalCount);
-
-    const int ROM_BALLISTAS = 894;
-    updateEffect(df, ROM_BALLISTAS, totalCount);
-
-    const int ROM_COMITATENSES = 895;
-    updateEffect(df, ROM_COMITATENSES, totalCount);
-
-    const int ROM_SCORP_BALLISTICS = 901;
-    updateEffect(df, ROM_SCORP_BALLISTICS, totalCount);
-
-    const int ROM_VILS_WORK = 898;
-    updateEffect(df, ROM_VILS_WORK, totalCount);
-    
-    const int ROM_NAVY = 899;
-    updateEffect(df, ROM_NAVY, totalCount);
-
+    updateEffect(df, 890, totalCount); // ROM_TECH_TREE 
+    updateEffect(df, 894, totalCount); // ROM_BALLISTAS 
+    updateEffect(df, 895, totalCount); // ROM_COMITATENSES 
+    updateEffect(df, 901, totalCount); // ROM_SCORP_BALLISTICS 
+    updateEffect(df, 898, totalCount); // ROM_VILS_WORK 
+    updateEffect(df, 899, totalCount); // ROM_NAVY 
     auto scale_mail_id = duplicateEffect(df, SCALE_MAIL_ARMOR);
     updateEffect(df, scale_mail_id, totalCount);
     df->Techs.at(889).EffectID = scale_mail_id;
@@ -1818,8 +1169,7 @@ void romansCivBonus(genie::DatFile *df, float totalCount) {
     updateEffect(df, plate_mail_id, totalCount);
     df->Techs.at(891).EffectID = plate_mail_id;
     
-    const int ROM_SCORP_DISCOUT = 900;
-    updateEffect(df, ROM_SCORP_DISCOUT, totalCount);
+    updateEffect(df, 900, totalCount); // ROM_SCORP_DISCOUT 
 }
 
 void saracensCivBonus(genie::DatFile *df, float totalCount) {
@@ -1828,38 +1178,17 @@ void saracensCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(266);
     skipUpdate(366);
 
-    const int SAR_TECH_TREE = 261;
-    updateEffect(df, SAR_TECH_TREE, totalCount);
-
-    const int SAR_ZEALOTRY = 459;
-    updateEffect(df, SAR_ZEALOTRY, totalCount);
-
-    const int SAR_COUNTERWEIGHTS = 480;
-    updateEffect(df, SAR_COUNTERWEIGHTS, totalCount);
-
-    const int SAR_OBSOLETE = 545;
-    updateEffect(df, SAR_OBSOLETE, totalCount);
-
-    const int SAR_MARKET = 354;
-    updateEffect(df, SAR_MARKET, totalCount);
-
-    const int SAR_TRANSPORT = 311;
-    updateEffect(df, SAR_TRANSPORT, totalCount);
-
-    const int SAR_GALLEY_ATTACK = 416;
-    updateEffect(df, SAR_GALLEY_ATTACK, totalCount);
-
-    const int SAR_CAMEL_HP = 312;
-    updateEffect(df, SAR_CAMEL_HP, totalCount);
-
-    const int SAR_ARCHER_BONUS_1 = 313;
-    updateEffect(df, SAR_ARCHER_BONUS_1, totalCount);
-
-    const int SAR_ARCHER_BONUS_2 = 318;
-    updateEffect(df, SAR_ARCHER_BONUS_2, totalCount);
-
-    const int SAR_ARCHER_BONUS = 409;
-    updateEffect(df, SAR_ARCHER_BONUS, totalCount);
+    updateEffect(df, 261, totalCount); // SAR_TECH_TREE 
+    updateEffect(df, 459, totalCount); // SAR_ZEALOTRY 
+    updateEffect(df, 480, totalCount); // SAR_COUNTERWEIGHTS 
+    updateEffect(df, 545, totalCount); // SAR_OBSOLETE 
+    updateEffect(df, 354, totalCount); // SAR_MARKET 
+    updateEffect(df, 311, totalCount); // SAR_TRANSPORT 
+    updateEffect(df, 416, totalCount); // SAR_GALLEY_ATTACK 
+    updateEffect(df, 312, totalCount); // SAR_CAMEL_HP 
+    updateEffect(df, 313, totalCount); // SAR_ARCHER_BONUS_1 
+    updateEffect(df, 318, totalCount); // SAR_ARCHER_BONUS_2 
+    updateEffect(df, 409, totalCount); // SAR_ARCHER_BONUS 
 }
 
 void siciliansCivBonus(genie::DatFile *df, float totalCount) {
@@ -1870,38 +1199,17 @@ void siciliansCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(788);
     skipUpdate(789);
 
-    const int SIC_TECH_TREE = 784;
-    updateEffect(df, SIC_TECH_TREE, totalCount);
-
-    const int SIC_FIRST_CRUSADE = 792;
-    updateEffect(df, SIC_FIRST_CRUSADE, totalCount);
-
-    const int SIC_HAUBERK = 793;
-    updateEffect(df, SIC_HAUBERK, totalCount);
-
-    const int SIC_START_RES = 217;
-    updateEffect(df, SIC_START_RES, totalCount);
-
-    const int SIC_BUILD_SPEED = 795;
-    updateEffect(df, SIC_BUILD_SPEED, totalCount);
-
-    const int SIC_BONUS_RESISTANCE = 796;
-    updateEffect(df, SIC_BONUS_RESISTANCE, totalCount);
-
-    const int SIC_FARM_FOOD_1 = 797;
-    updateEffect(df, SIC_FARM_FOOD_1, totalCount);
-
-    const int SIC_FARM_FOOD_2 = 798;
-    updateEffect(df, SIC_FARM_FOOD_2, totalCount);
-
-    const int SIC_FARM_FOOD_3 = 799;
-    updateEffect(df, SIC_FARM_FOOD_3, totalCount);
-
-    const int SIC_DONJON_AVAIL = 800;
-    updateEffect(df, SIC_DONJON_AVAIL, totalCount);
-
-    const int SIC_TRANSPORT = 785;
-    updateEffect(df, SIC_TRANSPORT, totalCount);
+    updateEffect(df, 784, totalCount); // SIC_TECH_TREE 
+    updateEffect(df, 792, totalCount); // SIC_FIRST_CRUSADE 
+    updateEffect(df, 793, totalCount); // SIC_HAUBERK 
+    updateEffect(df, 217, totalCount); // SIC_START_RES 
+    updateEffect(df, 795, totalCount); // SIC_BUILD_SPEED 
+    updateEffect(df, 796, totalCount); // SIC_BONUS_RESISTANCE 
+    updateEffect(df, 797, totalCount); // SIC_FARM_FOOD_1 
+    updateEffect(df, 798, totalCount); // SIC_FARM_FOOD_2 
+    updateEffect(df, 799, totalCount); // SIC_FARM_FOOD_3 
+    updateEffect(df, 800, totalCount); // SIC_DONJON_AVAIL 
+    updateEffect(df, 785, totalCount); // SIC_TRANSPORT 
 }
 
 void slavsCivBonus(genie::DatFile *df, float totalCount) {
@@ -1910,23 +1218,12 @@ void slavsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(556);
     skipUpdate(557);
 
-    const int SLAVS_TECH_TREE = 7;
-    updateEffect(df, SLAVS_TECH_TREE, totalCount);
-
-    const int SLAVS_DETINETS = 481;
-    updateEffect(df, SLAVS_DETINETS, min((float)totalCount, 2.5f));
-
-    const int SLAVS_DRUZHINA = 569;
-    updateEffect(df, SLAVS_DRUZHINA, totalCount);
-
-    const int SLAVS_FARMS = 690;
-    updateEffect(df, SLAVS_FARMS, totalCount);
-
-    const int SLAVS_SIEGE_DISCOUNT = 567;
-    updateEffect(df, SLAVS_SIEGE_DISCOUNT, totalCount);
-
-    const int SLAVS_MILITARY_POP = 758;
-    updateEffect(df, SLAVS_MILITARY_POP, totalCount);
+    updateEffect(df, 7, totalCount); // SLAVS_TECH_TREE 
+    updateEffect(df, 481, totalCount); // SLAVS_DETINETS 
+    updateEffect(df, 569, totalCount); // SLAVS_DRUZHINA 
+    updateEffect(df, 690, totalCount); // SLAVS_FARMS 
+    updateEffect(df, 567, totalCount); // SLAVS_SIEGE_DISCOUNT 
+    updateEffect(df, 758, totalCount); // SLAVS_MILITARY_POP 
 }
 
 void spanishCivBonus(genie::DatFile *df, float totalCount) {
@@ -1935,32 +1232,15 @@ void spanishCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(491);
     skipUpdate(492);
 
-    const int SPAN_TECH_TREE = 446;
-    updateEffect(df, SPAN_TECH_TREE, totalCount);
-
-    const int SPAN_INQUISITION = 547;
-    updateEffect(df, SPAN_INQUISITION, totalCount);
-
-    const int SPAN_SUPREMACY = 495;
-    updateEffect(df, SPAN_SUPREMACY, totalCount);
-
-    const int SPAN_TC_BUILD = 168;
-    updateEffect(df, SPAN_TC_BUILD, totalCount);
-
-    const int SPAN_TECH_REWARD = 300;
-    updateEffect(df, SPAN_TECH_REWARD, totalCount);
-
-    const int SPAN_TECH_REWARD_2 = 181;
-    updateEffect(df, SPAN_TECH_REWARD_2, totalCount);
-
-    const int SPAN_TECH_REWARD_3 = 237;
-    updateEffect(df, SPAN_TECH_REWARD_3, totalCount);
-
-    const int SPAN_MISSIONARY_AVAIL = 496;
-    updateEffect(df, SPAN_MISSIONARY_AVAIL, totalCount);
-
-    const int SPAN_TRADE = 490;
-    updateEffect(df, SPAN_TRADE, totalCount);
+    updateEffect(df, 446, totalCount); // SPAN_TECH_TREE 
+    updateEffect(df, 547, totalCount); // SPAN_INQUISITION 
+    updateEffect(df, 495, totalCount); // SPAN_SUPREMACY 
+    updateEffect(df, 168, totalCount); // SPAN_TC_BUILD 
+    updateEffect(df, 300, totalCount); // SPAN_TECH_REWARD 
+    updateEffect(df, 181, totalCount); // SPAN_TECH_REWARD_2 
+    updateEffect(df, 237, totalCount); // SPAN_TECH_REWARD_3 
+    updateEffect(df, 496, totalCount); // SPAN_MISSIONARY_AVAIL 
+    updateEffect(df, 490, totalCount); // SPAN_TRADE 
 }
 
 void tatarsCivBonus(genie::DatFile *df, float totalCount) {
@@ -1969,35 +1249,16 @@ void tatarsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(716);
     skipUpdate(717);
 
-    const int TAT_TECH_TREE = 708;
-    updateEffect(df, TAT_TECH_TREE, totalCount);
-
-    const int TAT_SILK_ARMOR = 724;
-    updateEffect(df, TAT_SILK_ARMOR, totalCount);
-
-    const int TAT_TIMURID = 725;
-    updateEffect(df, TAT_TIMURID, totalCount);
-    
-    const int TAT_SHEEP_BONUS = 741;
-    updateEffect(df, TAT_SHEEP_BONUS, totalCount);
-    
-    const int TAT_SHEEP_BONUS_2 = 299;
-    updateEffect(df, TAT_SHEEP_BONUS_2, totalCount);
-    
-    const int TAT_SHEEP_BONUS_3 = 303;
-    updateEffect(df, TAT_SHEEP_BONUS_3, totalCount);
-    
-    const int TAT_SHEEP_BONUS_4 = 305;
-    updateEffect(df, TAT_SHEEP_BONUS_4, totalCount);
-    
-    const int TAT_PARTHIAN_TACTICS = 735;
-    updateEffect(df, TAT_PARTHIAN_TACTICS, totalCount);
-    
-    const int TAT_ELEVATION = 733;
-    updateEffect(df, TAT_ELEVATION, totalCount);
-
-    const int TAT_CA_LOS = 709;
-    updateEffect(df, TAT_CA_LOS, totalCount);
+    updateEffect(df, 708, totalCount); // TAT_TECH_TREE 
+    updateEffect(df, 724, totalCount); // TAT_SILK_ARMOR 
+    updateEffect(df, 725, totalCount); // TAT_TIMURID 
+    updateEffect(df, 741, totalCount); // TAT_SHEEP_BONUS 
+    updateEffect(df, 299, totalCount); // TAT_SHEEP_BONUS_2 
+    updateEffect(df, 303, totalCount); // TAT_SHEEP_BONUS_3 
+    updateEffect(df, 305, totalCount); // TAT_SHEEP_BONUS_4 
+    updateEffect(df, 735, totalCount); // TAT_PARTHIAN_TACTICS 
+    updateEffect(df, 733, totalCount); // TAT_ELEVATION 
+    updateEffect(df, 709, totalCount); // TAT_CA_LOS 
 }
 
 void teutonsCivBonus(genie::DatFile *df, float totalCount) {
@@ -2006,38 +1267,17 @@ void teutonsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(273);
     skipUpdate(362);
 
-    const int TEUT_TECH_TREE = 262;
-    updateEffect(df, TEUT_TECH_TREE, totalCount);
-
-    const int TEUT_IRONCLAD = 544;
-    updateEffect(df, TEUT_IRONCLAD, totalCount);
-
-    const int TEUT_CRENELLATIONS = 461;
-    updateEffect(df, TEUT_CRENELLATIONS, totalCount);
-    
-    const int TEUT_OBSOLETE = 332;
-    updateEffect(df, TEUT_OBSOLETE, totalCount);
-    
-    const int TEUT_HEAL_RANGE = 345;
-    updateEffect(df, TEUT_HEAL_RANGE, totalCount);
-    
-    const int TEUT_TOWER_GARISON = 352;
-    updateEffect(df, TEUT_TOWER_GARISON, totalCount);
-
-    const int TEUT_FARMS_DISCOUNT = 314;
-    updateEffect(df, TEUT_FARMS_DISCOUNT, totalCount);
-    
-    const int TEUT_TC_IMPROVE = 335;
-    updateEffect(df, TEUT_TC_IMPROVE, totalCount);
-    
-    const int TEUT_ARMOR_1 = 333;
-    updateEffect(df, TEUT_ARMOR_1, totalCount);
-    
-    const int TEUT_ARMOR_2 = 334;
-    updateEffect(df, TEUT_ARMOR_2, totalCount);
-    
-    const int TEUT_CONVERSION_RESISTANCE = 404;
-    updateEffect(df, TEUT_CONVERSION_RESISTANCE, totalCount);
+    updateEffect(df, 262, totalCount); // TEUT_TECH_TREE 
+    updateEffect(df, 544, totalCount); // TEUT_IRONCLAD 
+    updateEffect(df, 461, totalCount); // TEUT_CRENELLATIONS 
+    updateEffect(df, 332, totalCount); // TEUT_OBSOLETE 
+    updateEffect(df, 345, totalCount); // TEUT_HEAL_RANGE 
+    updateEffect(df, 352, totalCount); // TEUT_TOWER_GARISON 
+    updateEffect(df, 314, totalCount); // TEUT_FARMS_DISCOUNT 
+    updateEffect(df, 335, totalCount); // TEUT_TC_IMPROVE 
+    updateEffect(df, 333, totalCount); // TEUT_ARMOR_1 
+    updateEffect(df, 334, totalCount); // TEUT_ARMOR_2 
+    updateEffect(df, 404, totalCount); // TEUT_CONVERSION_RESISTANCE 
 }
 
 void turksCivBonus(genie::DatFile *df, float totalCount) {
@@ -2047,35 +1287,16 @@ void turksCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(353);
     skipUpdate(367);
 
-    const int TURK_TECH_TREE = 263;
-    updateEffect(df, TURK_TECH_TREE, totalCount);
-
-    const int TURK_SIPAHI = 546;
-    updateEffect(df, TURK_SIPAHI, totalCount);
-
-    const int TURK_ARTILLERY = 460;
-    updateEffect(df, TURK_ARTILLERY, totalCount);
-
-    const int TURK_HUSSAR_FREE = 527;
-    updateEffect(df, TURK_HUSSAR_FREE, totalCount);
-
-    const int TURK_CHEMISTRY_FREE = 301;
-    updateEffect(df, TURK_CHEMISTRY_FREE, totalCount);
-
-    const int TURK_GUNPOWDER_HP = 296;
-    updateEffect(df, TURK_GUNPOWDER_HP, totalCount);
-
-    const int TURK_GUNPOWDERSHIP_HP = 284;
-    updateEffect(df, TURK_GUNPOWDERSHIP_HP, totalCount);
-
-    const int TURK_GOLD_MINING = 295;
-    updateEffect(df, TURK_GOLD_MINING, totalCount);
-
-    const int TURK_LIGHTCAV_PIERCE = 509;
-    updateEffect(df, TURK_LIGHTCAV_PIERCE, totalCount);
-
-    const int TURK_GUNPOWDER_TRAINTIME = 410;
-    updateEffect(df, TURK_GUNPOWDER_TRAINTIME, totalCount);
+    updateEffect(df, 263, totalCount); // TURK_TECH_TREE 
+    updateEffect(df, 546, totalCount); // TURK_SIPAHI 
+    updateEffect(df, 460, totalCount); // TURK_ARTILLERY 
+    updateEffect(df, 527, totalCount); // TURK_HUSSAR_FREE 
+    updateEffect(df, 301, totalCount); // TURK_CHEMISTRY_FREE 
+    updateEffect(df, 296, totalCount); // TURK_GUNPOWDER_HP 
+    updateEffect(df, 284, totalCount); // TURK_GUNPOWDERSHIP_HP 
+    updateEffect(df, 295, totalCount); // TURK_GOLD_MINING 
+    updateEffect(df, 509, totalCount); // TURK_LIGHTCAV_PIERCE 
+    updateEffect(df, 410, totalCount); // TURK_GUNPOWDER_TRAINTIME 
 }
 
 void vietnameseCivBonus(genie::DatFile *df, float totalCount) {
@@ -2085,29 +1306,14 @@ void vietnameseCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(660);
     skipUpdate(661);
 
-    const int VIET_TECH_TREE = 652;
-    updateEffect(df, VIET_TECH_TREE, totalCount);
-
-    const int VIET_CHATRAS = 668;
-    updateEffect(df, VIET_CHATRAS, totalCount);
-
-    const int VIET_PAPER_MONEY_1 = 669;
-    updateEffect(df, VIET_PAPER_MONEY_1, totalCount);
-
-    const int VIET_PAPER_MONEY_2 = 881;
-    updateEffect(df, VIET_PAPER_MONEY_2, totalCount);
-
-    const int VIET_PAPER_MONEY_3 = 882;
-    updateEffect(df, VIET_PAPER_MONEY_3, totalCount);
-
-    const int VIET_PAPER_MONEY_4 = 883;
-    updateEffect(df, VIET_PAPER_MONEY_4, totalCount);
-
-    const int VIET_ARCHERS_HP = 672;
-    updateEffect(df, VIET_ARCHERS_HP, totalCount);
-
-    const int VIET_VISION = 698;
-    updateEffect(df, VIET_VISION, totalCount);
+    updateEffect(df, 652, totalCount); // VIET_TECH_TREE 
+    updateEffect(df, 668, totalCount); // VIET_CHATRAS 
+    updateEffect(df, 669, totalCount); // VIET_PAPER_MONEY_1 
+    updateEffect(df, 881, totalCount); // VIET_PAPER_MONEY_2 
+    updateEffect(df, 882, totalCount); // VIET_PAPER_MONEY_3 
+    updateEffect(df, 883, totalCount); // VIET_PAPER_MONEY_4 
+    updateEffect(df, 672, totalCount); // VIET_ARCHERS_HP 
+    updateEffect(df, 698, totalCount); // VIET_VISION 
 }
 
 void vikingsCivBonus(genie::DatFile *df, float totalCount) {
@@ -2119,41 +1325,18 @@ void vikingsCivBonus(genie::DatFile *df, float totalCount) {
     skipUpdate(397);
     skipUpdate(398);
 
-    const int VIK_TECH_TREE = 276;
-    updateEffect(df, VIK_TECH_TREE, totalCount);
-
-    const int VIK_CHIEFTAINS = 517;
-    updateEffect(df, VIK_CHIEFTAINS, totalCount);
-
-    const int VIK_BOGSVEIGAR = 467;
-    updateEffect(df, VIK_BOGSVEIGAR, totalCount);
-
-    const int VIK_WHEELBARROW_FREE = 391;
-    updateEffect(df, VIK_WHEELBARROW_FREE, totalCount);
-
-    const int VIK_HANDCART_FREE = 412;
-    updateEffect(df, VIK_HANDCART_FREE, totalCount);
-
-    const int VIK_WARSHIP_COST_1 = 383;
-    updateEffect(df, VIK_WARSHIP_COST_1, totalCount);
-    
-    const int VIK_WARSHIP_COST_2 = 386;
-    updateEffect(df, VIK_WARSHIP_COST_2, totalCount);
-    
-    const int VIK_WARSHIP_COST_3 = 394;
-    updateEffect(df, VIK_WARSHIP_COST_3, totalCount);
-    
-    const int VIK_INF_HP_1 = 390;
-    updateEffect(df, VIK_INF_HP_1, totalCount);
-    
-    const int VIK_INF_HP_2 = 427;
-    updateEffect(df, VIK_INF_HP_2, totalCount);
-    
-    const int VIK_INF_HP_3 = 428;
-    updateEffect(df, VIK_INF_HP_3, totalCount);
-    
-    const int VIK_DOCK_COST = 411;
-    updateEffect(df, VIK_DOCK_COST, totalCount);
+    updateEffect(df, 276, totalCount); // VIK_TECH_TREE 
+    updateEffect(df, 517, totalCount); // VIK_CHIEFTAINS 
+    updateEffect(df, 467, totalCount); // VIK_BOGSVEIGAR 
+    updateEffect(df, 391, totalCount); // VIK_WHEELBARROW_FREE 
+    updateEffect(df, 412, totalCount); // VIK_HANDCART_FREE 
+    updateEffect(df, 383, totalCount); // VIK_WARSHIP_COST_1 
+    updateEffect(df, 386, totalCount); // VIK_WARSHIP_COST_2 
+    updateEffect(df, 394, totalCount); // VIK_WARSHIP_COST_3 
+    updateEffect(df, 390, totalCount); // VIK_INF_HP_1 
+    updateEffect(df, 427, totalCount); // VIK_INF_HP_2 
+    updateEffect(df, 428, totalCount); // VIK_INF_HP_3 
+    updateEffect(df, 411, totalCount); // VIK_DOCK_COST 
 }
 
 void configureMultipliedCivBonus(genie::DatFile *df, int totalCount) {
