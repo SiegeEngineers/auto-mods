@@ -120,14 +120,14 @@ void multipleResourceSet(std::vector<genie::EffectCommand>& commands, int id, fl
         case 93: // starting stone
         case 94: // starting gold
         case 88: // fish trap food
-        case 214: // mercenary kipchak
+        case 195: // construction rate
         case 237: // folwark collection amount
-        case 251: // bengali trade food
         case 254: // gurjara mill food
             command.D = multipleAdd(command.D, totalCount);
             break;
         case 78: // trade fee
         case 85: // research cost multiplier
+        case 86: // research time multiplier
             command.D = multipleMultiply(command.D, totalCount);
             break;
     }
@@ -140,7 +140,6 @@ void multipleSpawnUnit(std::vector<genie::EffectCommand>& commands, int id, floa
         case 59: // forage bush
         case 305: // llama
         case VILLAGER:
-        case SERJEANT:
             command.C = multipleAdd(command.C, totalCount);
             break;
         default: // other do not spawn more
@@ -187,7 +186,23 @@ void multipleTechTimeModifier(genie::DatFile *df, std::vector<genie::EffectComma
 void multipleDecreaseUnitCost(genie::DatFile *df, std::vector<genie::EffectCommand>& commands, int id, float totalCount) {
     auto &command = commands.at(id);
     auto &discounted_unit = df->Civs.at(0).Units.at(command.A);
-    auto cost_type = command.C - 103;
+
+    int cost_type;
+    switch (command.C) {
+        case 103:
+            cost_type = 0;
+            break;
+        case 104:
+            cost_type = 1;
+            break;
+        case 105:
+            cost_type = 3;
+            break;
+        case 106:
+            cost_type = 2;
+            break;
+    }
+
 
     auto base_cost = 0;
     auto costs_size = discounted_unit.Creatable.ResourceCosts.size();
@@ -199,7 +214,7 @@ void multipleDecreaseUnitCost(genie::DatFile *df, std::vector<genie::EffectComma
     }
 
     if (command.D >= 0) {
-        command.D = multipleChangeFrom(command.D, totalCount, base_cost);
+        //command.D = multipleChangeFrom(command.D, totalCount, base_cost);
     }
     else {
         command.D = multipleChangeFrom(base_cost + command.D, totalCount, base_cost) - base_cost;
@@ -348,7 +363,9 @@ void updateEffect(
             case 1: // resource +-
             case 11: // team resource +-
             case 21: // enemy resource +-
-                if (command.C == -1) {
+                if (command.A == 234 && effect_id == 792) { // spawn cap of first crusade
+                    command.D = multipleAdd(command.D, totalCount);
+                } else if (command.B == 0) {    
                     multipleResourceSet(commands, i, totalCount);
                 } else {
                     multipleAddFunc(commands, i, totalCount);
@@ -360,7 +377,9 @@ void updateEffect(
                 if (command.C == 13) {
                     multipleMultiplyWorkRate(commands, i, totalCount);
                 } else if (command.C == 0) {
-                    multipleMultiplyFunc(commands, i, min(totalCount, 3.0f));
+                    multipleMultiplyFunc(commands, i, totalCount);
+                } else if (command.C == 101) {
+                    command.D = max(multipleMultiply(command.D, totalCount), 0.01f);
                 } else {
                     multipleMultiplyFunc(commands, i, totalCount);
                 }
@@ -431,33 +450,51 @@ void updateUnitFromBase(
         auto elite_storages_count = elite_unit.ResourceStorages.size();
         auto base_storages_count = base_unit.ResourceStorages.size();
         for (int i = 0; i < elite_storages_count; i++) {
+            auto found = false;
             for (int j = 0; j < base_storages_count; j++) {
                 if (elite_unit.ResourceStorages.at(i).Type == base_unit.ResourceStorages.at(j).Type) {
                     elite_unit.ResourceStorages.at(i).Amount = calculateDiff(elite_unit.ResourceStorages.at(i).Amount, base_unit.ResourceStorages.at(j).Amount, totalCount);
+                    found = true;
                     break;
                 }
+            }
+
+            if (!found) {
+                elite_unit.ResourceStorages.at(i).Amount = calculateDiff(elite_unit.ResourceStorages.at(i).Amount, 0, totalCount);
             }
         }
 
         auto attacks_count = elite_unit.Type50.Attacks.size();
         auto base_attacks_count = base_unit.Type50.Attacks.size();
         for (int i = 0; i < attacks_count; i++) {
+            auto found = false;
             for (int j = 0; j < base_attacks_count; j++) {
                 if (elite_unit.Type50.Attacks.at(i).Class == base_unit.Type50.Attacks.at(j).Class) {
                     elite_unit.Type50.Attacks.at(i).Amount = calculateDiff(elite_unit.Type50.Attacks.at(i).Amount, base_unit.Type50.Attacks.at(j).Amount, totalCount);
+                    found = true;
                     break;
                 }
+            }
+
+            if (!found) {
+                elite_unit.Type50.Attacks.at(i).Amount = calculateDiff(elite_unit.Type50.Attacks.at(i).Amount, 0, totalCount);
             }
         }
 
         auto armours_count = elite_unit.Type50.Armours.size();
         auto base_armours_count = base_unit.Type50.Armours.size();
         for (int i = 0; i < armours_count; i++) {
+            auto found = false;
             for (int j = 0; j < base_armours_count; j++) {
                 if (elite_unit.Type50.Armours.at(i).Class == base_unit.Type50.Armours.at(j).Class) {
                     elite_unit.Type50.Armours.at(i).Amount = calculateDiff(elite_unit.Type50.Armours.at(i).Amount, base_unit.Type50.Armours.at(j).Amount, totalCount);
+                    found = true;
                     break;
                 }
+            }
+
+            if (!found) {
+                    elite_unit.Type50.Armours.at(i).Amount = calculateDiff(elite_unit.Type50.Armours.at(i).Amount, 0, totalCount);
             }
         }
     }
@@ -468,9 +505,9 @@ void updateUnitFromBase(
 void aztecsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_JAGUAR_WARRIOR, JAGUAR_WARRIOR, totalCount);
 
-    skipUpdate(346);
-    skipUpdate(442);
-    skipUpdate(444);
+    skipUpdate(346); // AZT_XOLOTL
+    skipUpdate(442); // AZT_JAGUAR_MAN
+    skipUpdate(444); // AZT_JAGUAR_MAN
 
     updateEffect(df, 447, totalCount); // AZT_TECH_TREE 
     updateEffect(df, 514, totalCount); // AZT_ATLATL 
@@ -493,8 +530,8 @@ void bengalisCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, 1761, 1759, totalCount);
     updateUnitFromBase(df, 1740, 1738, totalCount);
 
-    skipUpdate(846);
-    skipUpdate(847);
+    skipUpdate(846); // BENG_RATHA
+    skipUpdate(847); // BENG_RATHA
 
     updateEffect(df, 840, totalCount); // BENG_TECH_TREE 
     updateEffect(df, 852, totalCount); // BENG_PAIKS 
@@ -512,9 +549,11 @@ void berbersCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_GENITOUR, GENITOUR, totalCount);
     updateUnitFromBase(df, 596, 583, totalCount);
 
-    skipUpdate(594);
-    skipUpdate(595);
-    skipUpdate(624);
+    skipUpdate(594); // BERB_CAMEL_ARCHER
+    skipUpdate(595); // BERB_CAMEL_ARCHER
+    skipUpdate(440); // BERB_GENITOUR
+    skipUpdate(624); // BERB_GENITOUR
+    skipUpdate(627); // BERB_GENITOUR
 
     updateEffect(df, 37, totalCount); // BERB_TECH_TREE 
     updateEffect(df, 607, totalCount); // BERB_KASBAH 
@@ -531,9 +570,9 @@ void bohemiansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, HOUFNICE, BOMBARD_CANNON, totalCount);
     updateUnitFromBase(df, ELITE_HUSSITE_WAGON, HUSSITE_WAGON, totalCount);
 
-    skipUpdate(807);
-    skipUpdate(808);
-    skipUpdate(814);
+    skipUpdate(807); // BOH_HUSSITE_WAGON
+    skipUpdate(808); // BOH_HUSSITE_WAGON
+    skipUpdate(814); // BOH_HOUFNICE
 
     updateEffect(df, 803, totalCount); // BOH_TECH_TREE 
     updateEffect(df, 811, totalCount); // BOH_WAGENBURG_TACTICS 
@@ -548,8 +587,8 @@ void bohemiansCivBonus(genie::DatFile *df, float totalCount) {
 void britonsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_LONGBOWMAN, LONGBOWMAN, totalCount);
 
-    skipUpdate(251);
-    skipUpdate(358);
+    skipUpdate(251); // BRIT_LONGBOWMAN
+    skipUpdate(358); // BRIT_LONGBOWMAN
 
     updateEffect(df, 254, totalCount); // BRIT_TECH_TREE 
     updateEffect(df, 455, totalCount); // BRIT_YEOMEN 
@@ -566,8 +605,8 @@ void bulgariansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_KONNIK_2, KONNIK_2, totalCount);
     updateUnitFromBase(df, DISMOUNTED_ELITE_KONNIK, DISMOUNTED_KONNIK, totalCount);
 
-    skipUpdate(714);
-    skipUpdate(715);
+    skipUpdate(714); // BULG_KONNIK
+    skipUpdate(715); // BULG_KONNIK
 
     updateEffect(df, 706, totalCount); // BULG_TECH_TREE 
     updateEffect(df, 722, totalCount); // BULG_STIRRUPS 
@@ -586,9 +625,12 @@ void bulgariansCivBonus(genie::DatFile *df, float totalCount) {
 
 void burgundiansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_COUSTILLIER, COUSTILLIER, totalCount);
+    updateUnitFromBase(df, 1663, LONG_SWORDSMAN, totalCount);
+    updateUnitFromBase(df, 1697, LONG_SWORDSMAN, totalCount);
+    updateUnitFromBase(df, 1699, LONG_SWORDSMAN, totalCount);
 
-    skipUpdate(786);
-    skipUpdate(787);
+    skipUpdate(786); // BURG_COUSTILLIER
+    skipUpdate(787); // BURG_COUSTILLIER
 
     updateEffect(df, 782, totalCount); // BURG_TECH_TREE 
     updateEffect(df, 790, totalCount); // BURG_BURGUNDIAN_VINEYARDS 
@@ -600,8 +642,8 @@ void burgundiansCivBonus(genie::DatFile *df, float totalCount) {
 void burmeseCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_ARAMBAI, ARAMBAI, totalCount);
 
-    skipUpdate(658);
-    skipUpdate(659);
+    skipUpdate(658); // BURM_ARAMBAI
+    skipUpdate(659); // BURM_ARAMBAI
 
     updateEffect(df, 650, totalCount); // BURM_TECH_TREE 
     updateEffect(df, 666, totalCount); // BURM_HOWDAH 
@@ -618,17 +660,17 @@ void burmeseCivBonus(genie::DatFile *df, float totalCount) {
 void byzantinesCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_CATAPHRACT, CATAPHRACT, totalCount);
 
-    skipUpdate(264);
-    skipUpdate(359);
+    skipUpdate(264); // BYZ_CATAPHRACT
+    skipUpdate(359); // BYZ_CATAPHRACT
 
     updateEffect(df, 256, totalCount); // BYZ_TECH_TREE 
     updateEffect(df, 518, totalCount); // BYZ_GREEK_FIRE 
     updateEffect(df, 493, totalCount); // BYZ_LOGISTICA 
     updateEffect(df, 413, totalCount); // BYZ_OBSOLETE 
-    updateEffect(df, 282, totalCount); // BYZ_BUILDINGS_HP_1 
-    updateEffect(df, 429, totalCount); // BYZ_BUILDINGS_HP_2 
-    updateEffect(df, 430, totalCount); // BYZ_BUILDINGS_HP_3 
-    updateEffect(df, 431, totalCount); // BYZ_BUILDINGS_HP_4 
+    updateEffect(df, 282, min(totalCount, 3.0f)); // BYZ_BUILDINGS_HP_1 
+    updateEffect(df, 429, min(totalCount, 3.0f)); // BYZ_BUILDINGS_HP_2 
+    updateEffect(df, 430, min(totalCount, 3.0f)); // BYZ_BUILDINGS_HP_3 
+    updateEffect(df, 431, min(totalCount, 3.0f)); // BYZ_BUILDINGS_HP_4 
     updateEffect(df, 283, totalCount); // BYZ_COUNTER_DISCOUNT 
     updateEffect(df, 396, totalCount); // BYZ_SHIP_ATTACKSPEED 
     updateEffect(df, 400, totalCount); // BYZ_HEALSPEED 
@@ -637,8 +679,8 @@ void byzantinesCivBonus(genie::DatFile *df, float totalCount) {
 void celtsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_WOAD_RAIDER, WOAD_RAIDER, totalCount);
 
-    skipUpdate(274);
-    skipUpdate(368);
+    skipUpdate(274); // CELT_WOAD_RIDER
+    skipUpdate(368); // CELT_WOAD_RIDER
 
     updateEffect(df, 275, totalCount); // CELT_TECH_TREE 
     updateEffect(df, 537, totalCount); // CELT_STRONGHOLD 
@@ -663,11 +705,11 @@ void celtsCivBonus(genie::DatFile *df, float totalCount) {
 void chineseCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_CHU_KO_NU, CHU_KO_NU, totalCount);
 
-    skipUpdate(265);
-    skipUpdate(360);
+    skipUpdate(265); // CHIN_CHUKONU
+    skipUpdate(360); // CHIN_CHUKONU
 
     updateEffect(df, 257, totalCount); // CHIN_TECH_TREE 
-    updateEffect(df, 516, totalCount); // CHIN_GREAT_WALL 
+    updateEffect(df, 516, min(totalCount, 3.0f)); // CHIN_GREAT_WALL 
     updateEffect(df, 483, totalCount); // CHIN_ROCKETRY 
     updateEffect(df, 215, totalCount); // CHIN_START_RES 
     updateEffect(df, 302, totalCount); // CHIN_ADDITIONAL_VILS 
@@ -691,10 +733,10 @@ void cumansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_KIPCHAK, KIPCHAK, totalCount);
     updateUnitFromBase(df, 1260, KIPCHAK, totalCount);
 
-    skipUpdate(718);
-    skipUpdate(719);
-    skipUpdate(759);
-    skipUpdate(760); 
+    skipUpdate(718); // CUMANS_KIPCHAK
+    skipUpdate(719); // CUMANS_KIPCHAK
+    skipUpdate(759); // CUMANS_TC_BUILD_TIME
+    skipUpdate(760); // CUMANS_TC_BUILD_TIME
 
     updateEffect(df, 710, totalCount); // CUMANS_TECH_TREE 
     updateEffect(df, 726, totalCount); // CUMANS_STEPPE_HUSBANDRY 
@@ -707,14 +749,14 @@ void cumansCivBonus(genie::DatFile *df, float totalCount) {
     updateEffect(df, 748, totalCount); // CUMANS_CAV_FASTER_2 
     updateEffect(df, 762, totalCount); // CUMANS_CAV_FASTER_3 
     updateEffect(df, 763, totalCount); // CUMANS_CAV_FASTER_4 
-    updateEffect(df, 711, totalCount); // CUMANS_PALISADE_HP 
+    updateEffect(df, 711, min(totalCount, 3.0f)); // CUMANS_PALISADE_HP 
 }
 
 void dravidiansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, 1737, 1735, totalCount);
 
-    skipUpdate(844);
-    skipUpdate(845);
+    skipUpdate(844); // DRAV_URUMI_SWORDSMAN
+    skipUpdate(845); // DRAV_URUMI_SWORDSMAN
 
     updateEffect(df, 838, totalCount); // DRAV_TECH_TREE 
     updateEffect(df, 850, totalCount); // DRAV_MEDICAL_CORPS 
@@ -730,8 +772,8 @@ void dravidiansCivBonus(genie::DatFile *df, float totalCount) {
 void ethiopiansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_SHOTEL_WARRIOR, SHOTEL_WARRIOR, totalCount);
 
-    skipUpdate(598);
-    skipUpdate(599);
+    skipUpdate(598); // ETH_SHOTEL_WARRIOR
+    skipUpdate(599); // ETH_SHOTEL_WARRIOR
 
     updateEffect(df, 48, totalCount); // ETH_TECH_TREE 
     updateEffect(df, 603, totalCount); // ETH_ROYAL_HEIRS 
@@ -748,8 +790,8 @@ void ethiopiansCivBonus(genie::DatFile *df, float totalCount) {
 void franksCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_THROWING_AXEMAN, THROWING_AXEMAN, totalCount);
 
-    skipUpdate(272);
-    skipUpdate(361);
+    skipUpdate(272); // FRANKS_THROWING_AXEMAN
+    skipUpdate(361); // FRANKS_THROWING_AXEMAN
 
     updateEffect(df, 258, totalCount); // FRANK_TECH_TREE 
     updateEffect(df, 291, totalCount); // FRANK_BEARDED_AXE 
@@ -764,8 +806,8 @@ void gothsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_HUSKARL, HUSKARL, totalCount);
     updateUnitFromBase(df, 761, 759, totalCount);
 
-    skipUpdate(363);
-    skipUpdate(507);
+    skipUpdate(363); // GOTH_HUSCARL
+    skipUpdate(507); // GOTH_HUSCARL
 
     updateEffect(df, 259, totalCount); // GOTH_TECH_TREE 
     updateEffect(df, 462, totalCount); // GOTH_ANARCHY 
@@ -789,10 +831,10 @@ void gurjarasCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_SHRIVAMSHA_RIDER, SHRIVAMSHA_RIDER, totalCount);
     updateUnitFromBase(df, 1743, 1741, totalCount);
 
-    skipUpdate(848);
-    skipUpdate(849);
-    skipUpdate(861);
-    skipUpdate(862);
+    skipUpdate(848); // GUR_CHAKRAM_THROWER
+    skipUpdate(849); // GUR_CHAKRAM_THROWER
+    skipUpdate(861); // GUR_SHRIVAMSHA_RIDER
+    skipUpdate(862); // GUR_SHRIVAMSHA_RIDER
 
     updateEffect(df, 842, totalCount); // GUR_TECH_TREE 
     updateEffect(df, 854, totalCount); // GUR_KSHATRIYAS 
@@ -811,8 +853,8 @@ void hindustanisCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, IMPERIAL_CAMEL_RIDER, HEAVY_CAMEL_RIDER, totalCount);
     updateUnitFromBase(df, 1749, 1747, totalCount);
 
-    skipUpdate(858);
-    skipUpdate(859);
+    skipUpdate(858); // HIND_GHULAM
+    skipUpdate(859); // HIND_GHULAM
 
     updateEffect(df, 1, totalCount); // HIND_TECH_TREE 
     updateEffect(df, 577, totalCount); // HIND_IMP_CAMEL 
@@ -843,13 +885,13 @@ void hunsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_TARKAN, TARKAN, totalCount);
     updateUnitFromBase(df, 887, 886, totalCount);
 
-    skipUpdate(453);
-    skipUpdate(454);
+    skipUpdate(453); // HUNS_TARKAN
+    skipUpdate(454); // HUNS_TARKAN
 
     updateEffect(df, 448, totalCount); // HUNS_TECH_TREE 
+    skipUpdate(214); // HUNS_START_RES 
     updateEffect(df, 538, totalCount); // HUNS_MARAUERS 
     updateEffect(df, 464, totalCount); // HUNS_ATHEISM 
-    updateEffect(df, 214, totalCount); // HUNS_START_RES 
     updateEffect(df, 497, totalCount); // HUNS_CA_DISCOUNT_1 
     updateEffect(df, 498, totalCount); // HUNS_CA_DISCOUNT_2 
     updateEffect(df, 484, totalCount); // HUNS_FASTER_STABLES 
@@ -858,10 +900,10 @@ void hunsCivBonus(genie::DatFile *df, float totalCount) {
 void incasCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_KAMAYUK, KAMAYUK, totalCount);
 
-    skipUpdate(40);
-    skipUpdate(564);
-    skipUpdate(565);
-    skipUpdate(582);
+    skipUpdate(40); // INC_EAGLE_START
+    skipUpdate(564); // INC_KAMAYUK
+    skipUpdate(565); // INC_KAMAYUK
+    skipUpdate(582); // INC_SLINGER
 
     updateEffect(df, 3, totalCount); // INC_TECH_TREE 
     updateEffect(df, 572, totalCount); // INC_ANDEAN_SLING 
@@ -883,9 +925,10 @@ void incasCivBonus(genie::DatFile *df, float totalCount) {
 
 void italiansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_GENOESE_CROSSBOWMAN, GENOESE_CROSSBOWMAN, totalCount);
+    updateUnitFromBase(df, CONDOTTIERO, LONG_SWORDSMAN, totalCount);
 
-    skipUpdate(519);
-    skipUpdate(520);
+    skipUpdate(519); // ITAL_GENOESE_CROSSBOWMAN
+    skipUpdate(520); // ITAL_GENOESE_CROSSBOWMAN
 
     updateEffect(df, 10, totalCount); // ITAL_TECH_TREE 
     updateEffect(df, 549, totalCount); // ITAL_PAVISE 
@@ -896,8 +939,8 @@ void italiansCivBonus(genie::DatFile *df, float totalCount) {
 void japaneseCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_SAMURAI, SAMURAI, totalCount);
 
-    skipUpdate(250);
-    skipUpdate(364);
+    skipUpdate(250); // JAP_SAMURAI
+    skipUpdate(364); // JAP_SAMURAI
 
     updateEffect(df, 255, totalCount); // JAP_TECH_TREE 
     updateEffect(df, 539, totalCount); // JAP_YASAMA 
@@ -916,8 +959,8 @@ void japaneseCivBonus(genie::DatFile *df, float totalCount) {
 void khmerCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_BALLISTA_ELEPHANT, BALLISTA_ELEPHANT, totalCount);
 
-    skipUpdate(654);
-    skipUpdate(655);
+    skipUpdate(654); // KHMER_BALLISTA_ELEPHANT
+    skipUpdate(655); // KHMER_BALLISTA_ELEPHANT
 
     updateEffect(df, 646, totalCount); // KHMER_TECH_TREE 
     updateEffect(df, 662, totalCount); // KHMER_TUSK_SWORDS 
@@ -931,10 +974,10 @@ void koreansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_WAR_WAGON, WAR_WAGON, totalCount);
     updateUnitFromBase(df, ELITE_TURTLE_SHIP, TURTLE_SHIP, totalCount);
 
-    skipUpdate(500);
-    skipUpdate(501);
-    skipUpdate(502);
-    skipUpdate(503);
+    skipUpdate(500); // KOREA_TURTLE_SHIP
+    skipUpdate(501); // KOREA_TURTLE_SHIP
+    skipUpdate(502); // KOREA_WAR_WAGON
+    skipUpdate(503); // KOREA_WAR_WAGON
 
     updateEffect(df, 504, totalCount); // KOREA_TECH_TREE 
     updateEffect(df, 541, totalCount); // KOREA_EUPSEONG 
@@ -946,10 +989,10 @@ void koreansCivBonus(genie::DatFile *df, float totalCount) {
 void lithuaniansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_LEITIS, LEITIS, totalCount);
 
-    skipUpdate(720);
-    skipUpdate(721);
-    skipUpdate(747);
-    skipUpdate(817);
+    skipUpdate(720); // LITH_LEITIS
+    skipUpdate(721); // LITH_LEITIS
+    skipUpdate(747); // LITH_HUSSAR
+    skipUpdate(817); // LITH_HUSSAR
 
     updateEffect(df, 712, totalCount); // LITH_TECH_TREE 
     updateEffect(df, 728, totalCount); // LITH_HILL_FORTS 
@@ -972,8 +1015,8 @@ void lithuaniansCivBonus(genie::DatFile *df, float totalCount) {
 void magyarsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_MAGYAR_HUSZAR, MAGYAR_HUSZAR, totalCount);
 
-    skipUpdate(525);
-    skipUpdate(526);
+    skipUpdate(525); // MAG_MAGYAR_HUSSAR
+    skipUpdate(526); // MAG_MAGYAR_HUSSAR
 
     updateEffect(df, 5, totalCount); // MAG_TECH_TREE 
     updateEffect(df, 570, totalCount); // MAG_RECURVE_BOW 
@@ -986,8 +1029,8 @@ void magyarsCivBonus(genie::DatFile *df, float totalCount) {
 void malayCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_KARAMBIT_WARRIOR, KARAMBIT_WARRIOR, totalCount);
 
-    skipUpdate(656);
-    skipUpdate(657);
+    skipUpdate(656); // MALAY_KARAMBIT_WARRIOR
+    skipUpdate(657); // MALAY_KARAMBIT_WARRIOR
 
     updateEffect(df, 648, totalCount); // MALAY_TECH_TREE 
     updateEffect(df, 664, totalCount); // MALAY_THALASSOCRACY 
@@ -1006,8 +1049,8 @@ void malayCivBonus(genie::DatFile *df, float totalCount) {
 void maliansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_GBETO, GBETO, totalCount);
 
-    skipUpdate(596);
-    skipUpdate(597);
+    skipUpdate(596); // MALI_GHBETO
+    skipUpdate(597); // MALI_GHBETO
 
     updateEffect(df, 42, totalCount); // MALI_TECH_TREE 
     updateEffect(df, 605, totalCount); // MALI_TIGUI 
@@ -1024,8 +1067,8 @@ void maliansCivBonus(genie::DatFile *df, float totalCount) {
 void mayansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_PLUMED_ARCHER, PLUMED_ARCHER, totalCount);
 
-    skipUpdate(468);
-    skipUpdate(469);
+    skipUpdate(468); // MAY_PLUMED_ARCHER
+    skipUpdate(469); // MAY_PLUMED_ARCHER
 
     updateEffect(df, 449, totalCount); // MAY_TECH_TREE 
     updateEffect(df, 515, totalCount); // MAY_HULCHE_JAVELINEERS 
@@ -1051,8 +1094,8 @@ void mayansCivBonus(genie::DatFile *df, float totalCount) {
 void mongolsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_MANGUDAI, MANGUDAI, totalCount);
 
-    skipUpdate(270);
-    skipUpdate(369);
+    skipUpdate(270); // MONG_MANGUDAI
+    skipUpdate(369); // MONG_MANGUDAI
 
     updateEffect(df, 277, totalCount); // MONG_TECH_TREE 
     updateEffect(df, 542, totalCount); // MONG_NOMADS 
@@ -1067,17 +1110,15 @@ void mongolsCivBonus(genie::DatFile *df, float totalCount) {
 void persiansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_WAR_ELEPHANT, WAR_ELEPHANT, totalCount);
 
-    skipUpdate(271);
-    skipUpdate(365);
+    skipUpdate(271); // PERS_WAR_ELEPHANT
+    skipUpdate(365); // PERS_WAR_ELEPHANT
 
     updateEffect(df, 260, totalCount); // PERS_TECH_TREE 
     updateEffect(df, 458, totalCount); // PERS_MAHOUTS 
-    const int PERS_KAMANDARAN = 543;
-    skipUpdate(PERS_KAMANDARAN);
-
+    updateEffect(df, 543, totalCount); // PERS_KAMANDARAN 
     updateEffect(df, 212, totalCount); // PERS_START_RES 
-    updateEffect(df, 340, totalCount); // PERS_TC_HP 
-    updateEffect(df, 347, totalCount); // PERS_DOCK_HP 
+    updateEffect(df, 340, min(totalCount, 3.0f)); // PERS_TC_HP 
+    updateEffect(df, 347, min(totalCount, 3.0f)); // PERS_DOCK_HP 
     updateEffect(df, 421, totalCount); // PERS_TC_SPEED 
     updateEffect(df, 424, totalCount); // PERS_DOCK_SPEED 
     updateEffect(df, 408, totalCount); // PERS_KNIGHT_BONUS 
@@ -1090,8 +1131,8 @@ void polesCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, 1711, 129, totalCount);
     updateUnitFromBase(df, 1720, 130, totalCount);
 
-    skipUpdate(805);
-    skipUpdate(806);
+    skipUpdate(805); // POL_OBUCH
+    skipUpdate(806); // POL_OBUCH
 
     updateEffect(df, 801, totalCount); // POL_TECH_TREE 
     updateEffect(df, 809, totalCount); // POL_SZLACHTA_PRIVILEGES 
@@ -1114,10 +1155,10 @@ void portugueseCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_ORGAN_GUN, ORGAN_GUN, totalCount);
     updateUnitFromBase(df, ELITE_CARAVEL, CARAVEL, totalCount);
 
-    skipUpdate(591);
-    skipUpdate(592);
-    skipUpdate(622);
-    skipUpdate(623);
+    skipUpdate(591); // PORT_ORGAN_GUN
+    skipUpdate(592); // PORT_ORGAN_GUN
+    skipUpdate(622); // PORT_CARAVEL
+    skipUpdate(623); // PORT_CARAVEL
 
     updateEffect(df, 31, totalCount); // PORT_TECH_TREE 
     updateEffect(df, 601, totalCount); // PORT_CARRACK 
@@ -1128,6 +1169,14 @@ void portugueseCivBonus(genie::DatFile *df, float totalCount) {
     // Ships + 10% hp
 
     updateEffect(df, 600, totalCount); // PORT_FEITORIA_AVAIL 
+    auto add_res_command = new genie::EffectCommand();
+    add_res_command->Type = 1;
+    add_res_command->A = 265;
+    add_res_command->B = 0;
+    add_res_command->C =-1;
+    add_res_command->D = 1;
+    df->Effects.at(600).EffectCommands.push_back(*add_res_command);
+
     const int PORT_FEITORIA = 1021;
     for (auto &civ : df->Civs) {
         auto &unit = civ.Units.at(PORT_FEITORIA);
@@ -1137,6 +1186,14 @@ void portugueseCivBonus(genie::DatFile *df, float totalCount) {
             unit.Bird.TaskList.at(i).WorkValue1 = multipleAdd(unit.Bird.TaskList.at(i).WorkValue1, totalCount);
             unit.Bird.TaskList.at(i).WorkValue2 = multipleAdd(unit.Bird.TaskList.at(i).WorkValue2, totalCount);
         }
+
+        unit.ResourceStorages[2].Type = 265;
+        unit.ResourceStorages[2].Amount = -1;
+        unit.ResourceStorages[2].Flag = 2;
+
+        unit.Creatable.ResourceCosts[2].Type = 265;
+        unit.Creatable.ResourceCosts[2].Amount = 1;
+        unit.Creatable.ResourceCosts[2].Flag = 0;
     }
 
     updateEffect(df, 32, totalCount); // PORT_RESEARCH_SPEED 
@@ -1146,10 +1203,10 @@ void romansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, 1792, 1790, totalCount);
     updateUnitFromBase(df, 1793, LONG_SWORDSMAN, totalCount);
 
-    skipUpdate(892);
-    skipUpdate(893);
-    skipUpdate(896);
-    skipUpdate(903);
+    skipUpdate(892); // ROM_CENTURION
+    skipUpdate(893); // ROM_CENTURION
+    skipUpdate(896); // ROM_LEGIONARY
+    skipUpdate(903); // ROM_LEGIONARY
 
     updateEffect(df, 890, totalCount); // ROM_TECH_TREE 
     updateEffect(df, 894, totalCount); // ROM_BALLISTAS 
@@ -1175,8 +1232,8 @@ void romansCivBonus(genie::DatFile *df, float totalCount) {
 void saracensCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_MAMELUKE, MAMELUKE, totalCount);
 
-    skipUpdate(266);
-    skipUpdate(366);
+    skipUpdate(266); // SAR_MAMELUKE
+    skipUpdate(366); // SAR_MAMELUKE
 
     updateEffect(df, 261, totalCount); // SAR_TECH_TREE 
     updateEffect(df, 459, totalCount); // SAR_ZEALOTRY 
@@ -1196,8 +1253,8 @@ void siciliansCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, 1661, 1660, totalCount);
     updateUnitFromBase(df, 1665, 79, totalCount);
 
-    skipUpdate(788);
-    skipUpdate(789);
+    skipUpdate(788); // SIC_SERJEANT
+    skipUpdate(789); // SIC_SERJEANT
 
     updateEffect(df, 784, totalCount); // SIC_TECH_TREE 
     updateEffect(df, 792, totalCount); // SIC_FIRST_CRUSADE 
@@ -1215,8 +1272,8 @@ void siciliansCivBonus(genie::DatFile *df, float totalCount) {
 void slavsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_BOYAR, BOYAR, totalCount);
 
-    skipUpdate(556);
-    skipUpdate(557);
+    skipUpdate(556); // SLAVS_BOYAR
+    skipUpdate(557); // SLAVS_BOYAR
 
     updateEffect(df, 7, totalCount); // SLAVS_TECH_TREE 
     updateEffect(df, 481, totalCount); // SLAVS_DETINETS 
@@ -1229,8 +1286,8 @@ void slavsCivBonus(genie::DatFile *df, float totalCount) {
 void spanishCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_CONQUISTADOR, CONQUISTADOR, totalCount);
 
-    skipUpdate(491);
-    skipUpdate(492);
+    skipUpdate(491); // SPANISH_CONQ
+    skipUpdate(492); // SPANISH_CONQ
 
     updateEffect(df, 446, totalCount); // SPAN_TECH_TREE 
     updateEffect(df, 547, totalCount); // SPAN_INQUISITION 
@@ -1245,9 +1302,10 @@ void spanishCivBonus(genie::DatFile *df, float totalCount) {
 
 void tatarsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_KESHIK, KESHIK, totalCount);
+    updateUnitFromBase(df, FLAMING_CAMEL, PETARD, totalCount);
 
-    skipUpdate(716);
-    skipUpdate(717);
+    skipUpdate(716); // TAT_KESHIK
+    skipUpdate(717); // TAT_KESHIK
 
     updateEffect(df, 708, totalCount); // TAT_TECH_TREE 
     updateEffect(df, 724, totalCount); // TAT_SILK_ARMOR 
@@ -1264,8 +1322,8 @@ void tatarsCivBonus(genie::DatFile *df, float totalCount) {
 void teutonsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_TEUTONIC_KNIGHT, TEUTONIC_KNIGHT, totalCount);
 
-    skipUpdate(273);
-    skipUpdate(362);
+    skipUpdate(273); // TEUT_TEUTONIC_KNIGHT
+    skipUpdate(362); // TEUT_TEUTONIC_KNIGHT
 
     updateEffect(df, 262, totalCount); // TEUT_TECH_TREE 
     updateEffect(df, 544, totalCount); // TEUT_IRONCLAD 
@@ -1283,9 +1341,9 @@ void teutonsCivBonus(genie::DatFile *df, float totalCount) {
 void turksCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_JANISSARY, JANISSARY, totalCount);
 
-    skipUpdate(268);
-    skipUpdate(353);
-    skipUpdate(367);
+    skipUpdate(268); // TURK_JANNISARY
+    skipUpdate(353); // TURK_CASTLE
+    skipUpdate(367); // TURK_JANNISARY
 
     updateEffect(df, 263, totalCount); // TURK_TECH_TREE 
     updateEffect(df, 546, totalCount); // TURK_SIPAHI 
@@ -1303,8 +1361,8 @@ void vietnameseCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_RATTAN_ARCHER, RATTAN_ARCHER, totalCount);
     updateUnitFromBase(df, IMPERIAL_SKIRMISHER, ELITE_SKIRMISHER, totalCount);
 
-    skipUpdate(660);
-    skipUpdate(661);
+    skipUpdate(660); // VIET_RATTAN
+    skipUpdate(661); // VIET_RATTAN
 
     updateEffect(df, 652, totalCount); // VIET_TECH_TREE 
     updateEffect(df, 668, totalCount); // VIET_CHATRAS 
@@ -1320,10 +1378,11 @@ void vikingsCivBonus(genie::DatFile *df, float totalCount) {
     updateUnitFromBase(df, ELITE_BERSERK, BERSERK, totalCount);
     updateUnitFromBase(df, ELITE_LONGBOAT, LONGBOAT, totalCount);
 
-    skipUpdate(269);
-    skipUpdate(370);
-    skipUpdate(397);
-    skipUpdate(398);
+    skipUpdate(251); // VIK_LONGBOAT
+    skipUpdate(269); // VIK_LONGBOAT
+    skipUpdate(370); // VIK_LONGBOAT
+    skipUpdate(397); // VIK_BERSERK
+    skipUpdate(398); // VIK_BERSERK
 
     updateEffect(df, 276, totalCount); // VIK_TECH_TREE 
     updateEffect(df, 517, totalCount); // VIK_CHIEFTAINS 
@@ -1394,4 +1453,41 @@ void configureMultipliedCivBonus(genie::DatFile *df, int totalCount) {
             cout << "Effect " << tech.EffectID << ":" << df->Effects.at(tech.EffectID).Name << " should not be updated for civ: " << df->Civs.at(tech.Civ).Name << " tech: " << tech.Name << " but was.\n";
         }
     }
+
+    // auto civs_cout = df->Civs.size();
+    // for (auto &effect : updated_effects) {
+    //     bool effect_contained = false;
+    //     for (auto i = 0; i < techs_count; i++) {
+    //         auto &tech = df->Techs.at(i);
+    //         if (tech.EffectID == effect) {
+    //             effect_contained = true;
+    //             break;
+    //         }
+    //     }
+
+    //     for (auto i = 0; i < civs_cout; i++) {
+    //         auto &civ = df->Civs.at(i);
+    //         if (civ.TechTreeID == effect ||
+    //             civ.TeamBonusID == effect) {
+    //             effect_contained = true;
+    //             break;
+    //         }
+    //     }
+
+    //     if (!effect_contained) {
+    //         cout << "Effect " << effect << ":" << df->Effects.at(effect).Name << " not contained in any tech or civ\n";
+    //     }
+    // }
+
+    // for (auto i = 0; i < techs_count; i++) {
+    //     auto &tech = df->Techs.at(i);
+    //     auto required_techs_count = tech.RequiredTechCount;
+
+    //     for (auto j = 0; j < required_techs_count; j++) {
+    //         auto &required_tech = tech.RequiredTechs.at(j);
+    //         if (required_tech == 725) {
+    //             cout << "Tech " << i << ":" << tech.Name << "needs 725\n";
+    //         }
+    //     }
+    // }
 }

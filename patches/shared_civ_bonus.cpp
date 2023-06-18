@@ -85,6 +85,11 @@ void shareEffect(
             case 0: // attribute set
                 command.Type = 10;
                 break;
+            case 2: // enable/disable unit
+                if (command.B == 1) {
+                    command.Type = 12;
+                }
+                break;
             case 3: // upgrade units
                 command.Type = 13;
                 break;
@@ -156,11 +161,12 @@ void shareTech(
 #pragma endregion Helper_Methods
 
 void aztecsCivBonus(genie::DatFile *df) {
-    skipShare(346);
-    skipShare(442);
-    skipShare(444);
-
     auto team_bonus_id = 488;
+
+    skipShare(346); // AZT_XOLOTL
+    skipShare(442); // AZT_JAGUAR_MAN
+    skipShare(444); // AZT_JAGUAR_MAN
+
     shareEffect(df, 447, team_bonus_id); // AZT_TECH_TREE
     shareEffect(df, 514, team_bonus_id); // AZT_ATLATL
     shareEffect(df, 465, team_bonus_id); // AZT_GARLAND_WARS
@@ -179,10 +185,11 @@ void aztecsCivBonus(genie::DatFile *df) {
 }
 
 void bengalisCivBonus(genie::DatFile *df) {
-    skipShare(846);
-    skipShare(847);
-
     auto team_bonus_id = 841;
+
+    skipShare(846); // BENG_RATHA
+    skipShare(847); // BENG_RATHA
+
     shareEffect(df, 840, team_bonus_id); // BENG_TECH_TREE
     shareEffect(df, 852, team_bonus_id); // BENG_PAIKS
     shareEffect(df, 853, team_bonus_id); // BENG_MAHAYANA
@@ -195,11 +202,14 @@ void bengalisCivBonus(genie::DatFile *df) {
 }
 
 void berbersCivBonus(genie::DatFile *df) {
-    skipShare(594);
-    skipShare(595);
-    skipShare(624);
-
     auto team_bonus_id = 38;
+
+    skipShare(594); // BERB_CAMEL_ARCHER
+    skipShare(595); // BERB_CAMEL_ARCHER
+    skipShare(440); // BERB_GENITOUR
+    skipShare(624); // BERB_GENITOUR
+    skipShare(627); // BERB_GENITOUR
+
     shareEffect(df, 37, team_bonus_id); // BERB_TECH_TREE
     shareEffect(df, 607, team_bonus_id); // BERB_KASBAH
     shareEffect(df, 608, team_bonus_id); // BERB_MAGHREBI_CAMELS
@@ -212,11 +222,12 @@ void berbersCivBonus(genie::DatFile *df) {
 }
 
 void bohemiansCivBonus(genie::DatFile *df) {
-    skipShare(807);
-    skipShare(808);
-    skipShare(814);
-
     auto team_bonus_id = 804;
+
+    skipShare(807); // BOH_HUSSITE_WAGON
+    skipShare(808); // BOH_HUSSITE_WAGON
+    shareEffect(df, 814, team_bonus_id); // BOH_HOUFNICE
+
     shareEffect(df, 803, team_bonus_id); // BOH_TECH_TREE
     shareEffect(df, 811, team_bonus_id); // BOH_WAGENBURG_TACTICS
     shareEffect(df, 812, team_bonus_id); // BOH_HUSSITE_REFORMS
@@ -228,8 +239,9 @@ void bohemiansCivBonus(genie::DatFile *df) {
 }
 
 void britonsCivBonus(genie::DatFile *df) {
-    skipShare(251);
-    skipShare(358);
+
+    skipShare(251); // BRIT_LONGBOWMAN
+    skipShare(358); // BRIT_LONGBOWMAN
     
     auto team_bonus_id = 399;
     shareEffect(df, 254, team_bonus_id); // BRIT_TECH_TREE
@@ -242,11 +254,12 @@ void britonsCivBonus(genie::DatFile *df) {
     shareEffect(df, 399, team_bonus_id); // BRIT_RANGE_SPEED
 }
 
-void bulgariansCivBonus(genie::DatFile *df) {
-    skipShare(714);
-    skipShare(715);
-    
+void bulgariansCivBonus(genie::DatFile *df) {    
     auto team_bonus_id = 707;
+
+    skipShare(714); // BULG_KONNIK
+    skipShare(715); // BULG_KONNIK
+
     shareEffect(df, 706, team_bonus_id); // BULG_TECH_TREE
     shareEffect(df, 722, team_bonus_id); // BULG_STIRRUPS
     shareEffect(df, 723, team_bonus_id); // BULG_BAGAINS
@@ -258,10 +271,11 @@ void bulgariansCivBonus(genie::DatFile *df) {
 }
 
 void burgundiansCivBonus(genie::DatFile *df) {
-    skipShare(786);
-    skipShare(787);
-    
     auto team_bonus_id = 783;
+
+    skipShare(786); // BURG_COUSTILLIER
+    skipShare(787); // BURG_COUSTILLIER
+
     shareEffect(df, 782, team_bonus_id); // BURG_TECH_TREE
     shareEffect(df, 790, team_bonus_id); // BURG_BURGUNDIAN_VINEYARDS
     shareEffect(df, 791, team_bonus_id); // BURG_FLEMISH_REVOLUTION
@@ -270,10 +284,11 @@ void burgundiansCivBonus(genie::DatFile *df) {
 }
 
 void burmeseCivBonus(genie::DatFile *df) {
-    skipShare(658);
-    skipShare(659);
-    
     auto team_bonus_id = 651;
+
+    skipShare(658); // BURM_ARAMBAI
+    skipShare(659); // BURM_ARAMBAI
+
     shareEffect(df, 650, team_bonus_id); // BURM_TECH_TREE
     shareEffect(df, 666, team_bonus_id); // BURM_HOWDAH
     shareEffect(df, 667, team_bonus_id); // BURM_MANIPUR_CAVALRY
@@ -287,10 +302,11 @@ void burmeseCivBonus(genie::DatFile *df) {
 }
 
 void byzantinesCivBonus(genie::DatFile *df) {
-    skipShare(264);
-    skipShare(359);
-    
     auto team_bonus_id = 400;
+
+    skipShare(264); // BYZ_CATAPHRACT
+    skipShare(359); // BYZ_CATAPHRACT
+
     shareEffect(df, 256, team_bonus_id); // BYZ_TECH_TREE
     shareEffect(df, 518, team_bonus_id); // BYZ_GREEK_FIRE
     shareEffect(df, 493, team_bonus_id); // BYZ_LOGISTICA
@@ -304,11 +320,12 @@ void byzantinesCivBonus(genie::DatFile *df) {
     shareEffect(df, 400, team_bonus_id); // BYZ_HEALSPEED
 }
 
-void celtsCivBonus(genie::DatFile *df) {
-    skipShare(274);
-    skipShare(368);
-    
+void celtsCivBonus(genie::DatFile *df) {    
     auto team_bonus_id = 401;
+
+    skipShare(274); // CELT_WOAD_RIDER
+    skipShare(368); // CELT_WOAD_RIDER
+
     shareEffect(df, 275, team_bonus_id); // CELT_TECH_TREE
     shareEffect(df, 537, team_bonus_id); // CELT_STRONGHOLD
     shareEffect(df, 239, team_bonus_id); // CELT_FUROR_CELTICA
@@ -320,10 +337,11 @@ void celtsCivBonus(genie::DatFile *df) {
 }
 
 void chineseCivBonus(genie::DatFile *df) {
-    skipShare(265);
-    skipShare(360);
-    
     auto team_bonus_id = 402;
+
+    skipShare(265); // CHIN_CHUKONU
+    skipShare(360); // CHIN_CHUKONU
+
     shareEffect(df, 257, team_bonus_id); // CHIN_TECH_TREE
     shareEffect(df, 516, team_bonus_id); // CHIN_GREAT_WALL
     shareEffect(df, 483, team_bonus_id); // CHIN_ROCKETRY
@@ -346,12 +364,13 @@ void chineseCivBonus(genie::DatFile *df) {
 }
 
 void cumansCivBonus(genie::DatFile *df) {
-    skipShare(718);
-    skipShare(719);
-    skipShare(759);
-    skipShare(760); 
-    
     auto team_bonus_id = 711;
+
+    skipShare(718); // CUMANS_KIPCHAK
+    skipShare(719); // CUMANS_KIPCHAK
+    skipShare(759); // CUMANS_TC_BUILD_TIME
+    skipShare(760); // CUMANS_TC_BUILD_TIME
+
     shareEffect(df, 710, team_bonus_id); // CUMANS_TECH_TREE
     shareEffect(df, 726, team_bonus_id); // CUMANS_STEPPE_HUSBANDRY
     shareEffect(df, 743, team_bonus_id); // CUMANS_CUMAN_MERCENARIES
@@ -367,10 +386,11 @@ void cumansCivBonus(genie::DatFile *df) {
 }
 
 void dravidiansCivBonus(genie::DatFile *df) {
-    skipShare(844);
-    skipShare(845);
-    
     auto team_bonus_id = 839;
+
+    skipShare(844); // DRAV_URUMI_SWORDSMAN
+    skipShare(845); // DRAV_URUMI_SWORDSMAN
+
     shareEffect(df, 838, team_bonus_id); // DRAV_TECH_TREE
     shareEffect(df, 850, team_bonus_id); // DRAV_MEDICAL_CORPS
     shareEffect(df, 851, team_bonus_id); // DRAV_WOOTZ_STEEL
@@ -382,11 +402,12 @@ void dravidiansCivBonus(genie::DatFile *df) {
     shareEffect(df, 839, team_bonus_id); // DRAV_DOCK_POP
 }
 
-void ethiopiansCivBonus(genie::DatFile *df) {
-    skipShare(598);
-    skipShare(599);
-    
+void ethiopiansCivBonus(genie::DatFile *df) {    
     auto team_bonus_id = 49;
+
+    skipShare(598); // ETH_SHOTEL_WARRIOR
+    skipShare(599); // ETH_SHOTEL_WARRIOR
+
     shareEffect(df, 48, team_bonus_id); // ETH_TECH_TREE
     shareEffect(df, 603, team_bonus_id); // ETH_ROYAL_HEIRS
     shareEffect(df, 604, team_bonus_id); // ETH_TORSION_ENGINES
@@ -399,11 +420,12 @@ void ethiopiansCivBonus(genie::DatFile *df) {
     shareEffect(df, 49, team_bonus_id); // ETH_OUTPOST_LOS
 }
 
-void franksCivBonus(genie::DatFile *df) {
-    skipShare(272);
-    skipShare(361);
-    
+void franksCivBonus(genie::DatFile *df) {    
     auto team_bonus_id = 403;
+
+    skipShare(272); // FRANKS_THROWING_AXEMAN
+    skipShare(361); // FRANKS_THROWING_AXEMAN
+
     shareEffect(df, 258, team_bonus_id); // FRANK_TECH_TREE
     shareEffect(df, 291, team_bonus_id); // FRANK_BEARDED_AXE
     shareEffect(df, 548, team_bonus_id); // FRANK_CHIVALRY
@@ -414,10 +436,11 @@ void franksCivBonus(genie::DatFile *df) {
 }
 
 void gothsCivBonus(genie::DatFile *df) {
-    skipShare(363);
-    skipShare(507);
-    
     auto team_bonus_id = 405;
+
+    skipShare(363); // GOTH_HUSCARL
+    skipShare(507); // GOTH_HUSCARL
+
     shareEffect(df, 259, team_bonus_id); // GOTH_TECH_TREE
     shareEffect(df, 462, team_bonus_id); // GOTH_ANARCHY
     shareEffect(df, 513, team_bonus_id); // GOTH_PERFUSION
@@ -437,12 +460,13 @@ void gothsCivBonus(genie::DatFile *df) {
 }
 
 void gurjarasCivBonus(genie::DatFile *df) {
-    skipShare(848);
-    skipShare(849);
-    skipShare(861);
-    skipShare(862);
-    
     auto team_bonus_id = 843;
+
+    skipShare(848); // GUR_CHAKRAM_THROWER
+    skipShare(849); // GUR_CHAKRAM_THROWER
+    shareEffect(df, 861, team_bonus_id); // GUR_SHRIVAMSHA_RIDER
+    shareEffect(df, 862, team_bonus_id); // GUR_SHRIVAMSHA_RIDER
+
     shareEffect(df, 842, team_bonus_id); // GUR_TECH_TREE
     shareEffect(df, 854, team_bonus_id); // GUR_KSHATRIYAS
     shareEffect(df, 875, team_bonus_id); // GUR_KSHATRIYAS_SUP
@@ -458,10 +482,11 @@ void gurjarasCivBonus(genie::DatFile *df) {
 }
 
 void hindustanisCivBonus(genie::DatFile *df) {
-    skipShare(858);
-    skipShare(859);
-    
     auto team_bonus_id = 2;
+
+    skipShare(858); // HIND_GHULAM
+    skipShare(859); // HIND_GHULAM
+
     shareEffect(df, 1, team_bonus_id); // HIND_TECH_TREE
     shareEffect(df, 577, team_bonus_id); // HIND_IMP_CAMEL
     shareEffect(df, 562, team_bonus_id); // HIND_GRAND_TRUNK_ROAD
@@ -477,10 +502,11 @@ void hindustanisCivBonus(genie::DatFile *df) {
 }
 
 void hunsCivBonus(genie::DatFile *df) {
-    skipShare(453);
-    skipShare(454);
-    
     auto team_bonus_id = 484;
+
+    skipShare(453); // HUNS_TARKAN
+    skipShare(454); // HUNS_TARKAN
+
     shareEffect(df, 448, team_bonus_id); // HUNS_TECH_TREE
     shareEffect(df, 538, team_bonus_id); // HUNS_MARAUERS
     shareEffect(df, 464, team_bonus_id); // HUNS_ATHEISM
@@ -491,12 +517,13 @@ void hunsCivBonus(genie::DatFile *df) {
 }
 
 void incasCivBonus(genie::DatFile *df) {
-    skipShare(40);
-    skipShare(564);
-    skipShare(565);
-    skipShare(582);
-    
     auto team_bonus_id = 4;
+
+    skipShare(40); // INC_EAGLE_START
+    skipShare(564); // INC_KAMAYUK
+    skipShare(565); // INC_KAMAYUK
+    shareEffect(df, 582, team_bonus_id); // INC_SLINGER
+
     shareEffect(df, 3, team_bonus_id); // INC_TECH_TREE
     shareEffect(df, 572, team_bonus_id); // INC_ANDEAN_SLING
     shareEffect(df, 573, team_bonus_id); // INC_FABRIC_SHIELDS
@@ -516,10 +543,11 @@ void incasCivBonus(genie::DatFile *df) {
 }
 
 void italiansCivBonus(genie::DatFile *df) {
-    skipShare(519);
-    skipShare(520);
-    
     auto team_bonus_id = 11;
+
+    skipShare(519); // ITAL_GENOESE_CROSSBOWMAN
+    skipShare(520); // ITAL_GENOESE_CROSSBOWMAN
+
     shareEffect(df, 10, team_bonus_id); // ITAL_TECH_TREE
     shareEffect(df, 549, team_bonus_id); // ITAL_PAVISE
     shareEffect(df, 554, team_bonus_id); // ITAL_SILK_ROAD
@@ -527,10 +555,11 @@ void italiansCivBonus(genie::DatFile *df) {
 }
 
 void japaneseCivBonus(genie::DatFile *df) {
-    skipShare(250);
-    skipShare(364);
-    
     auto team_bonus_id = 406;
+
+    skipShare(250); // JAP_SAMURAI
+    skipShare(364); // JAP_SAMURAI
+
     shareEffect(df, 255, team_bonus_id); // JAP_TECH_TREE
     shareEffect(df, 539, team_bonus_id); // JAP_YASAMA
     shareEffect(df, 59, team_bonus_id); // JAP_KATAPARUTO
@@ -546,10 +575,11 @@ void japaneseCivBonus(genie::DatFile *df) {
 }
 
 void khmerCivBonus(genie::DatFile *df) {
-    skipShare(654);
-    skipShare(655);
-    
     auto team_bonus_id = 647;
+
+    skipShare(654); // KHMER_BALLISTA_ELEPHANT
+    skipShare(655); // KHMER_BALLISTA_ELEPHANT
+
     shareEffect(df, 646, team_bonus_id); // KHMER_TECH_TREE
     shareEffect(df, 662, team_bonus_id); // KHMER_TUSK_SWORDS
     shareEffect(df, 663, team_bonus_id); // KHMER_DOUBLE_CROSSBOW
@@ -559,12 +589,13 @@ void khmerCivBonus(genie::DatFile *df) {
 }
 
 void koreansCivBonus(genie::DatFile *df) {
-    skipShare(500);
-    skipShare(501);
-    skipShare(502);
-    skipShare(503);
-    
     auto team_bonus_id = 505;
+
+    shareEffect(df, 500, team_bonus_id); // KOREA_TURTLE_SHIP
+    shareEffect(df, 501, team_bonus_id); // KOREA_TURTLE_SHIP
+    skipShare(502); // KOREA_WAR_WAGON
+    skipShare(503); // KOREA_WAR_WAGON
+
     shareEffect(df, 504, team_bonus_id); // KOREA_TECH_TREE
     shareEffect(df, 541, team_bonus_id); // KOREA_EUPSEONG
     shareEffect(df, 506, team_bonus_id); // KOREA_SHINKICHON
@@ -572,13 +603,15 @@ void koreansCivBonus(genie::DatFile *df) {
     shareEffect(df, 561, team_bonus_id); // KOREA_WOOD_DISCOUNT
 }
 
-void lithuaniansCivBonus(genie::DatFile *df) {
-    skipShare(720);
-    skipShare(721);
-    skipShare(747);
-    skipShare(817);
-    
+void lithuaniansCivBonus(genie::DatFile *df) {    
     auto team_bonus_id = 713;
+
+    skipShare(720); // LITH_LEITIS
+    skipShare(721); // LITH_LEITIS
+    skipShare(747); // LITH_HUSSAR
+    skipShare(817); // LITH_HUSSAR
+    shareEffect(df, 813, team_bonus_id); // LITH_HUSSAR
+
     shareEffect(df, 712, team_bonus_id); // LITH_TECH_TREE
     shareEffect(df, 728, team_bonus_id); // LITH_HILL_FORTS
     shareEffect(df, 729, team_bonus_id); // LITH_TOWER_SHIELDS
@@ -592,10 +625,11 @@ void lithuaniansCivBonus(genie::DatFile *df) {
 }
 
 void magyarsCivBonus(genie::DatFile *df) {
-    skipShare(525);
-    skipShare(526);
-    
     auto team_bonus_id = 6;
+
+    skipShare(525); // MAG_MAGYAR_HUSSAR
+    skipShare(526); // MAG_MAGYAR_HUSSAR
+
     shareEffect(df, 5, team_bonus_id); // MAG_TECH_TREE
     shareEffect(df, 570, team_bonus_id); // MAG_RECURVE_BOW
     shareEffect(df, 571, team_bonus_id); // MAG_MERCENARIES
@@ -605,10 +639,11 @@ void magyarsCivBonus(genie::DatFile *df) {
 }
 
 void malayCivBonus(genie::DatFile *df) {
-    skipShare(656);
-    skipShare(657);
-    
     auto team_bonus_id = 649;
+
+    skipShare(656); // MALAY_KARAMBIT_WARRIOR
+    skipShare(657); // MALAY_KARAMBIT_WARRIOR
+
     shareEffect(df, 648, team_bonus_id); // MALAY_TECH_TREE
     shareEffect(df, 664, team_bonus_id); // MALAY_THALASSOCRACY
     shareEffect(df, 665, team_bonus_id); // MALAY_FORCED_LEVY
@@ -624,10 +659,11 @@ void malayCivBonus(genie::DatFile *df) {
 }
 
 void maliansCivBonus(genie::DatFile *df) {
-    skipShare(596);
-    skipShare(597);
-    
     auto team_bonus_id = 43;
+
+    skipShare(596); // MALI_GHBETO
+    skipShare(597); // MALI_GHBETO
+
     shareEffect(df, 42, team_bonus_id); // MALI_TECH_TREE
     shareEffect(df, 605, team_bonus_id); // MALI_TIGUI
     shareEffect(df, 606, team_bonus_id); // MALI_FARIMBA
@@ -641,10 +677,11 @@ void maliansCivBonus(genie::DatFile *df) {
 }
 
 void mayansCivBonus(genie::DatFile *df) {
-    skipShare(468);
-    skipShare(469);
-    
     auto team_bonus_id = 489;
+
+    skipShare(468); // MAY_PLUMED_ARCHER
+    skipShare(469); // MAY_PLUMED_ARCHER
+
     shareEffect(df, 449, team_bonus_id); // MAY_TECH_TREE
     shareEffect(df, 515, team_bonus_id); // MAY_HULCHE_JAVELINEERS
     shareEffect(df, 456, team_bonus_id); // MAY_EL_DORADO
@@ -667,10 +704,11 @@ void mayansCivBonus(genie::DatFile *df) {
 }
 
 void mongolsCivBonus(genie::DatFile *df) {
-    skipShare(270);
-    skipShare(369);
-    
     auto team_bonus_id = 407;
+
+    skipShare(270); // MONG_MANGUDAI
+    skipShare(369); // MONG_MANGUDAI
+
     shareEffect(df, 277, team_bonus_id); // MONG_TECH_TREE
     shareEffect(df, 542, team_bonus_id); // MONG_NOMADS
     shareEffect(df, 681, team_bonus_id); // MONG_NOMADS_2
@@ -682,10 +720,11 @@ void mongolsCivBonus(genie::DatFile *df) {
 }
 
 void persiansCivBonus(genie::DatFile *df) {
-    skipShare(271);
-    skipShare(365);
-    
     auto team_bonus_id = 408;
+
+    skipShare(271); // PERS_WAR_ELEPHANT
+    skipShare(365); // PERS_WAR_ELEPHANT
+
     shareEffect(df, 260, team_bonus_id); // PERS_TECH_TREE
     shareEffect(df, 458, team_bonus_id); // PERS_MAHOUTS
     shareEffect(df, 543, team_bonus_id); // PERS_KAMANDARAN
@@ -698,10 +737,11 @@ void persiansCivBonus(genie::DatFile *df) {
 }
 
 void polesCivBonus(genie::DatFile *df) {
-    skipShare(805);
-    skipShare(806);
-    
     auto team_bonus_id = 802;
+
+    skipShare(805); // POL_OBUCH
+    skipShare(806); // POL_OBUCH
+
     shareEffect(df, 801, team_bonus_id); // POL_TECH_TREE
     shareEffect(df, 809, team_bonus_id); // POL_SZLACHTA_PRIVILEGES
     shareEffect(df, 810, team_bonus_id); // POL_LECHITIC_LEGACY
@@ -720,12 +760,13 @@ void polesCivBonus(genie::DatFile *df) {
 }
 
 void portugueseCivBonus(genie::DatFile *df) {
-    skipShare(591);
-    skipShare(592);
-    skipShare(622);
-    skipShare(623);
-    
     auto team_bonus_id = 32;
+
+    skipShare(591); // PORT_ORGAN_GUN
+    skipShare(592); // PORT_ORGAN_GUN
+    shareEffect(df, 622, team_bonus_id); // PORT_CARAVEL
+    shareEffect(df, 623, team_bonus_id); // PORT_CARAVEL
+
     shareEffect(df, 31, team_bonus_id); // PORT_TECH_TREE
     shareEffect(df, 601, team_bonus_id); // PORT_CARRACK
     shareEffect(df, 602, team_bonus_id); // PORT_ARQUEBUS
@@ -737,12 +778,13 @@ void portugueseCivBonus(genie::DatFile *df) {
 }
 
 void romansCivBonus(genie::DatFile *df) {
-    skipShare(892);
-    skipShare(893);
-    skipShare(896);
-    skipShare(903);
-    
     auto team_bonus_id = 891;
+
+    skipShare(892); // ROM_CENTURION
+    skipShare(893); // ROM_CENTURION
+    skipShare(903); // ROM_LEGIONARY
+    shareEffect(df, 896, team_bonus_id); // ROM_LEGIONARY
+
     shareEffect(df, 890, team_bonus_id); // ROM_TECH_TREE
     shareEffect(df, 894, team_bonus_id); // ROM_BALLISTAS
     shareEffect(df, 895, team_bonus_id); // ROM_COMITATENSES
@@ -772,10 +814,11 @@ void romansCivBonus(genie::DatFile *df) {
 }
 
 void saracensCivBonus(genie::DatFile *df) {
-    skipShare(266);
-    skipShare(366);
-    
     auto team_bonus_id = 409;
+
+    skipShare(266); // SAR_MAMELUKE
+    skipShare(366); // SAR_MAMELUKE
+    
     shareEffect(df, 261, team_bonus_id); // SAR_TECH_TREE
     shareEffect(df, 459, team_bonus_id); // SAR_ZEALOTRY
     shareEffect(df, 480, team_bonus_id); // SAR_COUNTERWEIGHTS
@@ -790,10 +833,11 @@ void saracensCivBonus(genie::DatFile *df) {
 }
 
 void siciliansCivBonus(genie::DatFile *df) {
-    skipShare(788);
-    skipShare(789);
-    
     auto team_bonus_id = 785;
+
+    skipShare(788); // SIC_SERJEANT
+    skipShare(789); // SIC_SERJEANT
+
     shareEffect(df, 784, team_bonus_id); // SIC_TECH_TREE
     shareEffect(df, 792, team_bonus_id); // SIC_FIRST_CRUSADE
     shareEffect(df, 793, team_bonus_id); // SIC_HAUBERK
@@ -808,10 +852,11 @@ void siciliansCivBonus(genie::DatFile *df) {
 }
 
 void slavsCivBonus(genie::DatFile *df) {
-    skipShare(556);
-    skipShare(557);
-    
     auto team_bonus_id = 9;
+
+    skipShare(556); // SLAVS_BOYAR
+    skipShare(557); // SLAVS_BOYAR
+
     shareEffect(df, 7, team_bonus_id); // SLAVS_TECH_TREE
     shareEffect(df, 481, team_bonus_id); // SLAVS_DETINETS
     shareEffect(df, 569, team_bonus_id); // SLAVS_DRUZHINA
@@ -821,10 +866,11 @@ void slavsCivBonus(genie::DatFile *df) {
 }
 
 void spanishCivBonus(genie::DatFile *df) {
-    skipShare(491);
-    skipShare(492);
-    
     auto team_bonus_id = 490;
+
+    skipShare(491); // SPANISH_CONQ
+    skipShare(492); // SPANISH_CONQ
+
     shareEffect(df, 446, team_bonus_id); // SPAN_TECH_TREE
     shareEffect(df, 547, team_bonus_id); // SPAN_INQUISITION
     shareEffect(df, 495, team_bonus_id); // SPAN_SUPREMACY
@@ -837,10 +883,11 @@ void spanishCivBonus(genie::DatFile *df) {
 }
 
 void tatarsCivBonus(genie::DatFile *df) {
-    skipShare(716);
-    skipShare(717);
-    
     auto team_bonus_id = 709;
+
+    skipShare(716); // TAT_KESHIK
+    skipShare(717); // TAT_KESHIK
+
     shareEffect(df, 708, team_bonus_id); // TAT_TECH_TREE
     shareEffect(df, 724, team_bonus_id); // TAT_SILK_ARMOR
     shareEffect(df, 725, team_bonus_id); // TAT_TIMURID
@@ -854,10 +901,11 @@ void tatarsCivBonus(genie::DatFile *df) {
 }
 
 void teutonsCivBonus(genie::DatFile *df) {
-    skipShare(273);
-    skipShare(362);
-    
     auto team_bonus_id = 404;
+
+    skipShare(273); // TEUT_TEUTONIC_KNIGHT
+    skipShare(362); // TEUT_TEUTONIC_KNIGHT
+
     shareEffect(df, 262, team_bonus_id); // TEUT_TECH_TREE
     shareEffect(df, 544, team_bonus_id); // TEUT_IRONCLAD
     shareEffect(df, 461, team_bonus_id); // TEUT_CRENELLATIONS
@@ -872,11 +920,12 @@ void teutonsCivBonus(genie::DatFile *df) {
 }
 
 void turksCivBonus(genie::DatFile *df) {
-    skipShare(268);
-    skipShare(353);
-    skipShare(367);
-    
     auto team_bonus_id = 410;
+
+    skipShare(268); // TURK_JANNISARY
+    skipShare(353); // TURK_CASTLE
+    skipShare(367); // TURK_JANNISARY
+
     shareEffect(df, 263, team_bonus_id); // TURK_TECH_TREE
     shareEffect(df, 546, team_bonus_id); // TURK_SIPAHI
     shareEffect(df, 460, team_bonus_id); // TURK_ARTILLERY
@@ -890,10 +939,11 @@ void turksCivBonus(genie::DatFile *df) {
 }
 
 void vietnameseCivBonus(genie::DatFile *df) {
-    skipShare(660);
-    skipShare(661);
-    
     auto team_bonus_id = 653;
+
+    skipShare(660); // VIET_RATTAN
+    skipShare(661); // VIET_RATTAN
+
     shareEffect(df, 652, team_bonus_id); // VIET_TECH_TREE
     shareEffect(df, 668, team_bonus_id); // VIET_CHATRAS
     shareEffect(df, 669, team_bonus_id); // VIET_PAPER_MONEY_1
@@ -905,12 +955,13 @@ void vietnameseCivBonus(genie::DatFile *df) {
 }
 
 void vikingsCivBonus(genie::DatFile *df) {
-    skipShare(269);
-    skipShare(370);
-    skipShare(397);
-    skipShare(398);
-    
     auto team_bonus_id = 411;
+
+    shareEffect(df, 269, team_bonus_id); // VIK_LONGBOAT
+    shareEffect(df, 370, team_bonus_id); // VIK_LONGBOAT
+    skipShare(397); // VIK_BERSERK
+    skipShare(398); // VIK_BERSERK
+
     shareEffect(df, 276, team_bonus_id); // VIK_TECH_TREE
     shareEffect(df, 517, team_bonus_id); // VIK_CHIEFTAINS
     shareEffect(df, 467, team_bonus_id); // VIK_BOGSVEIGAR

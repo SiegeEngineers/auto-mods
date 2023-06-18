@@ -38,7 +38,15 @@ const char *const TEAMWORK = "teamwork";
 const char *const X_256_TECH = "x256";
 const char *const X_3_TECH = "x3";
 const char *const X_9_TECH = "x9";
-const char *const X_10_SHARED_CIV = "10x-shared-civ";
+const char *const SHARED_CIV_BONUS = "shared-civ-bonus";
+const char *const X_2_SHARED_CIV_BONUS = "2x-shared-civ-bonus";
+const char *const X_2_CIV_BONUS = "2x-civ-bonus";
+const char *const X_5_SHARED_CIV_BONUS = "5x-shared-civ-bonus";
+const char *const X_5_CIV_BONUS = "5x-civ-bonus";
+const char *const X_10_SHARED_CIV_BONUS = "10x-shared-civ-bonus";
+const char *const X_10_CIV_BONUS = "10x-civ-bonus";
+const char *const X_20_SHARED_CIV_BONUS = "20x-shared-civ-bonus";
+const char *const X_20_CIV_BONUS = "20x-civ-bonus";
 
 vector<string> getModIdentifiers(char *const *argv);
 
@@ -71,7 +79,15 @@ int main(int argc, char **argv) {
         cout << "    " << X_3_TECH << endl;
         cout << "    " << X_9_TECH << endl;
         cout << "    " << X_256_TECH << endl;
-        cout << "    " << X_10_SHARED_CIV << endl;
+        cout << "    " << SHARED_CIV_BONUS << endl;
+        cout << "    " << X_2_SHARED_CIV_BONUS << endl;
+        cout << "    " << X_2_CIV_BONUS << endl;
+        cout << "    " << X_5_SHARED_CIV_BONUS << endl;
+        cout << "    " << X_5_CIV_BONUS << endl;
+        cout << "    " << X_10_SHARED_CIV_BONUS << endl;
+        cout << "    " << X_10_CIV_BONUS << endl;
+        cout << "    " << X_20_SHARED_CIV_BONUS << endl;
+        cout << "    " << X_20_CIV_BONUS << endl;
         return 1;
     }
 
@@ -141,9 +157,28 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
         duplicateTechs(df, 9);
     } else if (X_256_TECH == modIdentifier) {
         duplicateTechs(df, 256);
-    } else if (X_10_SHARED_CIV == modIdentifier) {
+    } else if (SHARED_CIV_BONUS == modIdentifier) {
+        configureSharedCivBonus(df);
+    } else if (X_2_SHARED_CIV_BONUS == modIdentifier) {
+        configureMultipliedCivBonus(df, 2);
+        configureSharedCivBonus(df);
+    } else if (X_2_CIV_BONUS == modIdentifier) {
+        configureMultipliedCivBonus(df, 2);
+    } else if (X_5_SHARED_CIV_BONUS == modIdentifier) {
+        configureMultipliedCivBonus(df, 5);
+        configureSharedCivBonus(df);
+    } else if (X_5_CIV_BONUS == modIdentifier) {
+        configureMultipliedCivBonus(df, 5);
+    } else if (X_10_SHARED_CIV_BONUS == modIdentifier) {
         configureMultipliedCivBonus(df, 10);
         configureSharedCivBonus(df);
+    } else if (X_10_CIV_BONUS == modIdentifier) {
+        configureMultipliedCivBonus(df, 10);
+    } else if (X_20_SHARED_CIV_BONUS == modIdentifier) {
+        configureMultipliedCivBonus(df, 20);
+        configureSharedCivBonus(df);
+    } else if (X_20_CIV_BONUS == modIdentifier) {
+        configureMultipliedCivBonus(df, 20);
     } else {
         cout << "Unknown mod identifier: '" << modIdentifier << "'" << endl;
     }

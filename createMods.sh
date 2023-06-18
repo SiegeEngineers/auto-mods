@@ -24,7 +24,15 @@ mkdir -p mods/teamwork/resources/_common/dat
 mkdir -p mods/x3/resources/_common/dat
 mkdir -p mods/x9/resources/_common/dat
 mkdir -p mods/x256/resources/_common/dat
-mkdir -p mods/10x-shared-civ/resources/_common/dat
+mkdir -p mods/shared-civ-bonus/resources/_common/dat
+mkdir -p mods/2x-civ-bonus/resources/_common/dat
+mkdir -p mods/2x-shared-civ-bonus/resources/_common/dat
+mkdir -p mods/5x-civ-bonus/resources/_common/dat
+mkdir -p mods/5x-shared-civ-bonus/resources/_common/dat
+mkdir -p mods/10x-civ-bonus/resources/_common/dat
+mkdir -p mods/10x-shared-civ-bonus/resources/_common/dat
+mkdir -p mods/20x-civ-bonus/resources/_common/dat
+mkdir -p mods/20x-shared-civ-bonus/resources/_common/dat
 
 ./build/create-data-mod community-games ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/community_games/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod flying-dutchman ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/flying_dutchman/resources/_common/dat/empires2_x2_p1.dat
@@ -49,7 +57,15 @@ mkdir -p mods/10x-shared-civ/resources/_common/dat
 ./build/create-data-mod x3 ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/x3/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod x9 ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/x9/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod x256 ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/x256/resources/_common/dat/empires2_x2_p1.dat
-./build/create-data-mod 10x-shared-civ ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/10x-shared-civ/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod shared-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/shared-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod 2x-shared-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/2x-shared-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod 2x-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/2x-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod 5x-shared-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/5x-shared-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod 5x-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/5x-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod 10x-shared-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/10x-shared-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod 10x-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/10x-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod 20x-shared-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/20x-shared-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod 20x-civ-bonus ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/20x-civ-bonus/resources/_common/dat/empires2_x2_p1.dat
 
 cd mods/community_games
 zip -r ../community_games.zip *
@@ -143,6 +159,38 @@ cd mods/x256
 zip -r ../x256.zip *
 cd ../..
 
-cd mods/10x-shared-civ
-zip -r ../10x-shared-civ.zip *
+cd mods/shared-civ-bonus
+zip -r ../shared-civ-bonus.zip *
+cd ../..
+
+cd mods/2x-shared-civ-bonus
+zip -r ../2x-shared-civ-bonus.zip *
+cd ../..
+
+cd mods/2x-civ-bonus
+zip -r ../2x-civ-bonus.zip *
+cd ../..
+
+cd mods/5x-shared-civ-bonus
+zip -r ../5x-shared-civ-bonus.zip *
+cd ../..
+
+cd mods/5x-civ-bonus
+zip -r ../5x-civ-bonus.zip *
+cd ../..
+
+cd mods/10x-shared-civ-bonus
+zip -r ../10x-shared-civ-bonus.zip *
+cd ../..
+
+cd mods/10x-civ-bonus
+zip -r ../10x-civ-bonus.zip *
+cd ../..
+
+cd mods/20x-shared-civ-bonus
+zip -r ../20x-shared-civ-bonus.zip *
+cd ../..
+
+cd mods/20x-civ-bonus
+zip -r ../20x-civ-bonus.zip *
 cd ../..
