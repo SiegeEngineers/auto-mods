@@ -26,6 +26,7 @@ add_executable(
     patches/no_wall.cpp
     patches/nomadking.cpp
     patches/random_costs.cpp
+    patches/double_costs.cpp
     patches/pocket_horse.cpp
     patches/teamwork.cpp
     patches/duplicate_techs.cpp

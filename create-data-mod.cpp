@@ -13,6 +13,7 @@
 #include "patches/nomadking.h"
 #include "patches/pocket_horse.h"
 #include "patches/random_costs.h"
+#include "patches/double_costs.h"
 #include "patches/teamwork.h"
 
 
@@ -30,6 +31,7 @@ const char *const NO_WALL = "no-wall";
 const char *const NOMAD_KING = "nomad-king";
 const char *const POCKET_HORSE = "pocket-horse";
 const char *const RANDOM_COSTS = "random-costs";
+const char *const DOUBLE_COSTS = "double-costs";
 const char *const RANDOM_TECH_COSTS = "random-tech-costs";
 const char *const RANDOM_UNIT_COSTS = "random-unit-costs";
 const char *const TEAMWORK = "teamwork";
@@ -64,6 +66,7 @@ int main(int argc, char **argv) {
         cout << "    " << RANDOM_COSTS << endl;
         cout << "    " << RANDOM_TECH_COSTS << endl;
         cout << "    " << RANDOM_UNIT_COSTS << endl;
+        cout << "    " << DOUBLE_COSTS << endl;
         cout << "    " << TEAMWORK << endl;
         cout << "    " << X_3_TECH << endl;
         cout << "    " << X_9_TECH << endl;
@@ -128,6 +131,8 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
     } else if (RANDOM_UNIT_COSTS == modIdentifier) {
         jumbleUnitCosts(df);
         enableStablesForMesoCivs(df);
+    } else if (DOUBLE_COSTS == modIdentifier) {
+        doubleCosts(df);
     } else if (TEAMWORK == modIdentifier) {
         makeTechEffectsShared(df);
         makeFarmTechsBuffSpeed(df);
