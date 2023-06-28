@@ -153,6 +153,8 @@ static const int BURGUNDIAN_VINEYARDS = 754;
 static const int FLEMISH_REVOLUTION = 755;
 static const int WAGENBURG_TACTICS = 784;
 static const int SZLACHTA_PRIVILEGES = 782;
+static const int BALLISTAS = 883;
+static const int COMITATENSES = 884;
 
 static const int ID_TRANSPORT_SHIP = 545;
 static const int ID_RAM = 35;

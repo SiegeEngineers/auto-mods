@@ -144,6 +144,8 @@ void duplicateTechs(genie::DatFile *df, int totalCount) {
         FLEMISH_REVOLUTION,
         WAGENBURG_TACTICS,
         SZLACHTA_PRIVILEGES,
+        BALLISTAS,
+        COMITATENSES,
     };
 
     for (int techId : techsToDuplicate) {
