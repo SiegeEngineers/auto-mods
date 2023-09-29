@@ -30,6 +30,7 @@ const char *const NO_WALL = "no-wall";
 const char *const NOMAD_KING = "nomad-king";
 const char *const POCKET_HORSE = "pocket-horse";
 const char *const RANDOM_COSTS = "random-costs";
+const char *const RANDOM_COSTS_LIGHT = "random-costs-light";
 const char *const RANDOM_TECH_COSTS = "random-tech-costs";
 const char *const RANDOM_UNIT_COSTS = "random-unit-costs";
 const char *const TEAMWORK = "teamwork";
@@ -62,6 +63,7 @@ int main(int argc, char **argv) {
         cout << "    " << NOMAD_KING << endl;
         cout << "    " << POCKET_HORSE << endl;
         cout << "    " << RANDOM_COSTS << endl;
+        cout << "    " << RANDOM_COSTS_LIGHT << endl;
         cout << "    " << RANDOM_TECH_COSTS << endl;
         cout << "    " << RANDOM_UNIT_COSTS << endl;
         cout << "    " << TEAMWORK << endl;
@@ -120,7 +122,10 @@ void applyModifications(genie::DatFile *df, const string &modIdentifier) {
     } else if (POCKET_HORSE == modIdentifier) {
         setPocketHorseIds(df);
     } else if (RANDOM_COSTS == modIdentifier) {
-        jumbleCosts(df);
+        jumbleCosts(df, 0);
+        enableStablesForMesoCivs(df);
+    } else if (RANDOM_COSTS_LIGHT == modIdentifier) {
+        jumbleCosts(df, 5);
         enableStablesForMesoCivs(df);
     } else if (RANDOM_TECH_COSTS == modIdentifier) {
         jumbleTechCosts(df);

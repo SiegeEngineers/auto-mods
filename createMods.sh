@@ -18,6 +18,7 @@ mkdir -p mods/no_wall/resources/_common/dat
 mkdir -p mods/nomad_king/resources/_common/dat
 mkdir -p mods/pocket_horse/resources/_common/dat
 mkdir -p mods/random-costs/resources/_common/dat
+mkdir -p mods/random-costs-light/resources/_common/dat
 mkdir -p mods/random-tech-costs/resources/_common/dat
 mkdir -p mods/random-unit-costs/resources/_common/dat
 mkdir -p mods/teamwork/resources/_common/dat
@@ -42,6 +43,7 @@ mkdir -p mods/x256/resources/_common/dat
 ./build/create-data-mod nomad-king+exploding-kings ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/exploding_nomad_kings/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod pocket-horse ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/pocket_horse/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod random-costs ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-costs/resources/_common/dat/empires2_x2_p1.dat
+./build/create-data-mod random-costs-light ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-costs-light/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod random-tech-costs ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-tech-costs/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod random-unit-costs ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/random-unit-costs/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod teamwork ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/teamwork/resources/_common/dat/empires2_x2_p1.dat
@@ -115,6 +117,10 @@ cd ../..
 
 cd mods/random-costs
 zip -r ../random-costs.zip *
+cd ../..
+
+cd mods/random-costs-light
+zip -r ../random-costs-light.zip *
 cd ../..
 
 cd mods/random-tech-costs

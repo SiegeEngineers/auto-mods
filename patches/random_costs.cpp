@@ -41,6 +41,16 @@ int getSumOfNaturalResourceCosts(const std::vector<ResourceCost> &resourceCosts)
     return sum;
 }
 
+int getSumOfNaturalResearchResourceCosts(const std::vector<ResearchResourceCost > &resourceCosts) {
+    int sum = 0;
+    for (const ResearchResourceCost &cost : resourceCosts) {
+        if (cost.Type > -1 && cost.Type < 4) {
+            sum += cost.Amount;
+        }
+    }
+    return sum;
+}
+
 
 ResearchResourceCost toResearchResourceCost(const ResourceCost &resourceCost) {
     ResearchResourceCost researchResourceCost;
@@ -183,10 +193,10 @@ void enableStablesForMesoCivs(genie::DatFile *df) {
 }
 
 
-void jumbleCosts(genie::DatFile *df) {
+void jumbleCosts(genie::DatFile *df, int limit) {
     std::vector<int> unitIds;
     for (genie::Unit unit : df->Civs.at(0).Units) {
-        if (hasNaturalResourceCost(unit)) {
+        if (hasNaturalResourceCost(unit) && (getSumOfNaturalResourceCosts(unit.Creatable.ResourceCosts) > limit)) {
             unitIds.push_back(unit.ID);
         }
     }
@@ -195,7 +205,7 @@ void jumbleCosts(genie::DatFile *df) {
     size_t index = 0;
     for (const genie::Tech &tech : df->Techs) {
         std::vector<ResearchResourceCost> resourceCopy = tech.ResourceCosts;
-        if (hasNaturalResearchResourceCost(resourceCopy)) {
+        if (hasNaturalResearchResourceCost(resourceCopy) && (getSumOfNaturalResearchResourceCosts(resourceCopy) > limit)) {
             techIds.push_back(index);
         }
         index++;

@@ -4,7 +4,7 @@
 #include "genie/dat/DatFile.h"
 
 
-void jumbleCosts(genie::DatFile *df);
+void jumbleCosts(genie::DatFile *df, int limit);
 void enableStablesForMesoCivs(genie::DatFile *df);
 void jumbleUnitCosts(genie::DatFile *df);
 void jumbleTechCosts(genie::DatFile *df);

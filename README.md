@@ -21,6 +21,7 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [Nomad King](https://www.ageofempires.com/mods/details/123629/)
 - [Pocket Horse Mod](https://www.ageofempires.com/mods/details/93974/)
 - [Random Costs](https://www.ageofempires.com/mods/details/93975/)
+- [Random Costs Light](https://www.ageofempires.com/mods/details/185441/)
 - [Random Tech Costs](https://www.ageofempires.com/mods/details/93964/)
 - [Random Unit Costs](https://www.ageofempires.com/mods/details/93963/)
 - [Relic Monk Boom](https://www.ageofempires.com/mods/details/166337/)
@@ -121,6 +122,7 @@ Where <mod-identifier> is one of the following, or multiple of the following joi
     kidnap
     no-wall
     random-costs
+    random-costs-light
     random-tech-costs
     random-unit-costs
     teamwork
