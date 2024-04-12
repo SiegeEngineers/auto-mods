@@ -230,7 +230,7 @@ static const int CLASS_HERO = 25;
 
 static const int CLASS_TRANSPORT_BOAT = 20;
 static const int ACTION_TYPE_GARRISON = 3;
-static const int CLASS_SIEGE_WEAPON = 13
+static const int CLASS_SIEGE_WEAPON = 13;
 
 static const int PALISADE_WALL = 72;
 static const int TECH_PALISADE_GATE = 523;

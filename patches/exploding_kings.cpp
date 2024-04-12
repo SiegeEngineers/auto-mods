@@ -46,6 +46,7 @@ void lowKeyMakeKingsAbleToGarrisonSiege(genie::Civ &civ) {
     garrisonSiegeTask->WorkRange = 1;
     garrisonSiegeTask->TargetDiplomacy = 1;
     king.Bird.TaskList.push_back(*garrisonSiegeTask);
+}
 
 void buildCountdownToSaboteur(std::vector<int16_t> &COUNTDOWN_UNITS, genie::Civ &civ) {
     genie::Unit *unit = &civ.Units.at(ID_KING);
@@ -93,6 +94,7 @@ void configureExplodingKings(genie::DatFile *df) {
     };
 
     for (genie::Civ &civ : df->Civs) {
+        lowKeyMakeKingsAbleToGarrisonSiege(civ);
         buildCountdownToSaboteur(COUNTDOWN_UNITS, civ);
         patchSaboteurForFirstExplosion(civ);
         patchMonkeyForSecondExplosion(civ);
