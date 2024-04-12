@@ -46,6 +46,7 @@ void lowKeyMakeKingsAbleToGarrisonSiege(genie::Civ &civ) {
     garrisonSiegeTask->WorkRange = 1;
     garrisonSiegeTask->TargetDiplomacy = 1;
     king.Bird.TaskList.push_back(*garrisonSiegeTask);
+    std::cout << "Patched King garrison for civ " << civ.Name << "\n";
 }
 
 void buildCountdownToSaboteur(std::vector<int16_t> &COUNTDOWN_UNITS, genie::Civ &civ) {
