@@ -38,6 +38,17 @@ void preventHPIncrease(genie::Unit *unit) {
     }
 }
 
+void lowKeyMakeKingsAbleToGarrisonSiege(genie::Civ &civ) {
+    genie::Unit &king = civ.Units.at(ID_KING);
+    auto garrisonSiegeTask = new genie::Task();
+    garrisonSiegeTask->ActionType = ACTION_TYPE_GARRISON; //3
+    garrisonSiegeTask->ClassID = CLASS_SIEGE_WEAPON; //13
+    garrisonSiegeTask->WorkRange = 1;
+    garrisonSiegeTask->TargetDiplomacy = 1;
+    king.Bird.TaskList.push_back(*garrisonSiegeTask);
+    std::cout << "Patched King garrison for civ " << civ.Name << "\n";
+}
+
 void buildCountdownToSaboteur(std::vector<int16_t> &COUNTDOWN_UNITS, genie::Civ &civ) {
     genie::Unit *unit = &civ.Units.at(ID_KING);
     for (int16_t nextUnitId : COUNTDOWN_UNITS) {
@@ -84,6 +95,7 @@ void configureExplodingKings(genie::DatFile *df) {
     };
 
     for (genie::Civ &civ : df->Civs) {
+        lowKeyMakeKingsAbleToGarrisonSiege(civ);
         buildCountdownToSaboteur(COUNTDOWN_UNITS, civ);
         patchSaboteurForFirstExplosion(civ);
         patchMonkeyForSecondExplosion(civ);
