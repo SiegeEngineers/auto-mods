@@ -51,6 +51,31 @@ mkdir -p mods/x256/resources/_common/dat
 ./build/create-data-mod x9 ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/x9/resources/_common/dat/empires2_x2_p1.dat
 ./build/create-data-mod x256 ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./mods/x256/resources/_common/dat/empires2_x2_p1.dat
 
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/community_games/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/flying_dutchman/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/exploding_villagers/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/exploding_villagers_extreme/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/exploding_relic_monks/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/exploding_kings/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/rewarding_snipes/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/exploding_kings_rewarding_snipes/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/exploding_villagers_flying_dutchman/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/kidnap/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/exploding_villagers_kidnap/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/matryoshka/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/no_wall/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/nomad_king/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/exploding_nomad_kings/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/pocket_horse/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/random-costs/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/random-costs-light/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/random-tech-costs/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/random-unit-costs/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/teamwork/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/x3/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/x9/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./mods/x256/resources/_common/dat/civilizations.json
+
 cd mods/community_games
 zip -r ../community_games.zip *
 cd ../..
