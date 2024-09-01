@@ -1,6 +1,8 @@
 # auto-mods
 some data mods, generated programmatically, so they can be recreated automagically for every new patch
 
+_If you are looking for the legacy C++ version of auto-mods, check out the [`master` branch](https://github.com/SiegeEngineers/auto-mods/tree/master/)._
+
 > We just do everything auto!«
 > *\- [MbL, 2020](https://www.youtube.com/watch?v=q879j3ydfw8)*
 
@@ -31,109 +33,43 @@ some data mods, generated programmatically, so they can be recreated automagical
 - [9x Tech Mod](https://www.ageofempires.com/mods/details/93959/)
 - ~~256x Tech Mod~~ _discontinued_
 
-## Build instructions
-### Cloning
+## Setup
 
-_NOTE:_ Remember that you need to clone this repository with its submodules!
-
-```sh
-git clone --recurse-submodules https://github.com/SiegeEngineers/auto-mods.git
-cd auto-mods
-```
-
-### Installing dependencies
-
-You'll need:
-- `cmake`
-- `gcc`, `g++`
-- `libboost-iostreams-dev`
-- `libboost-program-options`
-- `zlib`
-- `lz4`
-
-#### Dependencies 
-
-**on Ubuntu (e.g. WSL)**
-```sh
-sudo apt update
-sudo apt install --fix-missing gcc g++ cmake \
-libboost-iostreams-dev libboost-program-options-dev \
-zlib1g-dev liblz4-dev
-```
-
-**on OSX**
-```sh
-xcode-select --install #this is to make sure xcode is installed for access to zlib1g-dev and liblz4-dev
-brew install cmake
-brew install boost
-brew install gcc
-brew install gdb
-```
-
-
-### Compiling
-
-Inside the `repository root` use the following commands:
+Create a Python3 virtualenv and install the requirements:
 
 ```sh
-mkdir build
-cd build
-cmake -DSTATIC_COMPILE=TRUE ..
-cmake --build .
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
-
-Note:  You can also run `./scripts/build.sh` from the project root.
-
-You should now have an executable `create-data-mod` in the `build` folder. Hooray!
-
-### Debugging (GDB on Ubuntu)
-
-1. Ensure gcc tools are installed: `sudo apt-get install build-essential gdb`
-
-Now we have two debug options:
-
-2. Debug via GDB on the terminal...
-```
-./buildForDebugger.sh  # make sure to run this from the project root
-gdb build/create-data-mod
-> b main
-> run
-```
-
-3. OR use the VSCode visual debugger, by going to the debug sidebar on the left, and running the `(gdb) Build and Launch` configuration.  This will automatically make a debug build and run it.  You can set breakpoints in the visual debugger.
-
-*Right now it runs `create-data-mod` with no parameters.  For testing, you can add arguments to `.vscode/launch.json` in the `args` parameter.*
 
 ## Usage
 
 Execute the executable without parameters to get usage instructions.
 
 ```sh
-$ ./create-data-mod
-Usage: ./create-data-mod <mod-identifier> source.dat target.dat
-Where <mod-identifier> is one of the following, or multiple of the following joined by a +:
-    community-games
-    exploding-villagers
-    exploding-villagers-extreme
-    exploding-kings
-    exploding-relic-monks
-    rewarding-snipes
-    flying-dutchman
-    kidnap
-    no-wall
-    random-costs
-    random-costs-light
-    random-tech-costs
-    random-unit-costs
-    teamwork
-    x3
-    x9
-    x256
+$ ./auto-mod.py --help
+usage: auto-mod [-h] --mods
+                {community-games,x3,x9,exploding-kings,exploding-relic-monks,exploding-villagers,exploding-villagers-extreme,flying-dutchman,kidnap,matryoshka,no-wall,nomad-king,pocket-horse,random-costs,random-costs-light,random-tech-costs,random-unit-costs,rewarding-snipes,teamwork}
+                [{community-games,x3,x9,exploding-kings,exploding-relic-monks,exploding-villagers,exploding-villagers-extreme,flying-dutchman,kidnap,matryoshka,no-wall,nomad-king,pocket-horse,random-costs,random-costs-light,random-tech-costs,random-unit-costs,rewarding-snipes,teamwork} ...]
+                [--logfile LOGFILE]
+                input_filename output_filename
+
+Programmatically mod Genie engine dat files (mainly for Age of Empires II Definitive Edition)
+
+positional arguments:
+  input_filename        The dat file to modify
+  output_filename       Where the modified dat file shall be written to
+
+options:
+  -h, --help            show this help message and exit
+  --mods {community-games,x3,x9,exploding-kings,exploding-relic-monks,exploding-villagers,exploding-villagers-extreme,flying-dutchman,kidnap,matryoshka,no-wall,nomad-king,pocket-horse,random-costs,random-costs-light,random-tech-costs,random-unit-costs,rewarding-snipes,teamwork} [{community-games,x3,x9,exploding-kings,exploding-relic-monks,exploding-villagers,exploding-villagers-extreme,flying-dutchman,kidnap,matryoshka,no-wall,nomad-king,pocket-horse,random-costs,random-costs-light,random-tech-costs,random-unit-costs,rewarding-snipes,teamwork} ...]
+  --logfile LOGFILE
 ```
 
 For example, in order to patch the current dat file with the Flying Dutchman modifications, one might execute
 ```
-./create-data-mod flying-dutchman ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./empires2_x2_p1.dat
+./auto-mod.py ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./empires2_x2_p1.dat --mods flying-dutchman
 ```
 
 And then use the resulting `empires2_x2_p1.dat` in the current directory for whatever.
@@ -141,7 +77,28 @@ And then use the resulting `empires2_x2_p1.dat` in the current directory for wha
 
 In order to patch the current dat file with the Flying Dutchman modifications AND the Exploding Villagers, execute
 ```
-./create-data-mod exploding-villagers+flying-dutchman ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./empires2_x2_p1.dat
+./auto-mod.py ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./empires2_x2_p1.dat --mods exploding-villagers flying-dutchman
 ```
 
 And then use the resulting `empires2_x2_p1.dat` in the current directory for whatever.
+
+To build all available auto-mods, activate the virtualenv and run `./create-mods.sh`.
+Your base dat file must be available at `~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat`.
+If it is not, replace the path in the .sh file beforehand.
+The mods will be zipped and placed in the `build` folder.
+
+## Troubleshooting
+
+If your output looks somewhat like this:
+
+```sh
+$ ./auto-mod.py 
+Traceback (most recent call last):
+  File "/home/user/git/auto-mods/./auto-mod.py", line 8, in <module>
+    from genieutils.datfile import DatFile
+ModuleNotFoundError: No module named 'genieutils'
+```
+
+Then you forgot to activate the virtualenv.
+
+Fix this by running `source venv/bin/activate`, then run your command again.
