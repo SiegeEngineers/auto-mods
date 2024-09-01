@@ -1,6 +1,0 @@
-[submodule "genieutils"]
-	path = genieutils
-	url = https://github.com/Tapsa/genieutils.git
-[submodule "pcrio"]
-	path = pcrio
-	url = https://github.com/Tapsa/pcrio.git
