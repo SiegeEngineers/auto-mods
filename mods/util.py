@@ -66,7 +66,7 @@ def is_unit_upgrade(effect_command: EffectCommand) -> bool:
 
 
 def is_unit(data: DatFile, unit_id: int) -> bool:
-    return data.civs[0].units[unit_id].type == TYPE_COMBATANT
+    return data.civs[0].units[unit_id] and data.civs[0].units[unit_id].type == TYPE_COMBATANT
 
 
 def affects_units(data: DatFile, effect_command: EffectCommand) -> bool:
