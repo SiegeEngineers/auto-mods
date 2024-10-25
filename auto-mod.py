@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 import argparse
+import hashlib
 import logging
+import pickle
 import time
 from pathlib import Path
 from typing import Callable
@@ -46,6 +48,8 @@ def main():
                         help='Where the modified dat file shall be written to')
     parser.add_argument('--mods', choices=AVAILABLE_MODS.keys(), required=True, nargs='+')
     parser.add_argument('--logfile', type=Path, required=False)
+    parser.add_argument('--cache', action='store_true', required=False,
+                        help='Cache the parsed dat file, and load a cached version of the dat file if available')
     args = parser.parse_args()
 
     handlers = []
@@ -56,7 +60,14 @@ def main():
     logging.basicConfig(level=logging.INFO, handlers=handlers)
 
     logging.info(f'Loading dat file {args.input_filename}')
-    data = DatFile.parse(args.input_filename)
+    cache_file = None
+    data = None
+    if args.cache:
+        cache_file, data = load_cache(args.input_filename)
+    if not data:
+        data = DatFile.parse(args.input_filename)
+        if args.cache and cache_file:
+            write_cache(data, cache_file)
 
     logging.info(f'Applying mods: {args.mods}')
     for mod in args.mods:
@@ -68,6 +79,30 @@ def main():
 
     end = time.time()
     logging.info(f'Took {end - start:.2f} seconds')
+
+
+def load_cache(input_file: Path) -> tuple[Path, DatFile | None]:
+    file_hash = get_file_hash(input_file)
+    cache_file = Path('/tmp/auto-mod') / f'{file_hash}.pickle'
+    logging.info(f'Checking if {cache_file=} exists')
+    data = None
+    if cache_file.is_file():
+        logging.info(f'Loading {cache_file=}')
+        data = pickle.loads(cache_file.read_bytes())
+    else:
+        logging.info('Cache file does not exist')
+    return cache_file, data
+
+
+def write_cache(data: DatFile, cache_file: Path):
+    logging.info(f'Writing data to {cache_file=}')
+    cache_file.parent.mkdir(exist_ok=True, parents=True)
+    cache_file.write_bytes(pickle.dumps(data))
+
+
+def get_file_hash(input_file: Path) -> str:
+    with input_file.open('rb') as f:
+        return hashlib.file_digest(f, 'sha256').hexdigest()
 
 
 if __name__ == '__main__':
