@@ -120,6 +120,14 @@ def costs_to_string(costs: tuple[ResourceCost, ResourceCost, ResourceCost] | tup
     return value
 
 
+def get_cost_2(new_value: ResourceCost, old_value: ResourceCost) -> ResourceCost:
+    if new_value.type == TYPE_POPULATION_HEADROOM and old_value.type == TYPE_POPULATION_HEADROOM:
+        return new_value
+    if new_value.type != TYPE_POPULATION_HEADROOM and old_value.type != TYPE_POPULATION_HEADROOM:
+        return new_value
+    return ResourceCost(type=-1, amount=0, flag=0)
+
+
 def patch_thing(data: DatFile, limit: int, units: bool, techs: bool):
     applicable_units = get_applicable_unit_ids(data, limit)
     applicable_techs = get_applicable_tech_ids(data, limit)
@@ -143,8 +151,7 @@ def patch_thing(data: DatFile, limit: int, units: bool, techs: bool):
                 new_costs = (
                     costs[0],
                     costs[1],
-                    costs[2] if costs[2].type == TYPE_POPULATION_HEADROOM else
-                    data.civs[0].units[unit_id].creatable.resource_costs[2],
+                    get_cost_2(costs[2], data.civs[0].units[unit_id].creatable.resource_costs[2]),
                 )
                 logging.info(f'Setting cost of unit with id {unit_id} to {costs_to_string(new_costs)} for all civs')
                 for civ in data.civs:
