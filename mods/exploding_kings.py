@@ -32,6 +32,8 @@ COUNTDOWN_UNITS = [
     EMPEROR_IN_A_BARREL,  # unique
 ]
 
+NO_CONVERSION_BIT = 2
+
 
 def lowkey_make_kings_able_to_garrison_siege(civ: Civ):
     king = civ.units[KING]
@@ -72,6 +74,11 @@ def lowkey_make_kings_able_to_garrison_siege(civ: Civ):
     king.bird.tasks.append(garrison_siege_task)
     logging.info(f'Patched King garrison for civ {civ.name}')
 
+def lowkey_make_kings_able_to_be_converted(civ: Civ):
+    king = civ.units[KING]
+    king.creatable.hero_mode &= (255 - NO_CONVERSION_BIT)
+    logging.info(f'Patched King conversion for civ {civ.name}')
+
 
 def build_countdown_to_saboteur(unit_ids: list[int], civ: Civ, version: str) -> tuple[int, int]:
     last_unit_id = KING
@@ -93,6 +100,7 @@ def build_countdown_to_saboteur(unit_ids: list[int], civ: Civ, version: str) -> 
 def mod(data: DatFile):
     for civ in data.civs:
         lowkey_make_kings_able_to_garrison_siege(civ)
+        lowkey_make_kings_able_to_be_converted(civ)
         patch_monument_to_keep_it_from_exploding(civ)
         saboteur_id, monkey_id = build_countdown_to_saboteur(COUNTDOWN_UNITS, civ, data.version)
         patch_unit_for_explosion(saboteur_id, [0, 1, 2], 25, civ)
