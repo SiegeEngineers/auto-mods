@@ -4,23 +4,20 @@ from genieutils.civ import Civ
 from genieutils.datfile import DatFile
 from genieutils.task import Task
 from mods.util import clone
-from mods.ids import GUY_RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM_WALLACE, \
+from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM_WALLACE, \
     WANG_TONG, THEODORIC_THE_GOTH, KUSHLUK, SHAH_ISHMAIL, SALADIN, SELIM_THE_GRIM, JARL, \
     ITZCOATL, ATTILA_THE_HUN, PACAL_II, EL_CID_CAMPEADOR, GENGHIS_KHAN, FRANCESCO_SFORZA, \
     MIKLOS_TOLDI, ALEXANDER_NEVSKI, TARIQ_IBN_ZIYAD, DAGNAJAN, SUMANGURU, BAYINNAUNG, \
     SURYAVARMAN_I, GAJAH_MADA, DINH_LE, KOTYAN_KHAN, VYTAUTAS_THE_GREAT, QUTLUGH, \
     JOHN_THE_FEARLESS, ROGER_BOSSO, JAN_ZIZKA, JADWIGA, IBRAHIM_LODI, PRITHVIRAJ, TAMAR, \
-    THOROS, JOAN_OF_ARC, MINAMOTO, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA
-
-
-
+    THOROS, JOAN_OF_ARC, MINAMOTO, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA, POPE_LEO_I
 
 NAME = 'heroes-and-villains'
 
 IGNORED_CIVS = ['Gaia']
 
 HERO_FOR_CIV = {
-    "British": { "unitId": GUY_RICHARD_THE_LIONHEART, "unitStatChanges": {} },
+    "British": { "unitId": RICHARD_THE_LIONHEART, "unitStatChanges": {} },
     "Byzantine": { "unitId": BELISARIUS, "unitStatChanges": {} },
     "Celts": { "unitId": WILLIAM_WALLACE, "unitStatChanges": {} },
     "Chinese": { "unitId": WANG_TONG, "unitStatChanges": {} },
@@ -64,7 +61,7 @@ HERO_FOR_CIV = {
     "Bengalis": { "unitId": None, "unitStatChanges": {} },
     "Gurjaras": { "unitId": PRITHVIRAJ, "unitStatChanges": {} },
     "Dravidians": { "unitId": RAJENDRA_CHOLA, "unitStatChanges": {} },
-    "Romans": { "unitId": None, "unitStatChanges": {} },
+    "Romans": { "unitId": POPE_LEO_I, "unitStatChanges": {} },
     "Armenians": { "unitId": THOROS, "unitStatChanges": {} },
     "Georgians": { "unitId": TAMAR, "unitStatChanges": {} }
 }
