@@ -104,13 +104,13 @@ def makeHero(unitData: dict, civ: Civ, version: str) -> tuple[int, int]:
     cloned_unit = clone(civ.units[unitData["unitId"]], version)
     #set id to be end of civ units
     cloned_unit.id = clone_unit_id
-    #TODO make the unit buildable in imperial age at the castle
-    trainable_unit = make_unit_trainable_in_castle_in_imperial_age(cloned_unit, civ)
 
 
     #TODO balance out the units stats compared to new DLC
     cloned_unit.hit_points = 300
 
+    #TODO make the unit buildable in imperial age at the castle
+    trainable_unit = make_unit_trainable_in_castle_in_imperial_age(cloned_unit, civ)
 
     #add the new unit to the civ
     civ.units.append(trainable_unit)
