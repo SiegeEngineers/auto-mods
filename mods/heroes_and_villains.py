@@ -1,7 +1,9 @@
 import logging
 
 from genieutils.civ import Civ
+from genieutils.unit import Unit
 from genieutils.datfile import DatFile
+from genieutils.unit import ResourceCost, ResourceStorage
 from genieutils.task import Task
 from mods.util import clone
 from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM_WALLACE, \
@@ -10,11 +12,13 @@ from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM
     MIKLOS_TOLDI, ALEXANDER_NEVSKI, TARIQ_IBN_ZIYAD, DAGNAJAN, SUMANGURU, BAYINNAUNG, \
     SURYAVARMAN_I, GAJAH_MADA, DINH_LE, KOTYAN_KHAN, VYTAUTAS_THE_GREAT, QUTLUGH, \
     JOHN_THE_FEARLESS, ROGER_BOSSO, JAN_ZIZKA, JADWIGA, IBRAHIM_LODI, PRITHVIRAJ, TAMAR, \
-    THOROS, JOAN_OF_ARC, MINAMOTO, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA, POPE_LEO_I
+    THOROS, JOAN_OF_ARC, MINAMOTO, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA, POPE_LEO_I, \
+    TYPE_POPULATION_HEADROOM, TYPE_CURRENT_POPULATION, TYPE_TOTAL_UNITS_OWNED, TYPE_FOOD_STORAGE, \
+    TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_CURRENT_AGE
 
 NAME = 'heroes-and-villains'
 
-IGNORED_CIVS = ['Gaia']
+IGNORED_CIVS = ['Gaia', 'Achaemenids', 'Spartans', 'Athenians', 'Shu', 'Wei', 'Wu', "Khitans", 'Jurchens']
 
 HERO_FOR_CIV = {
     "British": { "unitId": RICHARD_THE_LIONHEART, "unitStatChanges": {} },
@@ -42,7 +46,7 @@ HERO_FOR_CIV = {
     "Magyars": { "unitId": MIKLOS_TOLDI, "unitStatChanges": {} },
     "Slavs": { "unitId": ALEXANDER_NEVSKI, "unitStatChanges": {} },
     "Berbers": { "unitId": TARIQ_IBN_ZIYAD, "unitStatChanges": {} },
-    "Ethopians": { "unitId": DAGNAJAN, "unitStatChanges": {} },
+    "Ethiopians": { "unitId": DAGNAJAN, "unitStatChanges": {} },
     "Malians": { "unitId": SUMANGURU, "unitStatChanges": {} },
     "Portuguese": { "unitId": None, "unitStatChanges": {} },
     "Burmese": { "unitId": BAYINNAUNG, "unitStatChanges": {} },
@@ -67,18 +71,41 @@ HERO_FOR_CIV = {
 }
 
 
-def make_unit_castle_trainable_in_imperial(unitId: int, civ: Civ, data: DatFile):
-    return
+def make_unit_trainable_in_castle_in_imperial_age(unit: Unit, civ: Civ):
+    #make unit cost money
+    unit.creatable.resource_costs = (
+        ResourceCost(type=TYPE_FOOD_STORAGE, amount=500, flag=1),
+        ResourceCost(type=TYPE_GOLD_STORAGE, amount=500, flag=1),
+        #require imperial age
+        ResourceCost(type=TYPE_CURRENT_AGE, amount=3, flag=0),
+    )
+    #make sure unit take up population space
+    unit.resource_storages = (
+        ResourceStorage(type=TYPE_POPULATION_HEADROOM, amount=-1, flag=2),
+        ResourceStorage(type=TYPE_CURRENT_POPULATION, amount=1, flag=2),
+        ResourceStorage(type=TYPE_TOTAL_UNITS_OWNED, amount=1, flag=1),
+    )
+    #make unit trainable in the castle
+    unit.train_location = TYPE_CASTLE_TRAIN_LOCATION
+    unit.train_button = 12
+    unit.train_time = 30
+    unit.hero_mode = 1
+    
+    #TODO make unit traininable only once if the unit is alive
 
-def clone_unit_and_make_usable_hero(unit_data: any, civ: Civ, version: str) -> tuple[int, int]:
+    return unit
+
+
+def makeHero(unitData: dict, civ: Civ, version: str) -> tuple[int, int]:
     #prevent_hp_increase(cloned_unit)
-    logging.info(f'Patching hero unit {unit_id} for civ {civ.name}')
+    logging.info(f'Patching hero unit {unitData["unitId"]}')
     clone_unit_id = len(civ.units)
     #clone the unit
-    cloned_unit = clone(civ.units[unit_id], version)
+    cloned_unit = clone(civ.units[unitData["unitId"]], version)
     #set id to be end of civ units
     cloned_unit.id = clone_unit_id
     #TODO make the unit buildable in imperial age at the castle
+    trainable_unit = make_unit_trainable_in_castle_in_imperial_age(cloned_unit, civ)
 
 
     #TODO balance out the units stats compared to new DLC
@@ -86,20 +113,16 @@ def clone_unit_and_make_usable_hero(unit_data: any, civ: Civ, version: str) -> t
 
 
     #add the new unit to the civ
-    civ.units.append(cloned_unit)
+    civ.units.append(trainable_unit)
 
-    logging.info(f'Patched hero unit {clone_unit_id} ({cloned_unit.name}) for civ {civ.name}')
+    logging.info(f'Patched hero unit {cloned_unit.name} for civ {civ.name}')
     return len(civ.units) - 2, len(civ.units) - 1
 
 
 def mod(data: DatFile):
     for civ in data.civs:
-        if civ.name not in IGNORED_CIVS:
+        if civ.name not in IGNORED_CIVS and HERO_FOR_CIV[civ.name]["unitId"] is not None:
             logging.info(f'Creating hero for civ {civ.name}')
-            unit_data = HERO_FOR_CIV[civ.name]
-            if unit_data:
-                #clone_unit_and_make_usable_hero(unitData, civ, data.version)
-                pass
-            else:
-                logging.info(f'Failed to Find Hero for civ {civ.name}')
-                raise Exception("IF EVERYONE DOESN'T GET ONE, NO ONE GETS ONE!")
+            makeHero(HERO_FOR_CIV[civ.name], civ, data.version)
+        else:
+            logging.info(f'Failed to find hero for civ {civ.name}')
