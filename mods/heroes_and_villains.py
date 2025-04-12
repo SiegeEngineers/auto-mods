@@ -136,9 +136,13 @@ def limitCivToOneHero(civ_id: int, unit_id: int, data: DatFile):
         d=1.0,
     )
 
+    #Make dead basilius not have a dead graphic
+    dead_basilius = data.civs[civ_id].units[SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD]
+    #remove basilius dead graphic
+    dead_basilius.standing_graphic = (-1,-1)
+    dead_basilius.dying_graphic = -1
     #create a dead basilieus at start to give one of needed resource for the unit. This one gives instant resource 501 when it dies instead of delayed
     create_basilius_effect_command = EffectCommand(type=TYPE_SPAWN_UNIT, a=SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, b=TOWN_CENTER, c=1, d=0.0)
-
     limit_unit_creatable_effect = Effect(
         name=f'Limit Hero Amount Effect for {data.civs[civ_id].units[unit_id].name}',
         effect_commands=[limit_unit_creatable_effect_command, create_basilius_effect_command]
