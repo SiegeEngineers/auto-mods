@@ -136,17 +136,12 @@ def limitCivToOneHero(civ_id: int, unit_id: int, data: DatFile):
         d=1.0,
     )
 
-    basilius_clone_id = len(data.civs[civ_id].units)
-    #TODO when working change to basilius
-    basilius_clone = clone(data.civs[civ_id].units[SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD], data.version)
-    basilius_clone.id = basilius_clone_id
-    data.civs[civ_id].units.append(basilius_clone)
     #create a dead basilieus at start to give one of needed resource for the unit. This one gives instant resource 501 when it dies instead of delayed
-    create_basilius_effect_command = EffectCommand(type=TYPE_SPAWN_UNIT, a=basilius_clone_id, b=TOWN_CENTER, c=1, d=0.0)
+    create_basilius_effect_command = EffectCommand(type=TYPE_SPAWN_UNIT, a=SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, b=TOWN_CENTER, c=1, d=0.0)
 
     limit_unit_creatable_effect = Effect(
         name=f'Limit Hero Amount Effect for {data.civs[civ_id].units[unit_id].name}',
-        effect_commands=[limit_unit_creatable_effect_command, create_test, create_basilius_effect_command]
+        effect_commands=[limit_unit_creatable_effect_command, create_basilius_effect_command]
     )
 
     limit_unit_creatable_effect_id = len(data.effects)
