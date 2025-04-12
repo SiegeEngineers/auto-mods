@@ -22,6 +22,10 @@ NAME = 'heroes-and-villains'
 
 IGNORED_CIVS = ['Gaia', 'Achaemenids', 'Spartans', 'Athenians', 'Shu', 'Wei', 'Wu', "Khitans", 'Jurchens']
 
+#TODO maybe allow for multiple heroes for each civ, 
+#TODO setup naval heroes as well (would give koreans and portugese something only leaving out Bengalis)
+#TODO setup some better stats for balancing.
+#TODO maybe give auras to units
 HERO_FOR_CIV = {
     "British": { "unitId": RICHARD_THE_LIONHEART, "unitStatChanges": {} },
     "Byzantine": { "unitId": BELISARIUS, "unitStatChanges": {} },
