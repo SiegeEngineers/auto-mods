@@ -14,7 +14,7 @@ from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM
     SURYAVARMAN_I, GAJAH_MADA, DINH_LE, KOTYAN_KHAN, VYTAUTAS_THE_GREAT, QUTLUGH, \
     JOHN_THE_FEARLESS, ROGER_BOSSO, JAN_ZIZKA, JADWIGA, IBRAHIM_LODI, PRITHVIRAJ, TAMAR, \
     THOROS, JOAN_OF_ARC, MINAMOTO, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA, POPE_LEO_I, \
-    VASCO_DA_GAMA, ADMIRAL_YI_SHUN_SHIN, \
+    VASCO_DA_GAMA, ADMIRAL_YI_SHUN_SHIN, MIHIRA_BHOJA, \
     TYPE_POPULATION_HEADROOM, TYPE_CURRENT_POPULATION, TYPE_TOTAL_UNITS_OWNED, TYPE_FOOD_STORAGE, \
     TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_DOCK_TRAIN_LOCATION, \
     TYPE_ENABLE_DISABLE_UNIT, TECH_REQUIREMENT_IMPERIAL_AGE, TECH_CASTLE_BUILT, \
@@ -23,6 +23,7 @@ from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM
 
 NAME = 'heroes-and-villains'
 
+#NOTE DO NOT REMOVE SPARTANS, WE USE THEIR POLEMARCH MECHANIC AND GIVING THEM EXTRA HEROES WOULD BREAK SHIT.
 IGNORED_CIVS = ['Gaia', 'Achaemenids', 'Spartans', 'Athenians', 'Shu', 'Wei', 'Wu', "Khitans", 'Jurchens']
 
 #TODO maybe allow for multiple heroes for each civ, 
@@ -38,7 +39,7 @@ HERO_FOR_CIV = {
     "Goths": { "unitId": THEODORIC_THE_GOTH, "unitStatChanges": {} },
     "Japanese": { "unitId": MINAMOTO, "unitStatChanges": {} },
     "Mongols": { "unitId": KUSHLUK, "unitStatChanges": {} },
-                    #GENGHIS_KHAN is another option but not unique skin
+    #GENGHIS_KHAN is another option but not unique skin
     "Persians": { "unitId": SHAH_ISHMAIL, "unitStatChanges": {} },
     "Saracens": { "unitId": SALADIN, "unitStatChanges": {} },
     "Teutons": { "unitId": ULRICH_VON_JUNGINGEN, "unitStatChanges": {} },
@@ -71,7 +72,8 @@ HERO_FOR_CIV = {
     "Bohemians": { "unitId": JAN_ZIZKA, "unitStatChanges": {} },
     "Poles": { "unitId": JADWIGA, "unitStatChanges": {} },
     "Hindustanis": { "unitId": IBRAHIM_LODI, "unitStatChanges": {} },
-    "Bengalis": { "unitId": None, "unitStatChanges": {} },
+    #MIHIRA_BHOJA is kinda between bengali / gurjaras and more gurjaras depending on source. Would change if other option
+    "Bengalis": { "unitId": MIHIRA_BHOJA, "unitStatChanges": {} }, 
     "Gurjaras": { "unitId": PRITHVIRAJ, "unitStatChanges": {} },
     "Dravidians": { "unitId": RAJENDRA_CHOLA, "unitStatChanges": {} },
     "Romans": { "unitId": POPE_LEO_I, "unitStatChanges": {} },
