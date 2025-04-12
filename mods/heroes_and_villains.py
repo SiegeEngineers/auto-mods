@@ -19,13 +19,16 @@ from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM
     TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_DOCK_TRAIN_LOCATION, \
     TYPE_ENABLE_DISABLE_UNIT, TECH_REQUIREMENT_IMPERIAL_AGE, TECH_CASTLE_BUILT, \
     TYPE_SPAWN_CAP, TYPE_UNIT_LIMIT_RESOURCE, TYPE_POPULATION_HEADROOM, TYPE_TOTAL_UNITS_OWNED, \
-    TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD
+    TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, \
+    WATERBORNE_NO_ICE_SPLASH, WATERBRORNE_CANNOT_MOVE_ON_ICE, WATERBORNE_NO_ICE_SPLASH_2, WATERBORNE_NO_ICE, WATERBORNE_SHALLOW_RESTRICTION \
 
 NAME = 'heroes-and-villains'
 
 #NOTE DO NOT REMOVE SPARTANS, WE USE THEIR POLEMARCH MECHANIC AND GIVING THEM EXTRA HEROES WOULD BREAK SHIT.
 IGNORED_CIVS = ['Gaia', 'Achaemenids', 'Spartans', 'Athenians', 'Shu', 'Wei', 'Wu', "Khitans", 'Jurchens']
 
+
+IS_TERRAIN_TYPE_WATER = [WATERBORNE_NO_ICE_SPLASH, WATERBRORNE_CANNOT_MOVE_ON_ICE, WATERBORNE_NO_ICE_SPLASH_2, WATERBORNE_NO_ICE, WATERBORNE_SHALLOW_RESTRICTION]
 #TODO maybe allow for multiple heroes for each civ, 
 #TODO setup naval heroes as well (would give koreans and portugese something only leaving out Bengalis)
 #TODO setup some better stats for balancing.
@@ -47,7 +50,7 @@ HERO_FOR_CIV = {
     "Vikings": { "unitId": JARL, "unitStatChanges": {} },
     "Aztecs": { "unitId": ITZCOATL, "unitStatChanges": {} },
     "Huns": { "unitId": ATTILA_THE_HUN, "unitStatChanges": {} },
-    "Koreans": { "unitId": ADMIRAL_YI_SHUN_SHIN, "unitStatChanges": {"isWater": 1} },
+    "Koreans": { "unitId": ADMIRAL_YI_SHUN_SHIN, "unitStatChanges": {} },
     "Mayan": { "unitId": PACAL_II, "unitStatChanges": {} },
     "Spanish": { "unitId": EL_CID_CAMPEADOR, "unitStatChanges": {} },
     "Incas": { "unitId": PACHACUTI, "unitStatChanges": {} },
@@ -58,7 +61,7 @@ HERO_FOR_CIV = {
     "Berbers": { "unitId": TARIQ_IBN_ZIYAD, "unitStatChanges": {} },
     "Ethiopians": { "unitId": DAGNAJAN, "unitStatChanges": {} },
     "Malians": { "unitId": SUMANGURU, "unitStatChanges": {} },
-    "Portuguese": { "unitId": VASCO_DA_GAMA, "unitStatChanges": {"isWater": 1} },
+    "Portuguese": { "unitId": VASCO_DA_GAMA, "unitStatChanges": {}},
     "Burmese": { "unitId": BAYINNAUNG, "unitStatChanges": {} },
     "Khmer": { "unitId": SURYAVARMAN_I, "unitStatChanges": {} },
     "Malay": { "unitId": GAJAH_MADA, "unitStatChanges": {} },
@@ -181,6 +184,8 @@ def limitCivToOneHero(civ_id: int, unit_id: int, data: DatFile):
     )
     data.techs.append(limit_hero_unit_creatable_effect)
 
+def giveAura(unit: Unit):
+    pass
 
 def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
     #prevent_hp_increase(cloned_unit)
@@ -213,7 +218,7 @@ def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
     )
 
     #make unit trainable in the castle
-    if(unitData["unitStatChanges"].get("isWater", 0) == 1):
+    if(unit.terrain_restriction in IS_TERRAIN_TYPE_WATER):
         logging.info(f'chose dock for hero unit {unit.name} for civ {civ.name}')
         unit.creatable.train_location_id = TYPE_DOCK_TRAIN_LOCATION
         unit.creatable.button_id = 30
