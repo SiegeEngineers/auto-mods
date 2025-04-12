@@ -14,11 +14,12 @@ from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM
     SURYAVARMAN_I, GAJAH_MADA, DINH_LE, KOTYAN_KHAN, VYTAUTAS_THE_GREAT, QUTLUGH, \
     JOHN_THE_FEARLESS, ROGER_BOSSO, JAN_ZIZKA, JADWIGA, IBRAHIM_LODI, PRITHVIRAJ, TAMAR, \
     THOROS, JOAN_OF_ARC, MINAMOTO, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA, POPE_LEO_I, \
+    VASCO_DA_GAMA, ADMIRAL_YI_SHUN_SHIN, \
     TYPE_POPULATION_HEADROOM, TYPE_CURRENT_POPULATION, TYPE_TOTAL_UNITS_OWNED, TYPE_FOOD_STORAGE, \
-    TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_CURRENT_AGE, EFFECT_THIRISIDAI_MAKE_AVIALABLE, \
+    TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_DOCK_TRAIN_LOCATION, \
     TYPE_ENABLE_DISABLE_UNIT, TECH_REQUIREMENT_IMPERIAL_AGE, TECH_CASTLE_BUILT, \
     TYPE_SPAWN_CAP, TYPE_UNIT_LIMIT_RESOURCE, TYPE_POPULATION_HEADROOM, TYPE_TOTAL_UNITS_OWNED, \
-    SPECIAL_UNIT_SPAWN_BASILIEUS, TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD
+    TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD
 
 NAME = 'heroes-and-villains'
 
@@ -45,7 +46,7 @@ HERO_FOR_CIV = {
     "Vikings": { "unitId": JARL, "unitStatChanges": {} },
     "Aztecs": { "unitId": ITZCOATL, "unitStatChanges": {} },
     "Huns": { "unitId": ATTILA_THE_HUN, "unitStatChanges": {} },
-    "Koreans": { "unitId": None, "unitStatChanges": {} },
+    "Koreans": { "unitId": ADMIRAL_YI_SHUN_SHIN, "unitStatChanges": {"isWater": 1} },
     "Mayan": { "unitId": PACAL_II, "unitStatChanges": {} },
     "Spanish": { "unitId": EL_CID_CAMPEADOR, "unitStatChanges": {} },
     "Incas": { "unitId": PACHACUTI, "unitStatChanges": {} },
@@ -56,7 +57,7 @@ HERO_FOR_CIV = {
     "Berbers": { "unitId": TARIQ_IBN_ZIYAD, "unitStatChanges": {} },
     "Ethiopians": { "unitId": DAGNAJAN, "unitStatChanges": {} },
     "Malians": { "unitId": SUMANGURU, "unitStatChanges": {} },
-    "Portuguese": { "unitId": None, "unitStatChanges": {} },
+    "Portuguese": { "unitId": VASCO_DA_GAMA, "unitStatChanges": {"isWater": 1} },
     "Burmese": { "unitId": BAYINNAUNG, "unitStatChanges": {} },
     "Khmer": { "unitId": SURYAVARMAN_I, "unitStatChanges": {} },
     "Malay": { "unitId": GAJAH_MADA, "unitStatChanges": {} },
@@ -100,13 +101,13 @@ def addUnitToCiv(civ_id: int, unit_id: int, data: DatFile):
     #create tech to trigger effect
     logging.info(f'Making tech for hero unit {data.civs[civ_id].units[unit_id].name} for civ {data.civs[civ_id].name} for effect {enable_hero_unit_effect_id}')
     enable_hero_tech = Tech(
-        required_techs=(TECH_REQUIREMENT_IMPERIAL_AGE, TECH_CASTLE_BUILT, -1, -1, -1, -1), #imperial age
+        required_techs=(TECH_REQUIREMENT_IMPERIAL_AGE, -1, -1, -1, -1, -1), #imperial age
         resource_costs=(
             ResearchResourceCost(type=-1, amount=0, flag=0),
             ResearchResourceCost(type=-1, amount=0, flag=0),
             ResearchResourceCost(type=-1, amount=0, flag=0)
         ),
-        required_tech_count=2,
+        required_tech_count=1,
         civ=civ_id,
         full_tech_mode=1,
         research_location=-1,
@@ -210,8 +211,14 @@ def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
     )
 
     #make unit trainable in the castle
-    unit.creatable.train_location_id = TYPE_CASTLE_TRAIN_LOCATION
-    unit.creatable.button_id = 4
+    if(unitData["unitStatChanges"].get("isWater", 0) == 1):
+        logging.info(f'chose dock for hero unit {unit.name} for civ {civ.name}')
+        unit.creatable.train_location_id = TYPE_DOCK_TRAIN_LOCATION
+        unit.creatable.button_id = 30
+    else:
+        logging.info(f'chose castle for hero unit {unit.name} for civ {civ.name}')
+        unit.creatable.train_location_id = TYPE_CASTLE_TRAIN_LOCATION
+        unit.creatable.button_id = 4
     unit.creatable.hero_mode = 1
 
     #add the new unit to the civ
