@@ -72,17 +72,6 @@ HERO_FOR_CIV = {
     "Georgians": { "unitId": TAMAR, "unitStatChanges": {} }
 }
 
-
-def makeUnitTrainableInCastle(unit: Unit, civ: Civ, data: DatFile):
-
-
-    print('----------------------------------------')
-    print('OLD UNIT', civ.units[25])
-    print('----------------------------------------')
-    print('NEW UNIT', unit)
-    print('----------------------------------------')
-    return unit
-
 def addUnitToCiv(civ_id: int, unit_id: int, data: DatFile):
     logging.info(f'Making effect for hero unit for {data.civs[civ_id].units[unit_id].name} - {unit_id} for civ {data.civs[civ_id].name} - {civ_id}')
     effect_command = EffectCommand(
@@ -98,9 +87,6 @@ def addUnitToCiv(civ_id: int, unit_id: int, data: DatFile):
     )
     effect_id = len(data.effects)
     data.effects.append(effect)
-    print('effect', data.effects[effect_id])
-    print('teutonic effect', data.effects[273])
-
 
     logging.info(f'Making tech for hero unit {data.civs[civ_id].units[unit_id].name} for civ {data.civs[civ_id].name} for effect {effect_id}')
     tech = Tech(
@@ -128,8 +114,6 @@ def addUnitToCiv(civ_id: int, unit_id: int, data: DatFile):
         repeatable=1,
     )
     data.techs.append(tech)
-    print('tech', tech)
-    print('teutonic tech', data.techs[276])
 
 def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
     #prevent_hp_increase(cloned_unit)
