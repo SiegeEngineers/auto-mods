@@ -24,6 +24,9 @@ mkdir -p build/random-unit-costs/resources/_common/dat
 mkdir -p build/teamwork/resources/_common/dat
 mkdir -p build/x3/resources/_common/dat
 mkdir -p build/x9/resources/_common/dat
+mkdir -p build/heroes_and_villains/resources/_common/dat
+mkdir -p build/heroes_and_villains_king_boom_rewarding_snipes/resources/_common/dat
+
 
 ./auto-mod.py --cache ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./build/community_games/resources/_common/dat/empires2_x2_p1.dat --mods community-games 
 ./auto-mod.py --cache ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./build/flying_dutchman/resources/_common/dat/empires2_x2_p1.dat --mods flying-dutchman 
@@ -48,6 +51,9 @@ mkdir -p build/x9/resources/_common/dat
 ./auto-mod.py --cache ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./build/teamwork/resources/_common/dat/empires2_x2_p1.dat --mods teamwork 
 ./auto-mod.py --cache ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./build/x3/resources/_common/dat/empires2_x2_p1.dat --mods x3 
 ./auto-mod.py --cache ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./build/x9/resources/_common/dat/empires2_x2_p1.dat --mods x9 
+./auto-mod.py --cache ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./build/heroes_and_villains/resources/_common/dat/empires2_x2_p1.dat --mods heroes-and-villains
+./auto-mod.py --cache ~/aoe/Aoe2DE\ proton/resources/_common/dat/empires2_x2_p1.dat ./build/heroes_and_villains_king_boom_rewarding_snipes/resources/_common/dat/empires2_x2_p1.dat --mods exploding-kings rewarding-snipes heroes-and-villains
+
 
 cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./build/community_games/resources/_common/dat/civilizations.json
 cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./build/flying_dutchman/resources/_common/dat/civilizations.json
@@ -72,6 +78,9 @@ cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./build/random-
 cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./build/teamwork/resources/_common/dat/civilizations.json
 cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./build/x3/resources/_common/dat/civilizations.json
 cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./build/x9/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./build/heroes_and_villains/resources/_common/dat/civilizations.json
+cp ~/aoe/Aoe2DE\ proton/resources/_common/dat/civilizations.json ./build/heroes_and_villains_king_boom_rewarding_snipes/resources/_common/dat/civilizations.json
+
 
 cd build/community_games
 zip -r ../community_games.zip *
@@ -163,4 +172,12 @@ cd ../..
 
 cd build/x9
 zip -r ../x9.zip *
+cd ../..
+
+cd build/heroes_and_villains
+zip -r ../heroes_and_villains.zip *
+cd ../..
+
+cd build/heroes_and_villains_king_boom_rewarding_snipes
+zip -r ../heroes_and_villains_king_boom_rewarding_snipes.zip *
 cd ../..
