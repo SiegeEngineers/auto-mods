@@ -209,6 +209,9 @@ def giveAura(unit: Unit):
     if(unit.class_ in [CAVALRY_ARCHER_CLASS]):
         logging.info("giving cavalry archer aura to unit")
         extendTasks(unit, attackSpeed)
+    if(unit.class_ in [WARSHIP_CLASS]):
+        logging.info("giving cavalry archer aura to unit")
+        extendTasks(unit, attackSpeed)
     if(unit.class_ in [MONK_CLASS]):
         logging.info("giving monk aura to unit")
         extendTasks(unit, healing)
