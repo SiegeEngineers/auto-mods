@@ -11,16 +11,16 @@ from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM
     WANG_TONG, THEODORIC_THE_GOTH, KUSHLUK, SHAH_ISHMAIL, SALADIN, SELIM_THE_GRIM, JARL, \
     ITZCOATL, ATTILA_THE_HUN, PACAL_II, EL_CID_CAMPEADOR, GENGHIS_KHAN, FRANCESCO_SFORZA, \
     MIKLOS_TOLDI, ALEXANDER_NEVSKI, TARIQ_IBN_ZIYAD, DAGNAJAN, SUMANGURU, BAYINNAUNG, \
-    SURYAVARMAN_I, GAJAH_MADA, DINH_LE, KOTYAN_KHAN, VYTAUTAS_THE_GREAT, QUTLUGH, \
+    SURYAVARMAN_I, GAJAH_MADA, DINH_LE, KOTYAN_KHAN, VYTAUTAS_THE_GREAT, QUTLUGH, OSMAN, \
     JOHN_THE_FEARLESS, ROGER_BOSSO, JAN_ZIZKA, JADWIGA, IBRAHIM_LODI, PRITHVIRAJ, TAMAR, \
     THOROS, JOAN_OF_ARC, MINAMOTO, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA, POPE_LEO_I, \
-    VASCO_DA_GAMA, ADMIRAL_YI_SHUN_SHIN, MIHIRA_BHOJA, LEIF_ERIKSON, \
+    VASCO_DA_GAMA, ADMIRAL_YI_SHUN_SHIN, MIHIRA_BHOJA, LEIF_ERIKSON, EDWARD_LONGSHANKS, \
     TYPE_POPULATION_HEADROOM, TYPE_CURRENT_POPULATION, TYPE_TOTAL_UNITS_OWNED, TYPE_FOOD_STORAGE, \
-    TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_DOCK_TRAIN_LOCATION, \
+    TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_DOCK_TRAIN_LOCATION, PETARD_DEATH_ANIMATION, \
     TYPE_ENABLE_DISABLE_UNIT, TECH_REQUIREMENT_IMPERIAL_AGE, TYPE_INFLUENCE_ABILITY, \
     TYPE_SPAWN_CAP, TYPE_UNIT_LIMIT_RESOURCE, TYPE_POPULATION_HEADROOM, TYPE_TOTAL_UNITS_OWNED, \
     TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, \
-    WARSHIP_CLASS, CAVLARY_CLASS, INFANTRY_CLASS, ARCHER_CLASS, CAVALRY_ARCHER_CLASS, MONK_CLASS \
+    WARSHIP_CLASS, CAVLARY_CLASS, INFANTRY_CLASS, ARCHER_CLASS, CAVALRY_ARCHER_CLASS, MONK_CLASS, HAND_CANNONEER_CLASS \
 
 from mods.auras import attackSpeed, movementSpeed, healing
 
@@ -31,13 +31,12 @@ IGNORED_CIVS = ['Gaia', 'Achaemenids', 'Spartans', 'Athenians', 'Shu', 'Wei', 'W
 
 #TODO Maybe allow for multiple heroes, or randomize hero on each build.
 #TODO Maybe generate water hero(es) alongside land hero(es)
-#TODO maybe give auras to units
 HERO_FOR_CIV = {
-    "British": { "unitId": RICHARD_THE_LIONHEART, "unitStatChanges": {} },
+    "British": { "unitId": EDWARD_LONGSHANKS, "unitStatChanges": {} },
     "Byzantine": { "unitId": BELISARIUS, "unitStatChanges": {} },
     "Celts": { "unitId": WILLIAM_WALLACE, "unitStatChanges": {} },
     "Chinese": { "unitId": WANG_TONG, "unitStatChanges": {} },
-    "French": { "unitId": JOAN_OF_ARC, "unitStatChanges": {} },
+    "French": { "unitId": JOAN_OF_ARC, "unitStatChanges": {} }, #BERNARD_DE_ARMAGNAC is cool too
     "Goths": { "unitId": THEODORIC_THE_GOTH, "unitStatChanges": {} },
     "Japanese": { "unitId": MINAMOTO, "unitStatChanges": {} },
     "Mongols": { "unitId": KUSHLUK, "unitStatChanges": {} },
@@ -45,7 +44,7 @@ HERO_FOR_CIV = {
     "Persians": { "unitId": SHAH_ISHMAIL, "unitStatChanges": {} },
     "Saracens": { "unitId": SALADIN, "unitStatChanges": {} },
     "Teutons": { "unitId": ULRICH_VON_JUNGINGEN, "unitStatChanges": {} },
-    "Turks": { "unitId": SELIM_THE_GRIM, "unitStatChanges": {} },
+    "Turks": { "unitId": OSMAN, "unitStatChanges": {} },
     "Vikings": { "unitId": LEIF_ERIKSON, "unitStatChanges": {} },
     "Aztecs": { "unitId": ITZCOATL, "unitStatChanges": {} },
     "Huns": { "unitId": ATTILA_THE_HUN, "unitStatChanges": {} },
@@ -145,7 +144,7 @@ def limitCivToOneHero(civ_id: int, unit_id: int, data: DatFile):
     dead_basilius = data.civs[civ_id].units[SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD]
     #remove basilius dead graphic
     dead_basilius.standing_graphic = (-1,-1)
-    dead_basilius.dying_graphic = -1 #TODO maybe give an explosion (petard) a flash of light or more obvious death animation
+    dead_basilius.dying_graphic = -1 #PETARD_DEATH_ANIMATION #TODO maybe give an explosion (petard) a flash of light or more obvious death animation
     #create a dead basilieus at start to give one of needed resource for the unit. This one gives instant resource 501 when it dies instead of delayed
     create_basilius_effect_command = EffectCommand(type=TYPE_SPAWN_UNIT, a=SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, b=TOWN_CENTER, c=1, d=0.0)
     limit_unit_creatable_effect = Effect(
@@ -194,27 +193,31 @@ def extendTasks(unit: Unit, tasks) -> Unit:
     return unit
 
 def giveAura(unit: Unit):
-    #TODO handle boat class
     if(unit.class_ in [CAVLARY_CLASS]):
         logging.info("giving cavalry aura to unit")
         extendTasks(unit, movementSpeed)
-    if(unit.class_ in [INFANTRY_CLASS]):
+    elif(unit.class_ in [INFANTRY_CLASS]):
         logging.info("giving infantry aura to unit")
         extendTasks(unit, attackSpeed)
         extendTasks(unit, movementSpeed)
-    if(unit.class_ in [ARCHER_CLASS]):
+    elif(unit.class_ in [ARCHER_CLASS]):
         logging.info("giving archer aura to unit")
         extendTasks(unit, attackSpeed)
         extendTasks(unit, movementSpeed)
-    if(unit.class_ in [CAVALRY_ARCHER_CLASS]):
+    elif(unit.class_ in [CAVALRY_ARCHER_CLASS]):
         logging.info("giving cavalry archer aura to unit")
         extendTasks(unit, attackSpeed)
-    if(unit.class_ in [WARSHIP_CLASS]):
-        logging.info("giving cavalry archer aura to unit")
+    elif(unit.class_ in [WARSHIP_CLASS]):
+        logging.info("giving warship aura to unit")
+        extendTasks(unit, movementSpeed)
+    elif(unit.class_ in [HAND_CANNONEER_CLASS]):
+        logging.info("giving hand cannoneer archer aura to unit")
         extendTasks(unit, attackSpeed)
-    if(unit.class_ in [MONK_CLASS]):
+    elif(unit.class_ in [MONK_CLASS]):
         logging.info("giving monk aura to unit")
         extendTasks(unit, healing)
+    else:
+        logging.error(f"Unit {unit.name} has no aura")
     return unit
 
 def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
@@ -230,7 +233,6 @@ def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
 
     #give the unit an aura based on its class
     unit = giveAura(unit)
-    #print('unit', unit)
 
     #make sure unit take up population space
     unit.resource_storages = (
@@ -278,4 +280,4 @@ def mod(data: DatFile):
 #                    #make the hero for the other civs
 #                    makeHero(hero, rest_of_civs_civ, data)
         else:
-            logging.info(f'Failed to find hero for civ {civ.name}')
+            logging.error(f'Failed to find hero for civ {civ.name}')
