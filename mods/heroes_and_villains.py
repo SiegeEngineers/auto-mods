@@ -193,31 +193,21 @@ def extendTasks(unit: Unit, tasks) -> Unit:
     return unit
 
 def giveAura(unit: Unit):
-    if(unit.class_ in [CAVLARY_CLASS]):
-        logging.info("giving cavalry aura to unit")
-        extendTasks(unit, movementSpeed)
-    elif(unit.class_ in [INFANTRY_CLASS]):
-        logging.info("giving infantry aura to unit")
-        extendTasks(unit, attackSpeed)
-        extendTasks(unit, movementSpeed)
-    elif(unit.class_ in [ARCHER_CLASS]):
-        logging.info("giving archer aura to unit")
-        extendTasks(unit, attackSpeed)
+    if(unit.class_ in [CAVLARY_CLASS, WARSHIP_CLASS]):
+        logging.info("giving move speed aura to unit")
         extendTasks(unit, movementSpeed)
     elif(unit.class_ in [CAVALRY_ARCHER_CLASS]):
-        logging.info("giving cavalry archer aura to unit")
+        logging.info("giving attack speed aura to unit")
         extendTasks(unit, attackSpeed)
-    elif(unit.class_ in [WARSHIP_CLASS]):
-        logging.info("giving warship aura to unit")
+    elif(unit.class_ in [INFANTRY_CLASS, ARCHER_CLASS, HAND_CANNONEER_CLASS]):
+        logging.info("giving move and attack speed aura to unit")
+        extendTasks(unit, attackSpeed)
         extendTasks(unit, movementSpeed)
-    elif(unit.class_ in [HAND_CANNONEER_CLASS]):
-        logging.info("giving hand cannoneer archer aura to unit")
-        extendTasks(unit, attackSpeed)
     elif(unit.class_ in [MONK_CLASS]):
-        logging.info("giving monk aura to unit")
+        logging.info("giving healing aura to unit")
         extendTasks(unit, healing)
     else:
-        logging.error(f"Unit {unit.name} has no aura")
+        logging.error(f"Unit {unit.name} not given an aura")
     return unit
 
 def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
