@@ -14,24 +14,23 @@ from mods.ids import RICHARD_THE_LIONHEART, TSAR_KONSTANTIN, BELISARIUS, WILLIAM
     SURYAVARMAN_I, GAJAH_MADA, DINH_LE, KOTYAN_KHAN, VYTAUTAS_THE_GREAT, QUTLUGH, \
     JOHN_THE_FEARLESS, ROGER_BOSSO, JAN_ZIZKA, JADWIGA, IBRAHIM_LODI, PRITHVIRAJ, TAMAR, \
     THOROS, JOAN_OF_ARC, MINAMOTO, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA, POPE_LEO_I, \
-    VASCO_DA_GAMA, ADMIRAL_YI_SHUN_SHIN, MIHIRA_BHOJA, \
+    VASCO_DA_GAMA, ADMIRAL_YI_SHUN_SHIN, MIHIRA_BHOJA, LEIF_ERIKSON, \
     TYPE_POPULATION_HEADROOM, TYPE_CURRENT_POPULATION, TYPE_TOTAL_UNITS_OWNED, TYPE_FOOD_STORAGE, \
     TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_DOCK_TRAIN_LOCATION, \
-    TYPE_ENABLE_DISABLE_UNIT, TECH_REQUIREMENT_IMPERIAL_AGE, TECH_CASTLE_BUILT, \
+    TYPE_ENABLE_DISABLE_UNIT, TECH_REQUIREMENT_IMPERIAL_AGE, TYPE_INFLUENCE_ABILITY, \
     TYPE_SPAWN_CAP, TYPE_UNIT_LIMIT_RESOURCE, TYPE_POPULATION_HEADROOM, TYPE_TOTAL_UNITS_OWNED, \
     TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, \
-    WATERBORNE_NO_ICE_SPLASH, WATERBRORNE_CANNOT_MOVE_ON_ICE, WATERBORNE_NO_ICE_SPLASH_2, WATERBORNE_NO_ICE, WATERBORNE_SHALLOW_RESTRICTION \
+    WARSHIP_CLASS, CAVLARY_CLASS, INFANTRY_CLASS, ARCHER_CLASS, CAVALRY_ARCHER_CLASS, MONK_CLASS \
+
+from mods.auras import attackSpeed, movementSpeed, healing
 
 NAME = 'heroes-and-villains'
 
 #NOTE DO NOT REMOVE SPARTANS, WE USE THEIR POLEMARCH MECHANIC AND GIVING THEM EXTRA HEROES WOULD BREAK SHIT.
 IGNORED_CIVS = ['Gaia', 'Achaemenids', 'Spartans', 'Athenians', 'Shu', 'Wei', 'Wu', "Khitans", 'Jurchens']
 
-
-IS_TERRAIN_TYPE_WATER = [WATERBORNE_NO_ICE_SPLASH, WATERBRORNE_CANNOT_MOVE_ON_ICE, WATERBORNE_NO_ICE_SPLASH_2, WATERBORNE_NO_ICE, WATERBORNE_SHALLOW_RESTRICTION]
-#TODO maybe allow for multiple heroes for each civ, 
-#TODO setup naval heroes as well (would give koreans and portugese something only leaving out Bengalis)
-#TODO setup some better stats for balancing.
+#TODO Maybe allow for multiple heroes, or randomize hero on each build.
+#TODO Maybe generate water hero(es) alongside land hero(es)
 #TODO maybe give auras to units
 HERO_FOR_CIV = {
     "British": { "unitId": RICHARD_THE_LIONHEART, "unitStatChanges": {} },
@@ -47,7 +46,7 @@ HERO_FOR_CIV = {
     "Saracens": { "unitId": SALADIN, "unitStatChanges": {} },
     "Teutons": { "unitId": ULRICH_VON_JUNGINGEN, "unitStatChanges": {} },
     "Turks": { "unitId": SELIM_THE_GRIM, "unitStatChanges": {} },
-    "Vikings": { "unitId": JARL, "unitStatChanges": {} },
+    "Vikings": { "unitId": LEIF_ERIKSON, "unitStatChanges": {} },
     "Aztecs": { "unitId": ITZCOATL, "unitStatChanges": {} },
     "Huns": { "unitId": ATTILA_THE_HUN, "unitStatChanges": {} },
     "Koreans": { "unitId": ADMIRAL_YI_SHUN_SHIN, "unitStatChanges": {} },
@@ -146,7 +145,7 @@ def limitCivToOneHero(civ_id: int, unit_id: int, data: DatFile):
     dead_basilius = data.civs[civ_id].units[SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD]
     #remove basilius dead graphic
     dead_basilius.standing_graphic = (-1,-1)
-    dead_basilius.dying_graphic = -1
+    dead_basilius.dying_graphic = -1 #TODO maybe give an explosion (petard) a flash of light or more obvious death animation
     #create a dead basilieus at start to give one of needed resource for the unit. This one gives instant resource 501 when it dies instead of delayed
     create_basilius_effect_command = EffectCommand(type=TYPE_SPAWN_UNIT, a=SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, b=TOWN_CENTER, c=1, d=0.0)
     limit_unit_creatable_effect = Effect(
@@ -184,8 +183,36 @@ def limitCivToOneHero(civ_id: int, unit_id: int, data: DatFile):
     )
     data.techs.append(limit_hero_unit_creatable_effect)
 
+def extendTasks(unit: Unit, tasks) -> Unit:
+    #set unit to use aura abilities
+    unit.type_50.break_off_combat = TYPE_INFLUENCE_ABILITY
+    #extend the tasks of the unit with the new tasks
+    for task in tasks:
+        #get correct ids
+        task.id = len(unit.bird.tasks) #set the id to be the next available id
+        unit.bird.tasks.append(task)
+    return unit
+
 def giveAura(unit: Unit):
-    pass
+    #TODO handle boat class
+    if(unit.class_ in [CAVLARY_CLASS]):
+        logging.info("giving cavalry aura to unit")
+        extendTasks(unit, movementSpeed)
+    if(unit.class_ in [INFANTRY_CLASS]):
+        logging.info("giving infantry aura to unit")
+        extendTasks(unit, attackSpeed)
+        extendTasks(unit, movementSpeed)
+    if(unit.class_ in [ARCHER_CLASS]):
+        logging.info("giving archer aura to unit")
+        extendTasks(unit, attackSpeed)
+        extendTasks(unit, movementSpeed)
+    if(unit.class_ in [CAVALRY_ARCHER_CLASS]):
+        logging.info("giving cavalry archer aura to unit")
+        extendTasks(unit, attackSpeed)
+    if(unit.class_ in [MONK_CLASS]):
+        logging.info("giving monk aura to unit")
+        extendTasks(unit, healing)
+    return unit
 
 def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
     #prevent_hp_increase(cloned_unit)
@@ -195,12 +222,12 @@ def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
     unit = clone(civ.units[unitData["unitId"]], data.version)
     #set id to be end of civ units
     unit.id = new_unit_id
-
     #this gives back a resource when the unit dies that the unit costs to spawn. This limits us to one.
     unit.dead_unit_id = SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD
 
-    #TODO balance out the units stats compared to new DLC
-    unit.hit_points = 500
+    #give the unit an aura based on its class
+    unit = giveAura(unit)
+    #print('unit', unit)
 
     #make sure unit take up population space
     unit.resource_storages = (
@@ -218,7 +245,7 @@ def makeHero(unitData: dict, civ: Civ, data: DatFile) -> int:
     )
 
     #make unit trainable in the castle
-    if(unit.terrain_restriction in IS_TERRAIN_TYPE_WATER):
+    if(unit.class_ == WARSHIP_CLASS):
         logging.info(f'chose dock for hero unit {unit.name} for civ {civ.name}')
         unit.creatable.train_location_id = TYPE_DOCK_TRAIN_LOCATION
         unit.creatable.button_id = 30
