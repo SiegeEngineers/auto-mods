@@ -21,9 +21,8 @@ from mods.ids import TABINSHWEHTI, TSAR_KONSTANTIN, BELISARIUS, WILLIAM_WALLACE,
     TYPE_ENABLE_DISABLE_UNIT, TECH_REQUIREMENT_IMPERIAL_AGE, TYPE_INFLUENCE_ABILITY,  TYPE_TOTAL_UNITS_OWNED,\
     TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, \
     WARSHIP_CLASS, CAVLARY_CLASS, INFANTRY_CLASS, ARCHER_CLASS, CAVALRY_ARCHER_CLASS, MONK_CLASS, HAND_CANNONEER_CLASS, \
-    WAR_ELEPHANT_CLASS, ELEPHANT_ARCHER_CLASS, CONQUISTADOR_CLASS, HEALER_CLASS \
-
-from mods.auras import attackSpeed, movementSpeed, healing
+    WAR_ELEPHANT_CLASS, ELEPHANT_ARCHER_CLASS, CONQUISTADOR_CLASS, HEALER_CLASS, \
+    CAO_CAO, LIU_BEI, SUN_JIAN, FORTIFIED_CHURCH #auras
 
 #reserve spaces for hidden resouces. Dont use 501 as its used for sparta already.
 LAND_BASILIUS_RESOURCE_VALUE = 502
@@ -31,8 +30,8 @@ WATER_BASILIUS_RESOURCE_VALUE = 503
 
 NAME = 'heroes-and-villains'
 
-#TODO Maybe allow for multiple heroes, or randomize hero on each build.
 CIVS_WITH_HEROES_ALREADY = ['Shu', 'Wu', 'Wei']
+
 HERO_FOR_CIV = {
     "British": [EDWARD_LONGSHANKS],
     "Byzantine": [BELISARIUS],
@@ -83,6 +82,18 @@ HERO_FOR_CIV = {
     "Achaemenids": [DARIUS],
     "Athenians": [THEMISTOCLES]
 }
+
+class auraClass:
+      def __init__(self, data: DatFile):
+        def getAuraFromUnit(unit_id: int, data: DatFile):
+            auraTasks = [x for x in data.civs[0].units[unit_id].bird.tasks if x.action_type == 155]
+            return auraTasks
+
+        #rip from the units with avilities so we kinda can balance.
+        self.workRate = getAuraFromUnit(FORTIFIED_CHURCH, data)
+        self.healing = getAuraFromUnit(LIU_BEI, data)
+        self.attackSpeed = getAuraFromUnit(CAO_CAO, data)
+        self.movementSpeed = getAuraFromUnit(SUN_JIAN, data)
 
 
 def addUnitToCiv(civ_id: int, unit_id: int, data: DatFile):
@@ -199,20 +210,21 @@ def extendTasks(unit: Unit, tasks) -> Unit:
         unit.bird.tasks.append(task)
     return unit
 
-def giveAura(unit: Unit):
+def giveAura(unit: Unit, data: DatFile) -> Unit:
+    auras = auraClass(data)
     if(unit.class_ in [CAVLARY_CLASS, WARSHIP_CLASS]):
         logging.info("giving move speed aura to unit")
-        extendTasks(unit, movementSpeed)
+        extendTasks(unit, auras.movementSpeed)
     elif(unit.class_ in [CAVALRY_ARCHER_CLASS, CONQUISTADOR_CLASS]):
         logging.info("giving attack speed aura to unit")
-        extendTasks(unit, attackSpeed)
+        extendTasks(unit, auras.attackSpeed)
     elif(unit.class_ in [INFANTRY_CLASS, ARCHER_CLASS, HAND_CANNONEER_CLASS]):
         logging.info("giving move and attack speed aura to unit")
-        extendTasks(unit, attackSpeed)
-        extendTasks(unit, movementSpeed)
+        extendTasks(unit, auras.attackSpeed)
+        extendTasks(unit, auras.movementSpeed)
     elif(unit.class_ in [MONK_CLASS, HEALER_CLASS]):
         logging.info("giving healing aura to unit")
-        extendTasks(unit, healing)
+        extendTasks(unit, auras.healing)
     else:
         logging.error(f"Unit {unit.name} not given an aura")
     return unit
@@ -227,7 +239,7 @@ def makeHero(unitId: int, civ: Civ, data: DatFile, land_basilius_unit_id: int, w
     unit.id = new_unit_id
 
     #give the unit an aura based on its class
-    unit = giveAura(unit)
+    unit = giveAura(unit, data)
 
     #make sure unit take up population space
     unit.resource_storages = (
