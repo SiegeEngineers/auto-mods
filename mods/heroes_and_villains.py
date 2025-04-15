@@ -95,7 +95,6 @@ class auraClass:
         self.attackSpeed = getAuraFromUnit(CAO_CAO, data)
         self.movementSpeed = getAuraFromUnit(SUN_JIAN, data)
 
-
 def addUnitToCiv(civ_id: int, unit_id: int, data: DatFile):
     #create unit
     logging.info(f'Making effect for hero unit for {data.civs[civ_id].units[unit_id].name} - {unit_id} for civ {data.civs[civ_id].name} - {civ_id}')
@@ -237,10 +236,9 @@ def makeHero(unitId: int, civ: Civ, data: DatFile, land_basilius_unit_id: int, w
     unit = clone(civ.units[unitId], data.version)
     #set id to be end of civ units
     unit.id = new_unit_id
-
     #give the unit an aura based on its class
     unit = giveAura(unit, data)
-
+    unit.creatable.hero_mode = 1
     #make sure unit take up population space
     unit.resource_storages = (
         ResourceStorage(type=TYPE_POPULATION_HEADROOM, amount=-1, flag=2),
@@ -275,16 +273,12 @@ def makeHero(unitId: int, civ: Civ, data: DatFile, land_basilius_unit_id: int, w
             ResourceCost(type=LAND_BASILIUS_RESOURCE_VALUE, amount=1, flag=1),
             ResourceCost(type=TYPE_FOOD_STORAGE, amount=500, flag=1),
             ResourceCost(type=TYPE_GOLD_STORAGE, amount=500, flag=1),
-        )
-        
-    unit.creatable.hero_mode = 1
+        ) 
 
     #add the new unit to the civ
     civ.units.append(unit)
     logging.info(f'Patched hero unit {unit.name} for civ {civ.name}')
     return new_unit_id
-
-
 
 def mod(data: DatFile):
     civs_missing_hero = []
