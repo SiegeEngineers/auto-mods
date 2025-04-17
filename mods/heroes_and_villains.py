@@ -5,23 +5,23 @@ from genieutils.unit import Unit
 from genieutils.effect import Effect, EffectCommand
 from genieutils.tech import Tech, ResearchResourceCost
 from genieutils.datfile import DatFile
+from genieutils.techtree import UnitConnection, Common
 from genieutils.unit import ResourceCost, ResourceStorage
 from mods.util import clone
-from mods.ids import TABINSHWEHTI, TSAR_KONSTANTIN, BELISARIUS, WILLIAM_WALLACE, \
-    WANG_TONG, ALARIC_THE_GOTH, SUNDJATA, SHAH_ISHMAIL, SALADIN, SELIM_THE_GRIM, JARL, \
+from mods.ids import TABINSHWEHTI, TSAR_KONSTANTIN, BELISARIUS, WILLIAM_WALLACE, WHITE_TIGER_YAN, \
+    WANG_TONG, ALARIC_THE_GOTH, SUNDJATA, SHAH_ISHMAIL, SALADIN, JARL, QUTLUGH, \
     CUAUHTEMOC, ATTILA_THE_HUN, PACAL_II, EL_CID_CAMPEADOR, GENGHIS_KHAN, FRANCESCO_SFORZA, \
-    MIKLOS_TOLDI, ALEXANDER_NEVSKI, TARIQ_IBN_ZIYAD, DAGNAJAN, SUMANGURU, BAYINNAUNG, \
-    SURYAVARMAN_I, GAJAH_MADA, LE_LOI, KOTYAN_KHAN, ALGIRDAS, QUTLUGH, OSMAN, \
+    MIKLOS_TOLDI, ALEXANDER_NEVSKI, TARIQ_IBN_ZIYAD, DAGNAJAN, SURYAVARMAN_I, KUSHLUK, \
+    GAJAH_MADA, LE_LOI, KOTYAN_KHAN, ALGIRDAS, OSMAN, THEMISTOCLES, LEONIDAS, DARIUS, \
     JOHN_THE_FEARLESS, ROGER_BOSSO, JAN_ZIZKA, JADWIGA, IBRAHIM_LODI, PRITHVIRAJ, TAMAR, \
     THOROS, JOAN_OF_ARC, NOBUNAGA, ULRICH_VON_JUNGINGEN, PACHACUTI, RAJENDRA_CHOLA, POPE_LEO_I, \
     VASCO_DA_GAMA, ADMIRAL_YI_SHUN_SHIN, MIHIRA_BHOJA, LEIF_ERIKSON, EDWARD_LONGSHANKS, \
-    THEMISTOCLES, LEONIDAS, DARIUS, \
     TYPE_POPULATION_HEADROOM, TYPE_CURRENT_POPULATION, TYPE_TOTAL_UNITS_OWNED, TYPE_FOOD_STORAGE, \
     TYPE_GOLD_STORAGE, TYPE_CASTLE_TRAIN_LOCATION, TYPE_DOCK_TRAIN_LOCATION, TYPE_POPULATION_HEADROOM, \
     TYPE_ENABLE_DISABLE_UNIT, TECH_REQUIREMENT_IMPERIAL_AGE, TYPE_INFLUENCE_ABILITY,  TYPE_TOTAL_UNITS_OWNED,\
-    TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, \
-    WARSHIP_CLASS, CAVLARY_CLASS, INFANTRY_CLASS, ARCHER_CLASS, CAVALRY_ARCHER_CLASS, MONK_CLASS, HAND_CANNONEER_CLASS, \
-    WAR_ELEPHANT_CLASS, ELEPHANT_ARCHER_CLASS, CONQUISTADOR_CLASS, HEALER_CLASS, \
+    TYPE_SPAWN_UNIT, TOWN_CENTER, TYPE_TOWN_CENTER_BUILT, SPECIAL_UNIT_SPAWN_BASILIEUS_DEAD, CONQUISTADOR_CLASS, \
+    WARSHIP_CLASS, CAVLARY_CLASS, INFANTRY_CLASS, ARCHER_CLASS, CAVALRY_ARCHER_CLASS, HAND_CANNONEER_CLASS, \
+    CONQUISTADOR_CLASS, HEALER_CLASS, MONK_CLASS, \
     CAO_CAO, LIU_BEI, SUN_JIAN, FORTIFIED_CHURCH #auras
 
 #reserve spaces for hidden resouces. Dont use 501 as its used for sparta already.
@@ -31,6 +31,7 @@ WATER_BASILIUS_RESOURCE_VALUE = 503
 NAME = 'heroes-and-villains'
 
 CIVS_WITH_HEROES_ALREADY = ['Shu', 'Wu', 'Wei']
+
 
 HERO_FOR_CIV = {
     "British": [EDWARD_LONGSHANKS],
@@ -72,7 +73,7 @@ HERO_FOR_CIV = {
     "Bohemians": [JAN_ZIZKA],
     "Poles": [JADWIGA], #Jogaila
     "Hindustanis": [IBRAHIM_LODI],
-    "Bengalis": [MIHIRA_BHOJA], #maybe not good
+    "Bengalis": [MIHIRA_BHOJA], #maybe not bengalis but some people on forum said it could be both so better than nothing?
     "Gurjaras": [PRITHVIRAJ],
     "Dravidians": [RAJENDRA_CHOLA],
     "Romans": [POPE_LEO_I],
@@ -80,7 +81,9 @@ HERO_FOR_CIV = {
     "Georgians": [TAMAR],
     "Spartans": [LEONIDAS],
     "Achaemenids": [DARIUS],
-    "Athenians": [THEMISTOCLES]
+    "Athenians": [THEMISTOCLES],
+    "Khitans": [KUSHLUK], #fine but not amazing
+    "Jurchens": [WHITE_TIGER_YAN] #not great but they dont have great
 }
 
 class auraClass:
@@ -88,7 +91,6 @@ class auraClass:
         def getAuraFromUnit(unit_id: int, data: DatFile):
             auraTasks = [x for x in data.civs[0].units[unit_id].bird.tasks if x.action_type == 155]
             return auraTasks
-
         #rip from the units with avilities so we kinda can balance.
         self.workRate = getAuraFromUnit(FORTIFIED_CHURCH, data)
         self.healing = getAuraFromUnit(LIU_BEI, data)
@@ -160,7 +162,6 @@ def limitHeroesForCiv(civ_id: int, data: DatFile, hidden_resource_id: int) -> in
     dead_basilius.dying_graphic = -1
     #add basilius to the civs unit list so it can be used in the effect.
     data.civs[civ_id].units.append(dead_basilius)
-    print('dead_basilius', dead_basilius)
 
     #create a dead basilieus at start to give one of needed resource for the unit. This one gives instant resource 501 when it dies instead of delayed
     give_resource_at_first_tc_effect_command = EffectCommand(type=TYPE_SPAWN_UNIT, a=dead_basilius_id, b=TOWN_CENTER, c=1, d=0.0)
@@ -200,8 +201,6 @@ def limitHeroesForCiv(civ_id: int, data: DatFile, hidden_resource_id: int) -> in
     return dead_basilius_id
 
 def extendTasks(unit: Unit, tasks) -> Unit:
-    #set unit to use aura abilities
-    unit.type_50.break_off_combat = TYPE_INFLUENCE_ABILITY
     #extend the tasks of the unit with the new tasks
     for task in tasks:
         #get correct ids
@@ -209,25 +208,53 @@ def extendTasks(unit: Unit, tasks) -> Unit:
         unit.bird.tasks.append(task)
     return unit
 
-def giveAura(unit: Unit, data: DatFile) -> Unit:
+
+def giveLanguage(unit: Unit, unitGiver: Unit) -> Unit:
+    #unit.language_dll_name = unitGiver.language_dll_creation
+    unit.language_dll_creation = unitGiver.language_dll_creation
+    unit.language_dll_help = unitGiver.language_dll_help
+    unit.language_dll_hotkey_text = unitGiver.language_dll_hotkey_text
+
+def giveAuraAndLangauge(unit: Unit, data: DatFile) -> Unit:
     auras = auraClass(data)
+
+    #TODO see if you can change the names somehow?
+    attackSpeedLanguageUnit = data.civs[0].units[CAO_CAO]
+    healingLanguageUnit = data.civs[0].units[LIU_BEI]
+    movementSpeedLanguageUnit = data.civs[0].units[SUN_JIAN]
+
+    #set unit to use aura abilities
+    unit.type_50.break_off_combat = TYPE_INFLUENCE_ABILITY
+
     if(unit.class_ in [CAVLARY_CLASS, WARSHIP_CLASS]):
         logging.info("giving move speed aura to unit")
         extendTasks(unit, auras.movementSpeed)
+        giveLanguage(unit, movementSpeedLanguageUnit)
     elif(unit.class_ in [CAVALRY_ARCHER_CLASS, CONQUISTADOR_CLASS]):
         logging.info("giving attack speed aura to unit")
         extendTasks(unit, auras.attackSpeed)
+        giveLanguage(unit, attackSpeedLanguageUnit)
     elif(unit.class_ in [INFANTRY_CLASS, ARCHER_CLASS, HAND_CANNONEER_CLASS]):
         logging.info("giving move and attack speed aura to unit")
         extendTasks(unit, auras.attackSpeed)
         extendTasks(unit, auras.movementSpeed)
+        giveLanguage(unit, attackSpeedLanguageUnit)
     elif(unit.class_ in [MONK_CLASS, HEALER_CLASS]):
         logging.info("giving healing aura to unit")
         extendTasks(unit, auras.healing)
+        giveLanguage(unit, healingLanguageUnit)
     else:
         logging.error(f"Unit {unit.name} not given an aura")
     return unit
 
+def addUnitToTechTree(unitId: int, data: DatFile):
+    logging.info(f'Adding hero unit {unitId} to tech tree')
+    caoCaoTech = [uc for uc in data.tech_tree.unit_connections if uc.id == CAO_CAO][0]
+    newTech = clone(caoCaoTech, data.version)
+    newTech.id = unitId
+    #TODO fix this, adding the unit connection is currently making the save error out.
+    #data.tech_tree.unit_connections.append(newTech)
+    
 def makeHero(unitId: int, civ: Civ, data: DatFile, land_basilius_unit_id: int, water_basilius_unit_id: int) -> int:
     #prevent_hp_increase(cloned_unit)
     logging.info(f'Patching hero unit {unitId}')
@@ -237,14 +264,17 @@ def makeHero(unitId: int, civ: Civ, data: DatFile, land_basilius_unit_id: int, w
     #set id to be end of civ units
     unit.id = new_unit_id
     #give the unit an aura based on its class
-    unit = giveAura(unit, data)
+    unit = giveAuraAndLangauge(unit, data)
     unit.creatable.hero_mode = 1
+
     #make sure unit take up population space
     unit.resource_storages = (
         ResourceStorage(type=TYPE_POPULATION_HEADROOM, amount=-1, flag=2),
         ResourceStorage(type=TYPE_CURRENT_POPULATION, amount=1, flag=2),
         ResourceStorage(type=TYPE_TOTAL_UNITS_OWNED, amount=1, flag=1),
     )
+
+    #TODO give the unit cost when you hover over the unit in the castle/dock
 
     #make unit trainable in the dock if waship and limit is with water basilius
     if(unit.class_ == WARSHIP_CLASS):
@@ -291,6 +321,11 @@ def mod(data: DatFile):
             for unit_id in HERO_FOR_CIV[civ.name]:
                 hero_unit_id = makeHero(unit_id, civ, data, land_dead_basilius_id, water_dead_basilius_id)
                 addUnitToCiv(civ_id, hero_unit_id, data)
+                
+            #add the unit to the tech tree so its visible
+            #print('data.tech_tree.unit_connections', list(filter(lambda uc: uc.id == 1954, data.tech_tree.unit_connections)))
+            addUnitToTechTree(hero_unit_id, data)
+            
             logging.info(f'Creating hero for civ other civs')
         else:
             if(civ.name not in CIVS_WITH_HEROES_ALREADY):
