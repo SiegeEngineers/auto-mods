@@ -57,6 +57,7 @@ def patch_scouts(data: DatFile):
                 resource_deposit_sound_id=-1,
                 wwise_resource_gathering_sound_id=0,
                 wwise_resource_deposit_sound_id=0,
+                enabled=1,
             )
             unit.bird.tasks.append(kidnap_task)
             logging.info(f'Adding loot task to scout ({scout_id}) for civ {civ.name}')
@@ -92,6 +93,7 @@ def patch_scouts(data: DatFile):
                 resource_deposit_sound_id=-1,
                 wwise_resource_gathering_sound_id=0,
                 wwise_resource_deposit_sound_id=0,
+                enabled=1,
             )
             unit.bird.tasks.append(loot_task)
 

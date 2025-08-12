@@ -70,6 +70,7 @@ def lowkey_make_kings_able_to_garrison_siege(civ: Civ):
         resource_deposit_sound_id=-1,
         wwise_resource_gathering_sound_id=-1,
         wwise_resource_deposit_sound_id=-1,
+        enabled=1,
     )
     king.bird.tasks.append(garrison_siege_task)
     logging.info(f'Patched King garrison for civ {civ.name}')

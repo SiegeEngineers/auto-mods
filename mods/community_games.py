@@ -2,7 +2,7 @@ import logging
 
 from genieutils.datfile import DatFile
 from genieutils.effect import EffectCommand, Effect
-from genieutils.tech import Tech, ResearchResourceCost
+from genieutils.tech import Tech, ResearchResourceCost, ResearchLocation
 from genieutils.unit import ResourceCost, ResourceStorage
 
 from mods.ids import BOMBARD_TOWER, TYPE_POPULATION_HEADROOM, TYPE_CURRENT_POPULATION, TYPE_TOTAL_UNITS_OWNED, \
@@ -68,6 +68,14 @@ def add_great_hall_tech(data: DatFile):
         hot_key=0,
         name='The Great Hall',
         repeatable=1,
+        research_locations=[
+            ResearchLocation(
+                location_id=BOMBARD_TOWER,
+                research_time=5,
+                button_id=1,
+                hot_key_id=0,
+            )
+        ]
     )
     logging.info(f'Adding great hall tech with id {len(data.techs)}')
     data.techs.append(tech)
@@ -134,6 +142,14 @@ def add_elite_petard(data: DatFile):
         hot_key=0,
         name='Elite Petard',
         repeatable=1,
+        research_locations=[
+            ResearchLocation(
+                location_id=CASTLE,
+                research_time=40,
+                button_id=9,
+                hot_key_id=0,
+            )
+        ]
     )
     logging.info(f'Adding Elite Petard Tech with id {len(data.techs)}')
     data.techs.append(tech)
