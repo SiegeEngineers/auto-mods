@@ -2,45 +2,19 @@ import logging
 
 from genieutils.civ import Civ
 from genieutils.datfile import DatFile
+from genieutils.unit import Unit
 
-from mods.ids import FISHING_SHIP, TRADE_COG, TRADE_CART_EMPTY, TRADE_CART_FULL, VILLAGER_FARMER_M, VILLAGER_FARMER_F, \
-    VILLAGER_FORAGER_F, VILLAGER_FISHER_F, VILLAGER_GOLD_F, VILLAGER_BUILDER_F, VILLAGER_BASE_M, VILLAGER_SHEPHERD_M, \
-    VILLAGER_HUNTER_M, VILLAGER_WOOD_M, VILLAGER_STONE_M, VILLAGER_REPAIRER_M, VILLAGER_BASE_F, VILLAGER_SHEPHERD_F, \
-    VILLAGER_HUNTER_F, VILLAGER_WOOD_F, VILLAGER_STONE_F, VILLAGER_REPAIRER_F, VILLAGER_FORAGER_M, VILLAGER_FISHER_M, \
-    VILLAGER_GOLD_M, VILLAGER_BUILDER_M, SABOTEUR, ANTIQUITY_MODE_FISHING_SHIP
+from mods.ids import SABOTEUR, CLASS_TRADE_BOAT, CLASS_CIVILIAN, CLASS_TRADE_CART, CLASS_FISHING_BOAT
 from mods.util import clone
 
 NAME = 'exploding-villagers'
 NAME_2 = 'exploding-villagers-extreme'
 
-UNITS = [
-    FISHING_SHIP,
-    ANTIQUITY_MODE_FISHING_SHIP,
-    TRADE_COG,
-    TRADE_CART_EMPTY,
-    TRADE_CART_FULL,
-    VILLAGER_BASE_M,
-    VILLAGER_BASE_F,
-    VILLAGER_FARMER_M,
-    VILLAGER_FARMER_F,
-    VILLAGER_SHEPHERD_M,
-    VILLAGER_SHEPHERD_F,
-    VILLAGER_FORAGER_M,
-    VILLAGER_FORAGER_F,
-    VILLAGER_HUNTER_M,
-    VILLAGER_HUNTER_F,
-    VILLAGER_FISHER_M,
-    VILLAGER_FISHER_F,
-    VILLAGER_WOOD_M,
-    VILLAGER_WOOD_F,
-    VILLAGER_GOLD_M,
-    VILLAGER_GOLD_F,
-    VILLAGER_STONE_M,
-    VILLAGER_STONE_F,
-    VILLAGER_BUILDER_M,
-    VILLAGER_BUILDER_F,
-    VILLAGER_REPAIRER_M,
-    VILLAGER_REPAIRER_F,
+EXPLODING_CLASSES = [
+    CLASS_TRADE_BOAT,
+    CLASS_CIVILIAN,
+    CLASS_TRADE_CART,
+    CLASS_FISHING_BOAT,
 ]
 
 
@@ -58,6 +32,10 @@ def clone_saboteur(civ: Civ, version: str) -> int:
     return clone_unit_id
 
 
+def should_explode(unit: Unit) -> bool:
+    return unit.class_ in EXPLODING_CLASSES if unit else False
+
+
 def patch_villager_units(data: DatFile, nerf_saboteur: bool):
     for civ in data.civs:
         saboteur_id = clone_saboteur(civ, data.version)
@@ -66,13 +44,15 @@ def patch_villager_units(data: DatFile, nerf_saboteur: bool):
             type_50.attacks[0].amount = 50
             type_50.attacks[1].amount = 90
             type_50.attacks[2].amount = 0
-        for unit_id in UNITS:
-            civ.units[unit_id].dead_unit_id = saboteur_id
-            logging.info(f'Patched villager unit with id {unit_id} ({civ.units[unit_id].name}) for civ {civ.name}')
+        for unit in civ.units:
+            if should_explode(unit):
+                unit.dead_unit_id = saboteur_id
+                logging.info(f'Patched unit with id {unit.id} ({unit.name}) for civ {civ.name}')
 
 
 def mod(data: DatFile):
     patch_villager_units(data, nerf_saboteur=True)
+
 
 def mod_2(data: DatFile):
     patch_villager_units(data, nerf_saboteur=False)
