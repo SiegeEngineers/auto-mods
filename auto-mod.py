@@ -1,5 +1,7 @@
 #! /usr/bin/env python3
 import argparse
+import sys
+import zlib
 import hashlib
 import logging
 import pickle
@@ -7,6 +9,7 @@ import time
 from pathlib import Path
 from typing import Callable
 
+from genieutils.common import ByteHandler
 from genieutils.datfile import DatFile
 
 from mods import community_games, duplicate_techs, exploding_kings, exploding_relic_monks, exploding_villagers, \
@@ -65,7 +68,13 @@ def main():
     if args.cache:
         cache_file, data = load_cache(args.input_filename)
     if not data:
-        data = DatFile.parse(args.input_filename)
+        if args.input_filename == '-' or args.input_filename.name == '-':
+            decompressed = zlib.decompress(sys.stdin.buffer.read(), wbits=-15)
+            byte_handler = ByteHandler(memoryview(decompressed))
+            data = DatFile.from_bytes(byte_handler)
+        else:
+            data = DatFile.parse(args.input_filename)
+
         if args.cache and cache_file:
             write_cache(data, cache_file)
 
@@ -73,9 +82,13 @@ def main():
     for mod in args.mods:
         logging.info(f'Applying {mod}:')
         AVAILABLE_MODS[mod](data)
-
-    logging.info(f'Saving dat file {args.output_filename}')
-    data.save(args.output_filename)
+    if args.output_filename == '-' or args.output_filename.name == '-':
+        logging.info('Writing dat file to stdout')
+        sys.stdout.buffer.write(zlib.compress(data.to_bytes(), level=-1, wbits=-15))
+        sys.stdout.flush()
+    else:
+        logging.info(f'Saving dat file {args.output_filename}')
+        data.save(args.output_filename)
 
     end = time.time()
     logging.info(f'Took {end - start:.2f} seconds')
