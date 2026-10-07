@@ -1,0 +1,1851 @@
+{
+  "civilization_list": [
+    {
+      "internal_name": "Gaia",
+      "tech_tree_name": "GAIA",
+      "data_name": "GAIA",
+      "hud_style": "CivWest",
+      "name_string_id": 10102,
+      "era": "base"
+    },
+    {
+      "internal_name": "Britons",
+      "tech_tree_name": "BRITONS",
+      "data_name": "BRITON-CIV",
+      "hud_style": "CivWest",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_britons.png",
+      "emblem_image_path": "/resources/civ_emblems/britons.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/041_50730.png"
+      ],
+      "name_string_id": 10271,
+      "tech_tree_description_string_id": 120150,
+      "computer_name_string_table_offset": 4400,
+      "unique_tech_id_1": 3,
+      "unique_tech_id_2": 461,
+      "unique_unit_line": -276,
+      "unique_unit_upgrade_id": 360,
+      "unique_unit_id": 8,
+      "elite_unique_unit_id": 530,
+      "unique_unit_string_ids": [
+        {
+          "name": 5107,
+          "description": 26107
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Franks",
+      "tech_tree_name": "FRANKS",
+      "data_name": "FRANKISH-CIV",
+      "hud_style": "CivWest",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_franks.png",
+      "emblem_image_path": "/resources/civ_emblems/franks.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/046_50730.png"
+      ],
+      "name_string_id": 10272,
+      "tech_tree_description_string_id": 120151,
+      "computer_name_string_table_offset": 4420,
+      "unique_tech_id_1": 493,
+      "unique_tech_id_2": 1496,
+      "unique_unit_line": -271,
+      "unique_unit_upgrade_id": 363,
+      "unique_unit_id": 281,
+      "elite_unique_unit_id": 531,
+      "unique_unit_string_ids": [
+        {
+          "name": 5111,
+          "description": 26111
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Goths",
+      "tech_tree_name": "GOTHS",
+      "data_name": "GOTHIC-CIV",
+      "hud_style": "CivWest",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_goths.png",
+      "emblem_image_path": "/resources/civ_emblems/goths.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/050_50730.png"
+      ],
+      "name_string_id": 10273,
+      "tech_tree_description_string_id": 120152,
+      "computer_name_string_table_offset": 4440,
+      "unique_tech_id_1": 457,
+      "unique_tech_id_2": 16,
+      "unique_unit_line": -278,
+      "unique_unit_upgrade_id": 365,
+      "unique_unit_id": 41,
+      "elite_unique_unit_id": 555,
+      "unique_unit_string_ids": [
+        {
+          "name": 5104,
+          "description": 26104
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Teutons",
+      "tech_tree_name": "TEUTONS",
+      "data_name": "TEUTONIC-CIV",
+      "hud_style": "CivWest",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_teutons.png",
+      "emblem_image_path": "/resources/civ_emblems/teutons.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/045_50730.png"
+      ],
+      "name_string_id": 10274,
+      "tech_tree_description_string_id": 120153,
+      "computer_name_string_table_offset": 4460,
+      "unique_tech_id_1": 11,
+      "unique_tech_id_2": 489,
+      "unique_unit_line": -272,
+      "unique_unit_upgrade_id": 364,
+      "unique_unit_id": 25,
+      "elite_unique_unit_id": 554,
+      "unique_unit_string_ids": [
+        {
+          "name": 5112,
+          "description": 26112
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Japanese",
+      "tech_tree_name": "JAPANESE",
+      "data_name": "JAPANESE-CIV",
+      "hud_style": "CivAsia",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_japanese.png",
+      "emblem_image_path": "/resources/civ_emblems/japanese.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/044_50730.png"
+      ],
+      "name_string_id": 10275,
+      "tech_tree_description_string_id": 120154,
+      "computer_name_string_table_offset": 4480,
+      "unique_tech_id_1": 59,
+      "unique_tech_id_2": 484,
+      "unique_unit_line": -273,
+      "unique_unit_upgrade_id": 366,
+      "unique_unit_id": 291,
+      "elite_unique_unit_id": 560,
+      "unique_unit_string_ids": [
+        {
+          "name": 5110,
+          "description": 26110
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Chinese",
+      "tech_tree_name": "CHINESE",
+      "data_name": "CHINESE-CIV",
+      "hud_style": "CivAsia",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_chinese.png",
+      "emblem_image_path": "/resources/civ_emblems/chinese.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/036_50730.png",
+        "/resources/uniticons/178_50730.png"
+      ],
+      "name_string_id": 10276,
+      "tech_tree_description_string_id": 120155,
+      "computer_name_string_table_offset": 4500,
+      "unique_tech_id_1": 52,
+      "unique_tech_id_2": 462,
+      "unique_unit_line": -279,
+      "unique_unit_upgrade_id": 362,
+      "unique_unit_id": 73,
+      "elite_unique_unit_id": 559,
+      "unique_unit_string_ids": [
+        {
+          "name": 5102,
+          "description": 26102
+        },
+        {
+          "name": 5739,
+          "description": 26739
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Byzantines",
+      "tech_tree_name": "BYZANTINES",
+      "data_name": "BYZANTINE-CIV",
+      "hud_style": "CivMedi",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_byzantines.png",
+      "emblem_image_path": "/resources/civ_emblems/byzantines.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/035_50730.png"
+      ],
+      "name_string_id": 10277,
+      "tech_tree_description_string_id": 120156,
+      "computer_name_string_table_offset": 4520,
+      "unique_tech_id_1": 61,
+      "unique_tech_id_2": 464,
+      "unique_unit_line": -280,
+      "unique_unit_upgrade_id": 361,
+      "unique_unit_id": 40,
+      "elite_unique_unit_id": 553,
+      "unique_unit_string_ids": [
+        {
+          "name": 5101,
+          "description": 26101
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Persians",
+      "tech_tree_name": "PERSIANS",
+      "data_name": "PERSIAN-CIV",
+      "hud_style": "CivOrie",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_persians.png",
+      "emblem_image_path": "/resources/civ_emblems/persians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/043_50730.png",
+        "/resources/uniticons/410_50730.png"
+      ],
+      "name_string_id": 10278,
+      "tech_tree_description_string_id": 120157,
+      "computer_name_string_table_offset": 4540,
+      "unique_tech_id_1": 7,
+      "unique_tech_id_2": 488,
+      "unique_unit_line": -270,
+      "unique_unit_upgrade_id": 367,
+      "unique_unit_id": 239,
+      "elite_unique_unit_id": 558,
+      "unique_unit_string_ids": [
+        {
+          "name": 5109,
+          "description": 26109
+        },
+        {
+          "name": 5703,
+          "description": 26703
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Saracens",
+      "tech_tree_name": "SARACENS",
+      "data_name": "SARACEN-CIV",
+      "hud_style": "CivOrie",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_saracens.png",
+      "emblem_image_path": "/resources/civ_emblems/saracens.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/037_50730.png"
+      ],
+      "name_string_id": 10279,
+      "tech_tree_description_string_id": 120158,
+      "computer_name_string_table_offset": 4560,
+      "unique_tech_id_1": 454,
+      "unique_tech_id_2": 28,
+      "unique_unit_line": -275,
+      "unique_unit_upgrade_id": 368,
+      "unique_unit_id": 282,
+      "elite_unique_unit_id": 556,
+      "unique_unit_string_ids": [
+        {
+          "name": 5103,
+          "description": 26103
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Turks",
+      "tech_tree_name": "TURKS",
+      "data_name": "TURKISH-CIV",
+      "hud_style": "CivOrie",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_turks.png",
+      "emblem_image_path": "/resources/civ_emblems/turks.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/039_50730.png"
+      ],
+      "name_string_id": 10280,
+      "tech_tree_description_string_id": 120159,
+      "computer_name_string_table_offset": 4580,
+      "unique_tech_id_1": 10,
+      "unique_tech_id_2": 491,
+      "unique_unit_line": -277,
+      "unique_unit_upgrade_id": 369,
+      "unique_unit_id": 46,
+      "elite_unique_unit_id": 557,
+      "unique_unit_string_ids": [
+        {
+          "name": 5105,
+          "description": 26105
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Vikings",
+      "tech_tree_name": "VIKINGS",
+      "data_name": "VIKING-CIV",
+      "hud_style": "CivNord",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_vikings.png",
+      "emblem_image_path": "/resources/civ_emblems/vikings.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/038_50730.png"
+      ],
+      "name_string_id": 10281,
+      "tech_tree_description_string_id": 120160,
+      "computer_name_string_table_offset": 4600,
+      "unique_tech_id_1": 49,
+      "unique_tech_id_2": 463,
+      "unique_unit_line": -281,
+      "unique_unit_upgrade_id": 398,
+      "unique_unit_id": 692,
+      "elite_unique_unit_id": 694,
+      "unique_unit_string_ids": [
+        {
+          "name": 5076,
+          "description": 26574
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Mongols",
+      "tech_tree_name": "MONGOLS",
+      "data_name": "MONGOL-CIV",
+      "hud_style": "CivNomad",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_mongols.png",
+      "emblem_image_path": "/resources/civ_emblems/mongols.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/042_50730.png"
+      ],
+      "name_string_id": 10282,
+      "tech_tree_description_string_id": 120161,
+      "computer_name_string_table_offset": 4620,
+      "unique_tech_id_1": 6,
+      "unique_tech_id_2": 487,
+      "unique_unit_line": -274,
+      "unique_unit_upgrade_id": 371,
+      "unique_unit_id": 11,
+      "elite_unique_unit_id": 561,
+      "unique_unit_string_ids": [
+        {
+          "name": 5108,
+          "description": 26108
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Celts",
+      "tech_tree_name": "CELTS",
+      "data_name": "CELTIC-CIV",
+      "hud_style": "CivWest",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_celts.png",
+      "emblem_image_path": "/resources/civ_emblems/celts.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/047_50730.png"
+      ],
+      "name_string_id": 10283,
+      "tech_tree_description_string_id": 120162,
+      "computer_name_string_table_offset": 4640,
+      "unique_tech_id_1": 5,
+      "unique_tech_id_2": 482,
+      "unique_unit_line": -268,
+      "unique_unit_upgrade_id": 370,
+      "unique_unit_id": 232,
+      "elite_unique_unit_id": 534,
+      "unique_unit_string_ids": [
+        {
+          "name": 5113,
+          "description": 26113
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Spanish",
+      "tech_tree_name": "SPANISH",
+      "data_name": "SPANISH-CIV",
+      "hud_style": "CivMedi",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_spanish.png",
+      "emblem_image_path": "/resources/civ_emblems/spanish.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/106_50730.png",
+        "/resources/uniticons/107_50730.png"
+      ],
+      "name_string_id": 10284,
+      "tech_tree_description_string_id": 120163,
+      "computer_name_string_table_offset": 5800,
+      "unique_tech_id_1": 440,
+      "unique_tech_id_2": 492,
+      "unique_unit_line": -263,
+      "unique_unit_upgrade_id": 60,
+      "unique_unit_id": 771,
+      "elite_unique_unit_id": 773,
+      "unique_unit_string_ids": [
+        {
+          "name": 5687,
+          "description": 26687
+        },
+        {
+          "name": 5691,
+          "description": 26691
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Aztecs",
+      "tech_tree_name": "AZTECS",
+      "data_name": "AZTEC-CIV",
+      "hud_style": "CivMeso",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_aztecs.png",
+      "emblem_image_path": "/resources/civ_emblems/aztecs.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/110_50730.png"
+      ],
+      "name_string_id": 10285,
+      "tech_tree_description_string_id": 120164,
+      "computer_name_string_table_offset": 5820,
+      "unique_tech_id_1": 24,
+      "unique_tech_id_2": 460,
+      "unique_unit_line": -267,
+      "unique_unit_upgrade_id": 432,
+      "unique_unit_id": 725,
+      "elite_unique_unit_id": 726,
+      "unique_unit_string_ids": [
+        {
+          "name": 5667,
+          "description": 26667
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Mayans",
+      "tech_tree_name": "MAYANS",
+      "data_name": "MAYAN-CIV",
+      "hud_style": "CivMeso",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_mayans.png",
+      "emblem_image_path": "/resources/civ_emblems/mayans.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/108_50730.png"
+      ],
+      "name_string_id": 10286,
+      "tech_tree_description_string_id": 120165,
+      "computer_name_string_table_offset": 5840,
+      "unique_tech_id_1": 4,
+      "unique_tech_id_2": 485,
+      "unique_unit_line": -265,
+      "unique_unit_upgrade_id": 27,
+      "unique_unit_id": 763,
+      "elite_unique_unit_id": 765,
+      "unique_unit_string_ids": [
+        {
+          "name": 5683,
+          "description": 26683
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Huns",
+      "tech_tree_name": "HUNS",
+      "data_name": "HUN-CIV",
+      "hud_style": "CivNomad",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_huns.png",
+      "emblem_image_path": "/resources/civ_emblems/huns.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/105_50730.png"
+      ],
+      "name_string_id": 10287,
+      "tech_tree_description_string_id": 120166,
+      "computer_name_string_table_offset": 5860,
+      "unique_tech_id_1": 21,
+      "unique_tech_id_2": 483,
+      "unique_unit_line": -264,
+      "unique_unit_upgrade_id": 2,
+      "unique_unit_id": 755,
+      "elite_unique_unit_id": 757,
+      "unique_unit_string_ids": [
+        {
+          "name": 5675,
+          "description": 26675
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Koreans",
+      "tech_tree_name": "KOREANS",
+      "data_name": "KOREAN-CIV",
+      "hud_style": "CivAsia",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_koreans.png",
+      "emblem_image_path": "/resources/civ_emblems/koreans.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/117_50730.png",
+        "/resources/uniticons/116_50730.png"
+      ],
+      "name_string_id": 10288,
+      "tech_tree_description_string_id": 120167,
+      "computer_name_string_table_offset": 5880,
+      "unique_tech_id_1": 445,
+      "unique_tech_id_2": 486,
+      "unique_unit_line": -269,
+      "unique_unit_upgrade_id": 450,
+      "unique_unit_id": 827,
+      "elite_unique_unit_id": 829,
+      "unique_unit_string_ids": [
+        {
+          "name": 5727,
+          "description": 26727
+        },
+        {
+          "name": 5731,
+          "description": 26731
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Italians",
+      "tech_tree_name": "ITALIANS",
+      "data_name": "ITALIAN-CIV",
+      "hud_style": "CivMedi",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_italians.png",
+      "emblem_image_path": "/resources/civ_emblems/italians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/133_50730.png",
+        "/resources/uniticons/134_50730.png"
+      ],
+      "name_string_id": 10289,
+      "tech_tree_description_string_id": 120168,
+      "computer_name_string_table_offset": 5900,
+      "unique_tech_id_1": 499,
+      "unique_tech_id_2": 494,
+      "unique_unit_line": -262,
+      "unique_unit_upgrade_id": 468,
+      "unique_unit_id": 866,
+      "elite_unique_unit_id": 868,
+      "unique_unit_string_ids": [
+        {
+          "name": 5723,
+          "description": 26723
+        },
+        {
+          "name": 5114,
+          "description": 26114
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Indians",
+      "tech_tree_name": "INDIANS",
+      "data_name": "INDIAN-CIV",
+      "hud_style": "CivOrie",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_indians.png",
+      "emblem_image_path": "/resources/civ_emblems/indians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/385_50730.png",
+        "/resources/uniticons/185_50730.png"
+      ],
+      "name_string_id": 10290,
+      "tech_tree_description_string_id": 120169,
+      "computer_name_string_table_offset": 5920,
+      "unique_tech_id_1": 507,
+      "unique_tech_id_2": 506,
+      "unique_unit_line": -230,
+      "unique_unit_upgrade_id": 840,
+      "unique_unit_id": 1747,
+      "elite_unique_unit_id": 1749,
+      "unique_unit_string_ids": [
+        {
+          "name": 5431,
+          "description": 26431
+        },
+        {
+          "name": 5419,
+          "description": 26419
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Incas",
+      "tech_tree_name": "INCAS",
+      "data_name": "INCAN-CIV",
+      "hud_style": "CivAnde",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_inca.png",
+      "emblem_image_path": "/resources/civ_emblems/incas.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/097_50730.png"
+      ],
+      "name_string_id": 10291,
+      "tech_tree_description_string_id": 120170,
+      "computer_name_string_table_offset": 5940,
+      "unique_tech_id_1": 517,
+      "unique_tech_id_2": 516,
+      "unique_unit_line": -258,
+      "unique_unit_upgrade_id": 509,
+      "unique_unit_id": 879,
+      "elite_unique_unit_id": 881,
+      "unique_unit_string_ids": [
+        {
+          "name": 5686,
+          "description": 26686
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Magyars",
+      "tech_tree_name": "MAGYAR",
+      "data_name": "MAGYAR-CIV",
+      "hud_style": "CivSlav",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_magyars.png",
+      "emblem_image_path": "/resources/civ_emblems/magyars.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/099_50730.png"
+      ],
+      "name_string_id": 10292,
+      "tech_tree_description_string_id": 120171,
+      "computer_name_string_table_offset": 5960,
+      "unique_tech_id_1": 515,
+      "unique_tech_id_2": 514,
+      "unique_unit_line": -259,
+      "unique_unit_upgrade_id": 472,
+      "unique_unit_id": 869,
+      "elite_unique_unit_id": 871,
+      "unique_unit_string_ids": [
+        {
+          "name": 5728,
+          "description": 26728
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Slavs",
+      "tech_tree_name": "SLAVS",
+      "data_name": "SLAVIC-CIV",
+      "hud_style": "CivSlav",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_slavs.png",
+      "emblem_image_path": "/resources/civ_emblems/slavs.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/114_50730.png"
+      ],
+      "name_string_id": 10293,
+      "tech_tree_description_string_id": 120172,
+      "computer_name_string_table_offset": 5980,
+      "unique_tech_id_1": 513,
+      "unique_tech_id_2": 455,
+      "unique_unit_line": -260,
+      "unique_unit_upgrade_id": 504,
+      "unique_unit_id": 876,
+      "elite_unique_unit_id": 878,
+      "unique_unit_string_ids": [
+        {
+          "name": 5447,
+          "description": 26447
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Portuguese",
+      "tech_tree_name": "PORTUGUESE",
+      "data_name": "PORTUGUESE-CIV",
+      "hud_style": "CivMedi",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_portuguese.png",
+      "emblem_image_path": "/resources/civ_emblems/portuguese.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/190_50730.png",
+        "/resources/uniticons/198_50730.png"
+      ],
+      "name_string_id": 10294,
+      "tech_tree_description_string_id": 120173,
+      "computer_name_string_table_offset": 106000,
+      "unique_tech_id_1": 573,
+      "unique_tech_id_2": 1404,
+      "unique_unit_line": -256,
+      "unique_unit_upgrade_id": 563,
+      "unique_unit_id": 1001,
+      "elite_unique_unit_id": 1003,
+      "unique_unit_string_ids": [
+        {
+          "name": 5129,
+          "description": 26129
+        },
+        {
+          "name": 5132,
+          "description": 26132
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Ethiopians",
+      "tech_tree_name": "ETHIOPIANS",
+      "data_name": "ETHIOPIAN-CIV",
+      "hud_style": "CivAfri",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_ethiopians.png",
+      "emblem_image_path": "/resources/civ_emblems/ethiopians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/195_50730.png"
+      ],
+      "name_string_id": 10295,
+      "tech_tree_description_string_id": 120174,
+      "computer_name_string_table_offset": 106020,
+      "unique_tech_id_1": 574,
+      "unique_tech_id_2": 575,
+      "unique_unit_line": -254,
+      "unique_unit_upgrade_id": 569,
+      "unique_unit_id": 1016,
+      "elite_unique_unit_id": 1018,
+      "unique_unit_string_ids": [
+        {
+          "name": 5143,
+          "description": 26143
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Malians",
+      "tech_tree_name": "MALIANS",
+      "data_name": "MALIAN-CIV",
+      "hud_style": "CivAfri",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_malians.png",
+      "emblem_image_path": "/resources/civ_emblems/malians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/197_50730.png"
+      ],
+      "name_string_id": 10296,
+      "tech_tree_description_string_id": 120175,
+      "computer_name_string_table_offset": 106040,
+      "unique_tech_id_1": 577,
+      "unique_tech_id_2": 576,
+      "unique_unit_line": -255,
+      "unique_unit_upgrade_id": 567,
+      "unique_unit_id": 1013,
+      "elite_unique_unit_id": 1015,
+      "unique_unit_string_ids": [
+        {
+          "name": 5140,
+          "description": 26140
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Berbers",
+      "tech_tree_name": "BERBERS",
+      "data_name": "BERBERS-CIV",
+      "hud_style": "CivOrie",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_berber.png",
+      "emblem_image_path": "/resources/civ_emblems/berbers.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/191_50730.png",
+        "/resources/uniticons/201_50730.png"
+      ],
+      "name_string_id": 10297,
+      "tech_tree_description_string_id": 120176,
+      "computer_name_string_table_offset": 106060,
+      "unique_tech_id_1": 579,
+      "unique_tech_id_2": 578,
+      "unique_unit_line": -285,
+      "unique_unit_upgrade_id": 565,
+      "unique_unit_id": 1007,
+      "elite_unique_unit_id": 1012,
+      "unique_unit_string_ids": [
+        {
+          "name": 5134,
+          "description": 26134
+        },
+        {
+          "name": 5137,
+          "description": 26137
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Khmer",
+      "tech_tree_name": "KHMER",
+      "data_name": "KHMER-CIV",
+      "hud_style": "CivSeas",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_khmer.png",
+      "emblem_image_path": "/resources/civ_emblems/khmer.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/231_50730.png"
+      ],
+      "name_string_id": 10298,
+      "tech_tree_description_string_id": 120177,
+      "computer_name_string_table_offset": 106080,
+      "unique_tech_id_1": 623,
+      "unique_tech_id_2": 622,
+      "unique_unit_line": -252,
+      "unique_unit_upgrade_id": 615,
+      "unique_unit_id": 1120,
+      "elite_unique_unit_id": 1122,
+      "unique_unit_string_ids": [
+        {
+          "name": 5146,
+          "description": 26146
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Malay",
+      "tech_tree_name": "MALAY",
+      "data_name": "MALAY-CIV",
+      "hud_style": "CivSeas",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_malay.png",
+      "emblem_image_path": "/resources/civ_emblems/malay.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/233_50730.png"
+      ],
+      "name_string_id": 10299,
+      "tech_tree_description_string_id": 120178,
+      "computer_name_string_table_offset": 106100,
+      "unique_tech_id_1": 625,
+      "unique_tech_id_2": 624,
+      "unique_unit_line": -248,
+      "unique_unit_upgrade_id": 617,
+      "unique_unit_id": 1123,
+      "elite_unique_unit_id": 1125,
+      "unique_unit_string_ids": [
+        {
+          "name": 5148,
+          "description": 26148
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Burmese",
+      "tech_tree_name": "BURMESE",
+      "data_name": "BURMESE-CIV",
+      "hud_style": "CivSeas",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_burmese.png",
+      "emblem_image_path": "/resources/civ_emblems/burmese.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/230_50730.png"
+      ],
+      "name_string_id": 10300,
+      "tech_tree_description_string_id": 120179,
+      "computer_name_string_table_offset": 106120,
+      "unique_tech_id_1": 627,
+      "unique_tech_id_2": 626,
+      "unique_unit_line": -250,
+      "unique_unit_upgrade_id": 619,
+      "unique_unit_id": 1126,
+      "elite_unique_unit_id": 1128,
+      "unique_unit_string_ids": [
+        {
+          "name": 5151,
+          "description": 26151
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Vietnamese",
+      "tech_tree_name": "VIETNAMESE",
+      "data_name": "VIETNAMESE-CIV",
+      "hud_style": "CivAsia",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_vietnamese.png",
+      "emblem_image_path": "/resources/civ_emblems/vietnamese.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/232_50730.png",
+        "/resources/uniticons/229_50730.png"
+      ],
+      "name_string_id": 10301,
+      "tech_tree_description_string_id": 120180,
+      "computer_name_string_table_offset": 106140,
+      "unique_tech_id_1": 629,
+      "unique_tech_id_2": 628,
+      "unique_unit_line": -251,
+      "unique_unit_upgrade_id": 621,
+      "unique_unit_id": 1129,
+      "elite_unique_unit_id": 1131,
+      "unique_unit_string_ids": [
+        {
+          "name": 5165,
+          "description": 26165
+        },
+        {
+          "name": 5190,
+          "description": 26190
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Bulgarians",
+      "tech_tree_name": "BULGARIANS",
+      "data_name": "BULGARIANS-CIV",
+      "hud_style": "CivSlav",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_bulgarians.png",
+      "emblem_image_path": "/resources/civ_emblems/bulgarians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/249_50730.png"
+      ],
+      "name_string_id": 10302,
+      "tech_tree_description_string_id": 120181,
+      "computer_name_string_table_offset": 106160,
+      "unique_tech_id_1": 686,
+      "unique_tech_id_2": 685,
+      "unique_unit_line": -247,
+      "unique_unit_upgrade_id": 678,
+      "unique_unit_id": 1225,
+      "elite_unique_unit_id": 1254,
+      "unique_unit_string_ids": [
+        {
+          "name": 5288,
+          "description": 26288
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Tatars",
+      "tech_tree_name": "TATARS",
+      "data_name": "TATARS-CIV",
+      "hud_style": "CivNomad",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_tatars.png",
+      "emblem_image_path": "/resources/civ_emblems/tatars.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/251_50730.png",
+        "/resources/uniticons/270_50730.png"
+      ],
+      "name_string_id": 10303,
+      "tech_tree_description_string_id": 120182,
+      "computer_name_string_table_offset": 106220,
+      "unique_tech_id_1": 688,
+      "unique_tech_id_2": 687,
+      "unique_unit_line": -242,
+      "unique_unit_upgrade_id": 680,
+      "unique_unit_id": 1228,
+      "elite_unique_unit_id": 1230,
+      "unique_unit_string_ids": [
+        {
+          "name": 5313,
+          "description": 26313
+        },
+        {
+          "name": 5375,
+          "description": 26375
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Cumans",
+      "tech_tree_name": "CUMANS",
+      "data_name": "CUMANS-CIV",
+      "hud_style": "CivNomad",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_cumans.png",
+      "emblem_image_path": "/resources/civ_emblems/cumans.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/252_50730.png"
+      ],
+      "name_string_id": 10304,
+      "tech_tree_description_string_id": 120183,
+      "computer_name_string_table_offset": 106180,
+      "unique_tech_id_1": 690,
+      "unique_tech_id_2": 689,
+      "unique_unit_line": -243,
+      "unique_unit_upgrade_id": 682,
+      "unique_unit_id": 1231,
+      "elite_unique_unit_id": 1233,
+      "unique_unit_string_ids": [
+        {
+          "name": 5315,
+          "description": 26315
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Lithuanians",
+      "tech_tree_name": "LITHUANIANS",
+      "data_name": "LITHUANIANS-CIV",
+      "hud_style": "CivSlav",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_lithuanians.png",
+      "emblem_image_path": "/resources/civ_emblems/lithuanians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/253_50730.png",
+        "/resources/uniticons/371_50730.png"
+      ],
+      "name_string_id": 10305,
+      "tech_tree_description_string_id": 120184,
+      "computer_name_string_table_offset": 106200,
+      "unique_tech_id_1": 692,
+      "unique_tech_id_2": 691,
+      "unique_unit_line": -244,
+      "unique_unit_upgrade_id": 684,
+      "unique_unit_id": 1234,
+      "elite_unique_unit_id": 1236,
+      "unique_unit_string_ids": [
+        {
+          "name": 5328,
+          "description": 26328
+        },
+        {
+          "name": 5577,
+          "description": 26577
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Burgundians",
+      "tech_tree_name": "BURGUNDIANS",
+      "data_name": "BURGUNDIANS-CIV",
+      "hud_style": "CivWest",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_burgundians.png",
+      "emblem_image_path": "/resources/civ_emblems/burgundians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/355_50730.png",
+        "/resources/uniticons/354_50730.png"
+      ],
+      "name_string_id": 10306,
+      "tech_tree_description_string_id": 120185,
+      "computer_name_string_table_offset": 106240,
+      "unique_tech_id_1": 755,
+      "unique_tech_id_2": 754,
+      "unique_unit_line": -240,
+      "unique_unit_upgrade_id": 751,
+      "unique_unit_id": 1655,
+      "elite_unique_unit_id": 1657,
+      "unique_unit_string_ids": [
+        {
+          "name": 5534,
+          "description": 26534
+        },
+        {
+          "name": 5542,
+          "description": 26542
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Sicilians",
+      "tech_tree_name": "SICILIANS",
+      "data_name": "SICILIANS-CIV",
+      "hud_style": "CivMedi",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_sicilians.png",
+      "emblem_image_path": "/resources/civ_emblems/sicilians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/356_50730.png"
+      ],
+      "name_string_id": 10307,
+      "tech_tree_description_string_id": 120186,
+      "computer_name_string_table_offset": 106260,
+      "unique_tech_id_1": 757,
+      "unique_tech_id_2": 756,
+      "unique_unit_line": -239,
+      "unique_unit_upgrade_id": 753,
+      "unique_unit_id": 1658,
+      "elite_unique_unit_id": 1659,
+      "unique_unit_string_ids": [
+        {
+          "name": 5538,
+          "description": 26538
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Poles",
+      "tech_tree_name": "POLES",
+      "data_name": "POLES-CIV",
+      "hud_style": "CivSlav",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_poles.png",
+      "emblem_image_path": "/resources/civ_emblems/poles.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/369_50730.png",
+        "/resources/uniticons/371_50730.png"
+      ],
+      "name_string_id": 10308,
+      "tech_tree_description_string_id": 120187,
+      "computer_name_string_table_offset": 106280,
+      "unique_tech_id_1": 783,
+      "unique_tech_id_2": 782,
+      "unique_unit_line": -237,
+      "unique_unit_upgrade_id": 779,
+      "unique_unit_id": 1701,
+      "elite_unique_unit_id": 1703,
+      "unique_unit_string_ids": [
+        {
+          "name": 5558,
+          "description": 26558
+        },
+        {
+          "name": 5577,
+          "description": 26577
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Bohemians",
+      "tech_tree_name": "BOHEMIANS",
+      "data_name": "BOHEMIANS-CIV",
+      "hud_style": "CivSlav",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_bohemians.png",
+      "emblem_image_path": "/resources/civ_emblems/bohemians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/370_50730.png",
+        "/resources/uniticons/372_50730.png"
+      ],
+      "name_string_id": 10309,
+      "tech_tree_description_string_id": 120188,
+      "computer_name_string_table_offset": 106300,
+      "unique_tech_id_1": 785,
+      "unique_tech_id_2": 784,
+      "unique_unit_line": -236,
+      "unique_unit_upgrade_id": 781,
+      "unique_unit_id": 1704,
+      "elite_unique_unit_id": 1706,
+      "unique_unit_string_ids": [
+        {
+          "name": 5561,
+          "description": 26561
+        },
+        {
+          "name": 5579,
+          "description": 26579
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Dravidians",
+      "tech_tree_name": "DRAVIDIANS",
+      "data_name": "DRAVIDIANS-CIV",
+      "hud_style": "CivSeas",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_dravidians.png",
+      "emblem_image_path": "/resources/civ_emblems/dravidians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/386_50730.png",
+        "/resources/uniticons/387_50730.png"
+      ],
+      "name_string_id": 10310,
+      "tech_tree_description_string_id": 120189,
+      "computer_name_string_table_offset": 106320,
+      "unique_tech_id_1": 832,
+      "unique_tech_id_2": 831,
+      "unique_unit_line": -234,
+      "unique_unit_upgrade_id": 826,
+      "unique_unit_id": 1735,
+      "elite_unique_unit_id": 1737,
+      "unique_unit_string_ids": [
+        {
+          "name": 5403,
+          "description": 26403
+        },
+        {
+          "name": 5435,
+          "description": 26435
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Bengalis",
+      "tech_tree_name": "BENGALIS",
+      "data_name": "BENGALIS-CIV",
+      "hud_style": "CivSeas",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_bengalis.png",
+      "emblem_image_path": "/resources/civ_emblems/bengalis.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/389_50730.png"
+      ],
+      "name_string_id": 10311,
+      "tech_tree_description_string_id": 120190,
+      "computer_name_string_table_offset": 106340,
+      "unique_tech_id_1": 834,
+      "unique_tech_id_2": 833,
+      "unique_unit_line": -228,
+      "unique_unit_upgrade_id": 828,
+      "unique_unit_id": 1759,
+      "elite_unique_unit_id": 1761,
+      "unique_unit_string_ids": [
+        {
+          "name": 5414,
+          "description": 26414
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Gurjaras",
+      "tech_tree_name": "GURJARAS",
+      "data_name": "GURJARAS-CIV",
+      "hud_style": "CivOrie",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_gurjaras.png",
+      "emblem_image_path": "/resources/civ_emblems/gurjaras.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/390_50730.png",
+        "/resources/uniticons/391_50730.png",
+        "/resources/uniticons/392_50730.png"
+      ],
+      "name_string_id": 10312,
+      "tech_tree_description_string_id": 120191,
+      "computer_name_string_table_offset": 106360,
+      "unique_tech_id_1": 836,
+      "unique_tech_id_2": 835,
+      "unique_unit_line": -232,
+      "unique_unit_upgrade_id": 830,
+      "unique_unit_id": 1741,
+      "elite_unique_unit_id": 1743,
+      "unique_unit_string_ids": [
+        {
+          "name": 5421,
+          "description": 26421
+        },
+        {
+          "name": 5437,
+          "description": 26437
+        },
+        {
+          "name": 5441,
+          "description": 26441
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Romans",
+      "tech_tree_name": "ROMANS",
+      "data_name": "ROMANS-CIV",
+      "hud_style": "CivMedi",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_romans.png",
+      "emblem_image_path": "/resources/civ_emblems/romans.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/405_50730.png",
+        "/resources/uniticons/139_50730.png"
+      ],
+      "name_string_id": 10313,
+      "tech_tree_description_string_id": 120192,
+      "computer_name_string_table_offset": 106380,
+      "unique_tech_id_1": 884,
+      "unique_tech_id_2": 883,
+      "unique_unit_line": -226,
+      "unique_unit_upgrade_id": 882,
+      "unique_unit_id": 1790,
+      "elite_unique_unit_id": 1792,
+      "unique_unit_string_ids": [
+        {
+          "name": 5052,
+          "description": 26052
+        },
+        {
+          "name": 5054,
+          "description": 26054
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Armenians",
+      "tech_tree_name": "ARMENIANS",
+      "data_name": "ARMENIANS-CIV",
+      "hud_style": "CivMedi",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_armenians.png",
+      "emblem_image_path": "/resources/civ_emblems/armenians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/407_50730.png",
+        "/resources/uniticons/409_50730.png"
+      ],
+      "name_string_id": 10314,
+      "tech_tree_description_string_id": 120193,
+      "computer_name_string_table_offset": 106400,
+      "unique_tech_id_1": 921,
+      "unique_tech_id_2": 922,
+      "unique_unit_line": -225,
+      "unique_unit_upgrade_id": 918,
+      "unique_unit_id": 1800,
+      "elite_unique_unit_id": 1802,
+      "unique_unit_string_ids": [
+        {
+          "name": 5033,
+          "description": 26033
+        },
+        {
+          "name": 5037,
+          "description": 26037
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Georgians",
+      "tech_tree_name": "GEORGIANS",
+      "data_name": "GEORGIANS-CIV",
+      "hud_style": "CivMedi",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_georgians.png",
+      "emblem_image_path": "/resources/civ_emblems/georgians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/408_50730.png"
+      ],
+      "name_string_id": 10315,
+      "tech_tree_description_string_id": 120194,
+      "computer_name_string_table_offset": 106420,
+      "unique_tech_id_1": 924,
+      "unique_tech_id_2": 923,
+      "unique_unit_line": -224,
+      "unique_unit_upgrade_id": 920,
+      "unique_unit_id": 1803,
+      "elite_unique_unit_id": 1805,
+      "unique_unit_string_ids": [
+        {
+          "name": 5035,
+          "description": 26035
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Achaemenids",
+      "tech_tree_name": "ACHAEMENIDS",
+      "data_name": "ACHAEMENIDS-CIV",
+      "hud_style": "CivPersian",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_achaemenids.png",
+      "emblem_image_path": "/resources/civ_emblems/achaemenids.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/621_50730.png"
+      ],
+      "name_string_id": 10316,
+      "tech_tree_description_string_id": 120195,
+      "computer_name_string_table_offset": 106440,
+      "unique_tech_id_1": 499,
+      "unique_tech_id_2": 494,
+      "unique_unit_line": -222,
+      "unique_unit_upgrade_id": 1115,
+      "unique_unit_id": 2101,
+      "elite_unique_unit_id": 2102,
+      "unique_unit_string_ids": [
+        {
+          "name": 414001,
+          "description": 426001
+        }
+      ],
+      "era": "antiquity"
+    },
+    {
+      "internal_name": "Athenians",
+      "tech_tree_name": "ATHENIANS",
+      "data_name": "ATHENIANS-CIV",
+      "hud_style": "CivGreek",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_athenians.png",
+      "emblem_image_path": "/resources/civ_emblems/athenians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/624_50730.png"
+      ],
+      "name_string_id": 10317,
+      "tech_tree_description_string_id": 120196,
+      "computer_name_string_table_offset": 106460,
+      "unique_tech_id_1": 499,
+      "unique_tech_id_2": 494,
+      "unique_unit_line": -221,
+      "unique_unit_upgrade_id": 1125,
+      "unique_unit_id": 2104,
+      "elite_unique_unit_id": 2105,
+      "unique_unit_string_ids": [
+        {
+          "name": 405003,
+          "description": 426003
+        }
+      ],
+      "era": "antiquity"
+    },
+    {
+      "internal_name": "Spartans",
+      "tech_tree_name": "SPARTANS",
+      "data_name": "SPARTANS-CIV",
+      "hud_style": "CivGreek",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_spartans.png",
+      "emblem_image_path": "/resources/civ_emblems/spartans.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/622_50730.png",
+        "/resources/uniticons/623_50730.png"
+      ],
+      "name_string_id": 10318,
+      "tech_tree_description_string_id": 120197,
+      "computer_name_string_table_offset": 106480,
+      "unique_tech_id_1": 499,
+      "unique_tech_id_2": 494,
+      "unique_unit_line": -220,
+      "unique_unit_upgrade_id": 1135,
+      "unique_unit_id": 2107,
+      "elite_unique_unit_id": 2108,
+      "unique_unit_string_ids": [
+        {
+          "name": 405031,
+          "description": 426031
+        },
+        {
+          "name": 405005,
+          "description": 426005
+        }
+      ],
+      "era": "antiquity"
+    },
+    {
+      "internal_name": "Shu",
+      "tech_tree_name": "SHU",
+      "data_name": "SHU-CIV",
+      "hud_style": "CivAsia",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_shu.png",
+      "emblem_image_path": "/resources/civ_emblems/shu.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/434_50730.png",
+        "/resources/uniticons/435_50730.png",
+        "/resources/uniticons/466_50730.png"
+      ],
+      "name_string_id": 10319,
+      "tech_tree_description_string_id": 120198,
+      "computer_name_string_table_offset": 106500,
+      "unique_tech_id_1": 1069,
+      "unique_tech_id_2": 1070,
+      "unique_unit_line": -209,
+      "unique_unit_upgrade_id": 1064,
+      "unique_unit_id": 1959,
+      "elite_unique_unit_id": 1961,
+      "unique_unit_string_ids": [
+        {
+          "name": 5362,
+          "description": 26362
+        },
+        {
+          "name": 5364,
+          "description": 26364
+        },
+        {
+          "name": 5365,
+          "description": 26365
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Wu",
+      "tech_tree_name": "WU",
+      "data_name": "WU-CIV",
+      "hud_style": "CivAsia",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_wu.png",
+      "emblem_image_path": "/resources/civ_emblems/wu.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/436_50730.png",
+        "/resources/uniticons/437_50730.png",
+        "/resources/uniticons/467_50730.png"
+      ],
+      "name_string_id": 10320,
+      "tech_tree_description_string_id": 120199,
+      "computer_name_string_table_offset": 106520,
+      "unique_tech_id_1": 1081,
+      "unique_tech_id_2": 1080,
+      "unique_unit_line": -208,
+      "unique_unit_upgrade_id": 1074,
+      "unique_unit_id": 1968,
+      "elite_unique_unit_id": 1970,
+      "unique_unit_string_ids": [
+        {
+          "name": 5366,
+          "description": 26366
+        },
+        {
+          "name": 5368,
+          "description": 26368
+        },
+        {
+          "name": 5370,
+          "description": 26370
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Wei",
+      "tech_tree_name": "WEI",
+      "data_name": "WEI-CIV",
+      "hud_style": "CivAsia",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_wei.png",
+      "emblem_image_path": "/resources/civ_emblems/wei.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/432_50730.png",
+        "/resources/uniticons/433_50730.png",
+        "/resources/uniticons/465_50730.png"
+      ],
+      "name_string_id": 10321,
+      "tech_tree_description_string_id": 120200,
+      "computer_name_string_table_offset": 106540,
+      "unique_tech_id_1": 1062,
+      "unique_tech_id_2": 1061,
+      "unique_unit_line": -210,
+      "unique_unit_upgrade_id": 1036,
+      "unique_unit_id": 1949,
+      "elite_unique_unit_id": 1951,
+      "unique_unit_string_ids": [
+        {
+          "name": 5074,
+          "description": 26074
+        },
+        {
+          "name": 5286,
+          "description": 26286
+        },
+        {
+          "name": 5323,
+          "description": 26323
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Jurchens",
+      "tech_tree_name": "JURCHENS",
+      "data_name": "JURCHENS-CIV",
+      "hud_style": "CivAsia",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_jurchens.png",
+      "emblem_image_path": "/resources/civ_emblems/jurchens.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/461_50730.png",
+        "/resources/uniticons/462_50730.png"
+      ],
+      "name_string_id": 10322,
+      "tech_tree_description_string_id": 120201,
+      "computer_name_string_table_offset": 106560,
+      "unique_tech_id_1": 997,
+      "unique_tech_id_2": 996,
+      "unique_unit_line": -205,
+      "unique_unit_upgrade_id": 991,
+      "unique_unit_id": 1908,
+      "elite_unique_unit_id": 1910,
+      "unique_unit_string_ids": [
+        {
+          "name": 5594,
+          "description": 26594
+        },
+        {
+          "name": 5596,
+          "description": 26596
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Khitans",
+      "tech_tree_name": "KHITANS",
+      "data_name": "KHITANS-CIV",
+      "hud_style": "CivNomad",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_khitans.png",
+      "emblem_image_path": "/resources/civ_emblems/khitans.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/463_50730.png",
+        "/resources/uniticons/464_50730.png"
+      ],
+      "name_string_id": 10323,
+      "tech_tree_description_string_id": 120202,
+      "computer_name_string_table_offset": 106580,
+      "unique_tech_id_1": 1007,
+      "unique_tech_id_2": 1006,
+      "unique_unit_line": -204,
+      "unique_unit_upgrade_id": 1002,
+      "unique_unit_id": 1920,
+      "elite_unique_unit_id": 1922,
+      "unique_unit_string_ids": [
+        {
+          "name": 5692,
+          "description": 26692
+        },
+        {
+          "name": 5698,
+          "description": 26698
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Macedonians",
+      "tech_tree_name": "MACEDONIANS",
+      "data_name": "MACEDONIANS-CIV",
+      "hud_style": "CivMacedonian",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_macedonians.png",
+      "emblem_image_path": "/resources/civ_emblems/macedonians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/709_50730.png",
+        "/resources/uniticons/704_50730.png"
+      ],
+      "name_string_id": 10324,
+      "tech_tree_description_string_id": 120203,
+      "computer_name_string_table_offset": 106600,
+      "unique_tech_id_1": 1062,
+      "unique_tech_id_2": 1061,
+      "unique_unit_line": -203,
+      "unique_unit_upgrade_id": 1289,
+      "unique_unit_id": 2382,
+      "elite_unique_unit_id": 2383,
+      "unique_unit_string_ids": [
+        {
+          "name": 405129,
+          "description": 426129
+        },
+        {
+          "name": 405131,
+          "description": 426131
+        }
+      ],
+      "era": "antiquity"
+    },
+    {
+      "internal_name": "Thracians",
+      "tech_tree_name": "THRACIANS",
+      "data_name": "THRACIANS-CIV",
+      "hud_style": "CivThracian",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_thracians.png",
+      "emblem_image_path": "/resources/civ_emblems/thracians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/703_50730.png"
+      ],
+      "name_string_id": 10325,
+      "tech_tree_description_string_id": 120204,
+      "computer_name_string_table_offset": 106620,
+      "unique_tech_id_1": 1062,
+      "unique_tech_id_2": 1061,
+      "unique_unit_line": -201,
+      "unique_unit_upgrade_id": 1301,
+      "unique_unit_id": 2386,
+      "elite_unique_unit_id": 2387,
+      "unique_unit_string_ids": [
+        {
+          "name": 405133,
+          "description": 426133
+        }
+      ],
+      "era": "antiquity"
+    },
+    {
+      "internal_name": "Puru",
+      "tech_tree_name": "PURU",
+      "data_name": "PURU-CIV",
+      "hud_style": "CivPuru",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_puru.png",
+      "emblem_image_path": "/resources/civ_emblems/puru.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/702_50730.png",
+        "/resources/uniticons/710_50730.png"
+      ],
+      "name_string_id": 10326,
+      "tech_tree_description_string_id": 120205,
+      "computer_name_string_table_offset": 106640,
+      "unique_tech_id_1": 1062,
+      "unique_tech_id_2": 1061,
+      "unique_unit_line": -200,
+      "unique_unit_upgrade_id": 1326,
+      "unique_unit_id": 2388,
+      "elite_unique_unit_id": 2389,
+      "unique_unit_string_ids": [
+        {
+          "name": 405135,
+          "description": 426135
+        },
+        {
+          "name": 405137,
+          "description": 426137
+        }
+      ],
+      "era": "antiquity"
+    },
+    {
+      "internal_name": "Muisca",
+      "tech_tree_name": "MUISCA",
+      "data_name": "MUISCA-CIV",
+      "hud_style": "CivAnde",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_muisca.png",
+      "emblem_image_path": "/resources/civ_emblems/muisca.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/543_50730.png",
+        "/resources/uniticons/553_50730.png"
+      ],
+      "name_string_id": 10327,
+      "tech_tree_description_string_id": 120206,
+      "computer_name_string_table_offset": 106660,
+      "unique_tech_id_1": 1366,
+      "unique_tech_id_2": 1365,
+      "unique_unit_line": -305,
+      "unique_unit_upgrade_id": 1364,
+      "unique_unit_id": 2562,
+      "elite_unique_unit_id": 2564,
+      "unique_unit_string_ids": [
+        {
+          "name": 5510,
+          "description": 26510
+        },
+        {
+          "name": 5520,
+          "description": 26520
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Mapuche",
+      "tech_tree_name": "MAPUCHE",
+      "data_name": "MAPUCHE-CIV",
+      "hud_style": "CivAnde",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_mapuche.png",
+      "emblem_image_path": "/resources/civ_emblems/mapuche.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/545_50730.png",
+        "/resources/uniticons/547_50730.png"
+      ],
+      "name_string_id": 10328,
+      "tech_tree_description_string_id": 120207,
+      "computer_name_string_table_offset": 106680,
+      "unique_tech_id_1": 1380,
+      "unique_tech_id_2": 1379,
+      "unique_unit_line": -306,
+      "unique_unit_upgrade_id": 1376,
+      "unique_unit_id": 2566,
+      "elite_unique_unit_id": 2568,
+      "unique_unit_string_ids": [
+        {
+          "name": 5512,
+          "description": 26512
+        },
+        {
+          "name": 5514,
+          "description": 26514
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Tupi",
+      "tech_tree_name": "TUPI",
+      "data_name": "TUPI-CIV",
+      "hud_style": "CivAnde",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_tupi.png",
+      "emblem_image_path": "/resources/civ_emblems/tupi.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/549_50730.png",
+        "/resources/uniticons/551_50730.png"
+      ],
+      "name_string_id": 10329,
+      "tech_tree_description_string_id": 120208,
+      "computer_name_string_table_offset": 106700,
+      "unique_tech_id_1": 1393,
+      "unique_tech_id_2": 1392,
+      "unique_unit_line": -307,
+      "unique_unit_upgrade_id": 1389,
+      "unique_unit_id": 2579,
+      "elite_unique_unit_id": 2581,
+      "unique_unit_string_ids": [
+        {
+          "name": 5516,
+          "description": 26516
+        },
+        {
+          "name": 5522,
+          "description": 26522
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Saxons",
+      "tech_tree_name": "SAXONS",
+      "data_name": "SAXONS-CIV",
+      "hud_style": "CivWest",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_saxons.png",
+      "emblem_image_path": "/resources/civ_emblems/saxons.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/904_50730.png"
+      ],
+      "name_string_id": 10330,
+      "tech_tree_description_string_id": 120209,
+      "computer_name_string_table_offset": 106720,
+      "unique_tech_id_1": 1464,
+      "unique_tech_id_2": 1491,
+      "unique_unit_line": -312,
+      "unique_unit_upgrade_id": 1462,
+      "unique_unit_id": 2705,
+      "elite_unique_unit_id": 2706,
+      "unique_unit_string_ids": [
+        {
+          "name": 5532,
+          "description": 26532
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Varangians",
+      "tech_tree_name": "VARANGIANS",
+      "data_name": "VARANGIANS-CIV",
+      "hud_style": "CivNord",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_varangians.png",
+      "emblem_image_path": "/resources/civ_emblems/varangians.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/906_50730.png"
+      ],
+      "name_string_id": 10331,
+      "tech_tree_description_string_id": 120210,
+      "computer_name_string_table_offset": 106740,
+      "unique_tech_id_1": 1474,
+      "unique_tech_id_2": 1473,
+      "unique_unit_line": -313,
+      "unique_unit_upgrade_id": 1472,
+      "unique_unit_id": 2708,
+      "elite_unique_unit_id": 2709,
+      "unique_unit_string_ids": [
+        {
+          "name": 5535,
+          "description": 26535
+        }
+      ],
+      "era": "base"
+    },
+    {
+      "internal_name": "Danes",
+      "tech_tree_name": "DANES",
+      "data_name": "DANES-CIV",
+      "hud_style": "CivNord",
+      "tech_tree_image_path": "/resources/civ_techtree/menu_techtree_danes.png",
+      "emblem_image_path": "/resources/civ_emblems/danes.png",
+      "unique_unit_image_paths": [
+        "/resources/uniticons/908_50730.png"
+      ],
+      "name_string_id": 10332,
+      "tech_tree_description_string_id": 120211,
+      "computer_name_string_table_offset": 106760,
+      "unique_tech_id_1": 1483,
+      "unique_tech_id_2": 1484,
+      "unique_unit_line": -314,
+      "unique_unit_upgrade_id": 1482,
+      "unique_unit_id": 2711,
+      "elite_unique_unit_id": 2712,
+      "unique_unit_string_ids": [
+        {
+          "name": 5539,
+          "description": 26539
+        }
+      ],
+      "era": "base"
+    }
+  ]
+}
