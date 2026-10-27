@@ -5,6 +5,7 @@ on:
   # Runs daily at 11:11 UTC (?)
   schedule:
   - cron: "11 11 * * *"
+    timezone: "UTC"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
